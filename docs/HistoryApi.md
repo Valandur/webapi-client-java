@@ -4,13 +4,13 @@ All URIs are relative to *http://&lt;host&gt;/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getChat**](HistoryApi.md#getChat) | **GET** /history/chat | Chat History
-[**getCommands**](HistoryApi.md#getCommands) | **GET** /history/cmd | Command History
+[**getChatHistory**](HistoryApi.md#getChatHistory) | **GET** /history/chat | Chat History
+[**getCommandHistory**](HistoryApi.md#getCommandHistory) | **GET** /history/cmd | Command History
 
 
-<a name="getChat"></a>
-# **getChat**
-> ChatHistoryResponse getChat()
+<a name="getChatHistory"></a>
+# **getChatHistory**
+> ChatHistoryResponse getChatHistory()
 
 Chat History
 
@@ -41,10 +41,10 @@ queryKey.setApiKey("YOUR API KEY");
 
 HistoryApi apiInstance = new HistoryApi();
 try {
-    ChatHistoryResponse result = apiInstance.getChat();
+    ChatHistoryResponse result = apiInstance.getChatHistory();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling HistoryApi#getChat");
+    System.err.println("Exception when calling HistoryApi#getChatHistory");
     e.printStackTrace();
 }
 ```
@@ -65,9 +65,9 @@ This endpoint does not need any parameter.
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="getCommands"></a>
-# **getCommands**
-> CommandHistoryResponse getCommands()
+<a name="getCommandHistory"></a>
+# **getCommandHistory**
+> CommandHistoryResponse getCommandHistory()
 
 Command History
 
@@ -98,10 +98,10 @@ queryKey.setApiKey("YOUR API KEY");
 
 HistoryApi apiInstance = new HistoryApi();
 try {
-    CommandHistoryResponse result = apiInstance.getCommands();
+    CommandHistoryResponse result = apiInstance.getCommandHistory();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling HistoryApi#getCommands");
+    System.err.println("Exception when calling HistoryApi#getCommandHistory");
     e.printStackTrace();
 }
 ```

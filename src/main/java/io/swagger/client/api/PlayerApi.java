@@ -1,6 +1,6 @@
 /*
  * WebAPI
- * Access Sponge powered Minecraft servers through a WebAPI  #/ Introduction This is the documentation of the various API routes offered by the WebAPI plugin.  This documentation assumes that you are familiar with the basic concepts of Web API's, such as `GET`, `PUT`, `POST` and `DELETE` methods, request `HEADERS` and `RESPONSE CODES` and `JSON` data.  By default this documentation can be found at http:/localhost:8080 (while your minecraft server is running) and the various routes start with http:/localhost:8080/api/...  As a quick test try reaching the route http:/localhost:8080/api/info (remember that you can only access \"localhost\" routes on the server on which you are running minecraft). This route should show you basic information about your server, like the motd and player count.  #/ Additional data Certain endpoints (such as `/player`, `/entity` and `/tile-entity` have additional properties which are not documented here, because the data depends on the concrete object type (eg. `Sheep` have a wool color, others do not) and on the other plugins/mods that are running on your server which might add additional data.  You can also find more information in the github docs (https:/github.com/Valandur/Web-API/tree/master/docs/DATA.md) 
+ * Access Sponge powered Minecraft servers through a WebAPI  # Introduction This is the documentation of the various API routes offered by the WebAPI plugin.  This documentation assumes that you are familiar with the basic concepts of Web API's, such as `GET`, `PUT`, `POST` and `DELETE` methods, request `HEADERS` and `RESPONSE CODES` and `JSON` data.  By default this documentation can be found at http:/localhost:8080 (while your minecraft server is running) and the various routes start with http:/localhost:8080/api/...  As a quick test try reaching the route http:/localhost:8080/api/info (remember that you can only access \"localhost\" routes on the server on which you are running minecraft). This route should show you basic information about your server, like the motd and player count.  # Additional data Certain endpoints (such as `/player`, `/entity` and `/tile-entity` have additional properties which are not documented here, because the data depends on the concrete object type (eg. `Sheep` have a wool color, others do not) and on the other plugins/mods that are running on your server which might add additional data.  You can also find more information in the github docs (https:/github.com/Valandur/Web-API/tree/master/docs/DATA.md) 
  *
  * OpenAPI spec version: <version>
  * 
@@ -27,8 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.swagger.client.model.ExecutePlayerMethodResponse;
 import io.swagger.client.model.InlineResponse400;
-import io.swagger.client.model.PlayerMethodResult;
 import io.swagger.client.model.PlayerResponse;
 import io.swagger.client.model.PlayersList;
 import io.swagger.client.model.RawRequest;
@@ -272,11 +272,11 @@ public class PlayerApi {
      * Provides direct access to the underlaying player object and can execute any method on it.  &gt; Required permission: player.method 
      * @param uuid The uuid of the player. (required)
      * @param request Information about which method to execute. (required)
-     * @return PlayerMethodResult
+     * @return ExecutePlayerMethodResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PlayerMethodResult executePlayerMethod(String uuid, RawRequest request) throws ApiException {
-        ApiResponse<PlayerMethodResult> resp = executePlayerMethodWithHttpInfo(uuid, request);
+    public ExecutePlayerMethodResponse executePlayerMethod(String uuid, RawRequest request) throws ApiException {
+        ApiResponse<ExecutePlayerMethodResponse> resp = executePlayerMethodWithHttpInfo(uuid, request);
         return resp.getData();
     }
 
@@ -285,12 +285,12 @@ public class PlayerApi {
      * Provides direct access to the underlaying player object and can execute any method on it.  &gt; Required permission: player.method 
      * @param uuid The uuid of the player. (required)
      * @param request Information about which method to execute. (required)
-     * @return ApiResponse&lt;PlayerMethodResult&gt;
+     * @return ApiResponse&lt;ExecutePlayerMethodResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PlayerMethodResult> executePlayerMethodWithHttpInfo(String uuid, RawRequest request) throws ApiException {
+    public ApiResponse<ExecutePlayerMethodResponse> executePlayerMethodWithHttpInfo(String uuid, RawRequest request) throws ApiException {
         com.squareup.okhttp.Call call = executePlayerMethodValidateBeforeCall(uuid, request, null, null);
-        Type localVarReturnType = new TypeToken<PlayerMethodResult>(){}.getType();
+        Type localVarReturnType = new TypeToken<ExecutePlayerMethodResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -303,7 +303,7 @@ public class PlayerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call executePlayerMethodAsync(String uuid, RawRequest request, final ApiCallback<PlayerMethodResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call executePlayerMethodAsync(String uuid, RawRequest request, final ApiCallback<ExecutePlayerMethodResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -325,7 +325,7 @@ public class PlayerApi {
         }
 
         com.squareup.okhttp.Call call = executePlayerMethodValidateBeforeCall(uuid, request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PlayerMethodResult>(){}.getType();
+        Type localVarReturnType = new TypeToken<ExecutePlayerMethodResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
