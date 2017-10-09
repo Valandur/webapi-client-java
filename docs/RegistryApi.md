@@ -26,17 +26,17 @@ Lists all the catalog values of a specified CatalogType.  &gt; Required permissi
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
-
 // Configure API key authorization: headerKey
 ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
 headerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //headerKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: queryKey
+ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
+queryKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//queryKey.setApiKeyPrefix("Token");
 
 RegistryApi apiInstance = new RegistryApi();
 String className = "className_example"; // String | The fully qualified class name of the CatalogType to get.
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../README.md#queryKey), [headerKey](../README.md#headerKey)
+[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
 
 ### HTTP request headers
 

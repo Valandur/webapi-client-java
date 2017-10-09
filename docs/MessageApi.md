@@ -26,17 +26,17 @@ Send an interactive message to a player. Make sure to have an event hook for \&q
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
-
 // Configure API key authorization: headerKey
 ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
 headerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //headerKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: queryKey
+ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
+queryKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//queryKey.setApiKeyPrefix("Token");
 
 MessageApi apiInstance = new MessageApi();
 MessageRequest request = new MessageRequest(); // MessageRequest | Details of the message sent to the player
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../README.md#queryKey), [headerKey](../README.md#headerKey)
+[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
 
 ### HTTP request headers
 

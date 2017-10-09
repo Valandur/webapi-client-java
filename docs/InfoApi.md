@@ -26,17 +26,17 @@ Get general information about the minecraft server.  &gt; Required permission: i
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
-
 // Configure API key authorization: headerKey
 ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
 headerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //headerKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: queryKey
+ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
+queryKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//queryKey.setApiKeyPrefix("Token");
 
 InfoApi apiInstance = new InfoApi();
 try {
@@ -57,7 +57,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[queryKey](../README.md#queryKey), [headerKey](../README.md#headerKey)
+[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
 
 ### HTTP request headers
 

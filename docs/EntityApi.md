@@ -31,17 +31,17 @@ Update the properties of an existing entity.  &gt; Required permission: entity.c
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
-
 // Configure API key authorization: headerKey
 ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
 headerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //headerKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: queryKey
+ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
+queryKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//queryKey.setApiKeyPrefix("Token");
 
 EntityApi apiInstance = new EntityApi();
 String uuid = "uuid_example"; // String | The uuid of the entity.
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../README.md#queryKey), [headerKey](../README.md#headerKey)
+[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
 
 ### HTTP request headers
 
@@ -94,17 +94,17 @@ Creates &amp; Spawns a new entity with the specified properties.  &gt; Required 
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
-
 // Configure API key authorization: headerKey
 ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
 headerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //headerKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: queryKey
+ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
+queryKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//queryKey.setApiKeyPrefix("Token");
 
 EntityApi apiInstance = new EntityApi();
 CreateEntityRequest createEntityRequest = new CreateEntityRequest(); // CreateEntityRequest | 
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../README.md#queryKey), [headerKey](../README.md#headerKey)
+[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
 
 ### HTTP request headers
 
@@ -155,17 +155,17 @@ Destroys an entity.  &gt; Required permission: entity.delete
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
-
 // Configure API key authorization: headerKey
 ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
 headerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //headerKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: queryKey
+ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
+queryKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//queryKey.setApiKeyPrefix("Token");
 
 EntityApi apiInstance = new EntityApi();
 String uuid = "uuid_example"; // String | The uuid of the entity.
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../README.md#queryKey), [headerKey](../README.md#headerKey)
+[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
 
 ### HTTP request headers
 
@@ -216,17 +216,17 @@ Provides direct access to the underlaying entity object and can execute any meth
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
-
 // Configure API key authorization: headerKey
 ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
 headerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //headerKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: queryKey
+ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
+queryKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//queryKey.setApiKeyPrefix("Token");
 
 EntityApi apiInstance = new EntityApi();
 String uuid = "uuid_example"; // String | The uuid of the entity.
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../README.md#queryKey), [headerKey](../README.md#headerKey)
+[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
 
 ### HTTP request headers
 
@@ -279,17 +279,17 @@ Get a list of all entities on the server (in all worlds).  &gt; Required permiss
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
-
 // Configure API key authorization: headerKey
 ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
 headerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //headerKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: queryKey
+ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
+queryKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//queryKey.setApiKeyPrefix("Token");
 
 EntityApi apiInstance = new EntityApi();
 String details = "details_example"; // String | Pass this parameter to receive the full details for each entity.
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../README.md#queryKey), [headerKey](../README.md#headerKey)
+[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
 
 ### HTTP request headers
 
@@ -340,17 +340,17 @@ Get detailed information about an entity.  &gt; Required permission: entity.one
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
-
 // Configure API key authorization: headerKey
 ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
 headerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //headerKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: queryKey
+ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
+queryKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//queryKey.setApiKeyPrefix("Token");
 
 EntityApi apiInstance = new EntityApi();
 String uuid = "uuid_example"; // String | The uuid of the entity to get detailed information about.
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../README.md#queryKey), [headerKey](../README.md#headerKey)
+[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
 
 ### HTTP request headers
 

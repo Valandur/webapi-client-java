@@ -28,17 +28,17 @@ Provides direct access to the underlaying tile entity object and can execute any
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
-
 // Configure API key authorization: headerKey
 ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
 headerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //headerKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: queryKey
+ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
+queryKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//queryKey.setApiKeyPrefix("Token");
 
 TileEntityApi apiInstance = new TileEntityApi();
 String worldUuid = "worldUuid_example"; // String | The uuid of the world the tile entity is in.
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../README.md#queryKey), [headerKey](../README.md#headerKey)
+[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
 
 ### HTTP request headers
 
@@ -97,17 +97,17 @@ Get a list of all tile entities on the server (in all worlds, unless specified).
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
-
 // Configure API key authorization: headerKey
 ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
 headerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //headerKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: queryKey
+ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
+queryKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//queryKey.setApiKeyPrefix("Token");
 
 TileEntityApi apiInstance = new TileEntityApi();
 String world = "world_example"; // String | The uuid of the world to filter entities by.
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../README.md#queryKey), [headerKey](../README.md#headerKey)
+[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
 
 ### HTTP request headers
 
@@ -162,17 +162,17 @@ Get detailed information about a tile entity.  &gt; Required permission: tile-en
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
-
 // Configure API key authorization: headerKey
 ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
 headerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //headerKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: queryKey
+ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
+queryKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//queryKey.setApiKeyPrefix("Token");
 
 TileEntityApi apiInstance = new TileEntityApi();
 String worldUuid = "worldUuid_example"; // String | The uuid of the world the tile entity is in.
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../README.md#queryKey), [headerKey](../README.md#headerKey)
+[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
 
 ### HTTP request headers
 

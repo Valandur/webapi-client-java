@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **uuid** | **String** | The uuid of the entity. |  [optional]
 **location** | [**Location**](Location.md) |  |  [optional]
 **link** | **String** | The API URL which contains detailed information about this entity. |  [optional]
-**PropertyClass** | **String** | The fully qualified classname of the entity. |  [optional]
+**propertyClass** | **String** | The fully qualified classname of the entity. |  [optional]
 
 
 

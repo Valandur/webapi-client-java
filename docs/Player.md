@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **location** | [**Location**](Location.md) |  |  [optional]
 **name** | **String** | The name of the player. |  [optional]
 **link** | **String** | The API URL which contains detailed information about this player. |  [optional]
-**PropertyClass** | **String** | The fully qualified class name of the object representing the player. Usually &#x60;net.minecraft.entity.player.EntityPlayerMP&#x60;. |  [optional]
+**propertyClass** | **String** | The fully qualified class name of the object representing the player. Usually &#x60;net.minecraft.entity.player.EntityPlayerMP&#x60;. |  [optional]
 
 
 

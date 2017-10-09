@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **experienceSinceLevel** | [**BigDecimal**](BigDecimal.md) | The amount of experience since the last level up that the player has collected. |  [optional]
 **health** | **Double** | The current amount of health the player has. |  [optional]
 **maxHealth** | **Double** | The total amount of health the player can have at maximum. |  [optional]
-**damage** | [**UpdatePlayerRequestDamage**](UpdatePlayerRequestDamage.md) |  |  [optional]
+**damage** | [**DamageRequest1**](DamageRequest1.md) |  |  [optional]
 
 
 

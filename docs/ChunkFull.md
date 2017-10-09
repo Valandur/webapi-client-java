@@ -4,6 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**uuid** | **String** | The unique identifier of the chunk. |  [optional]
+**position** | [**Vector3**](Vector3.md) |  |  [optional]
 **world** | [**World**](World.md) |  |  [optional]
 **blockMin** | [**Vector3**](Vector3.md) |  |  [optional]
 **blockMax** | [**Vector3**](Vector3.md) |  |  [optional]

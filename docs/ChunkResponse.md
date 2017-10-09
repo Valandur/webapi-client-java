@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ok** | [**Ok**](Ok.md) |  |  [optional]
+**ok** | **Boolean** |  |  [optional]
 **chunk** | [**ChunkFull**](ChunkFull.md) |  |  [optional]
 
 

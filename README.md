@@ -71,17 +71,17 @@ public class BlockApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         
-        // Configure API key authorization: queryKey
-        ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-        queryKey.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //queryKey.setApiKeyPrefix("Token");
-
         // Configure API key authorization: headerKey
         ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
         headerKey.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //headerKey.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: queryKey
+        ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
+        queryKey.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //queryKey.setApiKeyPrefix("Token");
 
         BlockApi apiInstance = new BlockApi();
         String uuid = "uuid_example"; // String | The uuid of the block operation.
@@ -151,7 +151,6 @@ Class | Method | HTTP request | Description
 
  - [BlockFull](docs/BlockFull.md)
  - [BlockOperation](docs/BlockOperation.md)
- - [BlockOperationFull](docs/BlockOperationFull.md)
  - [BlockOperationNew](docs/BlockOperationNew.md)
  - [BlockOperationResponse](docs/BlockOperationResponse.md)
  - [BlockOperationsList](docs/BlockOperationsList.md)
@@ -160,12 +159,10 @@ Class | Method | HTTP request | Description
  - [ChatHistoryResponse](docs/ChatHistoryResponse.md)
  - [ChatMessage](docs/ChatMessage.md)
  - [Chunk](docs/Chunk.md)
- - [ChunkFull](docs/ChunkFull.md)
  - [ChunkResponse](docs/ChunkResponse.md)
  - [ChunksResponse](docs/ChunksResponse.md)
  - [Command](docs/Command.md)
  - [CommandCall](docs/CommandCall.md)
- - [CommandFull](docs/CommandFull.md)
  - [CommandHistoryResponse](docs/CommandHistoryResponse.md)
  - [CommandRequest](docs/CommandRequest.md)
  - [CommandResponse](docs/CommandResponse.md)
@@ -174,16 +171,17 @@ Class | Method | HTTP request | Description
  - [CommandsResponse](docs/CommandsResponse.md)
  - [CreateEntityRequest](docs/CreateEntityRequest.md)
  - [CreateWorldRequest](docs/CreateWorldRequest.md)
+ - [DamageRequest](docs/DamageRequest.md)
+ - [DamageRequest1](docs/DamageRequest1.md)
  - [Data](docs/Data.md)
  - [EntitiesList](docs/EntitiesList.md)
  - [Entity](docs/Entity.md)
- - [EntityFull](docs/EntityFull.md)
  - [EntityMethodResult](docs/EntityMethodResult.md)
  - [EntityResponse](docs/EntityResponse.md)
  - [ExecuteCommandResponse](docs/ExecuteCommandResponse.md)
  - [ExecuteTileEntityMethodResponse](docs/ExecuteTileEntityMethodResponse.md)
  - [ExecuteWorldMethodResponse](docs/ExecuteWorldMethodResponse.md)
- - [InlineResponse403](docs/InlineResponse403.md)
+ - [InlineResponse400](docs/InlineResponse400.md)
  - [Inventory](docs/Inventory.md)
  - [ItemStack](docs/ItemStack.md)
  - [Location](docs/Location.md)
@@ -191,14 +189,18 @@ Class | Method | HTTP request | Description
  - [LoginResponse](docs/LoginResponse.md)
  - [MessageRequest](docs/MessageRequest.md)
  - [MessageResponse](docs/MessageResponse.md)
- - [Ok](docs/Ok.md)
  - [Player](docs/Player.md)
- - [PlayerFull](docs/PlayerFull.md)
+ - [PlayerFullAchievements](docs/PlayerFullAchievements.md)
+ - [PlayerFullArmour](docs/PlayerFullArmour.md)
+ - [PlayerFullConnection](docs/PlayerFullConnection.md)
+ - [PlayerFullExperience](docs/PlayerFullExperience.md)
+ - [PlayerFullFood](docs/PlayerFullFood.md)
+ - [PlayerFullHealth](docs/PlayerFullHealth.md)
+ - [PlayerFullJoined](docs/PlayerFullJoined.md)
  - [PlayerMethodResult](docs/PlayerMethodResult.md)
  - [PlayerResponse](docs/PlayerResponse.md)
  - [PlayersList](docs/PlayersList.md)
  - [Plugin](docs/Plugin.md)
- - [PluginFull](docs/PluginFull.md)
  - [PluginResponse](docs/PluginResponse.md)
  - [PluginsResponse](docs/PluginsResponse.md)
  - [RawRequest](docs/RawRequest.md)
@@ -210,42 +212,50 @@ Class | Method | HTTP request | Description
  - [SingleBlock](docs/SingleBlock.md)
  - [TileEntitiesResponse](docs/TileEntitiesResponse.md)
  - [TileEntity](docs/TileEntity.md)
- - [TileEntityFull](docs/TileEntityFull.md)
  - [TileEntityResponse](docs/TileEntityResponse.md)
  - [UpdateEntityRequest](docs/UpdateEntityRequest.md)
- - [UpdateEntityRequestDamage](docs/UpdateEntityRequestDamage.md)
  - [UpdatePlayerRequest](docs/UpdatePlayerRequest.md)
- - [UpdatePlayerRequestDamage](docs/UpdatePlayerRequestDamage.md)
  - [UpdateWorldRequest](docs/UpdateWorldRequest.md)
  - [User](docs/User.md)
  - [UserResponse](docs/UserResponse.md)
  - [Vector3](docs/Vector3.md)
  - [World](docs/World.md)
- - [WorldFull](docs/WorldFull.md)
+ - [WorldFullBorder](docs/WorldFullBorder.md)
+ - [WorldFullDimension](docs/WorldFullDimension.md)
+ - [WorldFullDimensionType](docs/WorldFullDimensionType.md)
+ - [WorldFullGenerator](docs/WorldFullGenerator.md)
  - [WorldRequest](docs/WorldRequest.md)
  - [WorldResponse](docs/WorldResponse.md)
  - [WorldsResponse](docs/WorldsResponse.md)
+ - [BlockOperationFull](docs/BlockOperationFull.md)
+ - [ChunkFull](docs/ChunkFull.md)
+ - [CommandFull](docs/CommandFull.md)
+ - [EntityFull](docs/EntityFull.md)
+ - [PlayerFull](docs/PlayerFull.md)
+ - [PluginFull](docs/PluginFull.md)
+ - [TileEntityFull](docs/TileEntityFull.md)
+ - [WorldFull](docs/WorldFull.md)
 
 
 ## Documentation for Authorization
 
 Authentication schemes defined for the API:
-### queryKey
-
-- **Type**: API key
-- **API key parameter name**: key
-- **Location**: URL query string
-
 ### headerKey
 
 - **Type**: API key
 - **API key parameter name**: x-webapi-key
 - **Location**: HTTP header
 
+### queryKey
+
+- **Type**: API key
+- **API key parameter name**: key
+- **Location**: URL query string
+
 
 ## Recommendation
 
-It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issue.
+It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
 
 ## Author
 
