@@ -1,6 +1,6 @@
 /*
  * WebAPI
- * Access Sponge powered Minecraft servers through a WebAPI  #/ Introduction This is the documentation of the various API routes offered by the WebAPI plugin.  This documentation assumes that you are familiar with the basic concepts of Web API's, such as `GET`, `PUT`, `POST` and `DELETE` methods, request `HEADERS` and `RESPONSE CODES` and `JSON` data.  By default this documentation can be found at http:/localhost:8080 (while your minecraft server is running) and the various routes start with http:/localhost:8080/api/...  As a quick test try reaching the route http:/localhost:8080/api/info (remember that you can only access \"localhost\" routes on the server on which you are running minecraft). This route should show you basic information about your server, like the motd and player count.  #/ Additional data Certain endpoints (such as `/player`, `/entity` and `/tile-entity` have additional properties which are not documented here, because the data depends on the concrete object type (eg. `Sheep` have a wool color, others do not) and on the other plugins/mods that are running on your server which might add additional data.  You can also find more information in the github docs (https:/github.com/Valandur/Web-API/tree/master/docs/DATA.md) 
+ * Access Sponge powered Minecraft servers through a WebAPI  # Introduction This is the documentation of the various API routes offered by the WebAPI plugin.  This documentation assumes that you are familiar with the basic concepts of Web API's, such as `GET`, `PUT`, `POST` and `DELETE` methods, request `HEADERS` and `RESPONSE CODES` and `JSON` data.  By default this documentation can be found at http:/localhost:8080 (while your minecraft server is running) and the various routes start with http:/localhost:8080/api/...  As a quick test try reaching the route http:/localhost:8080/api/info (remember that you can only access \"localhost\" routes on the server on which you are running minecraft). This route should show you basic information about your server, like the motd and player count.  # Additional data Certain endpoints (such as `/player`, `/entity` and `/tile-entity` have additional properties which are not documented here, because the data depends on the concrete object type (eg. `Sheep` have a wool color, others do not) and on the other plugins/mods that are running on your server which might add additional data.  You can also find more information in the github docs (https:/github.com/Valandur/Web-API/tree/master/docs/DATA.md) 
  *
  * OpenAPI spec version: <version>
  * 
@@ -57,13 +57,13 @@ public class HistoryApi {
     }
 
     /**
-     * Build call for getChat
+     * Build call for getChatHistory
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getChatCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getChatHistoryCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -104,10 +104,10 @@ public class HistoryApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getChatValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getChatHistoryValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getChatCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getChatHistoryCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -122,8 +122,8 @@ public class HistoryApi {
      * @return ChatHistoryResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ChatHistoryResponse getChat() throws ApiException {
-        ApiResponse<ChatHistoryResponse> resp = getChatWithHttpInfo();
+    public ChatHistoryResponse getChatHistory() throws ApiException {
+        ApiResponse<ChatHistoryResponse> resp = getChatHistoryWithHttpInfo();
         return resp.getData();
     }
 
@@ -133,8 +133,8 @@ public class HistoryApi {
      * @return ApiResponse&lt;ChatHistoryResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ChatHistoryResponse> getChatWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getChatValidateBeforeCall(null, null);
+    public ApiResponse<ChatHistoryResponse> getChatHistoryWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getChatHistoryValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<ChatHistoryResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -146,7 +146,7 @@ public class HistoryApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getChatAsync(final ApiCallback<ChatHistoryResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getChatHistoryAsync(final ApiCallback<ChatHistoryResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -167,19 +167,19 @@ public class HistoryApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getChatValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getChatHistoryValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ChatHistoryResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for getCommands
+     * Build call for getCommandHistory
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getCommandsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getCommandHistoryCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -220,10 +220,10 @@ public class HistoryApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getCommandsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getCommandHistoryValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getCommandsCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getCommandHistoryCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -238,8 +238,8 @@ public class HistoryApi {
      * @return CommandHistoryResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CommandHistoryResponse getCommands() throws ApiException {
-        ApiResponse<CommandHistoryResponse> resp = getCommandsWithHttpInfo();
+    public CommandHistoryResponse getCommandHistory() throws ApiException {
+        ApiResponse<CommandHistoryResponse> resp = getCommandHistoryWithHttpInfo();
         return resp.getData();
     }
 
@@ -249,8 +249,8 @@ public class HistoryApi {
      * @return ApiResponse&lt;CommandHistoryResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CommandHistoryResponse> getCommandsWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getCommandsValidateBeforeCall(null, null);
+    public ApiResponse<CommandHistoryResponse> getCommandHistoryWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getCommandHistoryValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<CommandHistoryResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -262,7 +262,7 @@ public class HistoryApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getCommandsAsync(final ApiCallback<CommandHistoryResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getCommandHistoryAsync(final ApiCallback<CommandHistoryResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -283,7 +283,7 @@ public class HistoryApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getCommandsValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getCommandHistoryValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CommandHistoryResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -1,12 +1,11 @@
 
-# PlayerMethodResult
+# NucleusKitResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ok** | **Boolean** |  |  [optional]
-**player** | [**RawResponse**](RawResponse.md) |  |  [optional]
-**result** | [**RawResponse**](RawResponse.md) |  |  [optional]
+**nation** | [**NucleusKitFull**](NucleusKitFull.md) |  |  [optional]
 
 
 

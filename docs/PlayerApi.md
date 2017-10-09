@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 <a name="executePlayerMethod"></a>
 # **executePlayerMethod**
-> PlayerMethodResult executePlayerMethod(uuid, request)
+> ExecutePlayerMethodResponse executePlayerMethod(uuid, request)
 
 Execute player method
 
@@ -108,7 +108,7 @@ PlayerApi apiInstance = new PlayerApi();
 String uuid = "uuid_example"; // String | The uuid of the player.
 RawRequest request = new RawRequest(); // RawRequest | Information about which method to execute.
 try {
-    PlayerMethodResult result = apiInstance.executePlayerMethod(uuid, request);
+    ExecutePlayerMethodResponse result = apiInstance.executePlayerMethod(uuid, request);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PlayerApi#executePlayerMethod");
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PlayerMethodResult**](PlayerMethodResult.md)
+[**ExecutePlayerMethodResponse**](ExecutePlayerMethodResponse.md)
 
 ### Authorization
 

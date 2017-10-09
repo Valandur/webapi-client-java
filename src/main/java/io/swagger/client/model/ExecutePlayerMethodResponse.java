@@ -1,6 +1,6 @@
 /*
  * WebAPI
- * Access Sponge powered Minecraft servers through a WebAPI  #/ Introduction This is the documentation of the various API routes offered by the WebAPI plugin.  This documentation assumes that you are familiar with the basic concepts of Web API's, such as `GET`, `PUT`, `POST` and `DELETE` methods, request `HEADERS` and `RESPONSE CODES` and `JSON` data.  By default this documentation can be found at http:/localhost:8080 (while your minecraft server is running) and the various routes start with http:/localhost:8080/api/...  As a quick test try reaching the route http:/localhost:8080/api/info (remember that you can only access \"localhost\" routes on the server on which you are running minecraft). This route should show you basic information about your server, like the motd and player count.  #/ Additional data Certain endpoints (such as `/player`, `/entity` and `/tile-entity` have additional properties which are not documented here, because the data depends on the concrete object type (eg. `Sheep` have a wool color, others do not) and on the other plugins/mods that are running on your server which might add additional data.  You can also find more information in the github docs (https:/github.com/Valandur/Web-API/tree/master/docs/DATA.md) 
+ * Access Sponge powered Minecraft servers through a WebAPI  # Introduction This is the documentation of the various API routes offered by the WebAPI plugin.  This documentation assumes that you are familiar with the basic concepts of Web API's, such as `GET`, `PUT`, `POST` and `DELETE` methods, request `HEADERS` and `RESPONSE CODES` and `JSON` data.  By default this documentation can be found at http:/localhost:8080 (while your minecraft server is running) and the various routes start with http:/localhost:8080/api/...  As a quick test try reaching the route http:/localhost:8080/api/info (remember that you can only access \"localhost\" routes on the server on which you are running minecraft). This route should show you basic information about your server, like the motd and player count.  # Additional data Certain endpoints (such as `/player`, `/entity` and `/tile-entity` have additional properties which are not documented here, because the data depends on the concrete object type (eg. `Sheep` have a wool color, others do not) and on the other plugins/mods that are running on your server which might add additional data.  You can also find more information in the github docs (https:/github.com/Valandur/Web-API/tree/master/docs/DATA.md) 
  *
  * OpenAPI spec version: <version>
  * 
@@ -21,24 +21,25 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.PlayerFull;
 import io.swagger.client.model.RawResponse;
 import java.io.IOException;
 
 /**
- * PlayerMethodResult
+ * ExecutePlayerMethodResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-09T13:12:20.507+02:00")
-public class PlayerMethodResult {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-09T21:04:49.224+02:00")
+public class ExecutePlayerMethodResponse {
   @SerializedName("ok")
   private Boolean ok = null;
 
   @SerializedName("player")
-  private RawResponse player = null;
+  private PlayerFull player = null;
 
   @SerializedName("result")
   private RawResponse result = null;
 
-  public PlayerMethodResult ok(Boolean ok) {
+  public ExecutePlayerMethodResponse ok(Boolean ok) {
     this.ok = ok;
     return this;
   }
@@ -56,7 +57,7 @@ public class PlayerMethodResult {
     this.ok = ok;
   }
 
-  public PlayerMethodResult player(RawResponse player) {
+  public ExecutePlayerMethodResponse player(PlayerFull player) {
     this.player = player;
     return this;
   }
@@ -66,15 +67,15 @@ public class PlayerMethodResult {
    * @return player
   **/
   @ApiModelProperty(value = "")
-  public RawResponse getPlayer() {
+  public PlayerFull getPlayer() {
     return player;
   }
 
-  public void setPlayer(RawResponse player) {
+  public void setPlayer(PlayerFull player) {
     this.player = player;
   }
 
-  public PlayerMethodResult result(RawResponse result) {
+  public ExecutePlayerMethodResponse result(RawResponse result) {
     this.result = result;
     return this;
   }
@@ -101,10 +102,10 @@ public class PlayerMethodResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PlayerMethodResult playerMethodResult = (PlayerMethodResult) o;
-    return Objects.equals(this.ok, playerMethodResult.ok) &&
-        Objects.equals(this.player, playerMethodResult.player) &&
-        Objects.equals(this.result, playerMethodResult.result);
+    ExecutePlayerMethodResponse executePlayerMethodResponse = (ExecutePlayerMethodResponse) o;
+    return Objects.equals(this.ok, executePlayerMethodResponse.ok) &&
+        Objects.equals(this.player, executePlayerMethodResponse.player) &&
+        Objects.equals(this.result, executePlayerMethodResponse.result);
   }
 
   @Override
@@ -116,7 +117,7 @@ public class PlayerMethodResult {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PlayerMethodResult {\n");
+    sb.append("class ExecutePlayerMethodResponse {\n");
     
     sb.append("    ok: ").append(toIndentedString(ok)).append("\n");
     sb.append("    player: ").append(toIndentedString(player)).append("\n");

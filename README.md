@@ -120,10 +120,21 @@ Class | Method | HTTP request | Description
 *EntityApi* | [**executeEntityMethod**](docs/EntityApi.md#executeEntityMethod) | **POST** /entity/{uuid} | Execute entity method
 *EntityApi* | [**getEntities**](docs/EntityApi.md#getEntities) | **GET** /entity | Entities list
 *EntityApi* | [**getEntity**](docs/EntityApi.md#getEntity) | **GET** /entity/{uuid} | Detailed entity info
-*HistoryApi* | [**getChat**](docs/HistoryApi.md#getChat) | **GET** /history/chat | Chat History
-*HistoryApi* | [**getCommands**](docs/HistoryApi.md#getCommands) | **GET** /history/cmd | Command History
+*HistoryApi* | [**getChatHistory**](docs/HistoryApi.md#getChatHistory) | **GET** /history/chat | Chat History
+*HistoryApi* | [**getCommandHistory**](docs/HistoryApi.md#getCommandHistory) | **GET** /history/cmd | Command History
+*HuskyCratesApi* | [**getCrate**](docs/HuskyCratesApi.md#getCrate) | **GET** /husky/crate/{id} | Detailed crate info
+*HuskyCratesApi* | [**getCrates**](docs/HuskyCratesApi.md#getCrates) | **GET** /husky/crate | Crate list
 *InfoApi* | [**getInfo**](docs/InfoApi.md#getInfo) | **GET** /info | Server info
+*MMCTicketsApi* | [**changeTicket**](docs/MMCTicketsApi.md#changeTicket) | **PUT** /mmctickets/ticket/{id} | Edit ticket
+*MMCTicketsApi* | [**getTicket**](docs/MMCTicketsApi.md#getTicket) | **GET** /mmctickets/ticket/{id} | Detailed ticket info
+*MMCTicketsApi* | [**getTickets**](docs/MMCTicketsApi.md#getTickets) | **GET** /mmctickets/ticket | Ticket list
 *MessageApi* | [**sendMessage**](docs/MessageApi.md#sendMessage) | **POST** /message | Send an interactive message
+*NationsApi* | [**getNation**](docs/NationsApi.md#getNation) | **GET** /nations/nation/{id} | Detailed nation info
+*NationsApi* | [**getNations**](docs/NationsApi.md#getNations) | **GET** /nations/nation | Nations list
+*NucleusApi* | [**getJail**](docs/NucleusApi.md#getJail) | **GET** /nucleus/jail/{name} | Detailed jail info
+*NucleusApi* | [**getJails**](docs/NucleusApi.md#getJails) | **GET** /nucleus/jail | Jail list
+*NucleusApi* | [**getKit**](docs/NucleusApi.md#getKit) | **GET** /nucleus/kit/{name} | Detailed kit info
+*NucleusApi* | [**getKits**](docs/NucleusApi.md#getKits) | **GET** /nucleus/kit | Kit list
 *PlayerApi* | [**changePlayer**](docs/PlayerApi.md#changePlayer) | **PUT** /player/{uuid} | Edit player
 *PlayerApi* | [**executePlayerMethod**](docs/PlayerApi.md#executePlayerMethod) | **POST** /player/{uuid} | Execute player method
 *PlayerApi* | [**getPlayer**](docs/PlayerApi.md#getPlayer) | **GET** /player/{uuid} | Detailed player info
@@ -179,16 +190,36 @@ Class | Method | HTTP request | Description
  - [EntityMethodResult](docs/EntityMethodResult.md)
  - [EntityResponse](docs/EntityResponse.md)
  - [ExecuteCommandResponse](docs/ExecuteCommandResponse.md)
+ - [ExecutePlayerMethodResponse](docs/ExecutePlayerMethodResponse.md)
  - [ExecuteTileEntityMethodResponse](docs/ExecuteTileEntityMethodResponse.md)
  - [ExecuteWorldMethodResponse](docs/ExecuteWorldMethodResponse.md)
+ - [HuskyCrate](docs/HuskyCrate.md)
+ - [HuskyCrateFullRewards](docs/HuskyCrateFullRewards.md)
+ - [HuskyCrateResponse](docs/HuskyCrateResponse.md)
+ - [HuskyCratesResponse](docs/HuskyCratesResponse.md)
  - [InlineResponse400](docs/InlineResponse400.md)
  - [Inventory](docs/Inventory.md)
  - [ItemStack](docs/ItemStack.md)
  - [Location](docs/Location.md)
  - [LoginRequest](docs/LoginRequest.md)
  - [LoginResponse](docs/LoginResponse.md)
+ - [MMCTicket](docs/MMCTicket.md)
+ - [MMCTicketsTicketResponse](docs/MMCTicketsTicketResponse.md)
+ - [MMCTicketsTicketsResponse](docs/MMCTicketsTicketsResponse.md)
+ - [MMCUpdateTicketRequest](docs/MMCUpdateTicketRequest.md)
  - [MessageRequest](docs/MessageRequest.md)
  - [MessageResponse](docs/MessageResponse.md)
+ - [NationsNation](docs/NationsNation.md)
+ - [NationsNationResponse](docs/NationsNationResponse.md)
+ - [NationsNationsResponse](docs/NationsNationsResponse.md)
+ - [NationsRect](docs/NationsRect.md)
+ - [NationsZone](docs/NationsZone.md)
+ - [NucleusJailFull](docs/NucleusJailFull.md)
+ - [NucleusJailResponse](docs/NucleusJailResponse.md)
+ - [NucleusJailsResponse](docs/NucleusJailsResponse.md)
+ - [NucleusKit](docs/NucleusKit.md)
+ - [NucleusKitResponse](docs/NucleusKitResponse.md)
+ - [NucleusKitsResponse](docs/NucleusKitsResponse.md)
  - [Player](docs/Player.md)
  - [PlayerFullAchievements](docs/PlayerFullAchievements.md)
  - [PlayerFullArmour](docs/PlayerFullArmour.md)
@@ -197,7 +228,6 @@ Class | Method | HTTP request | Description
  - [PlayerFullFood](docs/PlayerFullFood.md)
  - [PlayerFullHealth](docs/PlayerFullHealth.md)
  - [PlayerFullJoined](docs/PlayerFullJoined.md)
- - [PlayerMethodResult](docs/PlayerMethodResult.md)
  - [PlayerResponse](docs/PlayerResponse.md)
  - [PlayersList](docs/PlayersList.md)
  - [Plugin](docs/Plugin.md)
@@ -224,13 +254,16 @@ Class | Method | HTTP request | Description
  - [WorldFullDimension](docs/WorldFullDimension.md)
  - [WorldFullDimensionType](docs/WorldFullDimensionType.md)
  - [WorldFullGenerator](docs/WorldFullGenerator.md)
- - [WorldRequest](docs/WorldRequest.md)
  - [WorldResponse](docs/WorldResponse.md)
  - [WorldsResponse](docs/WorldsResponse.md)
  - [BlockOperationFull](docs/BlockOperationFull.md)
  - [ChunkFull](docs/ChunkFull.md)
  - [CommandFull](docs/CommandFull.md)
  - [EntityFull](docs/EntityFull.md)
+ - [HuskyCrateFull](docs/HuskyCrateFull.md)
+ - [MMCTicketFull](docs/MMCTicketFull.md)
+ - [NationsNationFull](docs/NationsNationFull.md)
+ - [NucleusKitFull](docs/NucleusKitFull.md)
  - [PlayerFull](docs/PlayerFull.md)
  - [PluginFull](docs/PluginFull.md)
  - [TileEntityFull](docs/TileEntityFull.md)
