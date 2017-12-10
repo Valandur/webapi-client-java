@@ -30,7 +30,7 @@ import java.util.List;
  * This data defines what method to execute. 
  */
 @ApiModel(description = "This data defines what method to execute. ")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-09T21:04:49.224+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-10T13:08:53.752+01:00")
 public class RawRequest {
   @SerializedName("method")
   private String method = null;

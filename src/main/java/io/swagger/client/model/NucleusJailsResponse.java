@@ -29,13 +29,13 @@ import java.util.List;
 /**
  * NucleusJailsResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-09T21:04:49.224+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-10T13:08:53.752+01:00")
 public class NucleusJailsResponse {
   @SerializedName("ok")
   private Boolean ok = null;
 
-  @SerializedName("nations")
-  private List<NucleusJailFull> nations = null;
+  @SerializedName("jails")
+  private List<NucleusJailFull> jails = null;
 
   public NucleusJailsResponse ok(Boolean ok) {
     this.ok = ok;
@@ -55,30 +55,30 @@ public class NucleusJailsResponse {
     this.ok = ok;
   }
 
-  public NucleusJailsResponse nations(List<NucleusJailFull> nations) {
-    this.nations = nations;
+  public NucleusJailsResponse jails(List<NucleusJailFull> jails) {
+    this.jails = jails;
     return this;
   }
 
-  public NucleusJailsResponse addNationsItem(NucleusJailFull nationsItem) {
-    if (this.nations == null) {
-      this.nations = new ArrayList<NucleusJailFull>();
+  public NucleusJailsResponse addJailsItem(NucleusJailFull jailsItem) {
+    if (this.jails == null) {
+      this.jails = new ArrayList<NucleusJailFull>();
     }
-    this.nations.add(nationsItem);
+    this.jails.add(jailsItem);
     return this;
   }
 
    /**
    * A list of jails.
-   * @return nations
+   * @return jails
   **/
   @ApiModelProperty(value = "A list of jails.")
-  public List<NucleusJailFull> getNations() {
-    return nations;
+  public List<NucleusJailFull> getJails() {
+    return jails;
   }
 
-  public void setNations(List<NucleusJailFull> nations) {
-    this.nations = nations;
+  public void setJails(List<NucleusJailFull> jails) {
+    this.jails = jails;
   }
 
 
@@ -92,12 +92,12 @@ public class NucleusJailsResponse {
     }
     NucleusJailsResponse nucleusJailsResponse = (NucleusJailsResponse) o;
     return Objects.equals(this.ok, nucleusJailsResponse.ok) &&
-        Objects.equals(this.nations, nucleusJailsResponse.nations);
+        Objects.equals(this.jails, nucleusJailsResponse.jails);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ok, nations);
+    return Objects.hash(ok, jails);
   }
 
 
@@ -107,7 +107,7 @@ public class NucleusJailsResponse {
     sb.append("class NucleusJailsResponse {\n");
     
     sb.append("    ok: ").append(toIndentedString(ok)).append("\n");
-    sb.append("    nations: ").append(toIndentedString(nations)).append("\n");
+    sb.append("    jails: ").append(toIndentedString(jails)).append("\n");
     sb.append("}");
     return sb.toString();
   }

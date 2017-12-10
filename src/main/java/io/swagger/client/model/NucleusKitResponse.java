@@ -27,13 +27,13 @@ import java.io.IOException;
 /**
  * NucleusKitResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-09T21:04:49.224+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-10T13:08:53.752+01:00")
 public class NucleusKitResponse {
   @SerializedName("ok")
   private Boolean ok = null;
 
-  @SerializedName("nation")
-  private NucleusKitFull nation = null;
+  @SerializedName("kit")
+  private NucleusKitFull kit = null;
 
   public NucleusKitResponse ok(Boolean ok) {
     this.ok = ok;
@@ -53,22 +53,22 @@ public class NucleusKitResponse {
     this.ok = ok;
   }
 
-  public NucleusKitResponse nation(NucleusKitFull nation) {
-    this.nation = nation;
+  public NucleusKitResponse kit(NucleusKitFull kit) {
+    this.kit = kit;
     return this;
   }
 
    /**
-   * Get nation
-   * @return nation
+   * Get kit
+   * @return kit
   **/
   @ApiModelProperty(value = "")
-  public NucleusKitFull getNation() {
-    return nation;
+  public NucleusKitFull getKit() {
+    return kit;
   }
 
-  public void setNation(NucleusKitFull nation) {
-    this.nation = nation;
+  public void setKit(NucleusKitFull kit) {
+    this.kit = kit;
   }
 
 
@@ -82,12 +82,12 @@ public class NucleusKitResponse {
     }
     NucleusKitResponse nucleusKitResponse = (NucleusKitResponse) o;
     return Objects.equals(this.ok, nucleusKitResponse.ok) &&
-        Objects.equals(this.nation, nucleusKitResponse.nation);
+        Objects.equals(this.kit, nucleusKitResponse.kit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ok, nation);
+    return Objects.hash(ok, kit);
   }
 
 
@@ -97,7 +97,7 @@ public class NucleusKitResponse {
     sb.append("class NucleusKitResponse {\n");
     
     sb.append("    ok: ").append(toIndentedString(ok)).append("\n");
-    sb.append("    nation: ").append(toIndentedString(nation)).append("\n");
+    sb.append("    kit: ").append(toIndentedString(kit)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -42,9 +42,9 @@ queryKey.setApiKey("YOUR API KEY");
 
 TileEntityApi apiInstance = new TileEntityApi();
 String worldUuid = "worldUuid_example"; // String | The uuid of the world the tile entity is in.
-String x = "x_example"; // String | The x-coordinate of the tile entity.
-String y = "y_example"; // String | The y-coordinate of the tile entity.
-String z = "z_example"; // String | The z-coordinate of the tile entity.
+Integer x = 56; // Integer | The x-coordinate of the tile entity.
+Integer y = 56; // Integer | The y-coordinate of the tile entity.
+Integer z = 56; // Integer | The z-coordinate of the tile entity.
 RawRequest request = new RawRequest(); // RawRequest | Information about which method to execute.
 try {
     ExecuteTileEntityMethodResponse result = apiInstance.executeTileEntityMethod(worldUuid, x, y, z, request);
@@ -60,9 +60,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **worldUuid** | **String**| The uuid of the world the tile entity is in. |
- **x** | **String**| The x-coordinate of the tile entity. |
- **y** | **String**| The y-coordinate of the tile entity. |
- **z** | **String**| The z-coordinate of the tile entity. |
+ **x** | **Integer**| The x-coordinate of the tile entity. |
+ **y** | **Integer**| The y-coordinate of the tile entity. |
+ **z** | **Integer**| The z-coordinate of the tile entity. |
  **request** | [**RawRequest**](RawRequest.md)| Information about which method to execute. |
 
 ### Return type
@@ -75,8 +75,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 <a name="getTileEntities"></a>
 # **getTileEntities**
@@ -140,8 +140,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 <a name="getTileEntity"></a>
 # **getTileEntity**
@@ -176,9 +176,9 @@ queryKey.setApiKey("YOUR API KEY");
 
 TileEntityApi apiInstance = new TileEntityApi();
 String worldUuid = "worldUuid_example"; // String | The uuid of the world the tile entity is in.
-String x = "x_example"; // String | The x-coordinate of the tile entity.
-String y = "y_example"; // String | The y-coordinate of the tile entity.
-String z = "z_example"; // String | The z-coordinate of the tile entity.
+Integer x = 56; // Integer | The x-coordinate of the tile entity.
+Integer y = 56; // Integer | The y-coordinate of the tile entity.
+Integer z = 56; // Integer | The z-coordinate of the tile entity.
 String fields = "fields_example"; // String | An optional list of additional fields to get.
 String methods = "methods_example"; // String | An optional list of additional methods to get.
 try {
@@ -195,9 +195,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **worldUuid** | **String**| The uuid of the world the tile entity is in. |
- **x** | **String**| The x-coordinate of the tile entity. |
- **y** | **String**| The y-coordinate of the tile entity. |
- **z** | **String**| The z-coordinate of the tile entity. |
+ **x** | **Integer**| The x-coordinate of the tile entity. |
+ **y** | **Integer**| The y-coordinate of the tile entity. |
+ **z** | **Integer**| The z-coordinate of the tile entity. |
  **fields** | **String**| An optional list of additional fields to get. | [optional]
  **methods** | **String**| An optional list of additional methods to get. | [optional]
 
@@ -211,6 +211,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ok** | **Boolean** |  |  [optional]
-**nation** | [**NucleusKitFull**](NucleusKitFull.md) |  |  [optional]
+**kit** | [**NucleusKitFull**](NucleusKitFull.md) |  |  [optional]
 
 
 

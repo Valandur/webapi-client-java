@@ -21,12 +21,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.MessageOption;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * MessageRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-09T21:04:49.224+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-10T13:08:53.752+01:00")
 public class MessageRequest {
   @SerializedName("id")
   private String id = null;
@@ -41,7 +44,7 @@ public class MessageRequest {
   private Boolean once = null;
 
   @SerializedName("options")
-  private Object options = null;
+  private List<MessageOption> options = null;
 
   public MessageRequest id(String id) {
     this.id = id;
@@ -115,8 +118,16 @@ public class MessageRequest {
     this.once = once;
   }
 
-  public MessageRequest options(Object options) {
+  public MessageRequest options(List<MessageOption> options) {
     this.options = options;
+    return this;
+  }
+
+  public MessageRequest addOptionsItem(MessageOption optionsItem) {
+    if (this.options == null) {
+      this.options = new ArrayList<MessageOption>();
+    }
+    this.options.add(optionsItem);
     return this;
   }
 
@@ -125,11 +136,11 @@ public class MessageRequest {
    * @return options
   **/
   @ApiModelProperty(value = "These are the options the player can choose from. The key is sent back to the server, the value is displayed to the player. ")
-  public Object getOptions() {
+  public List<MessageOption> getOptions() {
     return options;
   }
 
-  public void setOptions(Object options) {
+  public void setOptions(List<MessageOption> options) {
     this.options = options;
   }
 

@@ -70,7 +70,7 @@ public class TileEntityApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call executeTileEntityMethodCall(String worldUuid, String x, String y, String z, RawRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call executeTileEntityMethodCall(String worldUuid, Integer x, Integer y, Integer z, RawRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = request;
         
         // create path and map variables
@@ -87,13 +87,13 @@ public class TileEntityApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "application/xml"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "application/json", "application/xml"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -115,7 +115,7 @@ public class TileEntityApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call executeTileEntityMethodValidateBeforeCall(String worldUuid, String x, String y, String z, RawRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call executeTileEntityMethodValidateBeforeCall(String worldUuid, Integer x, Integer y, Integer z, RawRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'worldUuid' is set
         if (worldUuid == null) {
@@ -163,7 +163,7 @@ public class TileEntityApi {
      * @return ExecuteTileEntityMethodResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ExecuteTileEntityMethodResponse executeTileEntityMethod(String worldUuid, String x, String y, String z, RawRequest request) throws ApiException {
+    public ExecuteTileEntityMethodResponse executeTileEntityMethod(String worldUuid, Integer x, Integer y, Integer z, RawRequest request) throws ApiException {
         ApiResponse<ExecuteTileEntityMethodResponse> resp = executeTileEntityMethodWithHttpInfo(worldUuid, x, y, z, request);
         return resp.getData();
     }
@@ -179,7 +179,7 @@ public class TileEntityApi {
      * @return ApiResponse&lt;ExecuteTileEntityMethodResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ExecuteTileEntityMethodResponse> executeTileEntityMethodWithHttpInfo(String worldUuid, String x, String y, String z, RawRequest request) throws ApiException {
+    public ApiResponse<ExecuteTileEntityMethodResponse> executeTileEntityMethodWithHttpInfo(String worldUuid, Integer x, Integer y, Integer z, RawRequest request) throws ApiException {
         com.squareup.okhttp.Call call = executeTileEntityMethodValidateBeforeCall(worldUuid, x, y, z, request, null, null);
         Type localVarReturnType = new TypeToken<ExecuteTileEntityMethodResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -197,7 +197,7 @@ public class TileEntityApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call executeTileEntityMethodAsync(String worldUuid, String x, String y, String z, RawRequest request, final ApiCallback<ExecuteTileEntityMethodResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call executeTileEntityMethodAsync(String worldUuid, Integer x, Integer y, Integer z, RawRequest request, final ApiCallback<ExecuteTileEntityMethodResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -252,13 +252,13 @@ public class TileEntityApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "application/xml"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "application/json", "application/xml"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -370,7 +370,7 @@ public class TileEntityApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTileEntityCall(String worldUuid, String x, String y, String z, String fields, String methods, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getTileEntityCall(String worldUuid, Integer x, Integer y, Integer z, String fields, String methods, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -391,13 +391,13 @@ public class TileEntityApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "application/xml"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "application/json", "application/xml"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -419,7 +419,7 @@ public class TileEntityApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTileEntityValidateBeforeCall(String worldUuid, String x, String y, String z, String fields, String methods, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTileEntityValidateBeforeCall(String worldUuid, Integer x, Integer y, Integer z, String fields, String methods, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'worldUuid' is set
         if (worldUuid == null) {
@@ -463,7 +463,7 @@ public class TileEntityApi {
      * @return TileEntityResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TileEntityResponse getTileEntity(String worldUuid, String x, String y, String z, String fields, String methods) throws ApiException {
+    public TileEntityResponse getTileEntity(String worldUuid, Integer x, Integer y, Integer z, String fields, String methods) throws ApiException {
         ApiResponse<TileEntityResponse> resp = getTileEntityWithHttpInfo(worldUuid, x, y, z, fields, methods);
         return resp.getData();
     }
@@ -480,7 +480,7 @@ public class TileEntityApi {
      * @return ApiResponse&lt;TileEntityResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<TileEntityResponse> getTileEntityWithHttpInfo(String worldUuid, String x, String y, String z, String fields, String methods) throws ApiException {
+    public ApiResponse<TileEntityResponse> getTileEntityWithHttpInfo(String worldUuid, Integer x, Integer y, Integer z, String fields, String methods) throws ApiException {
         com.squareup.okhttp.Call call = getTileEntityValidateBeforeCall(worldUuid, x, y, z, fields, methods, null, null);
         Type localVarReturnType = new TypeToken<TileEntityResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -499,7 +499,7 @@ public class TileEntityApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTileEntityAsync(String worldUuid, String x, String y, String z, String fields, String methods, final ApiCallback<TileEntityResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTileEntityAsync(String worldUuid, Integer x, Integer y, Integer z, String fields, String methods, final ApiCallback<TileEntityResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

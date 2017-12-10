@@ -41,8 +41,8 @@ queryKey.setApiKey("YOUR API KEY");
 
 ChunkApi apiInstance = new ChunkApi();
 String uuid = "uuid_example"; // String | The uuid of the world.
-String x = "x_example"; // String | The x-coordinate of the chunk.
-String z = "z_example"; // String | The z-coordinate of the chunk.
+Integer x = 56; // Integer | The x-coordinate of the chunk.
+Integer z = 56; // Integer | The z-coordinate of the chunk.
 try {
     ChunkResponse result = apiInstance.getChunk(uuid, x, z);
     System.out.println(result);
@@ -57,8 +57,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uuid** | **String**| The uuid of the world. |
- **x** | **String**| The x-coordinate of the chunk. |
- **z** | **String**| The z-coordinate of the chunk. |
+ **x** | **Integer**| The x-coordinate of the chunk. |
+ **z** | **Integer**| The z-coordinate of the chunk. |
 
 ### Return type
 
@@ -70,8 +70,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 <a name="getChunks"></a>
 # **getChunks**
@@ -131,6 +131,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 

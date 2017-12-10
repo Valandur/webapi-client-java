@@ -29,7 +29,7 @@ import java.io.IOException;
  * Describes a location in a world.
  */
 @ApiModel(description = "Describes a location in a world.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-09T21:04:49.224+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-10T13:08:53.752+01:00")
 public class Location {
   @SerializedName("world")
   private World world = null;

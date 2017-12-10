@@ -27,13 +27,13 @@ import java.io.IOException;
 /**
  * NucleusJailResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-09T21:04:49.224+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-10T13:08:53.752+01:00")
 public class NucleusJailResponse {
   @SerializedName("ok")
   private Boolean ok = null;
 
-  @SerializedName("nation")
-  private NucleusJailFull nation = null;
+  @SerializedName("jail")
+  private NucleusJailFull jail = null;
 
   public NucleusJailResponse ok(Boolean ok) {
     this.ok = ok;
@@ -53,22 +53,22 @@ public class NucleusJailResponse {
     this.ok = ok;
   }
 
-  public NucleusJailResponse nation(NucleusJailFull nation) {
-    this.nation = nation;
+  public NucleusJailResponse jail(NucleusJailFull jail) {
+    this.jail = jail;
     return this;
   }
 
    /**
-   * Get nation
-   * @return nation
+   * Get jail
+   * @return jail
   **/
   @ApiModelProperty(value = "")
-  public NucleusJailFull getNation() {
-    return nation;
+  public NucleusJailFull getJail() {
+    return jail;
   }
 
-  public void setNation(NucleusJailFull nation) {
-    this.nation = nation;
+  public void setJail(NucleusJailFull jail) {
+    this.jail = jail;
   }
 
 
@@ -82,12 +82,12 @@ public class NucleusJailResponse {
     }
     NucleusJailResponse nucleusJailResponse = (NucleusJailResponse) o;
     return Objects.equals(this.ok, nucleusJailResponse.ok) &&
-        Objects.equals(this.nation, nucleusJailResponse.nation);
+        Objects.equals(this.jail, nucleusJailResponse.jail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ok, nation);
+    return Objects.hash(ok, jail);
   }
 
 
@@ -97,7 +97,7 @@ public class NucleusJailResponse {
     sb.append("class NucleusJailResponse {\n");
     
     sb.append("    ok: ").append(toIndentedString(ok)).append("\n");
-    sb.append("    nation: ").append(toIndentedString(nation)).append("\n");
+    sb.append("    jail: ").append(toIndentedString(jail)).append("\n");
     sb.append("}");
     return sb.toString();
   }

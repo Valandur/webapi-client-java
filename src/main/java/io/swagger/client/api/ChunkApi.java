@@ -66,7 +66,7 @@ public class ChunkApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getChunkCall(String uuid, String x, String z, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getChunkCall(String uuid, Integer x, Integer z, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -82,13 +82,13 @@ public class ChunkApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "application/xml"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "application/json", "application/xml"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -110,7 +110,7 @@ public class ChunkApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getChunkValidateBeforeCall(String uuid, String x, String z, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getChunkValidateBeforeCall(String uuid, Integer x, Integer z, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
@@ -146,7 +146,7 @@ public class ChunkApi {
      * @return ChunkResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ChunkResponse getChunk(String uuid, String x, String z) throws ApiException {
+    public ChunkResponse getChunk(String uuid, Integer x, Integer z) throws ApiException {
         ApiResponse<ChunkResponse> resp = getChunkWithHttpInfo(uuid, x, z);
         return resp.getData();
     }
@@ -160,7 +160,7 @@ public class ChunkApi {
      * @return ApiResponse&lt;ChunkResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ChunkResponse> getChunkWithHttpInfo(String uuid, String x, String z) throws ApiException {
+    public ApiResponse<ChunkResponse> getChunkWithHttpInfo(String uuid, Integer x, Integer z) throws ApiException {
         com.squareup.okhttp.Call call = getChunkValidateBeforeCall(uuid, x, z, null, null);
         Type localVarReturnType = new TypeToken<ChunkResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -176,7 +176,7 @@ public class ChunkApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getChunkAsync(String uuid, String x, String z, final ApiCallback<ChunkResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getChunkAsync(String uuid, Integer x, Integer z, final ApiCallback<ChunkResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -224,13 +224,13 @@ public class ChunkApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "application/xml"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "application/json", "application/xml"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
