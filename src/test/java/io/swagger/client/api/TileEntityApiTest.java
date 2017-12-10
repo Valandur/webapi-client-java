@@ -47,9 +47,9 @@ public class TileEntityApiTest {
     @Test
     public void executeTileEntityMethodTest() throws ApiException {
         String worldUuid = null;
-        String x = null;
-        String y = null;
-        String z = null;
+        Integer x = null;
+        Integer y = null;
+        Integer z = null;
         RawRequest request = null;
         ExecuteTileEntityMethodResponse response = api.executeTileEntityMethod(worldUuid, x, y, z, request);
 
@@ -85,9 +85,9 @@ public class TileEntityApiTest {
     @Test
     public void getTileEntityTest() throws ApiException {
         String worldUuid = null;
-        String x = null;
-        String y = null;
-        String z = null;
+        Integer x = null;
+        Integer y = null;
+        Integer z = null;
         String fields = null;
         String methods = null;
         TileEntityResponse response = api.getTileEntity(worldUuid, x, y, z, fields, methods);

@@ -81,9 +81,9 @@ public class BlockApiTest {
     @Test
     public void getBlockTest() throws ApiException {
         String world = null;
-        String x = null;
-        String y = null;
-        String z = null;
+        Integer x = null;
+        Integer y = null;
+        Integer z = null;
         SingleBlock response = api.getBlock(world, x, y, z);
 
         // TODO: test validations

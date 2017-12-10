@@ -70,8 +70,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 <a name="changeBlockOperation"></a>
 # **changeBlockOperation**
@@ -133,8 +133,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 <a name="getBlock"></a>
 # **getBlock**
@@ -169,9 +169,9 @@ queryKey.setApiKey("YOUR API KEY");
 
 BlockApi apiInstance = new BlockApi();
 String world = "world_example"; // String | The uuid of the world the block is in.
-String x = "x_example"; // String | The x-coordinate of the block.
-String y = "y_example"; // String | The y-coordinate of the block.
-String z = "z_example"; // String | The z-coordinate of the block.
+Integer x = 56; // Integer | The x-coordinate of the block.
+Integer y = 56; // Integer | The y-coordinate of the block.
+Integer z = 56; // Integer | The z-coordinate of the block.
 try {
     SingleBlock result = apiInstance.getBlock(world, x, y, z);
     System.out.println(result);
@@ -186,9 +186,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **world** | **String**| The uuid of the world the block is in. |
- **x** | **String**| The x-coordinate of the block. |
- **y** | **String**| The y-coordinate of the block. |
- **z** | **String**| The z-coordinate of the block. |
+ **x** | **Integer**| The x-coordinate of the block. |
+ **y** | **Integer**| The y-coordinate of the block. |
+ **z** | **Integer**| The z-coordinate of the block. |
 
 ### Return type
 
@@ -200,8 +200,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 <a name="getBlockOperation"></a>
 # **getBlockOperation**
@@ -261,8 +261,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 <a name="getBlockOperations"></a>
 # **getBlockOperations**
@@ -318,8 +318,8 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 <a name="startBlockOperation"></a>
 # **startBlockOperation**
@@ -379,6 +379,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 

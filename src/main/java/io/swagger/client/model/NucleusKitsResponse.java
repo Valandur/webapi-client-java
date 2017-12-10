@@ -29,13 +29,13 @@ import java.util.List;
 /**
  * NucleusKitsResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-09T21:04:49.224+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-10T13:08:53.752+01:00")
 public class NucleusKitsResponse {
   @SerializedName("ok")
   private Boolean ok = null;
 
-  @SerializedName("nations")
-  private List<NucleusKit> nations = null;
+  @SerializedName("kits")
+  private List<NucleusKit> kits = null;
 
   public NucleusKitsResponse ok(Boolean ok) {
     this.ok = ok;
@@ -55,30 +55,30 @@ public class NucleusKitsResponse {
     this.ok = ok;
   }
 
-  public NucleusKitsResponse nations(List<NucleusKit> nations) {
-    this.nations = nations;
+  public NucleusKitsResponse kits(List<NucleusKit> kits) {
+    this.kits = kits;
     return this;
   }
 
-  public NucleusKitsResponse addNationsItem(NucleusKit nationsItem) {
-    if (this.nations == null) {
-      this.nations = new ArrayList<NucleusKit>();
+  public NucleusKitsResponse addKitsItem(NucleusKit kitsItem) {
+    if (this.kits == null) {
+      this.kits = new ArrayList<NucleusKit>();
     }
-    this.nations.add(nationsItem);
+    this.kits.add(kitsItem);
     return this;
   }
 
    /**
    * A list of jails.
-   * @return nations
+   * @return kits
   **/
   @ApiModelProperty(value = "A list of jails.")
-  public List<NucleusKit> getNations() {
-    return nations;
+  public List<NucleusKit> getKits() {
+    return kits;
   }
 
-  public void setNations(List<NucleusKit> nations) {
-    this.nations = nations;
+  public void setKits(List<NucleusKit> kits) {
+    this.kits = kits;
   }
 
 
@@ -92,12 +92,12 @@ public class NucleusKitsResponse {
     }
     NucleusKitsResponse nucleusKitsResponse = (NucleusKitsResponse) o;
     return Objects.equals(this.ok, nucleusKitsResponse.ok) &&
-        Objects.equals(this.nations, nucleusKitsResponse.nations);
+        Objects.equals(this.kits, nucleusKitsResponse.kits);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ok, nations);
+    return Objects.hash(ok, kits);
   }
 
 
@@ -107,7 +107,7 @@ public class NucleusKitsResponse {
     sb.append("class NucleusKitsResponse {\n");
     
     sb.append("    ok: ").append(toIndentedString(ok)).append("\n");
-    sb.append("    nations: ").append(toIndentedString(nations)).append("\n");
+    sb.append("    kits: ").append(toIndentedString(kits)).append("\n");
     sb.append("}");
     return sb.toString();
   }

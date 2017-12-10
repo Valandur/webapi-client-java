@@ -128,6 +128,8 @@ Class | Method | HTTP request | Description
 *MMCTicketsApi* | [**changeTicket**](docs/MMCTicketsApi.md#changeTicket) | **PUT** /mmctickets/ticket/{id} | Edit ticket
 *MMCTicketsApi* | [**getTicket**](docs/MMCTicketsApi.md#getTicket) | **GET** /mmctickets/ticket/{id} | Detailed ticket info
 *MMCTicketsApi* | [**getTickets**](docs/MMCTicketsApi.md#getTickets) | **GET** /mmctickets/ticket | Ticket list
+*MessageApi* | [**getMessage**](docs/MessageApi.md#getMessage) | **GET** /message/{uuid} | Detailed message info
+*MessageApi* | [**getMessages**](docs/MessageApi.md#getMessages) | **GET** /message | Message list
 *MessageApi* | [**sendMessage**](docs/MessageApi.md#sendMessage) | **POST** /message | Send an interactive message
 *NationsApi* | [**getNation**](docs/NationsApi.md#getNation) | **GET** /nations/nation/{id} | Detailed nation info
 *NationsApi* | [**getNations**](docs/NationsApi.md#getNations) | **GET** /nations/nation | Nations list
@@ -207,8 +209,11 @@ Class | Method | HTTP request | Description
  - [MMCTicketsTicketResponse](docs/MMCTicketsTicketResponse.md)
  - [MMCTicketsTicketsResponse](docs/MMCTicketsTicketsResponse.md)
  - [MMCUpdateTicketRequest](docs/MMCUpdateTicketRequest.md)
+ - [Message](docs/Message.md)
+ - [MessageOption](docs/MessageOption.md)
  - [MessageRequest](docs/MessageRequest.md)
  - [MessageResponse](docs/MessageResponse.md)
+ - [MessagesResponse](docs/MessagesResponse.md)
  - [NationsNation](docs/NationsNation.md)
  - [NationsNationResponse](docs/NationsNationResponse.md)
  - [NationsNationsResponse](docs/NationsNationsResponse.md)
@@ -262,6 +267,7 @@ Class | Method | HTTP request | Description
  - [EntityFull](docs/EntityFull.md)
  - [HuskyCrateFull](docs/HuskyCrateFull.md)
  - [MMCTicketFull](docs/MMCTicketFull.md)
+ - [MessageFull](docs/MessageFull.md)
  - [NationsNationFull](docs/NationsNationFull.md)
  - [NucleusKitFull](docs/NucleusKitFull.md)
  - [PlayerFull](docs/PlayerFull.md)

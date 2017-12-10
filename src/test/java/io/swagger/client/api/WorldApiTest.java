@@ -117,8 +117,8 @@ public class WorldApiTest {
     @Test
     public void getChunkTest() throws ApiException {
         String uuid = null;
-        String x = null;
-        String z = null;
+        Integer x = null;
+        Integer z = null;
         ChunkResponse response = api.getChunk(uuid, x, z);
 
         // TODO: test validations

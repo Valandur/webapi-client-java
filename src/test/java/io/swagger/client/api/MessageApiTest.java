@@ -17,6 +17,7 @@ import io.swagger.client.ApiException;
 import io.swagger.client.model.InlineResponse400;
 import io.swagger.client.model.MessageRequest;
 import io.swagger.client.model.MessageResponse;
+import io.swagger.client.model.MessagesResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -33,6 +34,38 @@ public class MessageApiTest {
 
     private final MessageApi api = new MessageApi();
 
+    
+    /**
+     * Detailed message info
+     *
+     * Get detailed information about a message.  &gt; Required permission: message.one 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getMessageTest() throws ApiException {
+        String uuid = null;
+        api.getMessage(uuid);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Message list
+     *
+     * Get a list of all the messages that were sent through the message endpoint since the server started.  &gt; Required permission: message.list 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getMessagesTest() throws ApiException {
+        String details = null;
+        MessagesResponse response = api.getMessages(details);
+
+        // TODO: test validations
+    }
     
     /**
      * Send an interactive message
