@@ -21,96 +21,106 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.Player;
+import io.swagger.client.model.WebBook;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * NationsNation
+ * WebBookFull
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-10T13:08:53.752+01:00")
-public class NationsNation {
-  @SerializedName("uuid")
-  private String uuid = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-17T22:13:43.947+01:00")
+public class WebBookFull {
+  @SerializedName("id")
+  private String id = null;
 
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("title")
+  private String title = null;
 
-  @SerializedName("tag")
-  private String tag = null;
+  @SerializedName("lines")
+  private List<String> lines = null;
 
-  @SerializedName("president")
-  private Player president = null;
+  @SerializedName("html")
+  private String html = null;
 
-  public NationsNation uuid(String uuid) {
-    this.uuid = uuid;
+  public WebBookFull id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * The unique id of the nation.
-   * @return uuid
+   * The id of the web books.
+   * @return id
   **/
-  @ApiModelProperty(value = "The unique id of the nation.")
-  public String getUuid() {
-    return uuid;
+  @ApiModelProperty(value = "The id of the web books.")
+  public String getId() {
+    return id;
   }
 
-  public void setUuid(String uuid) {
-    this.uuid = uuid;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public NationsNation name(String name) {
-    this.name = name;
+  public WebBookFull title(String title) {
+    this.title = title;
     return this;
   }
 
    /**
-   * The name of the nation.
-   * @return name
+   * The title of the web book.
+   * @return title
   **/
-  @ApiModelProperty(value = "The name of the nation.")
-  public String getName() {
-    return name;
+  @ApiModelProperty(value = "The title of the web book.")
+  public String getTitle() {
+    return title;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
-  public NationsNation tag(String tag) {
-    this.tag = tag;
+  public WebBookFull lines(List<String> lines) {
+    this.lines = lines;
+    return this;
+  }
+
+  public WebBookFull addLinesItem(String linesItem) {
+    if (this.lines == null) {
+      this.lines = new ArrayList<String>();
+    }
+    this.lines.add(linesItem);
     return this;
   }
 
    /**
-   * The tag of the nation.
-   * @return tag
+   * The lines of text in the web book.
+   * @return lines
   **/
-  @ApiModelProperty(value = "The tag of the nation.")
-  public String getTag() {
-    return tag;
+  @ApiModelProperty(value = "The lines of text in the web book.")
+  public List<String> getLines() {
+    return lines;
   }
 
-  public void setTag(String tag) {
-    this.tag = tag;
+  public void setLines(List<String> lines) {
+    this.lines = lines;
   }
 
-  public NationsNation president(Player president) {
-    this.president = president;
+  public WebBookFull html(String html) {
+    this.html = html;
     return this;
   }
 
    /**
-   * Get president
-   * @return president
+   * The html content of the book.
+   * @return html
   **/
-  @ApiModelProperty(value = "")
-  public Player getPresident() {
-    return president;
+  @ApiModelProperty(value = "The html content of the book.")
+  public String getHtml() {
+    return html;
   }
 
-  public void setPresident(Player president) {
-    this.president = president;
+  public void setHtml(String html) {
+    this.html = html;
   }
 
 
@@ -122,28 +132,28 @@ public class NationsNation {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NationsNation nationsNation = (NationsNation) o;
-    return Objects.equals(this.uuid, nationsNation.uuid) &&
-        Objects.equals(this.name, nationsNation.name) &&
-        Objects.equals(this.tag, nationsNation.tag) &&
-        Objects.equals(this.president, nationsNation.president);
+    WebBookFull webBookFull = (WebBookFull) o;
+    return Objects.equals(this.id, webBookFull.id) &&
+        Objects.equals(this.title, webBookFull.title) &&
+        Objects.equals(this.lines, webBookFull.lines) &&
+        Objects.equals(this.html, webBookFull.html);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, name, tag, president);
+    return Objects.hash(id, title, lines, html);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NationsNation {\n");
+    sb.append("class WebBookFull {\n");
     
-    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
-    sb.append("    president: ").append(toIndentedString(president)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    lines: ").append(toIndentedString(lines)).append("\n");
+    sb.append("    html: ").append(toIndentedString(html)).append("\n");
     sb.append("}");
     return sb.toString();
   }

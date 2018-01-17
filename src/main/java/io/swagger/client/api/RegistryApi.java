@@ -28,7 +28,7 @@ import java.io.IOException;
 
 
 import io.swagger.client.model.CatalogTypesResponse;
-import io.swagger.client.model.InlineResponse400;
+import io.swagger.client.model.Error400;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

@@ -27,8 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.swagger.client.model.Error400;
 import io.swagger.client.model.ExecutePlayerMethodResponse;
-import io.swagger.client.model.InlineResponse400;
 import io.swagger.client.model.PlayerResponse;
 import io.swagger.client.model.PlayersList;
 import io.swagger.client.model.RawRequest;

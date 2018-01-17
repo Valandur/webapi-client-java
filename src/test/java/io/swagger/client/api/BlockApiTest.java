@@ -18,7 +18,7 @@ import io.swagger.client.model.BlockOperationNew;
 import io.swagger.client.model.BlockOperationResponse;
 import io.swagger.client.model.BlockOperationsList;
 import io.swagger.client.model.Data;
-import io.swagger.client.model.InlineResponse400;
+import io.swagger.client.model.Error400;
 import io.swagger.client.model.SingleBlock;
 import org.junit.Test;
 import org.junit.Ignore;

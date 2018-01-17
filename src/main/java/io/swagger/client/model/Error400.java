@@ -21,54 +21,32 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.NationsNationFull;
 import java.io.IOException;
 
 /**
- * NationsNationResponse
+ * Error400
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-10T13:08:53.752+01:00")
-public class NationsNationResponse {
-  @SerializedName("ok")
-  private Boolean ok = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-17T22:13:43.947+01:00")
+public class Error400 {
+  @SerializedName("error")
+  private String error = null;
 
-  @SerializedName("nation")
-  private NationsNationFull nation = null;
-
-  public NationsNationResponse ok(Boolean ok) {
-    this.ok = ok;
+  public Error400 error(String error) {
+    this.error = error;
     return this;
   }
 
    /**
-   * Get ok
-   * @return ok
+   * A description of the type of error that occured.
+   * @return error
   **/
-  @ApiModelProperty(value = "")
-  public Boolean getOk() {
-    return ok;
+  @ApiModelProperty(value = "A description of the type of error that occured.")
+  public String getError() {
+    return error;
   }
 
-  public void setOk(Boolean ok) {
-    this.ok = ok;
-  }
-
-  public NationsNationResponse nation(NationsNationFull nation) {
-    this.nation = nation;
-    return this;
-  }
-
-   /**
-   * Get nation
-   * @return nation
-  **/
-  @ApiModelProperty(value = "")
-  public NationsNationFull getNation() {
-    return nation;
-  }
-
-  public void setNation(NationsNationFull nation) {
-    this.nation = nation;
+  public void setError(String error) {
+    this.error = error;
   }
 
 
@@ -80,24 +58,22 @@ public class NationsNationResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NationsNationResponse nationsNationResponse = (NationsNationResponse) o;
-    return Objects.equals(this.ok, nationsNationResponse.ok) &&
-        Objects.equals(this.nation, nationsNationResponse.nation);
+    Error400 error400 = (Error400) o;
+    return Objects.equals(this.error, error400.error);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ok, nation);
+    return Objects.hash(error);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NationsNationResponse {\n");
+    sb.append("class Error400 {\n");
     
-    sb.append("    ok: ").append(toIndentedString(ok)).append("\n");
-    sb.append("    nation: ").append(toIndentedString(nation)).append("\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("}");
     return sb.toString();
   }

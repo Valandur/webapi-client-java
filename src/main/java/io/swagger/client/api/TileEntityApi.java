@@ -27,8 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.swagger.client.model.Error400;
 import io.swagger.client.model.ExecuteTileEntityMethodResponse;
-import io.swagger.client.model.InlineResponse400;
 import io.swagger.client.model.RawRequest;
 import io.swagger.client.model.TileEntitiesResponse;
 import io.swagger.client.model.TileEntityResponse;

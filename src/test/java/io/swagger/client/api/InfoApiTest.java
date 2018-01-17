@@ -14,7 +14,9 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
-import io.swagger.client.model.InlineResponse400;
+import io.swagger.client.model.Error400;
+import io.swagger.client.model.ServerPropertiesList;
+import io.swagger.client.model.StatsResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -43,6 +45,36 @@ public class InfoApiTest {
     @Test
     public void getInfoTest() throws ApiException {
         Object response = api.getInfo();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Server properties
+     *
+     * Get the main server properties (server.properties file)  &gt; Required permission: properties.list 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getServerPropertiesTest() throws ApiException {
+        ServerPropertiesList response = api.getServerProperties();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Server stats
+     *
+     * Get statistical information about the server, such as player count, cpu and memory usage over time.  &gt; Required permission: info.stats 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getStatsTest() throws ApiException {
+        StatsResponse response = api.getStats();
 
         // TODO: test validations
     }

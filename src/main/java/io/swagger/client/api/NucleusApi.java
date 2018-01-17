@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.swagger.client.model.InlineResponse400;
+import io.swagger.client.model.Error400;
 import io.swagger.client.model.NucleusJailResponse;
 import io.swagger.client.model.NucleusJailsResponse;
 import io.swagger.client.model.NucleusKitResponse;

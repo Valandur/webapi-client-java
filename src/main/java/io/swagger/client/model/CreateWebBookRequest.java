@@ -21,64 +21,84 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.NationsNation;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * NationsNationsResponse
+ * CreateWebBookRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-10T13:08:53.752+01:00")
-public class NationsNationsResponse {
-  @SerializedName("ok")
-  private Boolean ok = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-17T22:13:43.947+01:00")
+public class CreateWebBookRequest {
+  @SerializedName("id")
+  private String id = null;
 
-  @SerializedName("nations")
-  private List<NationsNation> nations = null;
+  @SerializedName("title")
+  private String title = null;
 
-  public NationsNationsResponse ok(Boolean ok) {
-    this.ok = ok;
+  @SerializedName("lines")
+  private List<String> lines = null;
+
+  public CreateWebBookRequest id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get ok
-   * @return ok
+   * The unique id of the web book.
+   * @return id
   **/
-  @ApiModelProperty(value = "")
-  public Boolean getOk() {
-    return ok;
+  @ApiModelProperty(value = "The unique id of the web book.")
+  public String getId() {
+    return id;
   }
 
-  public void setOk(Boolean ok) {
-    this.ok = ok;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public NationsNationsResponse nations(List<NationsNation> nations) {
-    this.nations = nations;
+  public CreateWebBookRequest title(String title) {
+    this.title = title;
     return this;
   }
 
-  public NationsNationsResponse addNationsItem(NationsNation nationsItem) {
-    if (this.nations == null) {
-      this.nations = new ArrayList<NationsNation>();
+   /**
+   * The title of the web book.
+   * @return title
+  **/
+  @ApiModelProperty(value = "The title of the web book.")
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public CreateWebBookRequest lines(List<String> lines) {
+    this.lines = lines;
+    return this;
+  }
+
+  public CreateWebBookRequest addLinesItem(String linesItem) {
+    if (this.lines == null) {
+      this.lines = new ArrayList<String>();
     }
-    this.nations.add(nationsItem);
+    this.lines.add(linesItem);
     return this;
   }
 
    /**
-   * A list of nations.
-   * @return nations
+   * The lines that make up the content of the book.
+   * @return lines
   **/
-  @ApiModelProperty(value = "A list of nations.")
-  public List<NationsNation> getNations() {
-    return nations;
+  @ApiModelProperty(value = "The lines that make up the content of the book.")
+  public List<String> getLines() {
+    return lines;
   }
 
-  public void setNations(List<NationsNation> nations) {
-    this.nations = nations;
+  public void setLines(List<String> lines) {
+    this.lines = lines;
   }
 
 
@@ -90,24 +110,26 @@ public class NationsNationsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NationsNationsResponse nationsNationsResponse = (NationsNationsResponse) o;
-    return Objects.equals(this.ok, nationsNationsResponse.ok) &&
-        Objects.equals(this.nations, nationsNationsResponse.nations);
+    CreateWebBookRequest createWebBookRequest = (CreateWebBookRequest) o;
+    return Objects.equals(this.id, createWebBookRequest.id) &&
+        Objects.equals(this.title, createWebBookRequest.title) &&
+        Objects.equals(this.lines, createWebBookRequest.lines);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ok, nations);
+    return Objects.hash(id, title, lines);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NationsNationsResponse {\n");
+    sb.append("class CreateWebBookRequest {\n");
     
-    sb.append("    ok: ").append(toIndentedString(ok)).append("\n");
-    sb.append("    nations: ").append(toIndentedString(nations)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    lines: ").append(toIndentedString(lines)).append("\n");
     sb.append("}");
     return sb.toString();
   }

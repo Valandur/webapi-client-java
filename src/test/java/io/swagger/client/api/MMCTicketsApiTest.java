@@ -14,7 +14,7 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
-import io.swagger.client.model.InlineResponse400;
+import io.swagger.client.model.Error400;
 import io.swagger.client.model.MMCTicketsTicketResponse;
 import io.swagger.client.model.MMCTicketsTicketsResponse;
 import io.swagger.client.model.MMCUpdateTicketRequest;
