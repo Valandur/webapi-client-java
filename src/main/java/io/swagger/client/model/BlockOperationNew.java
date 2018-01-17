@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * BlockOperationNew
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-10T13:08:53.752+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-17T22:13:43.947+01:00")
 public class BlockOperationNew {
   /**
    * The type of action to perform. &#x60;GET&#x60; to fetch world blocks, &#x60;UPDATE&#x60; to change world blocks.

@@ -27,7 +27,7 @@ import java.io.IOException;
  * Describes something that has an id and a name.
  */
 @ApiModel(description = "Describes something that has an id and a name.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-10T13:08:53.752+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-17T22:13:43.947+01:00")
 public class CatalogType {
   @SerializedName("id")
   private String id = null;

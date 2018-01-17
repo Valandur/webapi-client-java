@@ -18,7 +18,7 @@ import io.swagger.client.model.CreateEntityRequest;
 import io.swagger.client.model.EntitiesList;
 import io.swagger.client.model.EntityMethodResult;
 import io.swagger.client.model.EntityResponse;
-import io.swagger.client.model.InlineResponse400;
+import io.swagger.client.model.Error400;
 import io.swagger.client.model.RawRequest;
 import io.swagger.client.model.UpdateEntityRequest;
 import org.junit.Test;

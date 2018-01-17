@@ -21,32 +21,64 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.Property;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * InlineResponse400
+ * ServerPropertiesList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-10T13:08:53.752+01:00")
-public class InlineResponse400 {
-  @SerializedName("error")
-  private String error = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-17T22:13:43.947+01:00")
+public class ServerPropertiesList {
+  @SerializedName("ok")
+  private Boolean ok = null;
 
-  public InlineResponse400 error(String error) {
-    this.error = error;
+  @SerializedName("properties")
+  private List<Property> properties = null;
+
+  public ServerPropertiesList ok(Boolean ok) {
+    this.ok = ok;
     return this;
   }
 
    /**
-   * A description of the type of error that occured.
-   * @return error
+   * Get ok
+   * @return ok
   **/
-  @ApiModelProperty(value = "A description of the type of error that occured.")
-  public String getError() {
-    return error;
+  @ApiModelProperty(value = "")
+  public Boolean getOk() {
+    return ok;
   }
 
-  public void setError(String error) {
-    this.error = error;
+  public void setOk(Boolean ok) {
+    this.ok = ok;
+  }
+
+  public ServerPropertiesList properties(List<Property> properties) {
+    this.properties = properties;
+    return this;
+  }
+
+  public ServerPropertiesList addPropertiesItem(Property propertiesItem) {
+    if (this.properties == null) {
+      this.properties = new ArrayList<Property>();
+    }
+    this.properties.add(propertiesItem);
+    return this;
+  }
+
+   /**
+   * A list of server properties.
+   * @return properties
+  **/
+  @ApiModelProperty(value = "A list of server properties.")
+  public List<Property> getProperties() {
+    return properties;
+  }
+
+  public void setProperties(List<Property> properties) {
+    this.properties = properties;
   }
 
 
@@ -58,22 +90,24 @@ public class InlineResponse400 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse400 inlineResponse400 = (InlineResponse400) o;
-    return Objects.equals(this.error, inlineResponse400.error);
+    ServerPropertiesList serverPropertiesList = (ServerPropertiesList) o;
+    return Objects.equals(this.ok, serverPropertiesList.ok) &&
+        Objects.equals(this.properties, serverPropertiesList.properties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error);
+    return Objects.hash(ok, properties);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse400 {\n");
+    sb.append("class ServerPropertiesList {\n");
     
-    sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    ok: ").append(toIndentedString(ok)).append("\n");
+    sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("}");
     return sb.toString();
   }

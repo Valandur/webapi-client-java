@@ -1,11 +1,11 @@
 
-# NationsNationResponse
+# WebBooksResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ok** | **Boolean** |  |  [optional]
-**nation** | [**NationsNationFull**](NationsNationFull.md) |  |  [optional]
+**crates** | [**List&lt;WebBook&gt;**](WebBook.md) | A list of web books. |  [optional]
 
 
 

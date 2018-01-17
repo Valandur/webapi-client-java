@@ -30,8 +30,8 @@ import java.io.IOException;
 import io.swagger.client.model.CommandRequest;
 import io.swagger.client.model.CommandResponse1;
 import io.swagger.client.model.CommandsResponse;
+import io.swagger.client.model.Error400;
 import io.swagger.client.model.ExecuteCommandResponse;
-import io.swagger.client.model.InlineResponse400;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

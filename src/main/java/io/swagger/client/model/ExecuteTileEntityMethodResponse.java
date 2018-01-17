@@ -22,19 +22,19 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.RawResponse;
-import io.swagger.client.model.TileEntity;
+import io.swagger.client.model.TileEntityFull;
 import java.io.IOException;
 
 /**
  * ExecuteTileEntityMethodResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-10T13:08:53.752+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-17T22:13:43.947+01:00")
 public class ExecuteTileEntityMethodResponse {
   @SerializedName("ok")
   private Boolean ok = null;
 
   @SerializedName("tileEntity")
-  private TileEntity tileEntity = null;
+  private TileEntityFull tileEntity = null;
 
   @SerializedName("result")
   private RawResponse result = null;
@@ -57,7 +57,7 @@ public class ExecuteTileEntityMethodResponse {
     this.ok = ok;
   }
 
-  public ExecuteTileEntityMethodResponse tileEntity(TileEntity tileEntity) {
+  public ExecuteTileEntityMethodResponse tileEntity(TileEntityFull tileEntity) {
     this.tileEntity = tileEntity;
     return this;
   }
@@ -67,11 +67,11 @@ public class ExecuteTileEntityMethodResponse {
    * @return tileEntity
   **/
   @ApiModelProperty(value = "")
-  public TileEntity getTileEntity() {
+  public TileEntityFull getTileEntity() {
     return tileEntity;
   }
 
-  public void setTileEntity(TileEntity tileEntity) {
+  public void setTileEntity(TileEntityFull tileEntity) {
     this.tileEntity = tileEntity;
   }
 

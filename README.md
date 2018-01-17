@@ -125,14 +125,14 @@ Class | Method | HTTP request | Description
 *HuskyCratesApi* | [**getCrate**](docs/HuskyCratesApi.md#getCrate) | **GET** /husky/crate/{id} | Detailed crate info
 *HuskyCratesApi* | [**getCrates**](docs/HuskyCratesApi.md#getCrates) | **GET** /husky/crate | Crate list
 *InfoApi* | [**getInfo**](docs/InfoApi.md#getInfo) | **GET** /info | Server info
+*InfoApi* | [**getServerProperties**](docs/InfoApi.md#getServerProperties) | **GET** /info/properties | Server properties
+*InfoApi* | [**getStats**](docs/InfoApi.md#getStats) | **GET** /info/stats | Server stats
 *MMCTicketsApi* | [**changeTicket**](docs/MMCTicketsApi.md#changeTicket) | **PUT** /mmctickets/ticket/{id} | Edit ticket
 *MMCTicketsApi* | [**getTicket**](docs/MMCTicketsApi.md#getTicket) | **GET** /mmctickets/ticket/{id} | Detailed ticket info
 *MMCTicketsApi* | [**getTickets**](docs/MMCTicketsApi.md#getTickets) | **GET** /mmctickets/ticket | Ticket list
 *MessageApi* | [**getMessage**](docs/MessageApi.md#getMessage) | **GET** /message/{uuid} | Detailed message info
 *MessageApi* | [**getMessages**](docs/MessageApi.md#getMessages) | **GET** /message | Message list
 *MessageApi* | [**sendMessage**](docs/MessageApi.md#sendMessage) | **POST** /message | Send an interactive message
-*NationsApi* | [**getNation**](docs/NationsApi.md#getNation) | **GET** /nations/nation/{id} | Detailed nation info
-*NationsApi* | [**getNations**](docs/NationsApi.md#getNations) | **GET** /nations/nation | Nations list
 *NucleusApi* | [**getJail**](docs/NucleusApi.md#getJail) | **GET** /nucleus/jail/{name} | Detailed jail info
 *NucleusApi* | [**getJails**](docs/NucleusApi.md#getJails) | **GET** /nucleus/jail | Jail list
 *NucleusApi* | [**getKit**](docs/NucleusApi.md#getKit) | **GET** /nucleus/kit/{name} | Detailed kit info
@@ -150,6 +150,12 @@ Class | Method | HTTP request | Description
 *TileEntityApi* | [**getTileEntity**](docs/TileEntityApi.md#getTileEntity) | **GET** /tile-entity/{worldUuid}/{x}/{y}/{z} | Detailed tile entity info
 *UserApi* | [**checkUser**](docs/UserApi.md#checkUser) | **GET** /user | Check a user key
 *UserApi* | [**login**](docs/UserApi.md#login) | **POST** /user | Login
+*WebBooksApi* | [**createBook**](docs/WebBooksApi.md#createBook) | **POST** /webbooks/book | Create web book
+*WebBooksApi* | [**deleteBook**](docs/WebBooksApi.md#deleteBook) | **DELETE** /webbooks/book/{id} | Delete a web book
+*WebBooksApi* | [**getBook**](docs/WebBooksApi.md#getBook) | **GET** /webbooks/book/{id} | Detailed web book info
+*WebBooksApi* | [**getBookHtml**](docs/WebBooksApi.md#getBookHtml) | **GET** /webbooks/book/{id}/html | Web Book HTML
+*WebBooksApi* | [**getBookHtmlPost**](docs/WebBooksApi.md#getBookHtmlPost) | **POST** /webbooks/book/{id}/html | Web Book HTML
+*WebBooksApi* | [**getBooks**](docs/WebBooksApi.md#getBooks) | **GET** /webbooks/book | Books list
 *WorldApi* | [**changeWorld**](docs/WorldApi.md#changeWorld) | **PUT** /world/{uuid} | Edit world
 *WorldApi* | [**createWorld**](docs/WorldApi.md#createWorld) | **POST** /world | Create a world
 *WorldApi* | [**deleteWorld**](docs/WorldApi.md#deleteWorld) | **DELETE** /world/{uuid} | Delete a world
@@ -183,6 +189,7 @@ Class | Method | HTTP request | Description
  - [CommandResult](docs/CommandResult.md)
  - [CommandsResponse](docs/CommandsResponse.md)
  - [CreateEntityRequest](docs/CreateEntityRequest.md)
+ - [CreateWebBookRequest](docs/CreateWebBookRequest.md)
  - [CreateWorldRequest](docs/CreateWorldRequest.md)
  - [DamageRequest](docs/DamageRequest.md)
  - [DamageRequest1](docs/DamageRequest1.md)
@@ -191,6 +198,7 @@ Class | Method | HTTP request | Description
  - [Entity](docs/Entity.md)
  - [EntityMethodResult](docs/EntityMethodResult.md)
  - [EntityResponse](docs/EntityResponse.md)
+ - [Error400](docs/Error400.md)
  - [ExecuteCommandResponse](docs/ExecuteCommandResponse.md)
  - [ExecutePlayerMethodResponse](docs/ExecutePlayerMethodResponse.md)
  - [ExecuteTileEntityMethodResponse](docs/ExecuteTileEntityMethodResponse.md)
@@ -199,7 +207,6 @@ Class | Method | HTTP request | Description
  - [HuskyCrateFullRewards](docs/HuskyCrateFullRewards.md)
  - [HuskyCrateResponse](docs/HuskyCrateResponse.md)
  - [HuskyCratesResponse](docs/HuskyCratesResponse.md)
- - [InlineResponse400](docs/InlineResponse400.md)
  - [Inventory](docs/Inventory.md)
  - [ItemStack](docs/ItemStack.md)
  - [Location](docs/Location.md)
@@ -214,11 +221,6 @@ Class | Method | HTTP request | Description
  - [MessageRequest](docs/MessageRequest.md)
  - [MessageResponse](docs/MessageResponse.md)
  - [MessagesResponse](docs/MessagesResponse.md)
- - [NationsNation](docs/NationsNation.md)
- - [NationsNationResponse](docs/NationsNationResponse.md)
- - [NationsNationsResponse](docs/NationsNationsResponse.md)
- - [NationsRect](docs/NationsRect.md)
- - [NationsZone](docs/NationsZone.md)
  - [NucleusJailFull](docs/NucleusJailFull.md)
  - [NucleusJailResponse](docs/NucleusJailResponse.md)
  - [NucleusJailsResponse](docs/NucleusJailsResponse.md)
@@ -238,13 +240,17 @@ Class | Method | HTTP request | Description
  - [Plugin](docs/Plugin.md)
  - [PluginResponse](docs/PluginResponse.md)
  - [PluginsResponse](docs/PluginsResponse.md)
+ - [Property](docs/Property.md)
  - [RawRequest](docs/RawRequest.md)
  - [RawRequestParam](docs/RawRequestParam.md)
  - [RawResponse](docs/RawResponse.md)
  - [ServerInfo](docs/ServerInfo.md)
  - [ServerInfoDetail](docs/ServerInfoDetail.md)
+ - [ServerPropertiesList](docs/ServerPropertiesList.md)
  - [ServletsResponse](docs/ServletsResponse.md)
  - [SingleBlock](docs/SingleBlock.md)
+ - [Stat](docs/Stat.md)
+ - [StatsResponse](docs/StatsResponse.md)
  - [TileEntitiesResponse](docs/TileEntitiesResponse.md)
  - [TileEntity](docs/TileEntity.md)
  - [TileEntityResponse](docs/TileEntityResponse.md)
@@ -254,6 +260,9 @@ Class | Method | HTTP request | Description
  - [User](docs/User.md)
  - [UserResponse](docs/UserResponse.md)
  - [Vector3](docs/Vector3.md)
+ - [WebBook](docs/WebBook.md)
+ - [WebBooksResponse](docs/WebBooksResponse.md)
+ - [WebBooksResponse1](docs/WebBooksResponse1.md)
  - [World](docs/World.md)
  - [WorldFullBorder](docs/WorldFullBorder.md)
  - [WorldFullDimension](docs/WorldFullDimension.md)
@@ -268,11 +277,11 @@ Class | Method | HTTP request | Description
  - [HuskyCrateFull](docs/HuskyCrateFull.md)
  - [MMCTicketFull](docs/MMCTicketFull.md)
  - [MessageFull](docs/MessageFull.md)
- - [NationsNationFull](docs/NationsNationFull.md)
  - [NucleusKitFull](docs/NucleusKitFull.md)
  - [PlayerFull](docs/PlayerFull.md)
  - [PluginFull](docs/PluginFull.md)
  - [TileEntityFull](docs/TileEntityFull.md)
+ - [WebBookFull](docs/WebBookFull.md)
  - [WorldFull](docs/WorldFull.md)
 
 
