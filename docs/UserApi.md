@@ -1,20 +1,21 @@
 # UserApi
 
-All URIs are relative to *http://&lt;host&gt;/api*
+All URIs are relative to *https://localhost/api/v5*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**checkUser**](UserApi.md#checkUser) | **GET** /user | Check a user key
+[**getUserDetails**](UserApi.md#getUserDetails) | **GET** /user | Check info
 [**login**](UserApi.md#login) | **POST** /user | Login
+[**logout**](UserApi.md#logout) | **POST** /user/logout | Logout
 
 
-<a name="checkUser"></a>
-# **checkUser**
-> UserResponse checkUser()
+<a name="getUserDetails"></a>
+# **getUserDetails**
+> PermissionStruct getUserDetails(details, accept, pretty)
 
-Check a user key
+Check info
 
-Checks to see if the passed api key is still valid. 
+Checks to see if the passed api key is still valid and retrieves the user info and permissions associated with this key     **Required permissions:**    - **user.user**   
 
 ### Example
 ```java
@@ -27,38 +28,46 @@ Checks to see if the passed api key is still valid.
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
+//ApiKeyHeader.setApiKeyPrefix("Token");
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
+//ApiKeyQuery.setApiKeyPrefix("Token");
 
 UserApi apiInstance = new UserApi();
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    UserResponse result = apiInstance.checkUser();
+    PermissionStruct result = apiInstance.getUserDetails(details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#checkUser");
+    System.err.println("Exception when calling UserApi#getUserDetails");
     e.printStackTrace();
 }
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**UserResponse**](UserResponse.md)
+[**PermissionStruct**](PermissionStruct.md)
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
@@ -67,39 +76,26 @@ This endpoint does not need any parameter.
 
 <a name="login"></a>
 # **login**
-> LoginResponse login(loginRequest)
+> PermissionStruct login(body, details, accept, pretty)
 
 Login
 
-Tries to aquire an api key with the passed credentials. 
+Tries to acquire an api key with the passed credentials.
 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
 //import io.swagger.client.api.UserApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
-
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
 
 UserApi apiInstance = new UserApi();
-LoginRequest loginRequest = new LoginRequest(); // LoginRequest | 
+AuthenticationRequest body = new AuthenticationRequest(); // AuthenticationRequest | 
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    LoginResponse result = apiInstance.login(loginRequest);
+    PermissionStruct result = apiInstance.login(body, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserApi#login");
@@ -111,15 +107,67 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loginRequest** | [**LoginRequest**](LoginRequest.md)|  |
+ **body** | [**AuthenticationRequest**](AuthenticationRequest.md)|  | [optional]
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**LoginResponse**](LoginResponse.md)
+[**PermissionStruct**](PermissionStruct.md)
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+<a name="logout"></a>
+# **logout**
+> PermissionStruct logout(details, accept, pretty)
+
+Logout
+
+Invalidate the current API key, logging out the active user.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.UserApi;
+
+
+UserApi apiInstance = new UserApi();
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
+try {
+    PermissionStruct result = apiInstance.logout(details, accept, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling UserApi#logout");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
+
+### Return type
+
+[**PermissionStruct**](PermissionStruct.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

@@ -4,20 +4,21 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**world** | **String** | The UUID or name of the world that the player is moved to. |  [optional]
-**position** | [**Vector3**](Vector3.md) |  |  [optional]
-**velocity** | [**Vector3**](Vector3.md) |  |  [optional]
-**rotation** | [**Vector3**](Vector3.md) |  |  [optional]
-**scale** | [**Vector3**](Vector3.md) |  |  [optional]
-**foodLevel** | [**BigDecimal**](BigDecimal.md) | The new food level of the player. |  [optional]
-**exhaustion** | **Double** | The new exhaustion level of the player. |  [optional]
-**saturation** | **Double** | The new saturation level of the player. |  [optional]
-**totalExperience** | [**BigDecimal**](BigDecimal.md) | The total amount of experience the player has. This implicitly also sets the level. |  [optional]
-**level** | [**BigDecimal**](BigDecimal.md) | The current level of the player. This is also defined by the total amount of experience the player has. |  [optional]
-**experienceSinceLevel** | [**BigDecimal**](BigDecimal.md) | The amount of experience since the last level up that the player has collected. |  [optional]
-**health** | **Double** | The current amount of health the player has. |  [optional]
-**maxHealth** | **Double** | The total amount of health the player can have at maximum. |  [optional]
-**damage** | [**DamageRequest1**](DamageRequest1.md) |  |  [optional]
+**damage** | [**DamageRequest**](DamageRequest.md) | The damage the entity will take |  [optional]
+**exhaustion** | **Double** | The exhaustion of the player |  [optional]
+**experienceSinceLevel** | **Integer** | The amount of experience gained since the last level |  [optional]
+**foodLevel** | **Integer** | The food level of the player |  [optional]
+**health** | **Double** | The current amount of health the player has |  [optional]
+**inventory** | [**List&lt;ItemStack&gt;**](ItemStack.md) | The ItemStacks in the inventory of the entity |  [optional]
+**level** | **Integer** | The player level |  [optional]
+**maxHealth** | **Double** | The maximum health of the player |  [optional]
+**position** | [**Vector3d**](Vector3d.md) | The position that the entity will be moved to |  [optional]
+**rotation** | [**Vector3d**](Vector3d.md) | The new rotation of the entity |  [optional]
+**saturation** | **Double** | The saturation of the player |  [optional]
+**scale** | [**Vector3d**](Vector3d.md) | The new scale of the entity |  [optional]
+**totalExperience** | **Integer** | The total experience of the player |  [optional]
+**velocity** | [**Vector3d**](Vector3d.md) | The new speed of the entity |  [optional]
+**world** | **String** | The world that the entity will be moved to |  [optional]
 
 
 

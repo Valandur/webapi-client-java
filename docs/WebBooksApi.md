@@ -1,24 +1,25 @@
 # WebBooksApi
 
-All URIs are relative to *http://&lt;host&gt;/api*
+All URIs are relative to *https://localhost/api/v5*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createBook**](WebBooksApi.md#createBook) | **POST** /webbooks/book | Create web book
-[**deleteBook**](WebBooksApi.md#deleteBook) | **DELETE** /webbooks/book/{id} | Delete a web book
-[**getBook**](WebBooksApi.md#getBook) | **GET** /webbooks/book/{id} | Detailed web book info
-[**getBookHtml**](WebBooksApi.md#getBookHtml) | **GET** /webbooks/book/{id}/html | Web Book HTML
-[**getBookHtmlPost**](WebBooksApi.md#getBookHtmlPost) | **POST** /webbooks/book/{id}/html | Web Book HTML
-[**getBooks**](WebBooksApi.md#getBooks) | **GET** /webbooks/book | Books list
+[**createWebBook**](WebBooksApi.md#createWebBook) | **POST** /web-books/book | Create a book
+[**deleteWebBook**](WebBooksApi.md#deleteWebBook) | **DELETE** /web-books/book/{id} | Delete a book
+[**getWebBook**](WebBooksApi.md#getWebBook) | **GET** /web-books/book/{id} | Get a book
+[**getWebBookContent**](WebBooksApi.md#getWebBookContent) | **GET** /web-books/book/{id}/html | Book HTML
+[**getWebBookContentPost**](WebBooksApi.md#getWebBookContentPost) | **POST** /web-books/book/{id}/html | Book HTML
+[**listWebBooks**](WebBooksApi.md#listWebBooks) | **GET** /web-books/book | List books
+[**modifyWebBook**](WebBooksApi.md#modifyWebBook) | **PUT** /web-books/book/{id} | Modify a book
 
 
-<a name="createBook"></a>
-# **createBook**
-> WebBooksResponse1 createBook(createWebBookRequest)
+<a name="createWebBook"></a>
+# **createWebBook**
+> WebBooksBook createWebBook(body, details, accept, pretty)
 
-Create web book
+Create a book
 
-Create a new web book from the specified data.  &gt; Required permission: webbooks.book.create 
+Create a new web book from the specified data.     **Required permissions:**    - **web-books.book.create**   
 
 ### Example
 ```java
@@ -31,25 +32,28 @@ Create a new web book from the specified data.  &gt; Required permission: webboo
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
+//ApiKeyHeader.setApiKeyPrefix("Token");
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
+//ApiKeyQuery.setApiKeyPrefix("Token");
 
 WebBooksApi apiInstance = new WebBooksApi();
-CreateWebBookRequest createWebBookRequest = new CreateWebBookRequest(); // CreateWebBookRequest | 
+WebBooksBook body = new WebBooksBook(); // WebBooksBook | 
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    WebBooksResponse1 result = apiInstance.createBook(createWebBookRequest);
+    WebBooksBook result = apiInstance.createWebBook(body, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling WebBooksApi#createBook");
+    System.err.println("Exception when calling WebBooksApi#createWebBook");
     e.printStackTrace();
 }
 ```
@@ -58,28 +62,31 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createWebBookRequest** | [**CreateWebBookRequest**](CreateWebBookRequest.md)|  |
+ **body** | [**WebBooksBook**](WebBooksBook.md)|  | [optional]
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**WebBooksResponse1**](WebBooksResponse1.md)
+[**WebBooksBook**](WebBooksBook.md)
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
-<a name="deleteBook"></a>
-# **deleteBook**
-> deleteBook(id)
+<a name="deleteWebBook"></a>
+# **deleteWebBook**
+> WebBooksBook deleteWebBook(id, details, accept, pretty)
 
-Delete a web book
+Delete a book
 
-Delete a web book.  &gt; Required permission: webbooks.book.delete 
+Delete a web book.     **Required permissions:**    - **web-books.book.delete**   
 
 ### Example
 ```java
@@ -92,24 +99,28 @@ Delete a web book.  &gt; Required permission: webbooks.book.delete
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
+//ApiKeyHeader.setApiKeyPrefix("Token");
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
+//ApiKeyQuery.setApiKeyPrefix("Token");
 
 WebBooksApi apiInstance = new WebBooksApi();
-String id = "id_example"; // String | The id of the web book to delete.
+String id = "id_example"; // String | 
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    apiInstance.deleteBook(id);
+    WebBooksBook result = apiInstance.deleteWebBook(id, details, accept, pretty);
+    System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling WebBooksApi#deleteBook");
+    System.err.println("Exception when calling WebBooksApi#deleteWebBook");
     e.printStackTrace();
 }
 ```
@@ -118,28 +129,31 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The id of the web book to delete. |
+ **id** | **String**|  |
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-null (empty response body)
+[**WebBooksBook**](WebBooksBook.md)
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
-<a name="getBook"></a>
-# **getBook**
-> WebBooksResponse1 getBook(id)
+<a name="getWebBook"></a>
+# **getWebBook**
+> WebBooksBook getWebBook(id, details, accept, pretty)
 
-Detailed web book info
+Get a book
 
-Get detailed information about a web book.  &gt; Required permission: webbooks.book.one 
+Get detailed information about a web book.     **Required permissions:**    - **web-books.book.one**   
 
 ### Example
 ```java
@@ -152,25 +166,28 @@ Get detailed information about a web book.  &gt; Required permission: webbooks.b
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
+//ApiKeyHeader.setApiKeyPrefix("Token");
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
+//ApiKeyQuery.setApiKeyPrefix("Token");
 
 WebBooksApi apiInstance = new WebBooksApi();
-String id = "id_example"; // String | The id of the web book to get detailed information about.
+String id = "id_example"; // String | 
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    WebBooksResponse1 result = apiInstance.getBook(id);
+    WebBooksBook result = apiInstance.getWebBook(id, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling WebBooksApi#getBook");
+    System.err.println("Exception when calling WebBooksApi#getWebBook");
     e.printStackTrace();
 }
 ```
@@ -179,59 +196,49 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The id of the web book to get detailed information about. |
+ **id** | **String**|  |
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**WebBooksResponse1**](WebBooksResponse1.md)
+[**WebBooksBook**](WebBooksBook.md)
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
-<a name="getBookHtml"></a>
-# **getBookHtml**
-> String getBookHtml(id)
+<a name="getWebBookContent"></a>
+# **getWebBookContent**
+> String getWebBookContent(id, details, accept, pretty)
 
-Web Book HTML
+Book HTML
 
-Get the web book content as HTML.  &gt; Required permission: webbooks.book.html 
+Get the web book content as HTML.
 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
 //import io.swagger.client.api.WebBooksApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
-
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
 
 WebBooksApi apiInstance = new WebBooksApi();
-String id = "id_example"; // String | The id of the web book to get the html for.
+String id = "id_example"; // String | 
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    String result = apiInstance.getBookHtml(id);
+    String result = apiInstance.getWebBookContent(id, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling WebBooksApi#getBookHtml");
+    System.err.println("Exception when calling WebBooksApi#getWebBookContent");
     e.printStackTrace();
 }
 ```
@@ -240,7 +247,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The id of the web book to get the html for. |
+ **id** | **String**|  |
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
@@ -248,51 +258,38 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
+ - **Content-Type**: application/x-www-form-urlencoded, application/xml, application/json
+ - **Accept**: text/html
 
-<a name="getBookHtmlPost"></a>
-# **getBookHtmlPost**
-> String getBookHtmlPost(id)
+<a name="getWebBookContentPost"></a>
+# **getWebBookContentPost**
+> String getWebBookContentPost(id, details, accept, pretty)
 
-Web Book HTML
+Book HTML
 
-Get the web book content as HTML.  &gt; Required permission: webbooks.book.html 
+Get the web book content as HTML.
 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
 //import io.swagger.client.api.WebBooksApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
-
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
 
 WebBooksApi apiInstance = new WebBooksApi();
-String id = "id_example"; // String | The id of the web book to get the html for.
+String id = "id_example"; // String | 
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    String result = apiInstance.getBookHtmlPost(id);
+    String result = apiInstance.getWebBookContentPost(id, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling WebBooksApi#getBookHtmlPost");
+    System.err.println("Exception when calling WebBooksApi#getWebBookContentPost");
     e.printStackTrace();
 }
 ```
@@ -301,7 +298,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The id of the web book to get the html for. |
+ **id** | **String**|  |
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
@@ -309,20 +309,20 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
+ - **Content-Type**: application/x-www-form-urlencoded, application/xml, application/json
+ - **Accept**: text/html
 
-<a name="getBooks"></a>
-# **getBooks**
-> WebBooksResponse getBooks(details)
+<a name="listWebBooks"></a>
+# **listWebBooks**
+> List&lt;WebBooksBook&gt; listWebBooks(details, accept, pretty)
 
-Books list
+List books
 
-Get a list of all the web books on the server.  &gt; Required permission: webbooks.book.list 
+Get a list of all the web books on the server.     **Required permissions:**    - **web-books.book.list**   
 
 ### Example
 ```java
@@ -335,25 +335,27 @@ Get a list of all the web books on the server.  &gt; Required permission: webboo
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
+//ApiKeyHeader.setApiKeyPrefix("Token");
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
+//ApiKeyQuery.setApiKeyPrefix("Token");
 
 WebBooksApi apiInstance = new WebBooksApi();
-String details = "details_example"; // String | Pass this parameter to receive the full details for each web book.
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    WebBooksResponse result = apiInstance.getBooks(details);
+    List<WebBooksBook> result = apiInstance.listWebBooks(details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling WebBooksApi#getBooks");
+    System.err.println("Exception when calling WebBooksApi#listWebBooks");
     e.printStackTrace();
 }
 ```
@@ -362,15 +364,86 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **details** | **String**| Pass this parameter to receive the full details for each web book. | [optional]
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**WebBooksResponse**](WebBooksResponse.md)
+[**List&lt;WebBooksBook&gt;**](WebBooksBook.md)
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+<a name="modifyWebBook"></a>
+# **modifyWebBook**
+> WebBooksBook modifyWebBook(id, body, details, accept, pretty)
+
+Modify a book
+
+Modify an existing book.     **Required permissions:**    - **web-books.book.modify**   
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.WebBooksApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyHeader.setApiKeyPrefix("Token");
+
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyQuery.setApiKeyPrefix("Token");
+
+WebBooksApi apiInstance = new WebBooksApi();
+String id = "id_example"; // String | 
+WebBooksBook body = new WebBooksBook(); // WebBooksBook | 
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
+try {
+    WebBooksBook result = apiInstance.modifyWebBook(id, body, details, accept, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WebBooksApi#modifyWebBook");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+ **body** | [**WebBooksBook**](WebBooksBook.md)|  | [optional]
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
+
+### Return type
+
+[**WebBooksBook**](WebBooksBook.md)
+
+### Authorization
+
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 

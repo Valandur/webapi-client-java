@@ -4,10 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**timestamp** | **String** | The timestamp when the message was sent (server time). |  [optional]
-**sender** | **String** | The name of the player that sent the message. |  [optional]
-**message** | **String** | The message that was sent. |  [optional]
-**wasCancelled** | **Boolean** | True if the execution of the command was cancelled. |  [optional]
+**content** | **String** | The content of the message | 
+**link** | **String** | The API link that can be used to obtain more information about this object | 
+**receivers** | **List&lt;Object&gt;** | The receivers of this message | 
+**timestamp** | **Long** | The timestamp at which the chat message was sent (epoch millis) | 
+**sender** | [**Player**](Player.md) | The sender of the message | 
 
 
 

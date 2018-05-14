@@ -4,9 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | The name of the world. |  [optional]
-**uuid** | **String** | The unique id of the world. |  [optional]
-**link** | **String** | The API URL which contains detailed information about this world. |  [optional]
+**link** | **String** | The API link that can be used to obtain more information about this object | 
+**loaded** | **Boolean** | True if the world is loaded, false otherwise | 
+**name** | **String** | The name of this world | 
+**uuid** | [**UUID**](UUID.md) | The unique UUID that identifies this world | 
 
 
 
