@@ -1,87 +1,24 @@
 # EntityApi
 
-All URIs are relative to *http://&lt;host&gt;/api*
+All URIs are relative to *https://localhost/api/v5*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**changeEntity**](EntityApi.md#changeEntity) | **PUT** /entity/{uuid} | Edit entity
-[**createEntity**](EntityApi.md#createEntity) | **POST** /entity | Create an entity
-[**destroyEntity**](EntityApi.md#destroyEntity) | **DELETE** /entity/{uuid} | Destroy an entity
-[**executeEntityMethod**](EntityApi.md#executeEntityMethod) | **POST** /entity/{uuid} | Execute entity method
-[**getEntities**](EntityApi.md#getEntities) | **GET** /entity | Entities list
-[**getEntity**](EntityApi.md#getEntity) | **GET** /entity/{uuid} | Detailed entity info
+[**createEntity**](EntityApi.md#createEntity) | **POST** /entity | Spawn an entity
+[**executeMethod**](EntityApi.md#executeMethod) | **POST** /entity/{entity}/method | Execute a method
+[**getEntity**](EntityApi.md#getEntity) | **GET** /entity/{entity} | Get entity
+[**listEntities**](EntityApi.md#listEntities) | **GET** /entity | List entities
+[**modifyEntity**](EntityApi.md#modifyEntity) | **PUT** /entity/{entity} | Modify an entity
+[**removeEntity**](EntityApi.md#removeEntity) | **DELETE** /entity/{entity} | Destroy an entity
 
-
-<a name="changeEntity"></a>
-# **changeEntity**
-> EntityResponse changeEntity(uuid, updateEntityRequest)
-
-Edit entity
-
-Update the properties of an existing entity.  &gt; Required permission: entity.change 
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.EntityApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
-
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
-
-EntityApi apiInstance = new EntityApi();
-String uuid = "uuid_example"; // String | The uuid of the entity.
-UpdateEntityRequest updateEntityRequest = new UpdateEntityRequest(); // UpdateEntityRequest | The new properties of the entity
-try {
-    EntityResponse result = apiInstance.changeEntity(uuid, updateEntityRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EntityApi#changeEntity");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **uuid** | **String**| The uuid of the entity. |
- **updateEntityRequest** | [**UpdateEntityRequest**](UpdateEntityRequest.md)| The new properties of the entity |
-
-### Return type
-
-[**EntityResponse**](EntityResponse.md)
-
-### Authorization
-
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
 
 <a name="createEntity"></a>
 # **createEntity**
-> EntityResponse createEntity(createEntityRequest)
+> Entity createEntity(body, details, accept, pretty)
 
-Create an entity
+Spawn an entity
 
-Creates &amp; Spawns a new entity with the specified properties.  &gt; Required permission: entity.create 
+Creates &amp; Spawns a new entity with the specified properties.     **Required permissions:**    - **entity.create**   
 
 ### Example
 ```java
@@ -94,22 +31,25 @@ Creates &amp; Spawns a new entity with the specified properties.  &gt; Required 
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
+//ApiKeyHeader.setApiKeyPrefix("Token");
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
+//ApiKeyQuery.setApiKeyPrefix("Token");
 
 EntityApi apiInstance = new EntityApi();
-CreateEntityRequest createEntityRequest = new CreateEntityRequest(); // CreateEntityRequest | 
+CreateEntityRequest body = new CreateEntityRequest(); // CreateEntityRequest | 
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    EntityResponse result = apiInstance.createEntity(createEntityRequest);
+    Entity result = apiInstance.createEntity(body, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EntityApi#createEntity");
@@ -121,28 +61,31 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createEntityRequest** | [**CreateEntityRequest**](CreateEntityRequest.md)|  |
+ **body** | [**CreateEntityRequest**](CreateEntityRequest.md)|  | [optional]
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**EntityResponse**](EntityResponse.md)
+[**Entity**](Entity.md)
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
-<a name="destroyEntity"></a>
-# **destroyEntity**
-> EntityResponse destroyEntity(uuid)
+<a name="executeMethod"></a>
+# **executeMethod**
+> ExecuteMethodResponse executeMethod(entity, body, details, accept, pretty)
 
-Destroy an entity
+Execute a method
 
-Destroys an entity.  &gt; Required permission: entity.delete 
+Provides direct access to the underlaying entity object and can execute any method on it.     **Required permissions:**    - **entity.method**   
 
 ### Example
 ```java
@@ -155,25 +98,29 @@ Destroys an entity.  &gt; Required permission: entity.delete
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
+//ApiKeyHeader.setApiKeyPrefix("Token");
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
+//ApiKeyQuery.setApiKeyPrefix("Token");
 
 EntityApi apiInstance = new EntityApi();
-String uuid = "uuid_example"; // String | The uuid of the entity.
+UUID entity = new UUID(); // UUID | The uuid of the entity
+ExecuteMethodRequest body = new ExecuteMethodRequest(); // ExecuteMethodRequest | 
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    EntityResponse result = apiInstance.destroyEntity(uuid);
+    ExecuteMethodResponse result = apiInstance.executeMethod(entity, body, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling EntityApi#destroyEntity");
+    System.err.println("Exception when calling EntityApi#executeMethod");
     e.printStackTrace();
 }
 ```
@@ -182,139 +129,19 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **String**| The uuid of the entity. |
+ **entity** | [**UUID**](.md)| The uuid of the entity |
+ **body** | [**ExecuteMethodRequest**](ExecuteMethodRequest.md)|  | [optional]
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**EntityResponse**](EntityResponse.md)
+[**ExecuteMethodResponse**](ExecuteMethodResponse.md)
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-<a name="executeEntityMethod"></a>
-# **executeEntityMethod**
-> EntityMethodResult executeEntityMethod(uuid, request)
-
-Execute entity method
-
-Provides direct access to the underlaying entity object and can execute any method on it.  &gt; Required permission: entity.method 
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.EntityApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
-
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
-
-EntityApi apiInstance = new EntityApi();
-String uuid = "uuid_example"; // String | The uuid of the entity.
-RawRequest request = new RawRequest(); // RawRequest | Information about which method to execute.
-try {
-    EntityMethodResult result = apiInstance.executeEntityMethod(uuid, request);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EntityApi#executeEntityMethod");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **uuid** | **String**| The uuid of the entity. |
- **request** | [**RawRequest**](RawRequest.md)| Information about which method to execute. |
-
-### Return type
-
-[**EntityMethodResult**](EntityMethodResult.md)
-
-### Authorization
-
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-<a name="getEntities"></a>
-# **getEntities**
-> EntitiesList getEntities(details)
-
-Entities list
-
-Get a list of all entities on the server (in all worlds).  &gt; Required permission: entity.list 
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.EntityApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
-
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
-
-EntityApi apiInstance = new EntityApi();
-String details = "details_example"; // String | Pass this parameter to receive the full details for each entity.
-try {
-    EntitiesList result = apiInstance.getEntities(details);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EntityApi#getEntities");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **details** | **String**| Pass this parameter to receive the full details for each entity. | [optional]
-
-### Return type
-
-[**EntitiesList**](EntitiesList.md)
-
-### Authorization
-
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
@@ -323,11 +150,11 @@ Name | Type | Description  | Notes
 
 <a name="getEntity"></a>
 # **getEntity**
-> EntityResponse getEntity(uuid, fields, methods)
+> Entity getEntity(entity, details, accept, pretty)
 
-Detailed entity info
+Get entity
 
-Get detailed information about an entity.  &gt; Required permission: entity.one 
+Get detailed information about an entity.     **Required permissions:**    - **entity.one**   
 
 ### Example
 ```java
@@ -340,24 +167,25 @@ Get detailed information about an entity.  &gt; Required permission: entity.one
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
+//ApiKeyHeader.setApiKeyPrefix("Token");
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
+//ApiKeyQuery.setApiKeyPrefix("Token");
 
 EntityApi apiInstance = new EntityApi();
-String uuid = "uuid_example"; // String | The uuid of the entity to get detailed information about.
-String fields = "fields_example"; // String | An optional list of additional fields to get.
-String methods = "methods_example"; // String | An optional list of additional methods to get.
+UUID entity = new UUID(); // UUID | The uuid of the entity
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    EntityResponse result = apiInstance.getEntity(uuid, fields, methods);
+    Entity result = apiInstance.getEntity(entity, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EntityApi#getEntity");
@@ -369,17 +197,229 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **String**| The uuid of the entity to get detailed information about. |
- **fields** | **String**| An optional list of additional fields to get. | [optional]
- **methods** | **String**| An optional list of additional methods to get. | [optional]
+ **entity** | [**UUID**](.md)| The uuid of the entity |
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**EntityResponse**](EntityResponse.md)
+[**Entity**](Entity.md)
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+<a name="listEntities"></a>
+# **listEntities**
+> List&lt;Entity&gt; listEntities(world, type, min, max, limit, details, accept, pretty)
+
+List entities
+
+Get a list of all entities on the server (in all worlds).     **Required permissions:**    - **entity.list**   
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.EntityApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyHeader.setApiKeyPrefix("Token");
+
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyQuery.setApiKeyPrefix("Token");
+
+EntityApi apiInstance = new EntityApi();
+String world = "world_example"; // String | The world to filter the entities by
+String type = "type_example"; // String | The type id of the entities to filter by
+String min = "min_example"; // String | The minimum coordinates at which the entity must be, min=x|y|z
+String max = "max_example"; // String | The maximum coordinates at which the entity must be, max=x|y|z
+Integer limit = 56; // Integer | The maximum amount of entities returned
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
+try {
+    List<Entity> result = apiInstance.listEntities(world, type, min, max, limit, details, accept, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EntityApi#listEntities");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **world** | **String**| The world to filter the entities by | [optional]
+ **type** | **String**| The type id of the entities to filter by | [optional]
+ **min** | **String**| The minimum coordinates at which the entity must be, min&#x3D;x|y|z | [optional]
+ **max** | **String**| The maximum coordinates at which the entity must be, max&#x3D;x|y|z | [optional]
+ **limit** | **Integer**| The maximum amount of entities returned | [optional]
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
+
+### Return type
+
+[**List&lt;Entity&gt;**](Entity.md)
+
+### Authorization
+
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+<a name="modifyEntity"></a>
+# **modifyEntity**
+> Entity modifyEntity(entity, body, details, accept, pretty)
+
+Modify an entity
+
+Modify the properties of an existing entity.     **Required permissions:**    - **entity.modify**   
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.EntityApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyHeader.setApiKeyPrefix("Token");
+
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyQuery.setApiKeyPrefix("Token");
+
+EntityApi apiInstance = new EntityApi();
+UUID entity = new UUID(); // UUID | The uuid of the entity
+UpdateEntityRequest body = new UpdateEntityRequest(); // UpdateEntityRequest | 
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
+try {
+    Entity result = apiInstance.modifyEntity(entity, body, details, accept, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EntityApi#modifyEntity");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **entity** | [**UUID**](.md)| The uuid of the entity |
+ **body** | [**UpdateEntityRequest**](UpdateEntityRequest.md)|  | [optional]
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
+
+### Return type
+
+[**Entity**](Entity.md)
+
+### Authorization
+
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+<a name="removeEntity"></a>
+# **removeEntity**
+> Entity removeEntity(entity, details, accept, pretty)
+
+Destroy an entity
+
+Destroys an entity.     **Required permissions:**    - **entity.delete**   
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.EntityApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyHeader.setApiKeyPrefix("Token");
+
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyQuery.setApiKeyPrefix("Token");
+
+EntityApi apiInstance = new EntityApi();
+UUID entity = new UUID(); // UUID | The uuid of the entity
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
+try {
+    Entity result = apiInstance.removeEntity(entity, details, accept, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EntityApi#removeEntity");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **entity** | [**UUID**](.md)| The uuid of the entity |
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
+
+### Return type
+
+[**Entity**](Entity.md)
+
+### Authorization
+
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 

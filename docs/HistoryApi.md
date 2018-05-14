@@ -1,20 +1,20 @@
 # HistoryApi
 
-All URIs are relative to *http://&lt;host&gt;/api*
+All URIs are relative to *https://localhost/api/v5*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getChatHistory**](HistoryApi.md#getChatHistory) | **GET** /history/chat | Chat History
-[**getCommandHistory**](HistoryApi.md#getCommandHistory) | **GET** /history/cmd | Command History
+[**getChat**](HistoryApi.md#getChat) | **GET** /history/message | Get message history
+[**getCommands**](HistoryApi.md#getCommands) | **GET** /history/cmd | Get command history
 
 
-<a name="getChatHistory"></a>
-# **getChatHistory**
-> ChatHistoryResponse getChatHistory()
+<a name="getChat"></a>
+# **getChat**
+> List&lt;Message&gt; getChat(details, accept, pretty)
 
-Chat History
+Get message history
 
-View a history of the server chat.  &gt; Required permission: history.chat 
+View a history of the server messages.     **Required permissions:**    - **history.message**   
 
 ### Example
 ```java
@@ -27,51 +27,59 @@ View a history of the server chat.  &gt; Required permission: history.chat
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
+//ApiKeyHeader.setApiKeyPrefix("Token");
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
+//ApiKeyQuery.setApiKeyPrefix("Token");
 
 HistoryApi apiInstance = new HistoryApi();
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    ChatHistoryResponse result = apiInstance.getChatHistory();
+    List<Message> result = apiInstance.getChat(details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling HistoryApi#getChatHistory");
+    System.err.println("Exception when calling HistoryApi#getChat");
     e.printStackTrace();
 }
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**ChatHistoryResponse**](ChatHistoryResponse.md)
+[**List&lt;Message&gt;**](Message.md)
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
-<a name="getCommandHistory"></a>
-# **getCommandHistory**
-> CommandHistoryResponse getCommandHistory()
+<a name="getCommands"></a>
+# **getCommands**
+> List&lt;CommandCall&gt; getCommands(details, accept, pretty)
 
-Command History
+Get command history
 
-View a history of the server commands.  &gt; Required permission: history.cmd 
+View a history of the server commands.     **Required permissions:**    - **history.cmd**   
 
 ### Example
 ```java
@@ -84,38 +92,46 @@ View a history of the server commands.  &gt; Required permission: history.cmd
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
+//ApiKeyHeader.setApiKeyPrefix("Token");
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
+//ApiKeyQuery.setApiKeyPrefix("Token");
 
 HistoryApi apiInstance = new HistoryApi();
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    CommandHistoryResponse result = apiInstance.getCommandHistory();
+    List<CommandCall> result = apiInstance.getCommands(details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling HistoryApi#getCommandHistory");
+    System.err.println("Exception when calling HistoryApi#getCommands");
     e.printStackTrace();
 }
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**CommandHistoryResponse**](CommandHistoryResponse.md)
+[**List&lt;CommandCall&gt;**](CommandCall.md)
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 

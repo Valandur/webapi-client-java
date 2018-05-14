@@ -1,89 +1,24 @@
 # WorldApi
 
-All URIs are relative to *http://&lt;host&gt;/api*
+All URIs are relative to *https://localhost/api/v5*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**changeWorld**](WorldApi.md#changeWorld) | **PUT** /world/{uuid} | Edit world
 [**createWorld**](WorldApi.md#createWorld) | **POST** /world | Create a world
-[**deleteWorld**](WorldApi.md#deleteWorld) | **DELETE** /world/{uuid} | Delete a world
-[**executeWorldMethod**](WorldApi.md#executeWorldMethod) | **POST** /world/{uuid} | Execute world methods
-[**getChunk**](WorldApi.md#getChunk) | **GET** /world/{uuid}/chunk/{x}/{z} | Detailed chunk info
-[**getChunks**](WorldApi.md#getChunks) | **GET** /world/{uuid}/chunk | Loaded chunk list
-[**getWorld**](WorldApi.md#getWorld) | **GET** /world/{uuid} | Detailed world info
-[**getWorlds**](WorldApi.md#getWorlds) | **GET** /world | World list
+[**deleteWorld**](WorldApi.md#deleteWorld) | **DELETE** /world/{world} | Delete a world
+[**executeMethod**](WorldApi.md#executeMethod) | **POST** /world/{world}/method | Execute a method
+[**getWorld**](WorldApi.md#getWorld) | **GET** /world/{world} | Get a world
+[**listWorlds**](WorldApi.md#listWorlds) | **GET** /world | List worlds
+[**modifyWorld**](WorldApi.md#modifyWorld) | **PUT** /world/{world} | Modify a world
 
-
-<a name="changeWorld"></a>
-# **changeWorld**
-> WorldResponse changeWorld(uuid, updateWorldRequest)
-
-Edit world
-
-Update the properties of an existing world.  &gt; Required permission: world.change 
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.WorldApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
-
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
-
-WorldApi apiInstance = new WorldApi();
-String uuid = "uuid_example"; // String | The uuid of the world.
-UpdateWorldRequest updateWorldRequest = new UpdateWorldRequest(); // UpdateWorldRequest | The new properties of the world
-try {
-    WorldResponse result = apiInstance.changeWorld(uuid, updateWorldRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WorldApi#changeWorld");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **uuid** | **String**| The uuid of the world. |
- **updateWorldRequest** | [**UpdateWorldRequest**](UpdateWorldRequest.md)| The new properties of the world |
-
-### Return type
-
-[**WorldResponse**](WorldResponse.md)
-
-### Authorization
-
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
 
 <a name="createWorld"></a>
 # **createWorld**
-> WorldResponse createWorld(createWorldRequest)
+> WorldFull createWorld(body, details, accept, pretty)
 
 Create a world
 
-Creates a new world with the specified settings. This does not yet load the world.  &gt; Required permission: world.create 
+Creates a new world with the specified settings. This does not yet load the world.     **Required permissions:**    - **world.create**   
 
 ### Example
 ```java
@@ -96,22 +31,25 @@ Creates a new world with the specified settings. This does not yet load the worl
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
+//ApiKeyHeader.setApiKeyPrefix("Token");
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
+//ApiKeyQuery.setApiKeyPrefix("Token");
 
 WorldApi apiInstance = new WorldApi();
-CreateWorldRequest createWorldRequest = new CreateWorldRequest(); // CreateWorldRequest | 
+CreateWorldRequest body = new CreateWorldRequest(); // CreateWorldRequest | 
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    WorldResponse result = apiInstance.createWorld(createWorldRequest);
+    WorldFull result = apiInstance.createWorld(body, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WorldApi#createWorld");
@@ -123,15 +61,18 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createWorldRequest** | [**CreateWorldRequest**](CreateWorldRequest.md)|  |
+ **body** | [**CreateWorldRequest**](CreateWorldRequest.md)|  | [optional]
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**WorldResponse**](WorldResponse.md)
+[**WorldFull**](WorldFull.md)
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
@@ -140,11 +81,11 @@ Name | Type | Description  | Notes
 
 <a name="deleteWorld"></a>
 # **deleteWorld**
-> WorldResponse deleteWorld(uuid)
+> WorldFull deleteWorld(world, details, accept, pretty)
 
 Delete a world
 
-Deletes an existing world. **The world must be unloaded before deleting it**  &gt; Required permission: world.delete 
+Deletes an existing world. **The world must be unloaded before deleting it**     **Required permissions:**    - **world.delete**   
 
 ### Example
 ```java
@@ -157,22 +98,25 @@ Deletes an existing world. **The world must be unloaded before deleting it**  &g
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
+//ApiKeyHeader.setApiKeyPrefix("Token");
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
+//ApiKeyQuery.setApiKeyPrefix("Token");
 
 WorldApi apiInstance = new WorldApi();
-String uuid = "uuid_example"; // String | The uuid of the world.
+String world = "world_example"; // String | The uuid of the world to delete
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    WorldResponse result = apiInstance.deleteWorld(uuid);
+    WorldFull result = apiInstance.deleteWorld(world, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WorldApi#deleteWorld");
@@ -184,28 +128,31 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **String**| The uuid of the world. |
+ **world** | **String**| The uuid of the world to delete |
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**WorldResponse**](WorldResponse.md)
+[**WorldFull**](WorldFull.md)
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
-<a name="executeWorldMethod"></a>
-# **executeWorldMethod**
-> ExecuteWorldMethodResponse executeWorldMethod(uuid, request)
+<a name="executeMethod"></a>
+# **executeMethod**
+> ExecuteMethodResponse executeMethod(world, body, details, accept, pretty)
 
-Execute world methods
+Execute a method
 
-Provides direct access to the underlaying world object and can execute any method on it.  &gt; Required permission: world.method 
+Provides direct access to the underlaying world object and can execute any method on it.     **Required permissions:**    - **world.method**   
 
 ### Example
 ```java
@@ -218,26 +165,29 @@ Provides direct access to the underlaying world object and can execute any metho
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
+//ApiKeyHeader.setApiKeyPrefix("Token");
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
+//ApiKeyQuery.setApiKeyPrefix("Token");
 
 WorldApi apiInstance = new WorldApi();
-String uuid = "uuid_example"; // String | The uuid of the world.
-RawRequest request = new RawRequest(); // RawRequest | Information about which method to execute.
+String world = "world_example"; // String | The uuid of the world on which to execute the method
+ExecuteMethodRequest body = new ExecuteMethodRequest(); // ExecuteMethodRequest | 
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    ExecuteWorldMethodResponse result = apiInstance.executeWorldMethod(uuid, request);
+    ExecuteMethodResponse result = apiInstance.executeMethod(world, body, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling WorldApi#executeWorldMethod");
+    System.err.println("Exception when calling WorldApi#executeMethod");
     e.printStackTrace();
 }
 ```
@@ -246,142 +196,19 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **String**| The uuid of the world. |
- **request** | [**RawRequest**](RawRequest.md)| Information about which method to execute. |
+ **world** | **String**| The uuid of the world on which to execute the method |
+ **body** | [**ExecuteMethodRequest**](ExecuteMethodRequest.md)|  | [optional]
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**ExecuteWorldMethodResponse**](ExecuteWorldMethodResponse.md)
+[**ExecuteMethodResponse**](ExecuteMethodResponse.md)
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-<a name="getChunk"></a>
-# **getChunk**
-> ChunkResponse getChunk(uuid, x, z)
-
-Detailed chunk info
-
-Get detailed information about a chunk  &gt; Required permission: world.chunk.one 
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.WorldApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
-
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
-
-WorldApi apiInstance = new WorldApi();
-String uuid = "uuid_example"; // String | The uuid of the world.
-Integer x = 56; // Integer | The x-coordinate of the chunk.
-Integer z = 56; // Integer | The z-coordinate of the chunk.
-try {
-    ChunkResponse result = apiInstance.getChunk(uuid, x, z);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WorldApi#getChunk");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **uuid** | **String**| The uuid of the world. |
- **x** | **Integer**| The x-coordinate of the chunk. |
- **z** | **Integer**| The z-coordinate of the chunk. |
-
-### Return type
-
-[**ChunkResponse**](ChunkResponse.md)
-
-### Authorization
-
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-<a name="getChunks"></a>
-# **getChunks**
-> ChunksResponse getChunks(uuid)
-
-Loaded chunk list
-
-Gets a list of all the loaded chunks for the specified world.  &gt; Required permission: world.chunk.list 
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.WorldApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
-
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
-
-WorldApi apiInstance = new WorldApi();
-String uuid = "uuid_example"; // String | The uuid of the world.
-try {
-    ChunksResponse result = apiInstance.getChunks(uuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WorldApi#getChunks");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **uuid** | **String**| The uuid of the world. |
-
-### Return type
-
-[**ChunksResponse**](ChunksResponse.md)
-
-### Authorization
-
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
@@ -390,11 +217,11 @@ Name | Type | Description  | Notes
 
 <a name="getWorld"></a>
 # **getWorld**
-> WorldResponse getWorld(uuid, fields, methods)
+> WorldFull getWorld(world, details, accept, pretty)
 
-Detailed world info
+Get a world
 
-Get detailed information about a world.  &gt; Required permission: world.one 
+Get detailed information about a world.     **Required permissions:**    - **world.one**   
 
 ### Example
 ```java
@@ -407,24 +234,25 @@ Get detailed information about a world.  &gt; Required permission: world.one
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
+//ApiKeyHeader.setApiKeyPrefix("Token");
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
+//ApiKeyQuery.setApiKeyPrefix("Token");
 
 WorldApi apiInstance = new WorldApi();
-String uuid = "uuid_example"; // String | The uuid of the world to get detailed information about.
-String fields = "fields_example"; // String | An optional list of additional fields to get.
-String methods = "methods_example"; // String | An optional list of additional methods to get.
+String world = "world_example"; // String | The uuid of the world for which to get details
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    WorldResponse result = apiInstance.getWorld(uuid, fields, methods);
+    WorldFull result = apiInstance.getWorld(world, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WorldApi#getWorld");
@@ -436,30 +264,31 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **String**| The uuid of the world to get detailed information about. |
- **fields** | **String**| An optional list of additional fields to get. | [optional]
- **methods** | **String**| An optional list of additional methods to get. | [optional]
+ **world** | **String**| The uuid of the world for which to get details |
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**WorldResponse**](WorldResponse.md)
+[**WorldFull**](WorldFull.md)
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
-<a name="getWorlds"></a>
-# **getWorlds**
-> WorldsResponse getWorlds(details)
+<a name="listWorlds"></a>
+# **listWorlds**
+> List&lt;WorldFull&gt; listWorlds(details, accept, pretty)
 
-World list
+List worlds
 
-Get a list of all the worlds on the server.  &gt; Required permission: world.list 
+Get a list of all the worlds on the server.     **Required permissions:**    - **world.list**   
 
 ### Example
 ```java
@@ -472,25 +301,27 @@ Get a list of all the worlds on the server.  &gt; Required permission: world.lis
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
+//ApiKeyHeader.setApiKeyPrefix("Token");
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
+//ApiKeyQuery.setApiKeyPrefix("Token");
 
 WorldApi apiInstance = new WorldApi();
-String details = "details_example"; // String | Pass this parameter to receive the full details for each world.
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    WorldsResponse result = apiInstance.getWorlds(details);
+    List<WorldFull> result = apiInstance.listWorlds(details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling WorldApi#getWorlds");
+    System.err.println("Exception when calling WorldApi#listWorlds");
     e.printStackTrace();
 }
 ```
@@ -499,15 +330,86 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **details** | **String**| Pass this parameter to receive the full details for each world. | [optional]
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**WorldsResponse**](WorldsResponse.md)
+[**List&lt;WorldFull&gt;**](WorldFull.md)
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+<a name="modifyWorld"></a>
+# **modifyWorld**
+> WorldFull modifyWorld(world, body, details, accept, pretty)
+
+Modify a world
+
+Modify the properties of an existing world.     **Required permissions:**    - **world.modify**   
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.WorldApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyHeader.setApiKeyPrefix("Token");
+
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyQuery.setApiKeyPrefix("Token");
+
+WorldApi apiInstance = new WorldApi();
+String world = "world_example"; // String | The uuid of the world which to update
+UpdateWorldRequest body = new UpdateWorldRequest(); // UpdateWorldRequest | 
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
+try {
+    WorldFull result = apiInstance.modifyWorld(world, body, details, accept, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WorldApi#modifyWorld");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **world** | **String**| The uuid of the world which to update |
+ **body** | [**UpdateWorldRequest**](UpdateWorldRequest.md)|  | [optional]
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
+
+### Return type
+
+[**WorldFull**](WorldFull.md)
+
+### Authorization
+
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 

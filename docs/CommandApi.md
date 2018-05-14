@@ -1,82 +1,21 @@
 # CommandApi
 
-All URIs are relative to *http://&lt;host&gt;/api*
+All URIs are relative to *https://localhost/api/v5*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**executeCommand**](CommandApi.md#executeCommand) | **POST** /cmd | Execute command
-[**getCommand**](CommandApi.md#getCommand) | **GET** /cmd/{name} | Detailed command info
-[**getCommands**](CommandApi.md#getCommands) | **GET** /cmd | Command list
+[**getCommand**](CommandApi.md#getCommand) | **GET** /cmd/{cmd} | Get a command
+[**listCommands**](CommandApi.md#listCommands) | **GET** /cmd | List commands
+[**runCommands**](CommandApi.md#runCommands) | **POST** /cmd | Execute a command
 
-
-<a name="executeCommand"></a>
-# **executeCommand**
-> ExecuteCommandResponse executeCommand(request)
-
-Execute command
-
-Execute a command on the server. (Almost the same as running it from the console). Pass a list of commands to execute them in succession, if only passing one command the array is not required.  &gt; Required permission: cmd.run &gt; Required permission: cmd.run.[command] 
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.CommandApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
-
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
-
-CommandApi apiInstance = new CommandApi();
-List<CommandRequest> request = Arrays.asList(new CommandRequest()); // List<CommandRequest> | The command and arguments sent to the server
-try {
-    ExecuteCommandResponse result = apiInstance.executeCommand(request);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CommandApi#executeCommand");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **request** | [**List&lt;CommandRequest&gt;**](CommandRequest.md)| The command and arguments sent to the server |
-
-### Return type
-
-[**ExecuteCommandResponse**](ExecuteCommandResponse.md)
-
-### Authorization
-
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
 
 <a name="getCommand"></a>
 # **getCommand**
-> CommandResponse1 getCommand(name)
+> Command getCommand(cmd, details, accept, pretty)
 
-Detailed command info
+Get a command
 
-Get detailed information about a command.  &gt; Required permission: cmd.one 
+Get detailed information about a command.     **Required permissions:**    - **cmd.one**   
 
 ### Example
 ```java
@@ -89,22 +28,25 @@ Get detailed information about a command.  &gt; Required permission: cmd.one
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
+//ApiKeyHeader.setApiKeyPrefix("Token");
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
+//ApiKeyQuery.setApiKeyPrefix("Token");
 
 CommandApi apiInstance = new CommandApi();
-String name = "name_example"; // String | The name (main alias) of the command
+String cmd = "cmd_example"; // String | The id of the command
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    CommandResponse1 result = apiInstance.getCommand(name);
+    Command result = apiInstance.getCommand(cmd, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CommandApi#getCommand");
@@ -116,28 +58,31 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| The name (main alias) of the command |
+ **cmd** | **String**| The id of the command |
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**CommandResponse1**](CommandResponse1.md)
+[**Command**](Command.md)
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
-<a name="getCommands"></a>
-# **getCommands**
-> CommandsResponse getCommands()
+<a name="listCommands"></a>
+# **listCommands**
+> List&lt;Command&gt; listCommands(details, accept, pretty)
 
-Command list
+List commands
 
-Gets a list of all the commands available on the server.  &gt; Required permission: cmd.list 
+Gets a list of all the commands available on the server.     **Required permissions:**    - **cmd.list**   
 
 ### Example
 ```java
@@ -150,38 +95,113 @@ Gets a list of all the commands available on the server.  &gt; Required permissi
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
+//ApiKeyHeader.setApiKeyPrefix("Token");
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
+//ApiKeyQuery.setApiKeyPrefix("Token");
 
 CommandApi apiInstance = new CommandApi();
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    CommandsResponse result = apiInstance.getCommands();
+    List<Command> result = apiInstance.listCommands(details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling CommandApi#getCommands");
+    System.err.println("Exception when calling CommandApi#listCommands");
     e.printStackTrace();
 }
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**CommandsResponse**](CommandsResponse.md)
+[**List&lt;Command&gt;**](Command.md)
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+<a name="runCommands"></a>
+# **runCommands**
+> List&lt;ExecuteCommandResponse&gt; runCommands(body, details, accept, pretty)
+
+Execute a command
+
+Execute a command on the server. (Almost the same as running it from the console).   Pass an array of commands to execute them in succession, you can also just pass a list with only one command if that&#39;s all you want to execute.  Returns a list with each response corresponding to a command.     **Required permissions:**    - **cmd.run**   - **cmd.run.[command]**   
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.CommandApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyHeader.setApiKeyPrefix("Token");
+
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyQuery.setApiKeyPrefix("Token");
+
+CommandApi apiInstance = new CommandApi();
+List<ExecuteCommandRequest> body = Arrays.asList(new ExecuteCommandRequest()); // List<ExecuteCommandRequest> | 
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
+try {
+    List<ExecuteCommandResponse> result = apiInstance.runCommands(body, details, accept, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CommandApi#runCommands");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**List&lt;ExecuteCommandRequest&gt;**](ExecuteCommandRequest.md)|  | [optional]
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
+
+### Return type
+
+[**List&lt;ExecuteCommandResponse&gt;**](ExecuteCommandResponse.md)
+
+### Authorization
+
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 

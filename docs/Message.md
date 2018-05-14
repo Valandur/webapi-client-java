@@ -4,8 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uuid** | **String** | The unique UUID assigned to the message by the Web-API. |  [optional]
-**id** | **String** | The id of the message. This will be sent back in the reply, so you can identify the request. |  [optional]
+**content** | **String** | The content of the message | 
+**link** | **String** | The API link that can be used to obtain more information about this object | 
+**receivers** | **List&lt;Object&gt;** | The receivers of this message | 
+**timestamp** | **Long** | The timestamp at which the chat message was sent (epoch millis) | 
 
 
 

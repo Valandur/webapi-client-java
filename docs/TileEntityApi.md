@@ -1,90 +1,21 @@
 # TileEntityApi
 
-All URIs are relative to *http://&lt;host&gt;/api*
+All URIs are relative to *https://localhost/api/v5*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**executeTileEntityMethod**](TileEntityApi.md#executeTileEntityMethod) | **POST** /tile-entity/{worldUuid}/{x}/{y}/{z} | Execute tile entity methods
-[**getTileEntities**](TileEntityApi.md#getTileEntities) | **GET** /tile-entity | Tile entities list
-[**getTileEntity**](TileEntityApi.md#getTileEntity) | **GET** /tile-entity/{worldUuid}/{x}/{y}/{z} | Detailed tile entity info
+[**executeMethod**](TileEntityApi.md#executeMethod) | **POST** /tile-entity/{world}/{x}/{y}/{z}/method | Execute a method
+[**getTileEntity**](TileEntityApi.md#getTileEntity) | **GET** /tile-entity/{world}/{x}/{y}/{z} | Get tile entity
+[**listTileEntities**](TileEntityApi.md#listTileEntities) | **GET** /tile-entity | List tile entities
 
 
-<a name="executeTileEntityMethod"></a>
-# **executeTileEntityMethod**
-> ExecuteTileEntityMethodResponse executeTileEntityMethod(worldUuid, x, y, z, request)
+<a name="executeMethod"></a>
+# **executeMethod**
+> ExecuteMethodResponse executeMethod(world, x, y, z, body, details, accept, pretty)
 
-Execute tile entity methods
+Execute a method
 
-Provides direct access to the underlaying tile entity object and can execute any method on it.  &gt; Required permission: tile-entity.method 
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.TileEntityApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
-
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
-
-TileEntityApi apiInstance = new TileEntityApi();
-String worldUuid = "worldUuid_example"; // String | The uuid of the world the tile entity is in.
-Integer x = 56; // Integer | The x-coordinate of the tile entity.
-Integer y = 56; // Integer | The y-coordinate of the tile entity.
-Integer z = 56; // Integer | The z-coordinate of the tile entity.
-RawRequest request = new RawRequest(); // RawRequest | Information about which method to execute.
-try {
-    ExecuteTileEntityMethodResponse result = apiInstance.executeTileEntityMethod(worldUuid, x, y, z, request);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TileEntityApi#executeTileEntityMethod");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **worldUuid** | **String**| The uuid of the world the tile entity is in. |
- **x** | **Integer**| The x-coordinate of the tile entity. |
- **y** | **Integer**| The y-coordinate of the tile entity. |
- **z** | **Integer**| The z-coordinate of the tile entity. |
- **request** | [**RawRequest**](RawRequest.md)| Information about which method to execute. |
-
-### Return type
-
-[**ExecuteTileEntityMethodResponse**](ExecuteTileEntityMethodResponse.md)
-
-### Authorization
-
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-<a name="getTileEntities"></a>
-# **getTileEntities**
-> TileEntitiesResponse getTileEntities(world, type, limit)
-
-Tile entities list
-
-Get a list of all tile entities on the server (in all worlds, unless specified).  &gt; Required permission: tile-entity.list 
+Provides direct access to the underlaying tile entity object and can execute any method on it.     **Required permissions:**    - **tile-entity.method**   
 
 ### Example
 ```java
@@ -97,27 +28,32 @@ Get a list of all tile entities on the server (in all worlds, unless specified).
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
+//ApiKeyHeader.setApiKeyPrefix("Token");
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
+//ApiKeyQuery.setApiKeyPrefix("Token");
 
 TileEntityApi apiInstance = new TileEntityApi();
-String world = "world_example"; // String | The uuid of the world to filter entities by.
-String type = "type_example"; // String | The TileEntityType id to filter the tile entities by.
-String limit = "limit_example"; // String | The maximum amount of tile entities to return.
+String world = "world_example"; // String | The world the tile entity is in
+Integer x = 56; // Integer | The x-coordinate of the tile-entity
+Integer y = 56; // Integer | The x-coordinate of the tile-entity
+Integer z = 56; // Integer | The x-coordinate of the tile-entity
+ExecuteMethodRequest body = new ExecuteMethodRequest(); // ExecuteMethodRequest | 
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    TileEntitiesResponse result = apiInstance.getTileEntities(world, type, limit);
+    ExecuteMethodResponse result = apiInstance.executeMethod(world, x, y, z, body, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling TileEntityApi#getTileEntities");
+    System.err.println("Exception when calling TileEntityApi#executeMethod");
     e.printStackTrace();
 }
 ```
@@ -126,17 +62,22 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **world** | **String**| The uuid of the world to filter entities by. | [optional]
- **type** | **String**| The TileEntityType id to filter the tile entities by. | [optional]
- **limit** | **String**| The maximum amount of tile entities to return. | [optional]
+ **world** | **String**| The world the tile entity is in |
+ **x** | **Integer**| The x-coordinate of the tile-entity |
+ **y** | **Integer**| The x-coordinate of the tile-entity |
+ **z** | **Integer**| The x-coordinate of the tile-entity |
+ **body** | [**ExecuteMethodRequest**](ExecuteMethodRequest.md)|  | [optional]
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**TileEntitiesResponse**](TileEntitiesResponse.md)
+[**ExecuteMethodResponse**](ExecuteMethodResponse.md)
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
@@ -145,11 +86,11 @@ Name | Type | Description  | Notes
 
 <a name="getTileEntity"></a>
 # **getTileEntity**
-> TileEntityResponse getTileEntity(worldUuid, x, y, z, fields, methods)
+> TileEntity getTileEntity(world, x, y, z, details, accept, pretty)
 
-Detailed tile entity info
+Get tile entity
 
-Get detailed information about a tile entity.  &gt; Required permission: tile-entity.one 
+Get detailed information about a tile entity.     **Required permissions:**    - **tile-entity.one**   
 
 ### Example
 ```java
@@ -162,27 +103,28 @@ Get detailed information about a tile entity.  &gt; Required permission: tile-en
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: headerKey
-ApiKeyAuth headerKey = (ApiKeyAuth) defaultClient.getAuthentication("headerKey");
-headerKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//headerKey.setApiKeyPrefix("Token");
+//ApiKeyHeader.setApiKeyPrefix("Token");
 
-// Configure API key authorization: queryKey
-ApiKeyAuth queryKey = (ApiKeyAuth) defaultClient.getAuthentication("queryKey");
-queryKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//queryKey.setApiKeyPrefix("Token");
+//ApiKeyQuery.setApiKeyPrefix("Token");
 
 TileEntityApi apiInstance = new TileEntityApi();
-String worldUuid = "worldUuid_example"; // String | The uuid of the world the tile entity is in.
-Integer x = 56; // Integer | The x-coordinate of the tile entity.
-Integer y = 56; // Integer | The y-coordinate of the tile entity.
-Integer z = 56; // Integer | The z-coordinate of the tile entity.
-String fields = "fields_example"; // String | An optional list of additional fields to get.
-String methods = "methods_example"; // String | An optional list of additional methods to get.
+String world = "world_example"; // String | The world the tile entity is in
+Integer x = 56; // Integer | The x-coordinate of the tile-entity
+Integer y = 56; // Integer | The y-coordinate of the tile-entity
+Integer z = 56; // Integer | The z-coordinate of the tile-entity
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    TileEntityResponse result = apiInstance.getTileEntity(worldUuid, x, y, z, fields, methods);
+    TileEntity result = apiInstance.getTileEntity(world, x, y, z, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TileEntityApi#getTileEntity");
@@ -194,20 +136,96 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **worldUuid** | **String**| The uuid of the world the tile entity is in. |
- **x** | **Integer**| The x-coordinate of the tile entity. |
- **y** | **Integer**| The y-coordinate of the tile entity. |
- **z** | **Integer**| The z-coordinate of the tile entity. |
- **fields** | **String**| An optional list of additional fields to get. | [optional]
- **methods** | **String**| An optional list of additional methods to get. | [optional]
+ **world** | **String**| The world the tile entity is in |
+ **x** | **Integer**| The x-coordinate of the tile-entity |
+ **y** | **Integer**| The y-coordinate of the tile-entity |
+ **z** | **Integer**| The z-coordinate of the tile-entity |
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**TileEntityResponse**](TileEntityResponse.md)
+[**TileEntity**](TileEntity.md)
 
 ### Authorization
 
-[headerKey](../README.md#headerKey), [queryKey](../README.md#queryKey)
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+<a name="listTileEntities"></a>
+# **listTileEntities**
+> List&lt;TileEntity&gt; listTileEntities(world, type, min, max, limit, details, accept, pretty)
+
+List tile entities
+
+Get a list of all tile entities on the server (in all worlds, unless specified).     **Required permissions:**    - **tile-entity.list**   
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.TileEntityApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyHeader.setApiKeyPrefix("Token");
+
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyQuery.setApiKeyPrefix("Token");
+
+TileEntityApi apiInstance = new TileEntityApi();
+String world = "world_example"; // String | The world to filter tile entities by
+String type = "type_example"; // String | The type if of tile entities to filter by
+String min = "min_example"; // String | The minimum coordinates at which the tile entity must be, min=x|y|z
+String max = "max_example"; // String | The maximum coordinates at which the tile entity must be, max=x|y|z
+Integer limit = 56; // Integer | The maximum amount of tile entities returned
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
+try {
+    List<TileEntity> result = apiInstance.listTileEntities(world, type, min, max, limit, details, accept, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TileEntityApi#listTileEntities");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **world** | **String**| The world to filter tile entities by | [optional]
+ **type** | **String**| The type if of tile entities to filter by | [optional]
+ **min** | **String**| The minimum coordinates at which the tile entity must be, min&#x3D;x|y|z | [optional]
+ **max** | **String**| The maximum coordinates at which the tile entity must be, max&#x3D;x|y|z | [optional]
+ **limit** | **Integer**| The maximum amount of tile entities returned | [optional]
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
+
+### Return type
+
+[**List&lt;TileEntity&gt;**](TileEntity.md)
+
+### Authorization
+
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 

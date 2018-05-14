@@ -4,12 +4,29 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uuid** | **String** | The UUID of the block update operation. |  [optional]
-**type** | [**TypeEnum**](#TypeEnum) | The type of action that is being performed by this operation. |  [optional]
-**status** | **String** | The current status of the operation, one of: INIT, RUNNING, PAUSED, DONE, ERRORED.  |  [optional]
-**progress** | **Float** | The update progress of this operation, from 0 (nothing done) to 1 (completely done). |  [optional]
-**estTimeRemaining** | [**BigDecimal**](BigDecimal.md) | The estimated amount of seconds remaining before this operation is completed. |  [optional]
-**link** | **String** | The Web-API url to access for details about this operation. |  [optional]
+**error** | **String** | The error message, if any | 
+**errored** | **Boolean** | True if this block operation produced errors, false otherwise. | 
+**estimatedSecondsRemaining** | **Float** | The estimated amount of time remaining until this block operation is complete (in seconds) | 
+**link** | **String** | The API link that can be used to obtain more information about this object | 
+**max** | [**Vector3i**](Vector3i.md) | The maximum block belonging to this operation | 
+**min** | [**Vector3i**](Vector3i.md) | The minimum block belonging to this operation | 
+**progress** | **Float** | The current progress of the block operation, from 0 (&#x3D;started) to 1 (&#x3D;finished) | 
+**status** | [**StatusEnum**](#StatusEnum) | The current status of the block operation | 
+**type** | [**TypeEnum**](#TypeEnum) | The type of block operation | 
+**uuid** | [**UUID**](UUID.md) | The unique UUID identifying this block operation | 
+**world** | [**World**](World.md) | The world in which this block operation is running | 
+
+
+<a name="StatusEnum"></a>
+## Enum: StatusEnum
+Name | Value
+---- | -----
+INIT | &quot;INIT&quot;
+RUNNING | &quot;RUNNING&quot;
+PAUSED | &quot;PAUSED&quot;
+DONE | &quot;DONE&quot;
+ERRORED | &quot;ERRORED&quot;
+CANCELED | &quot;CANCELED&quot;
 
 
 <a name="TypeEnum"></a>
@@ -17,7 +34,7 @@ Name | Type | Description | Notes
 Name | Value
 ---- | -----
 GET | &quot;GET&quot;
-UPDATE | &quot;UPDATE&quot;
+CHANGE | &quot;CHANGE&quot;
 
 
 
