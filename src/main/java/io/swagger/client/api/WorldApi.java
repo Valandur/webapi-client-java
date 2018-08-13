@@ -35,7 +35,7 @@ import io.swagger.client.model.InlineResponse401;
 import io.swagger.client.model.InlineResponse403;
 import io.swagger.client.model.InlineResponse500;
 import io.swagger.client.model.UpdateWorldRequest;
-import io.swagger.client.model.WorldFull;
+import io.swagger.client.model.World;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -136,11 +136,11 @@ public class WorldApi {
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
-     * @return WorldFull
+     * @return World
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public WorldFull createWorld(CreateWorldRequest body, Boolean details, String accept, Boolean pretty) throws ApiException {
-        ApiResponse<WorldFull> resp = createWorldWithHttpInfo(body, details, accept, pretty);
+    public World createWorld(CreateWorldRequest body, Boolean details, String accept, Boolean pretty) throws ApiException {
+        ApiResponse<World> resp = createWorldWithHttpInfo(body, details, accept, pretty);
         return resp.getData();
     }
 
@@ -151,12 +151,12 @@ public class WorldApi {
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
-     * @return ApiResponse&lt;WorldFull&gt;
+     * @return ApiResponse&lt;World&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<WorldFull> createWorldWithHttpInfo(CreateWorldRequest body, Boolean details, String accept, Boolean pretty) throws ApiException {
+    public ApiResponse<World> createWorldWithHttpInfo(CreateWorldRequest body, Boolean details, String accept, Boolean pretty) throws ApiException {
         com.squareup.okhttp.Call call = createWorldValidateBeforeCall(body, details, accept, pretty, null, null);
-        Type localVarReturnType = new TypeToken<WorldFull>(){}.getType();
+        Type localVarReturnType = new TypeToken<World>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -171,7 +171,7 @@ public class WorldApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createWorldAsync(CreateWorldRequest body, Boolean details, String accept, Boolean pretty, final ApiCallback<WorldFull> callback) throws ApiException {
+    public com.squareup.okhttp.Call createWorldAsync(CreateWorldRequest body, Boolean details, String accept, Boolean pretty, final ApiCallback<World> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -193,7 +193,7 @@ public class WorldApi {
         }
 
         com.squareup.okhttp.Call call = createWorldValidateBeforeCall(body, details, accept, pretty, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<WorldFull>(){}.getType();
+        Type localVarReturnType = new TypeToken<World>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -277,11 +277,11 @@ public class WorldApi {
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
-     * @return WorldFull
+     * @return World
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public WorldFull deleteWorld(String world, Boolean details, String accept, Boolean pretty) throws ApiException {
-        ApiResponse<WorldFull> resp = deleteWorldWithHttpInfo(world, details, accept, pretty);
+    public World deleteWorld(String world, Boolean details, String accept, Boolean pretty) throws ApiException {
+        ApiResponse<World> resp = deleteWorldWithHttpInfo(world, details, accept, pretty);
         return resp.getData();
     }
 
@@ -292,12 +292,12 @@ public class WorldApi {
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
-     * @return ApiResponse&lt;WorldFull&gt;
+     * @return ApiResponse&lt;World&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<WorldFull> deleteWorldWithHttpInfo(String world, Boolean details, String accept, Boolean pretty) throws ApiException {
+    public ApiResponse<World> deleteWorldWithHttpInfo(String world, Boolean details, String accept, Boolean pretty) throws ApiException {
         com.squareup.okhttp.Call call = deleteWorldValidateBeforeCall(world, details, accept, pretty, null, null);
-        Type localVarReturnType = new TypeToken<WorldFull>(){}.getType();
+        Type localVarReturnType = new TypeToken<World>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -312,7 +312,7 @@ public class WorldApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteWorldAsync(String world, Boolean details, String accept, Boolean pretty, final ApiCallback<WorldFull> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteWorldAsync(String world, Boolean details, String accept, Boolean pretty, final ApiCallback<World> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -334,7 +334,7 @@ public class WorldApi {
         }
 
         com.squareup.okhttp.Call call = deleteWorldValidateBeforeCall(world, details, accept, pretty, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<WorldFull>(){}.getType();
+        Type localVarReturnType = new TypeToken<World>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -563,11 +563,11 @@ public class WorldApi {
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
-     * @return WorldFull
+     * @return World
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public WorldFull getWorld(String world, Boolean details, String accept, Boolean pretty) throws ApiException {
-        ApiResponse<WorldFull> resp = getWorldWithHttpInfo(world, details, accept, pretty);
+    public World getWorld(String world, Boolean details, String accept, Boolean pretty) throws ApiException {
+        ApiResponse<World> resp = getWorldWithHttpInfo(world, details, accept, pretty);
         return resp.getData();
     }
 
@@ -578,12 +578,12 @@ public class WorldApi {
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
-     * @return ApiResponse&lt;WorldFull&gt;
+     * @return ApiResponse&lt;World&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<WorldFull> getWorldWithHttpInfo(String world, Boolean details, String accept, Boolean pretty) throws ApiException {
+    public ApiResponse<World> getWorldWithHttpInfo(String world, Boolean details, String accept, Boolean pretty) throws ApiException {
         com.squareup.okhttp.Call call = getWorldValidateBeforeCall(world, details, accept, pretty, null, null);
-        Type localVarReturnType = new TypeToken<WorldFull>(){}.getType();
+        Type localVarReturnType = new TypeToken<World>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -598,7 +598,7 @@ public class WorldApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getWorldAsync(String world, Boolean details, String accept, Boolean pretty, final ApiCallback<WorldFull> callback) throws ApiException {
+    public com.squareup.okhttp.Call getWorldAsync(String world, Boolean details, String accept, Boolean pretty, final ApiCallback<World> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -620,7 +620,7 @@ public class WorldApi {
         }
 
         com.squareup.okhttp.Call call = getWorldValidateBeforeCall(world, details, accept, pretty, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<WorldFull>(){}.getType();
+        Type localVarReturnType = new TypeToken<World>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -696,11 +696,11 @@ public class WorldApi {
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
-     * @return List&lt;WorldFull&gt;
+     * @return List&lt;World&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<WorldFull> listWorlds(Boolean details, String accept, Boolean pretty) throws ApiException {
-        ApiResponse<List<WorldFull>> resp = listWorldsWithHttpInfo(details, accept, pretty);
+    public List<World> listWorlds(Boolean details, String accept, Boolean pretty) throws ApiException {
+        ApiResponse<List<World>> resp = listWorldsWithHttpInfo(details, accept, pretty);
         return resp.getData();
     }
 
@@ -710,12 +710,12 @@ public class WorldApi {
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
-     * @return ApiResponse&lt;List&lt;WorldFull&gt;&gt;
+     * @return ApiResponse&lt;List&lt;World&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<WorldFull>> listWorldsWithHttpInfo(Boolean details, String accept, Boolean pretty) throws ApiException {
+    public ApiResponse<List<World>> listWorldsWithHttpInfo(Boolean details, String accept, Boolean pretty) throws ApiException {
         com.squareup.okhttp.Call call = listWorldsValidateBeforeCall(details, accept, pretty, null, null);
-        Type localVarReturnType = new TypeToken<List<WorldFull>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<World>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -729,7 +729,7 @@ public class WorldApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listWorldsAsync(Boolean details, String accept, Boolean pretty, final ApiCallback<List<WorldFull>> callback) throws ApiException {
+    public com.squareup.okhttp.Call listWorldsAsync(Boolean details, String accept, Boolean pretty, final ApiCallback<List<World>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -751,7 +751,7 @@ public class WorldApi {
         }
 
         com.squareup.okhttp.Call call = listWorldsValidateBeforeCall(details, accept, pretty, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<WorldFull>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<World>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -837,11 +837,11 @@ public class WorldApi {
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
-     * @return WorldFull
+     * @return World
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public WorldFull modifyWorld(String world, UpdateWorldRequest body, Boolean details, String accept, Boolean pretty) throws ApiException {
-        ApiResponse<WorldFull> resp = modifyWorldWithHttpInfo(world, body, details, accept, pretty);
+    public World modifyWorld(String world, UpdateWorldRequest body, Boolean details, String accept, Boolean pretty) throws ApiException {
+        ApiResponse<World> resp = modifyWorldWithHttpInfo(world, body, details, accept, pretty);
         return resp.getData();
     }
 
@@ -853,12 +853,12 @@ public class WorldApi {
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
-     * @return ApiResponse&lt;WorldFull&gt;
+     * @return ApiResponse&lt;World&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<WorldFull> modifyWorldWithHttpInfo(String world, UpdateWorldRequest body, Boolean details, String accept, Boolean pretty) throws ApiException {
+    public ApiResponse<World> modifyWorldWithHttpInfo(String world, UpdateWorldRequest body, Boolean details, String accept, Boolean pretty) throws ApiException {
         com.squareup.okhttp.Call call = modifyWorldValidateBeforeCall(world, body, details, accept, pretty, null, null);
-        Type localVarReturnType = new TypeToken<WorldFull>(){}.getType();
+        Type localVarReturnType = new TypeToken<World>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -874,7 +874,7 @@ public class WorldApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call modifyWorldAsync(String world, UpdateWorldRequest body, Boolean details, String accept, Boolean pretty, final ApiCallback<WorldFull> callback) throws ApiException {
+    public com.squareup.okhttp.Call modifyWorldAsync(String world, UpdateWorldRequest body, Boolean details, String accept, Boolean pretty, final ApiCallback<World> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -896,7 +896,7 @@ public class WorldApi {
         }
 
         com.squareup.okhttp.Call call = modifyWorldValidateBeforeCall(world, body, details, accept, pretty, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<WorldFull>(){}.getType();
+        Type localVarReturnType = new TypeToken<World>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

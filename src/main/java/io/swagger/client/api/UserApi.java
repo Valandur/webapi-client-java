@@ -28,10 +28,15 @@ import java.io.IOException;
 
 
 import io.swagger.client.model.AuthenticationRequest;
+import io.swagger.client.model.CreateUserRequest;
+import io.swagger.client.model.InlineResponse400;
 import io.swagger.client.model.InlineResponse401;
 import io.swagger.client.model.InlineResponse403;
+import io.swagger.client.model.InlineResponse404;
 import io.swagger.client.model.InlineResponse500;
+import io.swagger.client.model.ModifyUserRequest;
 import io.swagger.client.model.PermissionStruct;
+import io.swagger.client.model.UserPermissionStruct;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -59,7 +64,8 @@ public class UserApi {
     }
 
     /**
-     * Build call for getUserDetails
+     * Build call for createUser
+     * @param body  (optional)
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
@@ -68,7 +74,413 @@ public class UserApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getUserDetailsCall(Boolean details, String accept, Boolean pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call createUserCall(CreateUserRequest body, Boolean details, String accept, Boolean pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/user";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (details != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("details", details));
+        if (accept != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("accept", accept));
+        if (pretty != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("pretty", pretty));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "application/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "application/xml"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyHeader", "ApiKeyQuery" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createUserValidateBeforeCall(CreateUserRequest body, Boolean details, String accept, Boolean pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = createUserCall(body, details, accept, pretty, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Create a user
+     * Creates a new Web-API user with the specified username and password.     **Required permissions:**    - **user.create**   
+     * @param body  (optional)
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @return UserPermissionStruct
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public UserPermissionStruct createUser(CreateUserRequest body, Boolean details, String accept, Boolean pretty) throws ApiException {
+        ApiResponse<UserPermissionStruct> resp = createUserWithHttpInfo(body, details, accept, pretty);
+        return resp.getData();
+    }
+
+    /**
+     * Create a user
+     * Creates a new Web-API user with the specified username and password.     **Required permissions:**    - **user.create**   
+     * @param body  (optional)
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @return ApiResponse&lt;UserPermissionStruct&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<UserPermissionStruct> createUserWithHttpInfo(CreateUserRequest body, Boolean details, String accept, Boolean pretty) throws ApiException {
+        com.squareup.okhttp.Call call = createUserValidateBeforeCall(body, details, accept, pretty, null, null);
+        Type localVarReturnType = new TypeToken<UserPermissionStruct>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create a user (asynchronously)
+     * Creates a new Web-API user with the specified username and password.     **Required permissions:**    - **user.create**   
+     * @param body  (optional)
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createUserAsync(CreateUserRequest body, Boolean details, String accept, Boolean pretty, final ApiCallback<UserPermissionStruct> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createUserValidateBeforeCall(body, details, accept, pretty, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<UserPermissionStruct>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteUser
+     * @param name The username of the user to delete (required)
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteUserCall(String name, Boolean details, String accept, Boolean pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/user/{name}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (details != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("details", details));
+        if (accept != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("accept", accept));
+        if (pretty != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("pretty", pretty));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "application/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "application/xml"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyHeader", "ApiKeyQuery" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteUserValidateBeforeCall(String name, Boolean details, String accept, Boolean pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling deleteUser(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteUserCall(name, details, accept, pretty, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete a user
+     * Removes a Web-API user.     **Required permissions:**    - **user.delete**   
+     * @param name The username of the user to delete (required)
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @return UserPermissionStruct
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public UserPermissionStruct deleteUser(String name, Boolean details, String accept, Boolean pretty) throws ApiException {
+        ApiResponse<UserPermissionStruct> resp = deleteUserWithHttpInfo(name, details, accept, pretty);
+        return resp.getData();
+    }
+
+    /**
+     * Delete a user
+     * Removes a Web-API user.     **Required permissions:**    - **user.delete**   
+     * @param name The username of the user to delete (required)
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @return ApiResponse&lt;UserPermissionStruct&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<UserPermissionStruct> deleteUserWithHttpInfo(String name, Boolean details, String accept, Boolean pretty) throws ApiException {
+        com.squareup.okhttp.Call call = deleteUserValidateBeforeCall(name, details, accept, pretty, null, null);
+        Type localVarReturnType = new TypeToken<UserPermissionStruct>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Delete a user (asynchronously)
+     * Removes a Web-API user.     **Required permissions:**    - **user.delete**   
+     * @param name The username of the user to delete (required)
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteUserAsync(String name, Boolean details, String accept, Boolean pretty, final ApiCallback<UserPermissionStruct> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteUserValidateBeforeCall(name, details, accept, pretty, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<UserPermissionStruct>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getMe
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getMeCall(Boolean details, String accept, Boolean pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/user/me";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (details != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("details", details));
+        if (accept != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("accept", accept));
+        if (pretty != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("pretty", pretty));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "application/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "application/xml"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyHeader", "ApiKeyQuery" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getMeValidateBeforeCall(Boolean details, String accept, Boolean pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getMeCall(details, accept, pretty, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Check info
+     * Checks to see if the passed api key is still valid and retrieves the user info and permissions associated with this key     **Required permissions:**    - **user.**   
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @return PermissionStruct
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PermissionStruct getMe(Boolean details, String accept, Boolean pretty) throws ApiException {
+        ApiResponse<PermissionStruct> resp = getMeWithHttpInfo(details, accept, pretty);
+        return resp.getData();
+    }
+
+    /**
+     * Check info
+     * Checks to see if the passed api key is still valid and retrieves the user info and permissions associated with this key     **Required permissions:**    - **user.**   
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @return ApiResponse&lt;PermissionStruct&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PermissionStruct> getMeWithHttpInfo(Boolean details, String accept, Boolean pretty) throws ApiException {
+        com.squareup.okhttp.Call call = getMeValidateBeforeCall(details, accept, pretty, null, null);
+        Type localVarReturnType = new TypeToken<PermissionStruct>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Check info (asynchronously)
+     * Checks to see if the passed api key is still valid and retrieves the user info and permissions associated with this key     **Required permissions:**    - **user.**   
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getMeAsync(Boolean details, String accept, Boolean pretty, final ApiCallback<PermissionStruct> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getMeValidateBeforeCall(details, accept, pretty, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PermissionStruct>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getUsers
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getUsersCall(Boolean details, String accept, Boolean pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -116,46 +528,46 @@ public class UserApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getUserDetailsValidateBeforeCall(Boolean details, String accept, Boolean pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getUsersValidateBeforeCall(Boolean details, String accept, Boolean pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getUserDetailsCall(details, accept, pretty, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getUsersCall(details, accept, pretty, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
-     * Check info
-     * Checks to see if the passed api key is still valid and retrieves the user info and permissions associated with this key     **Required permissions:**    - **user.user**   
+     * List users
+     * Gets a list of all the Web-API users.     **Required permissions:**    - **user.list**   
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
-     * @return PermissionStruct
+     * @return List&lt;UserPermissionStruct&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PermissionStruct getUserDetails(Boolean details, String accept, Boolean pretty) throws ApiException {
-        ApiResponse<PermissionStruct> resp = getUserDetailsWithHttpInfo(details, accept, pretty);
+    public List<UserPermissionStruct> getUsers(Boolean details, String accept, Boolean pretty) throws ApiException {
+        ApiResponse<List<UserPermissionStruct>> resp = getUsersWithHttpInfo(details, accept, pretty);
         return resp.getData();
     }
 
     /**
-     * Check info
-     * Checks to see if the passed api key is still valid and retrieves the user info and permissions associated with this key     **Required permissions:**    - **user.user**   
+     * List users
+     * Gets a list of all the Web-API users.     **Required permissions:**    - **user.list**   
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
-     * @return ApiResponse&lt;PermissionStruct&gt;
+     * @return ApiResponse&lt;List&lt;UserPermissionStruct&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PermissionStruct> getUserDetailsWithHttpInfo(Boolean details, String accept, Boolean pretty) throws ApiException {
-        com.squareup.okhttp.Call call = getUserDetailsValidateBeforeCall(details, accept, pretty, null, null);
-        Type localVarReturnType = new TypeToken<PermissionStruct>(){}.getType();
+    public ApiResponse<List<UserPermissionStruct>> getUsersWithHttpInfo(Boolean details, String accept, Boolean pretty) throws ApiException {
+        com.squareup.okhttp.Call call = getUsersValidateBeforeCall(details, accept, pretty, null, null);
+        Type localVarReturnType = new TypeToken<List<UserPermissionStruct>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Check info (asynchronously)
-     * Checks to see if the passed api key is still valid and retrieves the user info and permissions associated with this key     **Required permissions:**    - **user.user**   
+     * List users (asynchronously)
+     * Gets a list of all the Web-API users.     **Required permissions:**    - **user.list**   
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
@@ -163,7 +575,7 @@ public class UserApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getUserDetailsAsync(Boolean details, String accept, Boolean pretty, final ApiCallback<PermissionStruct> callback) throws ApiException {
+    public com.squareup.okhttp.Call getUsersAsync(Boolean details, String accept, Boolean pretty, final ApiCallback<List<UserPermissionStruct>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -184,8 +596,8 @@ public class UserApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getUserDetailsValidateBeforeCall(details, accept, pretty, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PermissionStruct>(){}.getType();
+        com.squareup.okhttp.Call call = getUsersValidateBeforeCall(details, accept, pretty, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<UserPermissionStruct>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -204,7 +616,7 @@ public class UserApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/user";
+        String localVarPath = "/user/login";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -377,7 +789,7 @@ public class UserApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "ApiKeyHeader", "ApiKeyQuery" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -392,7 +804,7 @@ public class UserApi {
 
     /**
      * Logout
-     * Invalidate the current API key, logging out the active user.
+     * Invalidate the current API key, logging out the active user.     **Required permissions:**    - **user.**   
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
@@ -406,7 +818,7 @@ public class UserApi {
 
     /**
      * Logout
-     * Invalidate the current API key, logging out the active user.
+     * Invalidate the current API key, logging out the active user.     **Required permissions:**    - **user.**   
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
@@ -421,7 +833,7 @@ public class UserApi {
 
     /**
      * Logout (asynchronously)
-     * Invalidate the current API key, logging out the active user.
+     * Invalidate the current API key, logging out the active user.     **Required permissions:**    - **user.**   
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
@@ -452,6 +864,284 @@ public class UserApi {
 
         com.squareup.okhttp.Call call = logoutValidateBeforeCall(details, accept, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<PermissionStruct>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for logoutRedirect
+     * @param redirect The URL the client should be redirect to after logout (optional)
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call logoutRedirectCall(String redirect, Boolean details, String accept, Boolean pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/user/logout";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (redirect != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("redirect", redirect));
+        if (details != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("details", details));
+        if (accept != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("accept", accept));
+        if (pretty != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("pretty", pretty));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "application/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "application/xml"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyHeader", "ApiKeyQuery" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call logoutRedirectValidateBeforeCall(String redirect, Boolean details, String accept, Boolean pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = logoutRedirectCall(redirect, details, accept, pretty, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * 
+     * null     **Required permissions:**    - **user.**   
+     * @param redirect The URL the client should be redirect to after logout (optional)
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void logoutRedirect(String redirect, Boolean details, String accept, Boolean pretty) throws ApiException {
+        logoutRedirectWithHttpInfo(redirect, details, accept, pretty);
+    }
+
+    /**
+     * 
+     * null     **Required permissions:**    - **user.**   
+     * @param redirect The URL the client should be redirect to after logout (optional)
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> logoutRedirectWithHttpInfo(String redirect, Boolean details, String accept, Boolean pretty) throws ApiException {
+        com.squareup.okhttp.Call call = logoutRedirectValidateBeforeCall(redirect, details, accept, pretty, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     *  (asynchronously)
+     * null     **Required permissions:**    - **user.**   
+     * @param redirect The URL the client should be redirect to after logout (optional)
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call logoutRedirectAsync(String redirect, Boolean details, String accept, Boolean pretty, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = logoutRedirectValidateBeforeCall(redirect, details, accept, pretty, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for modifyUser
+     * @param name The username of the user to delete (required)
+     * @param body  (optional)
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifyUserCall(String name, ModifyUserRequest body, Boolean details, String accept, Boolean pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/user/{name}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (details != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("details", details));
+        if (accept != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("accept", accept));
+        if (pretty != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("pretty", pretty));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "application/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "application/xml"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyHeader", "ApiKeyQuery" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifyUserValidateBeforeCall(String name, ModifyUserRequest body, Boolean details, String accept, Boolean pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling modifyUser(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = modifyUserCall(name, body, details, accept, pretty, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update a user
+     * Changes the properties of a Web-API user     **Required permissions:**    - **user.modify**   
+     * @param name The username of the user to delete (required)
+     * @param body  (optional)
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @return UserPermissionStruct
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public UserPermissionStruct modifyUser(String name, ModifyUserRequest body, Boolean details, String accept, Boolean pretty) throws ApiException {
+        ApiResponse<UserPermissionStruct> resp = modifyUserWithHttpInfo(name, body, details, accept, pretty);
+        return resp.getData();
+    }
+
+    /**
+     * Update a user
+     * Changes the properties of a Web-API user     **Required permissions:**    - **user.modify**   
+     * @param name The username of the user to delete (required)
+     * @param body  (optional)
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @return ApiResponse&lt;UserPermissionStruct&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<UserPermissionStruct> modifyUserWithHttpInfo(String name, ModifyUserRequest body, Boolean details, String accept, Boolean pretty) throws ApiException {
+        com.squareup.okhttp.Call call = modifyUserValidateBeforeCall(name, body, details, accept, pretty, null, null);
+        Type localVarReturnType = new TypeToken<UserPermissionStruct>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update a user (asynchronously)
+     * Changes the properties of a Web-API user     **Required permissions:**    - **user.modify**   
+     * @param name The username of the user to delete (required)
+     * @param body  (optional)
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifyUserAsync(String name, ModifyUserRequest body, Boolean details, String accept, Boolean pretty, final ApiCallback<UserPermissionStruct> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifyUserValidateBeforeCall(name, body, details, accept, pretty, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<UserPermissionStruct>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

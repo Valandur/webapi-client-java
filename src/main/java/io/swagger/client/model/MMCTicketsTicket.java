@@ -23,13 +23,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.Location;
 import io.swagger.client.model.Player;
-import io.swagger.client.model.PlayerFull;
 import java.io.IOException;
 
 /**
  * MMCTicketsTicket
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
 public class MMCTicketsTicket {
   @SerializedName("id")
   private Integer id = null;
@@ -107,7 +106,7 @@ public class MMCTicketsTicket {
   private Integer notified = null;
 
   @SerializedName("sender")
-  private PlayerFull sender = null;
+  private Player sender = null;
 
   @SerializedName("staff")
   private Player staff = null;
@@ -247,7 +246,7 @@ public class MMCTicketsTicket {
     this.notified = notified;
   }
 
-  public MMCTicketsTicket sender(PlayerFull sender) {
+  public MMCTicketsTicket sender(Player sender) {
     this.sender = sender;
     return this;
   }
@@ -257,11 +256,11 @@ public class MMCTicketsTicket {
    * @return sender
   **/
   @ApiModelProperty(value = "The sender of this ticket")
-  public PlayerFull getSender() {
+  public Player getSender() {
     return sender;
   }
 
-  public void setSender(PlayerFull sender) {
+  public void setSender(Player sender) {
     this.sender = sender;
   }
 

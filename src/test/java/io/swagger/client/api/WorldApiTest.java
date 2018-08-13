@@ -22,7 +22,7 @@ import io.swagger.client.model.InlineResponse401;
 import io.swagger.client.model.InlineResponse403;
 import io.swagger.client.model.InlineResponse500;
 import io.swagger.client.model.UpdateWorldRequest;
-import io.swagger.client.model.WorldFull;
+import io.swagger.client.model.World;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -54,7 +54,7 @@ public class WorldApiTest {
         Boolean details = null;
         String accept = null;
         Boolean pretty = null;
-        WorldFull response = api.createWorld(body, details, accept, pretty);
+        World response = api.createWorld(body, details, accept, pretty);
 
         // TODO: test validations
     }
@@ -73,7 +73,7 @@ public class WorldApiTest {
         Boolean details = null;
         String accept = null;
         Boolean pretty = null;
-        WorldFull response = api.deleteWorld(world, details, accept, pretty);
+        World response = api.deleteWorld(world, details, accept, pretty);
 
         // TODO: test validations
     }
@@ -112,7 +112,7 @@ public class WorldApiTest {
         Boolean details = null;
         String accept = null;
         Boolean pretty = null;
-        WorldFull response = api.getWorld(world, details, accept, pretty);
+        World response = api.getWorld(world, details, accept, pretty);
 
         // TODO: test validations
     }
@@ -130,7 +130,7 @@ public class WorldApiTest {
         Boolean details = null;
         String accept = null;
         Boolean pretty = null;
-        List<WorldFull> response = api.listWorlds(details, accept, pretty);
+        List<World> response = api.listWorlds(details, accept, pretty);
 
         // TODO: test validations
     }
@@ -150,7 +150,7 @@ public class WorldApiTest {
         Boolean details = null;
         String accept = null;
         Boolean pretty = null;
-        WorldFull response = api.modifyWorld(world, body, details, accept, pretty);
+        World response = api.modifyWorld(world, body, details, accept, pretty);
 
         // TODO: test validations
     }

@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | The id of the message. Used for sender of the message to identify responses. | 
+**id** | **String** | The id of the message. Used to identify responses. | 
 **link** | **String** | The API link that can be used to obtain more information about this object | 
 **target** | **String** | The target of the message, usually this is a player UUID. Can be set to \&quot;server\&quot; to send to all online players. | 
 **uuid** | [**UUID**](UUID.md) | The unique UUID of this message | 

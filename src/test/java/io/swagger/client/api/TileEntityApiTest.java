@@ -22,6 +22,7 @@ import io.swagger.client.model.InlineResponse403;
 import io.swagger.client.model.InlineResponse404;
 import io.swagger.client.model.InlineResponse500;
 import io.swagger.client.model.TileEntity;
+import io.swagger.client.model.UpdateTileEntityRequest;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -103,6 +104,29 @@ public class TileEntityApiTest {
         String accept = null;
         Boolean pretty = null;
         List<TileEntity> response = api.listTileEntities(world, type, min, max, limit, details, accept, pretty);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Modify tile entity
+     *
+     * Modify the properties of an existing tile entity.     **Required permissions:**    - **tile-entity.modify**   
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void modifyTileEntityTest() throws ApiException {
+        String world = null;
+        Integer x = null;
+        Integer y = null;
+        Integer z = null;
+        UpdateTileEntityRequest body = null;
+        Boolean details = null;
+        String accept = null;
+        Boolean pretty = null;
+        TileEntity response = api.modifyTileEntity(world, x, y, z, body, details, accept, pretty);
 
         // TODO: test validations
     }

@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * InteractiveMessageOption
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
 public class InteractiveMessageOption {
   @SerializedName("key")
   private String key = null;
@@ -40,10 +40,10 @@ public class InteractiveMessageOption {
   }
 
    /**
-   * The key of the option (this is sent to the webhook)
+   * The key of the option (this is sent to the WebHook)
    * @return key
   **/
-  @ApiModelProperty(required = true, value = "The key of the option (this is sent to the webhook)")
+  @ApiModelProperty(required = true, value = "The key of the option (this is sent to the WebHook)")
   public String getKey() {
     return key;
   }
@@ -58,10 +58,10 @@ public class InteractiveMessageOption {
   }
 
    /**
-   * The value of the option (this is displayed to the player)
+   * Get value
    * @return value
   **/
-  @ApiModelProperty(required = true, value = "The value of the option (this is displayed to the player)")
+  @ApiModelProperty(value = "")
   public String getValue() {
     return value;
   }

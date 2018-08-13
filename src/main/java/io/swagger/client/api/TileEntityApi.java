@@ -35,6 +35,7 @@ import io.swagger.client.model.InlineResponse403;
 import io.swagger.client.model.InlineResponse404;
 import io.swagger.client.model.InlineResponse500;
 import io.swagger.client.model.TileEntity;
+import io.swagger.client.model.UpdateTileEntityRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -565,6 +566,181 @@ public class TileEntityApi {
 
         com.squareup.okhttp.Call call = listTileEntitiesValidateBeforeCall(world, type, min, max, limit, details, accept, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<TileEntity>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for modifyTileEntity
+     * @param world The world the tile entity is in (required)
+     * @param x The x-coordinate of the tile-entity (required)
+     * @param y The y-coordinate of the tile-entity (required)
+     * @param z The z-coordinate of the tile-entity (required)
+     * @param body  (optional)
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifyTileEntityCall(String world, Integer x, Integer y, Integer z, UpdateTileEntityRequest body, Boolean details, String accept, Boolean pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/tile-entity/{world}/{x}/{y}/{z}"
+            .replaceAll("\\{" + "world" + "\\}", apiClient.escapeString(world.toString()))
+            .replaceAll("\\{" + "x" + "\\}", apiClient.escapeString(x.toString()))
+            .replaceAll("\\{" + "y" + "\\}", apiClient.escapeString(y.toString()))
+            .replaceAll("\\{" + "z" + "\\}", apiClient.escapeString(z.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (details != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("details", details));
+        if (accept != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("accept", accept));
+        if (pretty != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("pretty", pretty));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "application/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "application/xml"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyHeader", "ApiKeyQuery" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifyTileEntityValidateBeforeCall(String world, Integer x, Integer y, Integer z, UpdateTileEntityRequest body, Boolean details, String accept, Boolean pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'world' is set
+        if (world == null) {
+            throw new ApiException("Missing the required parameter 'world' when calling modifyTileEntity(Async)");
+        }
+        
+        // verify the required parameter 'x' is set
+        if (x == null) {
+            throw new ApiException("Missing the required parameter 'x' when calling modifyTileEntity(Async)");
+        }
+        
+        // verify the required parameter 'y' is set
+        if (y == null) {
+            throw new ApiException("Missing the required parameter 'y' when calling modifyTileEntity(Async)");
+        }
+        
+        // verify the required parameter 'z' is set
+        if (z == null) {
+            throw new ApiException("Missing the required parameter 'z' when calling modifyTileEntity(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = modifyTileEntityCall(world, x, y, z, body, details, accept, pretty, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Modify tile entity
+     * Modify the properties of an existing tile entity.     **Required permissions:**    - **tile-entity.modify**   
+     * @param world The world the tile entity is in (required)
+     * @param x The x-coordinate of the tile-entity (required)
+     * @param y The y-coordinate of the tile-entity (required)
+     * @param z The z-coordinate of the tile-entity (required)
+     * @param body  (optional)
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @return TileEntity
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TileEntity modifyTileEntity(String world, Integer x, Integer y, Integer z, UpdateTileEntityRequest body, Boolean details, String accept, Boolean pretty) throws ApiException {
+        ApiResponse<TileEntity> resp = modifyTileEntityWithHttpInfo(world, x, y, z, body, details, accept, pretty);
+        return resp.getData();
+    }
+
+    /**
+     * Modify tile entity
+     * Modify the properties of an existing tile entity.     **Required permissions:**    - **tile-entity.modify**   
+     * @param world The world the tile entity is in (required)
+     * @param x The x-coordinate of the tile-entity (required)
+     * @param y The y-coordinate of the tile-entity (required)
+     * @param z The z-coordinate of the tile-entity (required)
+     * @param body  (optional)
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @return ApiResponse&lt;TileEntity&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TileEntity> modifyTileEntityWithHttpInfo(String world, Integer x, Integer y, Integer z, UpdateTileEntityRequest body, Boolean details, String accept, Boolean pretty) throws ApiException {
+        com.squareup.okhttp.Call call = modifyTileEntityValidateBeforeCall(world, x, y, z, body, details, accept, pretty, null, null);
+        Type localVarReturnType = new TypeToken<TileEntity>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Modify tile entity (asynchronously)
+     * Modify the properties of an existing tile entity.     **Required permissions:**    - **tile-entity.modify**   
+     * @param world The world the tile entity is in (required)
+     * @param x The x-coordinate of the tile-entity (required)
+     * @param y The y-coordinate of the tile-entity (required)
+     * @param z The z-coordinate of the tile-entity (required)
+     * @param body  (optional)
+     * @param details Add to include additional details, omit or false otherwise (optional)
+     * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
+     * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifyTileEntityAsync(String world, Integer x, Integer y, Integer z, UpdateTileEntityRequest body, Boolean details, String accept, Boolean pretty, final ApiCallback<TileEntity> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifyTileEntityValidateBeforeCall(world, x, y, z, body, details, accept, pretty, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TileEntity>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -27,7 +27,7 @@ import java.io.IOException;
  * Represents a permissions struct that contains information to access the Web-API
  */
 @ApiModel(description = "Represents a permissions struct that contains information to access the Web-API")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
 public class PermissionStruct {
   @SerializedName("key")
   private String key = null;

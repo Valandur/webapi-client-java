@@ -28,13 +28,10 @@ import java.util.List;
 /**
  * Message
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
 public class Message {
   @SerializedName("content")
   private String content = null;
-
-  @SerializedName("link")
-  private String link = null;
 
   @SerializedName("receivers")
   private List<Object> receivers = new ArrayList<Object>();
@@ -58,15 +55,6 @@ public class Message {
 
   public void setContent(String content) {
     this.content = content;
-  }
-
-   /**
-   * The API link that can be used to obtain more information about this object
-   * @return link
-  **/
-  @ApiModelProperty(required = true, value = "The API link that can be used to obtain more information about this object")
-  public String getLink() {
-    return link;
   }
 
   public Message receivers(List<Object> receivers) {
@@ -121,14 +109,13 @@ public class Message {
     }
     Message message = (Message) o;
     return Objects.equals(this.content, message.content) &&
-        Objects.equals(this.link, message.link) &&
         Objects.equals(this.receivers, message.receivers) &&
         Objects.equals(this.timestamp, message.timestamp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, link, receivers, timestamp);
+    return Objects.hash(content, receivers, timestamp);
   }
 
 
@@ -138,7 +125,6 @@ public class Message {
     sb.append("class Message {\n");
     
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    receivers: ").append(toIndentedString(receivers)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("}");

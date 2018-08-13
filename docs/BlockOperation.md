@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **error** | **String** | The error message, if any | 
-**errored** | **Boolean** | True if this block operation produced errors, false otherwise. | 
 **estimatedSecondsRemaining** | **Float** | The estimated amount of time remaining until this block operation is complete (in seconds) | 
 **link** | **String** | The API link that can be used to obtain more information about this object | 
 **max** | [**Vector3i**](Vector3i.md) | The maximum block belonging to this operation | 

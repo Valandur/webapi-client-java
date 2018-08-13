@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**executeMethod**](TileEntityApi.md#executeMethod) | **POST** /tile-entity/{world}/{x}/{y}/{z}/method | Execute a method
 [**getTileEntity**](TileEntityApi.md#getTileEntity) | **GET** /tile-entity/{world}/{x}/{y}/{z} | Get tile entity
 [**listTileEntities**](TileEntityApi.md#listTileEntities) | **GET** /tile-entity | List tile entities
+[**modifyTileEntity**](TileEntityApi.md#modifyTileEntity) | **PUT** /tile-entity/{world}/{x}/{y}/{z} | Modify tile entity
 
 
 <a name="executeMethod"></a>
@@ -222,6 +223,81 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;TileEntity&gt;**](TileEntity.md)
+
+### Authorization
+
+[ApiKeyHeader](../README.md#ApiKeyHeader), [ApiKeyQuery](../README.md#ApiKeyQuery)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+<a name="modifyTileEntity"></a>
+# **modifyTileEntity**
+> TileEntity modifyTileEntity(world, x, y, z, body, details, accept, pretty)
+
+Modify tile entity
+
+Modify the properties of an existing tile entity.     **Required permissions:**    - **tile-entity.modify**   
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.TileEntityApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyHeader
+ApiKeyAuth ApiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyHeader");
+ApiKeyHeader.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyHeader.setApiKeyPrefix("Token");
+
+// Configure API key authorization: ApiKeyQuery
+ApiKeyAuth ApiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyQuery");
+ApiKeyQuery.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyQuery.setApiKeyPrefix("Token");
+
+TileEntityApi apiInstance = new TileEntityApi();
+String world = "world_example"; // String | The world the tile entity is in
+Integer x = 56; // Integer | The x-coordinate of the tile-entity
+Integer y = 56; // Integer | The y-coordinate of the tile-entity
+Integer z = 56; // Integer | The z-coordinate of the tile-entity
+UpdateTileEntityRequest body = new UpdateTileEntityRequest(); // UpdateTileEntityRequest | 
+Boolean details = true; // Boolean | Add to include additional details, omit or false otherwise
+String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
+Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
+try {
+    TileEntity result = apiInstance.modifyTileEntity(world, x, y, z, body, details, accept, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TileEntityApi#modifyTileEntity");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **world** | **String**| The world the tile entity is in |
+ **x** | **Integer**| The x-coordinate of the tile-entity |
+ **y** | **Integer**| The y-coordinate of the tile-entity |
+ **z** | **Integer**| The z-coordinate of the tile-entity |
+ **body** | [**UpdateTileEntityRequest**](UpdateTileEntityRequest.md)|  | [optional]
+ **details** | **Boolean**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **String**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional] [enum: json, xml]
+ **pretty** | **Boolean**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
+
+### Return type
+
+[**TileEntity**](TileEntity.md)
 
 ### Authorization
 

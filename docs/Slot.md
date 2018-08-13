@@ -1,25 +1,10 @@
 
-# PlayerFull
+# Slot
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**link** | **String** | The API link that can be used to obtain more information about this object | 
-**name** | **String** | The players name | 
-**online** | **Boolean** | True if the player is online, false otherwise | 
-**uuid** | [**UUID**](UUID.md) | The unique UUID of this player | 
-**unlockedAdvancements** | [**List&lt;Advancement&gt;**](Advancement.md) | A list of all unlocked advancements of this player | 
-**latency** | **Integer** | The latency (in milliseconds) of the player | 
-**rotation** | [**Vector3d**](Vector3d.md) | The current rotation of the player | 
-**scale** | [**Vector3d**](Vector3d.md) | The current scale of the player | 
-**velocity** | [**Vector3d**](Vector3d.md) | The current velocity of the player | 
-**inventory** | [**Inventory**](Inventory.md) |  |  [optional]
-**helmet** | [**ItemStack**](ItemStack.md) | The item stack that the player is wearing as a helmet |  [optional]
-**chestplate** | [**ItemStack**](ItemStack.md) | The item stack that the player is wearing as chestplate |  [optional]
-**leggings** | [**ItemStack**](ItemStack.md) | The item stack that the player is wearing as leggings |  [optional]
-**boots** | [**ItemStack**](ItemStack.md) | The item stack that the player is wearing as boots |  [optional]
-**address** | **String** | The player&#39;s IP address and port | 
-**location** | [**Location**](Location.md) | The current Location of the player | 
+**stack** | [**ItemStack**](ItemStack.md) | The item stack that is in this slot | 
 **absorption** | **Double** |  |  [optional]
 **age** | [**AgeableData**](AgeableData.md) |  |  [optional]
 **aggressive** | **Boolean** |  |  [optional]
@@ -98,6 +83,7 @@ Name | Type | Description | Notes
 **horse** | [**HorseData**](HorseData.md) |  |  [optional]
 **igniteable** | [**IgniteableData**](IgniteableData.md) |  |  [optional]
 **inWall** | **Boolean** |  |  [optional]
+**inventory** | [**Inventory**](Inventory.md) |  |  [optional]
 **invisibility** | [**InvisibilityData**](InvisibilityData.md) |  |  [optional]
 **invulnerability** | [**InvulnerabilityData**](InvulnerabilityData.md) |  |  [optional]
 **joined** | [**JoinData**](JoinData.md) |  |  [optional]

@@ -21,25 +21,1146 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.AcceptsItems;
+import io.swagger.client.model.AgeableData;
+import io.swagger.client.model.ArmorSlotType;
+import io.swagger.client.model.ArmorStandData;
+import io.swagger.client.model.BannerData;
+import io.swagger.client.model.BeaconData;
+import io.swagger.client.model.BlockState;
+import io.swagger.client.model.BreathingData;
+import io.swagger.client.model.BrewingStandData;
+import io.swagger.client.model.Career;
+import io.swagger.client.model.CatalogType;
+import io.swagger.client.model.CatalogTypeDifficulty;
+import io.swagger.client.model.CatalogTypeDimensionType;
+import io.swagger.client.model.CatalogTypeGeneratorType;
+import io.swagger.client.model.CatalogTypeWeather;
+import io.swagger.client.model.Color;
+import io.swagger.client.model.CommandData;
+import io.swagger.client.model.DamageableData;
+import io.swagger.client.model.DespawnDelayData;
+import io.swagger.client.model.DurabilityData;
+import io.swagger.client.model.DyeColor;
+import io.swagger.client.model.Enchantment;
+import io.swagger.client.model.EndGatewayData;
+import io.swagger.client.model.EquipmentSlotType;
+import io.swagger.client.model.ExperienceHolderData;
+import io.swagger.client.model.FallingBlockData;
+import io.swagger.client.model.FireworkEffect;
+import io.swagger.client.model.FireworkRocketData;
+import io.swagger.client.model.FluidStack;
+import io.swagger.client.model.FoodData;
+import io.swagger.client.model.FurnaceData;
+import io.swagger.client.model.FuseData;
+import io.swagger.client.model.GameMode;
+import io.swagger.client.model.GrowthData;
+import io.swagger.client.model.GuiIdProperty;
+import io.swagger.client.model.HealthData;
+import io.swagger.client.model.HideData;
+import io.swagger.client.model.HorseData;
+import io.swagger.client.model.Identifiable;
+import io.swagger.client.model.IgniteableData;
+import io.swagger.client.model.Inventory;
+import io.swagger.client.model.InventoryCapacity;
+import io.swagger.client.model.InventoryDimension;
+import io.swagger.client.model.InventoryTitle;
+import io.swagger.client.model.InvisibilityData;
+import io.swagger.client.model.InvulnerabilityData;
+import io.swagger.client.model.ItemStack;
+import io.swagger.client.model.JoinData;
+import io.swagger.client.model.LeashData;
+import io.swagger.client.model.Location;
+import io.swagger.client.model.MinecartBlockData;
+import io.swagger.client.model.MobSpawnerData;
+import io.swagger.client.model.PickupDelayData;
+import io.swagger.client.model.PotionEffect;
+import io.swagger.client.model.SlimeData;
+import io.swagger.client.model.SlotIndex;
+import io.swagger.client.model.SlotPos;
+import io.swagger.client.model.SlotSide;
+import io.swagger.client.model.Stat;
+import io.swagger.client.model.StructureData;
+import io.swagger.client.model.TameableData;
+import io.swagger.client.model.TradeOffer;
+import io.swagger.client.model.Vector3d;
+import io.swagger.client.model.VehicleData;
+import io.swagger.client.model.WireAttachmentData;
+import io.swagger.client.model.WorldBorder;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**
  * World
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
 public class World {
+  @SerializedName("allowCommands")
+  private Boolean allowCommands = null;
+
+  @SerializedName("border")
+  private WorldBorder border = null;
+
+  @SerializedName("difficulty")
+  private CatalogTypeDifficulty difficulty = null;
+
+  @SerializedName("dimensionType")
+  private CatalogTypeDimensionType dimensionType = null;
+
+  @SerializedName("gameMode")
+  private GameMode gameMode = null;
+
+  @SerializedName("gameRules")
+  private Map<String, String> gameRules = new HashMap<String, String>();
+
+  @SerializedName("generateBonusChests")
+  private Boolean generateBonusChests = null;
+
+  @SerializedName("generatorType")
+  private CatalogTypeGeneratorType generatorType = null;
+
+  @SerializedName("keepSpawnLoaded")
+  private Boolean keepSpawnLoaded = null;
+
   @SerializedName("link")
   private String link = null;
+
+  @SerializedName("loadOnStartup")
+  private Boolean loadOnStartup = null;
 
   @SerializedName("loaded")
   private Boolean loaded = null;
 
+  @SerializedName("mapFeaturesEnabled")
+  private Boolean mapFeaturesEnabled = null;
+
   @SerializedName("name")
   private String name = null;
 
+  @SerializedName("seed")
+  private Long seed = null;
+
+  @SerializedName("spawn")
+  private CatalogType spawn = null;
+
+  @SerializedName("time")
+  private Long time = null;
+
   @SerializedName("uuid")
   private UUID uuid = null;
+
+  @SerializedName("weather")
+  private CatalogTypeWeather weather = null;
+
+  @SerializedName("absorption")
+  private Double absorption = null;
+
+  @SerializedName("age")
+  private AgeableData age = null;
+
+  @SerializedName("aggressive")
+  private Boolean aggressive = null;
+
+  @SerializedName("aiEnabled")
+  private Boolean aiEnabled = null;
+
+  @SerializedName("angerLevel")
+  private Integer angerLevel = null;
+
+  @SerializedName("armorStand")
+  private ArmorStandData armorStand = null;
+
+  @SerializedName("art")
+  private CatalogType art = null;
+
+  @SerializedName("attached")
+  private Boolean attached = null;
+
+  @SerializedName("author")
+  private String author = null;
+
+  /**
+   * Gets or Sets axis
+   */
+  @JsonAdapter(AxisEnum.Adapter.class)
+  public enum AxisEnum {
+    X("X"),
+    
+    Y("Y"),
+    
+    Z("Z");
+
+    private String value;
+
+    AxisEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AxisEnum fromValue(String text) {
+      for (AxisEnum b : AxisEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<AxisEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AxisEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AxisEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return AxisEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("axis")
+  private AxisEnum axis = null;
+
+  @SerializedName("banner")
+  private BannerData banner = null;
+
+  @SerializedName("beacon")
+  private BeaconData beacon = null;
+
+  @SerializedName("bigMushroom")
+  private CatalogType bigMushroom = null;
+
+  @SerializedName("block")
+  private BlockState block = null;
+
+  @SerializedName("breathing")
+  private BreathingData breathing = null;
+
+  @SerializedName("breedable")
+  private Boolean breedable = null;
+
+  @SerializedName("brewingStand")
+  private BrewingStandData brewingStand = null;
+
+  @SerializedName("brick")
+  private CatalogType brick = null;
+
+  @SerializedName("career")
+  private Career career = null;
+
+  @SerializedName("charged")
+  private Boolean charged = null;
+
+  @SerializedName("coal")
+  private CatalogType coal = null;
+
+  @SerializedName("color")
+  private Color color = null;
+
+  @SerializedName("command")
+  private CommandData command = null;
+
+  @SerializedName("comparator")
+  private CatalogType comparator = null;
+
+  /**
+   * Gets or Sets connectedDirection
+   */
+  @JsonAdapter(ConnectedDirectionEnum.Adapter.class)
+  public enum ConnectedDirectionEnum {
+    NORTH("NORTH"),
+    
+    NORTH_NORTHEAST("NORTH_NORTHEAST"),
+    
+    NORTHEAST("NORTHEAST"),
+    
+    EAST_NORTHEAST("EAST_NORTHEAST"),
+    
+    EAST("EAST"),
+    
+    EAST_SOUTHEAST("EAST_SOUTHEAST"),
+    
+    SOUTHEAST("SOUTHEAST"),
+    
+    SOUTH_SOUTHEAST("SOUTH_SOUTHEAST"),
+    
+    SOUTH("SOUTH"),
+    
+    SOUTH_SOUTHWEST("SOUTH_SOUTHWEST"),
+    
+    SOUTHWEST("SOUTHWEST"),
+    
+    WEST_SOUTHWEST("WEST_SOUTHWEST"),
+    
+    WEST("WEST"),
+    
+    WEST_NORTHWEST("WEST_NORTHWEST"),
+    
+    NORTHWEST("NORTHWEST"),
+    
+    NORTH_NORTHWEST("NORTH_NORTHWEST"),
+    
+    UP("UP"),
+    
+    DOWN("DOWN"),
+    
+    NONE("NONE");
+
+    private String value;
+
+    ConnectedDirectionEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ConnectedDirectionEnum fromValue(String text) {
+      for (ConnectedDirectionEnum b : ConnectedDirectionEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ConnectedDirectionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ConnectedDirectionEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ConnectedDirectionEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ConnectedDirectionEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("connectedDirection")
+  private List<ConnectedDirectionEnum> connectedDirection = null;
+
+  @SerializedName("cookedFish")
+  private CatalogType cookedFish = null;
+
+  @SerializedName("cooldown")
+  private Integer cooldown = null;
+
+  @SerializedName("criticalHit")
+  private Boolean criticalHit = null;
+
+  @SerializedName("customName")
+  private Boolean customName = null;
+
+  @SerializedName("damage")
+  private Double damage = null;
+
+  @SerializedName("damageable")
+  private DamageableData damageable = null;
+
+  @SerializedName("decayable")
+  private Boolean decayable = null;
+
+  @SerializedName("delay")
+  private Integer delay = null;
+
+  @SerializedName("despawnDelay")
+  private DespawnDelayData despawnDelay = null;
+
+  /**
+   * Gets or Sets direction
+   */
+  @JsonAdapter(DirectionEnum.Adapter.class)
+  public enum DirectionEnum {
+    NORTH("NORTH"),
+    
+    NORTH_NORTHEAST("NORTH_NORTHEAST"),
+    
+    NORTHEAST("NORTHEAST"),
+    
+    EAST_NORTHEAST("EAST_NORTHEAST"),
+    
+    EAST("EAST"),
+    
+    EAST_SOUTHEAST("EAST_SOUTHEAST"),
+    
+    SOUTHEAST("SOUTHEAST"),
+    
+    SOUTH_SOUTHEAST("SOUTH_SOUTHEAST"),
+    
+    SOUTH("SOUTH"),
+    
+    SOUTH_SOUTHWEST("SOUTH_SOUTHWEST"),
+    
+    SOUTHWEST("SOUTHWEST"),
+    
+    WEST_SOUTHWEST("WEST_SOUTHWEST"),
+    
+    WEST("WEST"),
+    
+    WEST_NORTHWEST("WEST_NORTHWEST"),
+    
+    NORTHWEST("NORTHWEST"),
+    
+    NORTH_NORTHWEST("NORTH_NORTHWEST"),
+    
+    UP("UP"),
+    
+    DOWN("DOWN"),
+    
+    NONE("NONE");
+
+    private String value;
+
+    DirectionEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DirectionEnum fromValue(String text) {
+      for (DirectionEnum b : DirectionEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<DirectionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DirectionEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DirectionEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return DirectionEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("direction")
+  private DirectionEnum direction = null;
+
+  @SerializedName("dirt")
+  private CatalogType dirt = null;
+
+  @SerializedName("disarmed")
+  private Boolean disarmed = null;
+
+  @SerializedName("disguisedBlock")
+  private CatalogType disguisedBlock = null;
+
+  @SerializedName("displayName")
+  private String displayName = null;
+
+  @SerializedName("dominantHand")
+  private CatalogType dominantHand = null;
+
+  @SerializedName("doublePlant")
+  private CatalogType doublePlant = null;
+
+  @SerializedName("drops")
+  private Boolean drops = null;
+
+  @SerializedName("durability")
+  private DurabilityData durability = null;
+
+  @SerializedName("dye")
+  private DyeColor dye = null;
+
+  @SerializedName("enchantments")
+  private List<Enchantment> enchantments = null;
+
+  @SerializedName("endGateway")
+  private EndGatewayData endGateway = null;
+
+  @SerializedName("expOrb")
+  private Integer expOrb = null;
+
+  @SerializedName("experience")
+  private ExperienceHolderData experience = null;
+
+  @SerializedName("expireTicks")
+  private Integer expireTicks = null;
+
+  @SerializedName("explosionRadius")
+  private Integer explosionRadius = null;
+
+  @SerializedName("extended")
+  private Boolean extended = null;
+
+  @SerializedName("fallDistance")
+  private Float fallDistance = null;
+
+  @SerializedName("fallingBlock")
+  private FallingBlockData fallingBlock = null;
+
+  @SerializedName("filled")
+  private Boolean filled = null;
+
+  @SerializedName("fireworkEffects")
+  private List<FireworkEffect> fireworkEffects = null;
+
+  @SerializedName("fireworkRocket")
+  private FireworkRocketData fireworkRocket = null;
+
+  @SerializedName("fish")
+  private CatalogType fish = null;
+
+  @SerializedName("flammable")
+  private Boolean flammable = null;
+
+  @SerializedName("fluid")
+  private FluidStack fluid = null;
+
+  @SerializedName("fluidLevel")
+  private Integer fluidLevel = null;
+
+  @SerializedName("fluidTanks")
+  private Map<String, List<FluidStack>> fluidTanks = null;
+
+  @SerializedName("flying")
+  private Boolean flying = null;
+
+  @SerializedName("flyingAbility")
+  private Boolean flyingAbility = null;
+
+  @SerializedName("food")
+  private FoodData food = null;
+
+  @SerializedName("furnace")
+  private FurnaceData furnace = null;
+
+  @SerializedName("fuse")
+  private FuseData fuse = null;
+
+  @SerializedName("generation")
+  private Integer generation = null;
+
+  @SerializedName("glowing")
+  private Boolean glowing = null;
+
+  @SerializedName("goldenApple")
+  private CatalogType goldenApple = null;
+
+  @SerializedName("griefs")
+  private Boolean griefs = null;
+
+  @SerializedName("growth")
+  private GrowthData growth = null;
+
+  @SerializedName("health")
+  private HealthData health = null;
+
+  @SerializedName("hide")
+  private HideData hide = null;
+
+  @SerializedName("hinge")
+  private CatalogType hinge = null;
+
+  @SerializedName("horse")
+  private HorseData horse = null;
+
+  @SerializedName("igniteable")
+  private IgniteableData igniteable = null;
+
+  @SerializedName("inWall")
+  private Boolean inWall = null;
+
+  @SerializedName("inventory")
+  private Inventory inventory = null;
+
+  @SerializedName("invisibility")
+  private InvisibilityData invisibility = null;
+
+  @SerializedName("invulnerability")
+  private InvulnerabilityData invulnerability = null;
+
+  @SerializedName("joined")
+  private JoinData joined = null;
+
+  @SerializedName("knockback")
+  private Integer knockback = null;
+
+  @SerializedName("layer")
+  private Integer layer = null;
+
+  @SerializedName("leash")
+  private LeashData leash = null;
+
+  @SerializedName("lockToken")
+  private String lockToken = null;
+
+  @SerializedName("logAxis")
+  private CatalogType logAxis = null;
+
+  @SerializedName("lore")
+  private List<String> lore = null;
+
+  @SerializedName("minecartBlock")
+  private MinecartBlockData minecartBlock = null;
+
+  @SerializedName("mobSpawner")
+  private MobSpawnerData mobSpawner = null;
+
+  @SerializedName("moisture")
+  private Integer moisture = null;
+
+  @SerializedName("note")
+  private CatalogType note = null;
+
+  @SerializedName("occupied")
+  private Boolean occupied = null;
+
+  @SerializedName("ocelot")
+  private CatalogType ocelot = null;
+
+  @SerializedName("open")
+  private Boolean open = null;
+
+  @SerializedName("pages")
+  private List<String> pages = null;
+
+  @SerializedName("passengers")
+  private List<UUID> passengers = null;
+
+  @SerializedName("persists")
+  private Boolean persists = null;
+
+  @SerializedName("pickupDelay")
+  private PickupDelayData pickupDelay = null;
+
+  @SerializedName("pickupRule")
+  private CatalogType pickupRule = null;
+
+  @SerializedName("pigSaddle")
+  private Boolean pigSaddle = null;
+
+  @SerializedName("piston")
+  private CatalogType piston = null;
+
+  @SerializedName("placeableOn")
+  private List<CatalogType> placeableOn = null;
+
+  @SerializedName("plant")
+  private CatalogType plant = null;
+
+  @SerializedName("playerCreated")
+  private Boolean playerCreated = null;
+
+  @SerializedName("playing")
+  private Boolean playing = null;
+
+  @SerializedName("portion")
+  private CatalogType portion = null;
+
+  @SerializedName("potionEffects")
+  private List<PotionEffect> potionEffects = null;
+
+  @SerializedName("powered")
+  private Boolean powered = null;
+
+  @SerializedName("prismarine")
+  private CatalogType prismarine = null;
+
+  @SerializedName("quartz")
+  private CatalogType quartz = null;
+
+  @SerializedName("rabbit")
+  private CatalogType rabbit = null;
+
+  @SerializedName("railDirection")
+  private CatalogType railDirection = null;
+
+  @SerializedName("redstonePower")
+  private Integer redstonePower = null;
+
+  @SerializedName("representedItem")
+  private ItemStack representedItem = null;
+
+  @SerializedName("representedPlayer")
+  private String representedPlayer = null;
+
+  @SerializedName("respawnLocations")
+  private Map<String, Location> respawnLocations = null;
+
+  @SerializedName("sand")
+  private CatalogType sand = null;
+
+  @SerializedName("sandStone")
+  private CatalogType sandStone = null;
+
+  @SerializedName("screaming")
+  private Boolean screaming = null;
+
+  @SerializedName("seamless")
+  private Boolean seamless = null;
+
+  @SerializedName("shatters")
+  private Boolean shatters = null;
+
+  @SerializedName("sheared")
+  private Boolean sheared = null;
+
+  @SerializedName("shrub")
+  private CatalogType shrub = null;
+
+  @SerializedName("sign")
+  private List<String> sign = null;
+
+  @SerializedName("silent")
+  private Boolean silent = null;
+
+  @SerializedName("sitting")
+  private Boolean sitting = null;
+
+  @SerializedName("skin")
+  private UUID skin = null;
+
+  @SerializedName("skull")
+  private CatalogType skull = null;
+
+  @SerializedName("slab")
+  private CatalogType slab = null;
+
+  @SerializedName("sleeping")
+  private Boolean sleeping = null;
+
+  @SerializedName("slime")
+  private SlimeData slime = null;
+
+  @SerializedName("sneaking")
+  private Boolean sneaking = null;
+
+  @SerializedName("snow")
+  private Boolean snow = null;
+
+  @SerializedName("sprinting")
+  private Boolean sprinting = null;
+
+  @SerializedName("stairShape")
+  private CatalogType stairShape = null;
+
+  @SerializedName("statistics")
+  private List<Stat> statistics = null;
+
+  @SerializedName("stone")
+  private CatalogType stone = null;
+
+  @SerializedName("storedEnchantments")
+  private List<Enchantment> storedEnchantments = null;
+
+  @SerializedName("structure")
+  private StructureData structure = null;
+
+  @SerializedName("stuckArrows")
+  private Integer stuckArrows = null;
+
+  @SerializedName("tamed")
+  private TameableData tamed = null;
+
+  @SerializedName("target")
+  private Vector3d target = null;
+
+  @SerializedName("trades")
+  private List<TradeOffer> trades = null;
+
+  @SerializedName("tree")
+  private CatalogType tree = null;
+
+  @SerializedName("vehicle")
+  private VehicleData vehicle = null;
+
+  @SerializedName("wall")
+  private CatalogType wall = null;
+
+  @SerializedName("wet")
+  private Boolean wet = null;
+
+  @SerializedName("wires")
+  private WireAttachmentData wires = null;
+
+  @SerializedName("acceptsItems")
+  private AcceptsItems acceptsItems = null;
+
+  @SerializedName("applicableEffect")
+  private List<PotionEffect> applicableEffect = null;
+
+  @SerializedName("armorSlotType")
+  private ArmorSlotType armorSlotType = null;
+
+  @SerializedName("armorType")
+  private CatalogType armorType = null;
+
+  @SerializedName("blastResistance")
+  private Double blastResistance = null;
+
+  @SerializedName("burningFuel")
+  private Integer burningFuel = null;
+
+  @SerializedName("damageAbsorption")
+  private Integer damageAbsorption = null;
+
+  @SerializedName("efficiency")
+  private Double efficiency = null;
+
+  @SerializedName("equipmentType")
+  private CatalogType equipmentType = null;
+
+  @SerializedName("equiptmentSlotType")
+  private EquipmentSlotType equiptmentSlotType = null;
+
+  @SerializedName("eyeHeight")
+  private Double eyeHeight = null;
+
+  @SerializedName("eyeLocation")
+  private Vector3d eyeLocation = null;
+
+  @SerializedName("fluidTemperature")
+  private Integer fluidTemperature = null;
+
+  @SerializedName("fluidViscosity")
+  private Integer fluidViscosity = null;
+
+  @SerializedName("foodRestoration")
+  private Integer foodRestoration = null;
+
+  @SerializedName("fullBlockSelectionBox")
+  private Boolean fullBlockSelectionBox = null;
+
+  @SerializedName("gravityAffected")
+  private Boolean gravityAffected = null;
+
+  @SerializedName("groundLuminance")
+  private Double groundLuminance = null;
+
+  @SerializedName("guiId")
+  private GuiIdProperty guiId = null;
+
+  @SerializedName("hardness")
+  private Double hardness = null;
+
+  @SerializedName("heldItem")
+  private CatalogType heldItem = null;
+
+  @SerializedName("identifiable")
+  private Identifiable identifiable = null;
+
+  @SerializedName("indirectlyPowered")
+  private Boolean indirectlyPowered = null;
+
+  @SerializedName("instrument")
+  private CatalogType instrument = null;
+
+  @SerializedName("inventoryCapacity")
+  private InventoryCapacity inventoryCapacity = null;
+
+  @SerializedName("inventoryDimension")
+  private InventoryDimension inventoryDimension = null;
+
+  @SerializedName("inventoryTitle")
+  private InventoryTitle inventoryTitle = null;
+
+  @SerializedName("lightEmission")
+  private Integer lightEmission = null;
+
+  /**
+   * Gets or Sets matter
+   */
+  @JsonAdapter(MatterEnum.Adapter.class)
+  public enum MatterEnum {
+    SOLID("SOLID"),
+    
+    LIQUID("LIQUID"),
+    
+    GAS("GAS");
+
+    private String value;
+
+    MatterEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static MatterEnum fromValue(String text) {
+      for (MatterEnum b : MatterEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<MatterEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MatterEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public MatterEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return MatterEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("matter")
+  private MatterEnum matter = null;
+
+  @SerializedName("passable")
+  private Boolean passable = null;
+
+  @SerializedName("record")
+  private CatalogType record = null;
+
+  @SerializedName("replaceable")
+  private Boolean replaceable = null;
+
+  @SerializedName("saturationProperty")
+  private Double saturationProperty = null;
+
+  @SerializedName("skyLuminance")
+  private Double skyLuminance = null;
+
+  @SerializedName("slotIndex")
+  private SlotIndex slotIndex = null;
+
+  @SerializedName("slotPos")
+  private SlotPos slotPos = null;
+
+  @SerializedName("slotSide")
+  private SlotSide slotSide = null;
+
+  @SerializedName("smeltable")
+  private Boolean smeltable = null;
+
+  @SerializedName("solidCube")
+  private Boolean solidCube = null;
+
+  @SerializedName("statisticsTracked")
+  private Boolean statisticsTracked = null;
+
+  @SerializedName("surrogateBlock")
+  private Boolean surrogateBlock = null;
+
+  @SerializedName("temperature")
+  private Double temperature = null;
+
+  @SerializedName("toolType")
+  private CatalogType toolType = null;
+
+  @SerializedName("unbreakable")
+  private Boolean unbreakable = null;
+
+  @SerializedName("useLimit")
+  private Integer useLimit = null;
+
+  public World allowCommands(Boolean allowCommands) {
+    this.allowCommands = allowCommands;
+    return this;
+  }
+
+   /**
+   * True if commands are allowed to be executed in this world, false otherwise
+   * @return allowCommands
+  **/
+  @ApiModelProperty(required = true, value = "True if commands are allowed to be executed in this world, false otherwise")
+  public Boolean isAllowCommands() {
+    return allowCommands;
+  }
+
+  public void setAllowCommands(Boolean allowCommands) {
+    this.allowCommands = allowCommands;
+  }
+
+  public World border(WorldBorder border) {
+    this.border = border;
+    return this;
+  }
+
+   /**
+   * The border of the world
+   * @return border
+  **/
+  @ApiModelProperty(required = true, value = "The border of the world")
+  public WorldBorder getBorder() {
+    return border;
+  }
+
+  public void setBorder(WorldBorder border) {
+    this.border = border;
+  }
+
+  public World difficulty(CatalogTypeDifficulty difficulty) {
+    this.difficulty = difficulty;
+    return this;
+  }
+
+   /**
+   * The difficulty of the world
+   * @return difficulty
+  **/
+  @ApiModelProperty(required = true, value = "The difficulty of the world")
+  public CatalogTypeDifficulty getDifficulty() {
+    return difficulty;
+  }
+
+  public void setDifficulty(CatalogTypeDifficulty difficulty) {
+    this.difficulty = difficulty;
+  }
+
+  public World dimensionType(CatalogTypeDimensionType dimensionType) {
+    this.dimensionType = dimensionType;
+    return this;
+  }
+
+   /**
+   * The dimension of the world
+   * @return dimensionType
+  **/
+  @ApiModelProperty(required = true, value = "The dimension of the world")
+  public CatalogTypeDimensionType getDimensionType() {
+    return dimensionType;
+  }
+
+  public void setDimensionType(CatalogTypeDimensionType dimensionType) {
+    this.dimensionType = dimensionType;
+  }
+
+  public World gameMode(GameMode gameMode) {
+    this.gameMode = gameMode;
+    return this;
+  }
+
+   /**
+   * Get gameMode
+   * @return gameMode
+  **/
+  @ApiModelProperty(value = "")
+  public GameMode getGameMode() {
+    return gameMode;
+  }
+
+  public void setGameMode(GameMode gameMode) {
+    this.gameMode = gameMode;
+  }
+
+  public World gameRules(Map<String, String> gameRules) {
+    this.gameRules = gameRules;
+    return this;
+  }
+
+  public World putGameRulesItem(String key, String gameRulesItem) {
+    this.gameRules.put(key, gameRulesItem);
+    return this;
+  }
+
+   /**
+   * A map of world rule names to values
+   * @return gameRules
+  **/
+  @ApiModelProperty(required = true, value = "A map of world rule names to values")
+  public Map<String, String> getGameRules() {
+    return gameRules;
+  }
+
+  public void setGameRules(Map<String, String> gameRules) {
+    this.gameRules = gameRules;
+  }
+
+  public World generateBonusChests(Boolean generateBonusChests) {
+    this.generateBonusChests = generateBonusChests;
+    return this;
+  }
+
+   /**
+   * True if bonus chests are generated for this world, false otherwise
+   * @return generateBonusChests
+  **/
+  @ApiModelProperty(required = true, value = "True if bonus chests are generated for this world, false otherwise")
+  public Boolean isGenerateBonusChests() {
+    return generateBonusChests;
+  }
+
+  public void setGenerateBonusChests(Boolean generateBonusChests) {
+    this.generateBonusChests = generateBonusChests;
+  }
+
+  public World generatorType(CatalogTypeGeneratorType generatorType) {
+    this.generatorType = generatorType;
+    return this;
+  }
+
+   /**
+   * The generator type used for this world
+   * @return generatorType
+  **/
+  @ApiModelProperty(required = true, value = "The generator type used for this world")
+  public CatalogTypeGeneratorType getGeneratorType() {
+    return generatorType;
+  }
+
+  public void setGeneratorType(CatalogTypeGeneratorType generatorType) {
+    this.generatorType = generatorType;
+  }
+
+  public World keepSpawnLoaded(Boolean keepSpawnLoaded) {
+    this.keepSpawnLoaded = keepSpawnLoaded;
+    return this;
+  }
+
+   /**
+   * True if the spawn of this world is always kept loaded, false otherwise
+   * @return keepSpawnLoaded
+  **/
+  @ApiModelProperty(required = true, value = "True if the spawn of this world is always kept loaded, false otherwise")
+  public Boolean isKeepSpawnLoaded() {
+    return keepSpawnLoaded;
+  }
+
+  public void setKeepSpawnLoaded(Boolean keepSpawnLoaded) {
+    this.keepSpawnLoaded = keepSpawnLoaded;
+  }
 
    /**
    * The API link that can be used to obtain more information about this object
@@ -48,6 +1169,24 @@ public class World {
   @ApiModelProperty(required = true, value = "The API link that can be used to obtain more information about this object")
   public String getLink() {
     return link;
+  }
+
+  public World loadOnStartup(Boolean loadOnStartup) {
+    this.loadOnStartup = loadOnStartup;
+    return this;
+  }
+
+   /**
+   * True if this world is loaded when the server starts, false otherwise
+   * @return loadOnStartup
+  **/
+  @ApiModelProperty(required = true, value = "True if this world is loaded when the server starts, false otherwise")
+  public Boolean isLoadOnStartup() {
+    return loadOnStartup;
+  }
+
+  public void setLoadOnStartup(Boolean loadOnStartup) {
+    this.loadOnStartup = loadOnStartup;
   }
 
   public World loaded(Boolean loaded) {
@@ -68,6 +1207,24 @@ public class World {
     this.loaded = loaded;
   }
 
+  public World mapFeaturesEnabled(Boolean mapFeaturesEnabled) {
+    this.mapFeaturesEnabled = mapFeaturesEnabled;
+    return this;
+  }
+
+   /**
+   * True if map specific features are enabled for this world, false otherwise
+   * @return mapFeaturesEnabled
+  **/
+  @ApiModelProperty(required = true, value = "True if map specific features are enabled for this world, false otherwise")
+  public Boolean isMapFeaturesEnabled() {
+    return mapFeaturesEnabled;
+  }
+
+  public void setMapFeaturesEnabled(Boolean mapFeaturesEnabled) {
+    this.mapFeaturesEnabled = mapFeaturesEnabled;
+  }
+
   public World name(String name) {
     this.name = name;
     return this;
@@ -84,6 +1241,60 @@ public class World {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public World seed(Long seed) {
+    this.seed = seed;
+    return this;
+  }
+
+   /**
+   * The seed of the world
+   * @return seed
+  **/
+  @ApiModelProperty(required = true, value = "The seed of the world")
+  public Long getSeed() {
+    return seed;
+  }
+
+  public void setSeed(Long seed) {
+    this.seed = seed;
+  }
+
+  public World spawn(CatalogType spawn) {
+    this.spawn = spawn;
+    return this;
+  }
+
+   /**
+   * Get spawn
+   * @return spawn
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getSpawn() {
+    return spawn;
+  }
+
+  public void setSpawn(CatalogType spawn) {
+    this.spawn = spawn;
+  }
+
+  public World time(Long time) {
+    this.time = time;
+    return this;
+  }
+
+   /**
+   * The current time in the world
+   * @return time
+  **/
+  @ApiModelProperty(required = true, value = "The current time in the world")
+  public Long getTime() {
+    return time;
+  }
+
+  public void setTime(Long time) {
+    this.time = time;
   }
 
   public World uuid(UUID uuid) {
@@ -104,6 +1315,3618 @@ public class World {
     this.uuid = uuid;
   }
 
+  public World weather(CatalogTypeWeather weather) {
+    this.weather = weather;
+    return this;
+  }
+
+   /**
+   * The current weather in the world
+   * @return weather
+  **/
+  @ApiModelProperty(required = true, value = "The current weather in the world")
+  public CatalogTypeWeather getWeather() {
+    return weather;
+  }
+
+  public void setWeather(CatalogTypeWeather weather) {
+    this.weather = weather;
+  }
+
+  public World absorption(Double absorption) {
+    this.absorption = absorption;
+    return this;
+  }
+
+   /**
+   * Get absorption
+   * @return absorption
+  **/
+  @ApiModelProperty(value = "")
+  public Double getAbsorption() {
+    return absorption;
+  }
+
+  public void setAbsorption(Double absorption) {
+    this.absorption = absorption;
+  }
+
+  public World age(AgeableData age) {
+    this.age = age;
+    return this;
+  }
+
+   /**
+   * Get age
+   * @return age
+  **/
+  @ApiModelProperty(value = "")
+  public AgeableData getAge() {
+    return age;
+  }
+
+  public void setAge(AgeableData age) {
+    this.age = age;
+  }
+
+  public World aggressive(Boolean aggressive) {
+    this.aggressive = aggressive;
+    return this;
+  }
+
+   /**
+   * Get aggressive
+   * @return aggressive
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isAggressive() {
+    return aggressive;
+  }
+
+  public void setAggressive(Boolean aggressive) {
+    this.aggressive = aggressive;
+  }
+
+  public World aiEnabled(Boolean aiEnabled) {
+    this.aiEnabled = aiEnabled;
+    return this;
+  }
+
+   /**
+   * Get aiEnabled
+   * @return aiEnabled
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isAiEnabled() {
+    return aiEnabled;
+  }
+
+  public void setAiEnabled(Boolean aiEnabled) {
+    this.aiEnabled = aiEnabled;
+  }
+
+  public World angerLevel(Integer angerLevel) {
+    this.angerLevel = angerLevel;
+    return this;
+  }
+
+   /**
+   * Get angerLevel
+   * @return angerLevel
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getAngerLevel() {
+    return angerLevel;
+  }
+
+  public void setAngerLevel(Integer angerLevel) {
+    this.angerLevel = angerLevel;
+  }
+
+  public World armorStand(ArmorStandData armorStand) {
+    this.armorStand = armorStand;
+    return this;
+  }
+
+   /**
+   * Get armorStand
+   * @return armorStand
+  **/
+  @ApiModelProperty(value = "")
+  public ArmorStandData getArmorStand() {
+    return armorStand;
+  }
+
+  public void setArmorStand(ArmorStandData armorStand) {
+    this.armorStand = armorStand;
+  }
+
+  public World art(CatalogType art) {
+    this.art = art;
+    return this;
+  }
+
+   /**
+   * Get art
+   * @return art
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getArt() {
+    return art;
+  }
+
+  public void setArt(CatalogType art) {
+    this.art = art;
+  }
+
+  public World attached(Boolean attached) {
+    this.attached = attached;
+    return this;
+  }
+
+   /**
+   * Get attached
+   * @return attached
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isAttached() {
+    return attached;
+  }
+
+  public void setAttached(Boolean attached) {
+    this.attached = attached;
+  }
+
+  public World author(String author) {
+    this.author = author;
+    return this;
+  }
+
+   /**
+   * Get author
+   * @return author
+  **/
+  @ApiModelProperty(value = "")
+  public String getAuthor() {
+    return author;
+  }
+
+  public void setAuthor(String author) {
+    this.author = author;
+  }
+
+  public World axis(AxisEnum axis) {
+    this.axis = axis;
+    return this;
+  }
+
+   /**
+   * Get axis
+   * @return axis
+  **/
+  @ApiModelProperty(value = "")
+  public AxisEnum getAxis() {
+    return axis;
+  }
+
+  public void setAxis(AxisEnum axis) {
+    this.axis = axis;
+  }
+
+  public World banner(BannerData banner) {
+    this.banner = banner;
+    return this;
+  }
+
+   /**
+   * Get banner
+   * @return banner
+  **/
+  @ApiModelProperty(value = "")
+  public BannerData getBanner() {
+    return banner;
+  }
+
+  public void setBanner(BannerData banner) {
+    this.banner = banner;
+  }
+
+  public World beacon(BeaconData beacon) {
+    this.beacon = beacon;
+    return this;
+  }
+
+   /**
+   * Get beacon
+   * @return beacon
+  **/
+  @ApiModelProperty(value = "")
+  public BeaconData getBeacon() {
+    return beacon;
+  }
+
+  public void setBeacon(BeaconData beacon) {
+    this.beacon = beacon;
+  }
+
+  public World bigMushroom(CatalogType bigMushroom) {
+    this.bigMushroom = bigMushroom;
+    return this;
+  }
+
+   /**
+   * Get bigMushroom
+   * @return bigMushroom
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getBigMushroom() {
+    return bigMushroom;
+  }
+
+  public void setBigMushroom(CatalogType bigMushroom) {
+    this.bigMushroom = bigMushroom;
+  }
+
+  public World block(BlockState block) {
+    this.block = block;
+    return this;
+  }
+
+   /**
+   * Get block
+   * @return block
+  **/
+  @ApiModelProperty(value = "")
+  public BlockState getBlock() {
+    return block;
+  }
+
+  public void setBlock(BlockState block) {
+    this.block = block;
+  }
+
+  public World breathing(BreathingData breathing) {
+    this.breathing = breathing;
+    return this;
+  }
+
+   /**
+   * Get breathing
+   * @return breathing
+  **/
+  @ApiModelProperty(value = "")
+  public BreathingData getBreathing() {
+    return breathing;
+  }
+
+  public void setBreathing(BreathingData breathing) {
+    this.breathing = breathing;
+  }
+
+  public World breedable(Boolean breedable) {
+    this.breedable = breedable;
+    return this;
+  }
+
+   /**
+   * Get breedable
+   * @return breedable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isBreedable() {
+    return breedable;
+  }
+
+  public void setBreedable(Boolean breedable) {
+    this.breedable = breedable;
+  }
+
+  public World brewingStand(BrewingStandData brewingStand) {
+    this.brewingStand = brewingStand;
+    return this;
+  }
+
+   /**
+   * Get brewingStand
+   * @return brewingStand
+  **/
+  @ApiModelProperty(value = "")
+  public BrewingStandData getBrewingStand() {
+    return brewingStand;
+  }
+
+  public void setBrewingStand(BrewingStandData brewingStand) {
+    this.brewingStand = brewingStand;
+  }
+
+  public World brick(CatalogType brick) {
+    this.brick = brick;
+    return this;
+  }
+
+   /**
+   * Get brick
+   * @return brick
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getBrick() {
+    return brick;
+  }
+
+  public void setBrick(CatalogType brick) {
+    this.brick = brick;
+  }
+
+  public World career(Career career) {
+    this.career = career;
+    return this;
+  }
+
+   /**
+   * Get career
+   * @return career
+  **/
+  @ApiModelProperty(value = "")
+  public Career getCareer() {
+    return career;
+  }
+
+  public void setCareer(Career career) {
+    this.career = career;
+  }
+
+  public World charged(Boolean charged) {
+    this.charged = charged;
+    return this;
+  }
+
+   /**
+   * Get charged
+   * @return charged
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isCharged() {
+    return charged;
+  }
+
+  public void setCharged(Boolean charged) {
+    this.charged = charged;
+  }
+
+  public World coal(CatalogType coal) {
+    this.coal = coal;
+    return this;
+  }
+
+   /**
+   * Get coal
+   * @return coal
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getCoal() {
+    return coal;
+  }
+
+  public void setCoal(CatalogType coal) {
+    this.coal = coal;
+  }
+
+  public World color(Color color) {
+    this.color = color;
+    return this;
+  }
+
+   /**
+   * Get color
+   * @return color
+  **/
+  @ApiModelProperty(value = "")
+  public Color getColor() {
+    return color;
+  }
+
+  public void setColor(Color color) {
+    this.color = color;
+  }
+
+  public World command(CommandData command) {
+    this.command = command;
+    return this;
+  }
+
+   /**
+   * Get command
+   * @return command
+  **/
+  @ApiModelProperty(value = "")
+  public CommandData getCommand() {
+    return command;
+  }
+
+  public void setCommand(CommandData command) {
+    this.command = command;
+  }
+
+  public World comparator(CatalogType comparator) {
+    this.comparator = comparator;
+    return this;
+  }
+
+   /**
+   * Get comparator
+   * @return comparator
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getComparator() {
+    return comparator;
+  }
+
+  public void setComparator(CatalogType comparator) {
+    this.comparator = comparator;
+  }
+
+  public World connectedDirection(List<ConnectedDirectionEnum> connectedDirection) {
+    this.connectedDirection = connectedDirection;
+    return this;
+  }
+
+  public World addConnectedDirectionItem(ConnectedDirectionEnum connectedDirectionItem) {
+    if (this.connectedDirection == null) {
+      this.connectedDirection = new ArrayList<ConnectedDirectionEnum>();
+    }
+    this.connectedDirection.add(connectedDirectionItem);
+    return this;
+  }
+
+   /**
+   * Get connectedDirection
+   * @return connectedDirection
+  **/
+  @ApiModelProperty(value = "")
+  public List<ConnectedDirectionEnum> getConnectedDirection() {
+    return connectedDirection;
+  }
+
+  public void setConnectedDirection(List<ConnectedDirectionEnum> connectedDirection) {
+    this.connectedDirection = connectedDirection;
+  }
+
+  public World cookedFish(CatalogType cookedFish) {
+    this.cookedFish = cookedFish;
+    return this;
+  }
+
+   /**
+   * Get cookedFish
+   * @return cookedFish
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getCookedFish() {
+    return cookedFish;
+  }
+
+  public void setCookedFish(CatalogType cookedFish) {
+    this.cookedFish = cookedFish;
+  }
+
+  public World cooldown(Integer cooldown) {
+    this.cooldown = cooldown;
+    return this;
+  }
+
+   /**
+   * Get cooldown
+   * @return cooldown
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getCooldown() {
+    return cooldown;
+  }
+
+  public void setCooldown(Integer cooldown) {
+    this.cooldown = cooldown;
+  }
+
+  public World criticalHit(Boolean criticalHit) {
+    this.criticalHit = criticalHit;
+    return this;
+  }
+
+   /**
+   * Get criticalHit
+   * @return criticalHit
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isCriticalHit() {
+    return criticalHit;
+  }
+
+  public void setCriticalHit(Boolean criticalHit) {
+    this.criticalHit = criticalHit;
+  }
+
+  public World customName(Boolean customName) {
+    this.customName = customName;
+    return this;
+  }
+
+   /**
+   * Get customName
+   * @return customName
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isCustomName() {
+    return customName;
+  }
+
+  public void setCustomName(Boolean customName) {
+    this.customName = customName;
+  }
+
+  public World damage(Double damage) {
+    this.damage = damage;
+    return this;
+  }
+
+   /**
+   * Get damage
+   * @return damage
+  **/
+  @ApiModelProperty(value = "")
+  public Double getDamage() {
+    return damage;
+  }
+
+  public void setDamage(Double damage) {
+    this.damage = damage;
+  }
+
+  public World damageable(DamageableData damageable) {
+    this.damageable = damageable;
+    return this;
+  }
+
+   /**
+   * Get damageable
+   * @return damageable
+  **/
+  @ApiModelProperty(value = "")
+  public DamageableData getDamageable() {
+    return damageable;
+  }
+
+  public void setDamageable(DamageableData damageable) {
+    this.damageable = damageable;
+  }
+
+  public World decayable(Boolean decayable) {
+    this.decayable = decayable;
+    return this;
+  }
+
+   /**
+   * Get decayable
+   * @return decayable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isDecayable() {
+    return decayable;
+  }
+
+  public void setDecayable(Boolean decayable) {
+    this.decayable = decayable;
+  }
+
+  public World delay(Integer delay) {
+    this.delay = delay;
+    return this;
+  }
+
+   /**
+   * Get delay
+   * @return delay
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getDelay() {
+    return delay;
+  }
+
+  public void setDelay(Integer delay) {
+    this.delay = delay;
+  }
+
+  public World despawnDelay(DespawnDelayData despawnDelay) {
+    this.despawnDelay = despawnDelay;
+    return this;
+  }
+
+   /**
+   * Get despawnDelay
+   * @return despawnDelay
+  **/
+  @ApiModelProperty(value = "")
+  public DespawnDelayData getDespawnDelay() {
+    return despawnDelay;
+  }
+
+  public void setDespawnDelay(DespawnDelayData despawnDelay) {
+    this.despawnDelay = despawnDelay;
+  }
+
+  public World direction(DirectionEnum direction) {
+    this.direction = direction;
+    return this;
+  }
+
+   /**
+   * Get direction
+   * @return direction
+  **/
+  @ApiModelProperty(value = "")
+  public DirectionEnum getDirection() {
+    return direction;
+  }
+
+  public void setDirection(DirectionEnum direction) {
+    this.direction = direction;
+  }
+
+  public World dirt(CatalogType dirt) {
+    this.dirt = dirt;
+    return this;
+  }
+
+   /**
+   * Get dirt
+   * @return dirt
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getDirt() {
+    return dirt;
+  }
+
+  public void setDirt(CatalogType dirt) {
+    this.dirt = dirt;
+  }
+
+  public World disarmed(Boolean disarmed) {
+    this.disarmed = disarmed;
+    return this;
+  }
+
+   /**
+   * Get disarmed
+   * @return disarmed
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isDisarmed() {
+    return disarmed;
+  }
+
+  public void setDisarmed(Boolean disarmed) {
+    this.disarmed = disarmed;
+  }
+
+  public World disguisedBlock(CatalogType disguisedBlock) {
+    this.disguisedBlock = disguisedBlock;
+    return this;
+  }
+
+   /**
+   * Get disguisedBlock
+   * @return disguisedBlock
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getDisguisedBlock() {
+    return disguisedBlock;
+  }
+
+  public void setDisguisedBlock(CatalogType disguisedBlock) {
+    this.disguisedBlock = disguisedBlock;
+  }
+
+  public World displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+   /**
+   * Get displayName
+   * @return displayName
+  **/
+  @ApiModelProperty(value = "")
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
+  }
+
+  public World dominantHand(CatalogType dominantHand) {
+    this.dominantHand = dominantHand;
+    return this;
+  }
+
+   /**
+   * Get dominantHand
+   * @return dominantHand
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getDominantHand() {
+    return dominantHand;
+  }
+
+  public void setDominantHand(CatalogType dominantHand) {
+    this.dominantHand = dominantHand;
+  }
+
+  public World doublePlant(CatalogType doublePlant) {
+    this.doublePlant = doublePlant;
+    return this;
+  }
+
+   /**
+   * Get doublePlant
+   * @return doublePlant
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getDoublePlant() {
+    return doublePlant;
+  }
+
+  public void setDoublePlant(CatalogType doublePlant) {
+    this.doublePlant = doublePlant;
+  }
+
+  public World drops(Boolean drops) {
+    this.drops = drops;
+    return this;
+  }
+
+   /**
+   * Get drops
+   * @return drops
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isDrops() {
+    return drops;
+  }
+
+  public void setDrops(Boolean drops) {
+    this.drops = drops;
+  }
+
+  public World durability(DurabilityData durability) {
+    this.durability = durability;
+    return this;
+  }
+
+   /**
+   * Get durability
+   * @return durability
+  **/
+  @ApiModelProperty(value = "")
+  public DurabilityData getDurability() {
+    return durability;
+  }
+
+  public void setDurability(DurabilityData durability) {
+    this.durability = durability;
+  }
+
+  public World dye(DyeColor dye) {
+    this.dye = dye;
+    return this;
+  }
+
+   /**
+   * Get dye
+   * @return dye
+  **/
+  @ApiModelProperty(value = "")
+  public DyeColor getDye() {
+    return dye;
+  }
+
+  public void setDye(DyeColor dye) {
+    this.dye = dye;
+  }
+
+  public World enchantments(List<Enchantment> enchantments) {
+    this.enchantments = enchantments;
+    return this;
+  }
+
+  public World addEnchantmentsItem(Enchantment enchantmentsItem) {
+    if (this.enchantments == null) {
+      this.enchantments = new ArrayList<Enchantment>();
+    }
+    this.enchantments.add(enchantmentsItem);
+    return this;
+  }
+
+   /**
+   * Get enchantments
+   * @return enchantments
+  **/
+  @ApiModelProperty(value = "")
+  public List<Enchantment> getEnchantments() {
+    return enchantments;
+  }
+
+  public void setEnchantments(List<Enchantment> enchantments) {
+    this.enchantments = enchantments;
+  }
+
+  public World endGateway(EndGatewayData endGateway) {
+    this.endGateway = endGateway;
+    return this;
+  }
+
+   /**
+   * Get endGateway
+   * @return endGateway
+  **/
+  @ApiModelProperty(value = "")
+  public EndGatewayData getEndGateway() {
+    return endGateway;
+  }
+
+  public void setEndGateway(EndGatewayData endGateway) {
+    this.endGateway = endGateway;
+  }
+
+  public World expOrb(Integer expOrb) {
+    this.expOrb = expOrb;
+    return this;
+  }
+
+   /**
+   * Get expOrb
+   * @return expOrb
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getExpOrb() {
+    return expOrb;
+  }
+
+  public void setExpOrb(Integer expOrb) {
+    this.expOrb = expOrb;
+  }
+
+  public World experience(ExperienceHolderData experience) {
+    this.experience = experience;
+    return this;
+  }
+
+   /**
+   * Get experience
+   * @return experience
+  **/
+  @ApiModelProperty(value = "")
+  public ExperienceHolderData getExperience() {
+    return experience;
+  }
+
+  public void setExperience(ExperienceHolderData experience) {
+    this.experience = experience;
+  }
+
+  public World expireTicks(Integer expireTicks) {
+    this.expireTicks = expireTicks;
+    return this;
+  }
+
+   /**
+   * Get expireTicks
+   * @return expireTicks
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getExpireTicks() {
+    return expireTicks;
+  }
+
+  public void setExpireTicks(Integer expireTicks) {
+    this.expireTicks = expireTicks;
+  }
+
+  public World explosionRadius(Integer explosionRadius) {
+    this.explosionRadius = explosionRadius;
+    return this;
+  }
+
+   /**
+   * Get explosionRadius
+   * @return explosionRadius
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getExplosionRadius() {
+    return explosionRadius;
+  }
+
+  public void setExplosionRadius(Integer explosionRadius) {
+    this.explosionRadius = explosionRadius;
+  }
+
+  public World extended(Boolean extended) {
+    this.extended = extended;
+    return this;
+  }
+
+   /**
+   * Get extended
+   * @return extended
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isExtended() {
+    return extended;
+  }
+
+  public void setExtended(Boolean extended) {
+    this.extended = extended;
+  }
+
+  public World fallDistance(Float fallDistance) {
+    this.fallDistance = fallDistance;
+    return this;
+  }
+
+   /**
+   * Get fallDistance
+   * @return fallDistance
+  **/
+  @ApiModelProperty(value = "")
+  public Float getFallDistance() {
+    return fallDistance;
+  }
+
+  public void setFallDistance(Float fallDistance) {
+    this.fallDistance = fallDistance;
+  }
+
+  public World fallingBlock(FallingBlockData fallingBlock) {
+    this.fallingBlock = fallingBlock;
+    return this;
+  }
+
+   /**
+   * Get fallingBlock
+   * @return fallingBlock
+  **/
+  @ApiModelProperty(value = "")
+  public FallingBlockData getFallingBlock() {
+    return fallingBlock;
+  }
+
+  public void setFallingBlock(FallingBlockData fallingBlock) {
+    this.fallingBlock = fallingBlock;
+  }
+
+  public World filled(Boolean filled) {
+    this.filled = filled;
+    return this;
+  }
+
+   /**
+   * Get filled
+   * @return filled
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isFilled() {
+    return filled;
+  }
+
+  public void setFilled(Boolean filled) {
+    this.filled = filled;
+  }
+
+  public World fireworkEffects(List<FireworkEffect> fireworkEffects) {
+    this.fireworkEffects = fireworkEffects;
+    return this;
+  }
+
+  public World addFireworkEffectsItem(FireworkEffect fireworkEffectsItem) {
+    if (this.fireworkEffects == null) {
+      this.fireworkEffects = new ArrayList<FireworkEffect>();
+    }
+    this.fireworkEffects.add(fireworkEffectsItem);
+    return this;
+  }
+
+   /**
+   * Get fireworkEffects
+   * @return fireworkEffects
+  **/
+  @ApiModelProperty(value = "")
+  public List<FireworkEffect> getFireworkEffects() {
+    return fireworkEffects;
+  }
+
+  public void setFireworkEffects(List<FireworkEffect> fireworkEffects) {
+    this.fireworkEffects = fireworkEffects;
+  }
+
+  public World fireworkRocket(FireworkRocketData fireworkRocket) {
+    this.fireworkRocket = fireworkRocket;
+    return this;
+  }
+
+   /**
+   * Get fireworkRocket
+   * @return fireworkRocket
+  **/
+  @ApiModelProperty(value = "")
+  public FireworkRocketData getFireworkRocket() {
+    return fireworkRocket;
+  }
+
+  public void setFireworkRocket(FireworkRocketData fireworkRocket) {
+    this.fireworkRocket = fireworkRocket;
+  }
+
+  public World fish(CatalogType fish) {
+    this.fish = fish;
+    return this;
+  }
+
+   /**
+   * Get fish
+   * @return fish
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getFish() {
+    return fish;
+  }
+
+  public void setFish(CatalogType fish) {
+    this.fish = fish;
+  }
+
+  public World flammable(Boolean flammable) {
+    this.flammable = flammable;
+    return this;
+  }
+
+   /**
+   * Get flammable
+   * @return flammable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isFlammable() {
+    return flammable;
+  }
+
+  public void setFlammable(Boolean flammable) {
+    this.flammable = flammable;
+  }
+
+  public World fluid(FluidStack fluid) {
+    this.fluid = fluid;
+    return this;
+  }
+
+   /**
+   * Get fluid
+   * @return fluid
+  **/
+  @ApiModelProperty(value = "")
+  public FluidStack getFluid() {
+    return fluid;
+  }
+
+  public void setFluid(FluidStack fluid) {
+    this.fluid = fluid;
+  }
+
+  public World fluidLevel(Integer fluidLevel) {
+    this.fluidLevel = fluidLevel;
+    return this;
+  }
+
+   /**
+   * Get fluidLevel
+   * @return fluidLevel
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getFluidLevel() {
+    return fluidLevel;
+  }
+
+  public void setFluidLevel(Integer fluidLevel) {
+    this.fluidLevel = fluidLevel;
+  }
+
+  public World fluidTanks(Map<String, List<FluidStack>> fluidTanks) {
+    this.fluidTanks = fluidTanks;
+    return this;
+  }
+
+  public World putFluidTanksItem(String key, List<FluidStack> fluidTanksItem) {
+    if (this.fluidTanks == null) {
+      this.fluidTanks = new HashMap<String, List<FluidStack>>();
+    }
+    this.fluidTanks.put(key, fluidTanksItem);
+    return this;
+  }
+
+   /**
+   * Get fluidTanks
+   * @return fluidTanks
+  **/
+  @ApiModelProperty(value = "")
+  public Map<String, List<FluidStack>> getFluidTanks() {
+    return fluidTanks;
+  }
+
+  public void setFluidTanks(Map<String, List<FluidStack>> fluidTanks) {
+    this.fluidTanks = fluidTanks;
+  }
+
+  public World flying(Boolean flying) {
+    this.flying = flying;
+    return this;
+  }
+
+   /**
+   * Get flying
+   * @return flying
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isFlying() {
+    return flying;
+  }
+
+  public void setFlying(Boolean flying) {
+    this.flying = flying;
+  }
+
+  public World flyingAbility(Boolean flyingAbility) {
+    this.flyingAbility = flyingAbility;
+    return this;
+  }
+
+   /**
+   * Get flyingAbility
+   * @return flyingAbility
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isFlyingAbility() {
+    return flyingAbility;
+  }
+
+  public void setFlyingAbility(Boolean flyingAbility) {
+    this.flyingAbility = flyingAbility;
+  }
+
+  public World food(FoodData food) {
+    this.food = food;
+    return this;
+  }
+
+   /**
+   * Get food
+   * @return food
+  **/
+  @ApiModelProperty(value = "")
+  public FoodData getFood() {
+    return food;
+  }
+
+  public void setFood(FoodData food) {
+    this.food = food;
+  }
+
+  public World furnace(FurnaceData furnace) {
+    this.furnace = furnace;
+    return this;
+  }
+
+   /**
+   * Get furnace
+   * @return furnace
+  **/
+  @ApiModelProperty(value = "")
+  public FurnaceData getFurnace() {
+    return furnace;
+  }
+
+  public void setFurnace(FurnaceData furnace) {
+    this.furnace = furnace;
+  }
+
+  public World fuse(FuseData fuse) {
+    this.fuse = fuse;
+    return this;
+  }
+
+   /**
+   * Get fuse
+   * @return fuse
+  **/
+  @ApiModelProperty(value = "")
+  public FuseData getFuse() {
+    return fuse;
+  }
+
+  public void setFuse(FuseData fuse) {
+    this.fuse = fuse;
+  }
+
+  public World generation(Integer generation) {
+    this.generation = generation;
+    return this;
+  }
+
+   /**
+   * Get generation
+   * @return generation
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getGeneration() {
+    return generation;
+  }
+
+  public void setGeneration(Integer generation) {
+    this.generation = generation;
+  }
+
+  public World glowing(Boolean glowing) {
+    this.glowing = glowing;
+    return this;
+  }
+
+   /**
+   * Get glowing
+   * @return glowing
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isGlowing() {
+    return glowing;
+  }
+
+  public void setGlowing(Boolean glowing) {
+    this.glowing = glowing;
+  }
+
+  public World goldenApple(CatalogType goldenApple) {
+    this.goldenApple = goldenApple;
+    return this;
+  }
+
+   /**
+   * Get goldenApple
+   * @return goldenApple
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getGoldenApple() {
+    return goldenApple;
+  }
+
+  public void setGoldenApple(CatalogType goldenApple) {
+    this.goldenApple = goldenApple;
+  }
+
+  public World griefs(Boolean griefs) {
+    this.griefs = griefs;
+    return this;
+  }
+
+   /**
+   * Get griefs
+   * @return griefs
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isGriefs() {
+    return griefs;
+  }
+
+  public void setGriefs(Boolean griefs) {
+    this.griefs = griefs;
+  }
+
+  public World growth(GrowthData growth) {
+    this.growth = growth;
+    return this;
+  }
+
+   /**
+   * Get growth
+   * @return growth
+  **/
+  @ApiModelProperty(value = "")
+  public GrowthData getGrowth() {
+    return growth;
+  }
+
+  public void setGrowth(GrowthData growth) {
+    this.growth = growth;
+  }
+
+  public World health(HealthData health) {
+    this.health = health;
+    return this;
+  }
+
+   /**
+   * Get health
+   * @return health
+  **/
+  @ApiModelProperty(value = "")
+  public HealthData getHealth() {
+    return health;
+  }
+
+  public void setHealth(HealthData health) {
+    this.health = health;
+  }
+
+  public World hide(HideData hide) {
+    this.hide = hide;
+    return this;
+  }
+
+   /**
+   * Get hide
+   * @return hide
+  **/
+  @ApiModelProperty(value = "")
+  public HideData getHide() {
+    return hide;
+  }
+
+  public void setHide(HideData hide) {
+    this.hide = hide;
+  }
+
+  public World hinge(CatalogType hinge) {
+    this.hinge = hinge;
+    return this;
+  }
+
+   /**
+   * Get hinge
+   * @return hinge
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getHinge() {
+    return hinge;
+  }
+
+  public void setHinge(CatalogType hinge) {
+    this.hinge = hinge;
+  }
+
+  public World horse(HorseData horse) {
+    this.horse = horse;
+    return this;
+  }
+
+   /**
+   * Get horse
+   * @return horse
+  **/
+  @ApiModelProperty(value = "")
+  public HorseData getHorse() {
+    return horse;
+  }
+
+  public void setHorse(HorseData horse) {
+    this.horse = horse;
+  }
+
+  public World igniteable(IgniteableData igniteable) {
+    this.igniteable = igniteable;
+    return this;
+  }
+
+   /**
+   * Get igniteable
+   * @return igniteable
+  **/
+  @ApiModelProperty(value = "")
+  public IgniteableData getIgniteable() {
+    return igniteable;
+  }
+
+  public void setIgniteable(IgniteableData igniteable) {
+    this.igniteable = igniteable;
+  }
+
+  public World inWall(Boolean inWall) {
+    this.inWall = inWall;
+    return this;
+  }
+
+   /**
+   * Get inWall
+   * @return inWall
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isInWall() {
+    return inWall;
+  }
+
+  public void setInWall(Boolean inWall) {
+    this.inWall = inWall;
+  }
+
+  public World inventory(Inventory inventory) {
+    this.inventory = inventory;
+    return this;
+  }
+
+   /**
+   * Get inventory
+   * @return inventory
+  **/
+  @ApiModelProperty(value = "")
+  public Inventory getInventory() {
+    return inventory;
+  }
+
+  public void setInventory(Inventory inventory) {
+    this.inventory = inventory;
+  }
+
+  public World invisibility(InvisibilityData invisibility) {
+    this.invisibility = invisibility;
+    return this;
+  }
+
+   /**
+   * Get invisibility
+   * @return invisibility
+  **/
+  @ApiModelProperty(value = "")
+  public InvisibilityData getInvisibility() {
+    return invisibility;
+  }
+
+  public void setInvisibility(InvisibilityData invisibility) {
+    this.invisibility = invisibility;
+  }
+
+  public World invulnerability(InvulnerabilityData invulnerability) {
+    this.invulnerability = invulnerability;
+    return this;
+  }
+
+   /**
+   * Get invulnerability
+   * @return invulnerability
+  **/
+  @ApiModelProperty(value = "")
+  public InvulnerabilityData getInvulnerability() {
+    return invulnerability;
+  }
+
+  public void setInvulnerability(InvulnerabilityData invulnerability) {
+    this.invulnerability = invulnerability;
+  }
+
+  public World joined(JoinData joined) {
+    this.joined = joined;
+    return this;
+  }
+
+   /**
+   * Get joined
+   * @return joined
+  **/
+  @ApiModelProperty(value = "")
+  public JoinData getJoined() {
+    return joined;
+  }
+
+  public void setJoined(JoinData joined) {
+    this.joined = joined;
+  }
+
+  public World knockback(Integer knockback) {
+    this.knockback = knockback;
+    return this;
+  }
+
+   /**
+   * Get knockback
+   * @return knockback
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getKnockback() {
+    return knockback;
+  }
+
+  public void setKnockback(Integer knockback) {
+    this.knockback = knockback;
+  }
+
+  public World layer(Integer layer) {
+    this.layer = layer;
+    return this;
+  }
+
+   /**
+   * Get layer
+   * @return layer
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getLayer() {
+    return layer;
+  }
+
+  public void setLayer(Integer layer) {
+    this.layer = layer;
+  }
+
+  public World leash(LeashData leash) {
+    this.leash = leash;
+    return this;
+  }
+
+   /**
+   * Get leash
+   * @return leash
+  **/
+  @ApiModelProperty(value = "")
+  public LeashData getLeash() {
+    return leash;
+  }
+
+  public void setLeash(LeashData leash) {
+    this.leash = leash;
+  }
+
+  public World lockToken(String lockToken) {
+    this.lockToken = lockToken;
+    return this;
+  }
+
+   /**
+   * Get lockToken
+   * @return lockToken
+  **/
+  @ApiModelProperty(value = "")
+  public String getLockToken() {
+    return lockToken;
+  }
+
+  public void setLockToken(String lockToken) {
+    this.lockToken = lockToken;
+  }
+
+  public World logAxis(CatalogType logAxis) {
+    this.logAxis = logAxis;
+    return this;
+  }
+
+   /**
+   * Get logAxis
+   * @return logAxis
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getLogAxis() {
+    return logAxis;
+  }
+
+  public void setLogAxis(CatalogType logAxis) {
+    this.logAxis = logAxis;
+  }
+
+  public World lore(List<String> lore) {
+    this.lore = lore;
+    return this;
+  }
+
+  public World addLoreItem(String loreItem) {
+    if (this.lore == null) {
+      this.lore = new ArrayList<String>();
+    }
+    this.lore.add(loreItem);
+    return this;
+  }
+
+   /**
+   * Get lore
+   * @return lore
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getLore() {
+    return lore;
+  }
+
+  public void setLore(List<String> lore) {
+    this.lore = lore;
+  }
+
+  public World minecartBlock(MinecartBlockData minecartBlock) {
+    this.minecartBlock = minecartBlock;
+    return this;
+  }
+
+   /**
+   * Get minecartBlock
+   * @return minecartBlock
+  **/
+  @ApiModelProperty(value = "")
+  public MinecartBlockData getMinecartBlock() {
+    return minecartBlock;
+  }
+
+  public void setMinecartBlock(MinecartBlockData minecartBlock) {
+    this.minecartBlock = minecartBlock;
+  }
+
+  public World mobSpawner(MobSpawnerData mobSpawner) {
+    this.mobSpawner = mobSpawner;
+    return this;
+  }
+
+   /**
+   * Get mobSpawner
+   * @return mobSpawner
+  **/
+  @ApiModelProperty(value = "")
+  public MobSpawnerData getMobSpawner() {
+    return mobSpawner;
+  }
+
+  public void setMobSpawner(MobSpawnerData mobSpawner) {
+    this.mobSpawner = mobSpawner;
+  }
+
+  public World moisture(Integer moisture) {
+    this.moisture = moisture;
+    return this;
+  }
+
+   /**
+   * Get moisture
+   * @return moisture
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getMoisture() {
+    return moisture;
+  }
+
+  public void setMoisture(Integer moisture) {
+    this.moisture = moisture;
+  }
+
+  public World note(CatalogType note) {
+    this.note = note;
+    return this;
+  }
+
+   /**
+   * Get note
+   * @return note
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getNote() {
+    return note;
+  }
+
+  public void setNote(CatalogType note) {
+    this.note = note;
+  }
+
+  public World occupied(Boolean occupied) {
+    this.occupied = occupied;
+    return this;
+  }
+
+   /**
+   * Get occupied
+   * @return occupied
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isOccupied() {
+    return occupied;
+  }
+
+  public void setOccupied(Boolean occupied) {
+    this.occupied = occupied;
+  }
+
+  public World ocelot(CatalogType ocelot) {
+    this.ocelot = ocelot;
+    return this;
+  }
+
+   /**
+   * Get ocelot
+   * @return ocelot
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getOcelot() {
+    return ocelot;
+  }
+
+  public void setOcelot(CatalogType ocelot) {
+    this.ocelot = ocelot;
+  }
+
+  public World open(Boolean open) {
+    this.open = open;
+    return this;
+  }
+
+   /**
+   * Get open
+   * @return open
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isOpen() {
+    return open;
+  }
+
+  public void setOpen(Boolean open) {
+    this.open = open;
+  }
+
+  public World pages(List<String> pages) {
+    this.pages = pages;
+    return this;
+  }
+
+  public World addPagesItem(String pagesItem) {
+    if (this.pages == null) {
+      this.pages = new ArrayList<String>();
+    }
+    this.pages.add(pagesItem);
+    return this;
+  }
+
+   /**
+   * Get pages
+   * @return pages
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getPages() {
+    return pages;
+  }
+
+  public void setPages(List<String> pages) {
+    this.pages = pages;
+  }
+
+  public World passengers(List<UUID> passengers) {
+    this.passengers = passengers;
+    return this;
+  }
+
+  public World addPassengersItem(UUID passengersItem) {
+    if (this.passengers == null) {
+      this.passengers = new ArrayList<UUID>();
+    }
+    this.passengers.add(passengersItem);
+    return this;
+  }
+
+   /**
+   * Get passengers
+   * @return passengers
+  **/
+  @ApiModelProperty(value = "")
+  public List<UUID> getPassengers() {
+    return passengers;
+  }
+
+  public void setPassengers(List<UUID> passengers) {
+    this.passengers = passengers;
+  }
+
+  public World persists(Boolean persists) {
+    this.persists = persists;
+    return this;
+  }
+
+   /**
+   * Get persists
+   * @return persists
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isPersists() {
+    return persists;
+  }
+
+  public void setPersists(Boolean persists) {
+    this.persists = persists;
+  }
+
+  public World pickupDelay(PickupDelayData pickupDelay) {
+    this.pickupDelay = pickupDelay;
+    return this;
+  }
+
+   /**
+   * Get pickupDelay
+   * @return pickupDelay
+  **/
+  @ApiModelProperty(value = "")
+  public PickupDelayData getPickupDelay() {
+    return pickupDelay;
+  }
+
+  public void setPickupDelay(PickupDelayData pickupDelay) {
+    this.pickupDelay = pickupDelay;
+  }
+
+  public World pickupRule(CatalogType pickupRule) {
+    this.pickupRule = pickupRule;
+    return this;
+  }
+
+   /**
+   * Get pickupRule
+   * @return pickupRule
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getPickupRule() {
+    return pickupRule;
+  }
+
+  public void setPickupRule(CatalogType pickupRule) {
+    this.pickupRule = pickupRule;
+  }
+
+  public World pigSaddle(Boolean pigSaddle) {
+    this.pigSaddle = pigSaddle;
+    return this;
+  }
+
+   /**
+   * Get pigSaddle
+   * @return pigSaddle
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isPigSaddle() {
+    return pigSaddle;
+  }
+
+  public void setPigSaddle(Boolean pigSaddle) {
+    this.pigSaddle = pigSaddle;
+  }
+
+  public World piston(CatalogType piston) {
+    this.piston = piston;
+    return this;
+  }
+
+   /**
+   * Get piston
+   * @return piston
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getPiston() {
+    return piston;
+  }
+
+  public void setPiston(CatalogType piston) {
+    this.piston = piston;
+  }
+
+  public World placeableOn(List<CatalogType> placeableOn) {
+    this.placeableOn = placeableOn;
+    return this;
+  }
+
+  public World addPlaceableOnItem(CatalogType placeableOnItem) {
+    if (this.placeableOn == null) {
+      this.placeableOn = new ArrayList<CatalogType>();
+    }
+    this.placeableOn.add(placeableOnItem);
+    return this;
+  }
+
+   /**
+   * Get placeableOn
+   * @return placeableOn
+  **/
+  @ApiModelProperty(value = "")
+  public List<CatalogType> getPlaceableOn() {
+    return placeableOn;
+  }
+
+  public void setPlaceableOn(List<CatalogType> placeableOn) {
+    this.placeableOn = placeableOn;
+  }
+
+  public World plant(CatalogType plant) {
+    this.plant = plant;
+    return this;
+  }
+
+   /**
+   * Get plant
+   * @return plant
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getPlant() {
+    return plant;
+  }
+
+  public void setPlant(CatalogType plant) {
+    this.plant = plant;
+  }
+
+  public World playerCreated(Boolean playerCreated) {
+    this.playerCreated = playerCreated;
+    return this;
+  }
+
+   /**
+   * Get playerCreated
+   * @return playerCreated
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isPlayerCreated() {
+    return playerCreated;
+  }
+
+  public void setPlayerCreated(Boolean playerCreated) {
+    this.playerCreated = playerCreated;
+  }
+
+  public World playing(Boolean playing) {
+    this.playing = playing;
+    return this;
+  }
+
+   /**
+   * Get playing
+   * @return playing
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isPlaying() {
+    return playing;
+  }
+
+  public void setPlaying(Boolean playing) {
+    this.playing = playing;
+  }
+
+  public World portion(CatalogType portion) {
+    this.portion = portion;
+    return this;
+  }
+
+   /**
+   * Get portion
+   * @return portion
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getPortion() {
+    return portion;
+  }
+
+  public void setPortion(CatalogType portion) {
+    this.portion = portion;
+  }
+
+  public World potionEffects(List<PotionEffect> potionEffects) {
+    this.potionEffects = potionEffects;
+    return this;
+  }
+
+  public World addPotionEffectsItem(PotionEffect potionEffectsItem) {
+    if (this.potionEffects == null) {
+      this.potionEffects = new ArrayList<PotionEffect>();
+    }
+    this.potionEffects.add(potionEffectsItem);
+    return this;
+  }
+
+   /**
+   * Get potionEffects
+   * @return potionEffects
+  **/
+  @ApiModelProperty(value = "")
+  public List<PotionEffect> getPotionEffects() {
+    return potionEffects;
+  }
+
+  public void setPotionEffects(List<PotionEffect> potionEffects) {
+    this.potionEffects = potionEffects;
+  }
+
+  public World powered(Boolean powered) {
+    this.powered = powered;
+    return this;
+  }
+
+   /**
+   * Get powered
+   * @return powered
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isPowered() {
+    return powered;
+  }
+
+  public void setPowered(Boolean powered) {
+    this.powered = powered;
+  }
+
+  public World prismarine(CatalogType prismarine) {
+    this.prismarine = prismarine;
+    return this;
+  }
+
+   /**
+   * Get prismarine
+   * @return prismarine
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getPrismarine() {
+    return prismarine;
+  }
+
+  public void setPrismarine(CatalogType prismarine) {
+    this.prismarine = prismarine;
+  }
+
+  public World quartz(CatalogType quartz) {
+    this.quartz = quartz;
+    return this;
+  }
+
+   /**
+   * Get quartz
+   * @return quartz
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getQuartz() {
+    return quartz;
+  }
+
+  public void setQuartz(CatalogType quartz) {
+    this.quartz = quartz;
+  }
+
+  public World rabbit(CatalogType rabbit) {
+    this.rabbit = rabbit;
+    return this;
+  }
+
+   /**
+   * Get rabbit
+   * @return rabbit
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getRabbit() {
+    return rabbit;
+  }
+
+  public void setRabbit(CatalogType rabbit) {
+    this.rabbit = rabbit;
+  }
+
+  public World railDirection(CatalogType railDirection) {
+    this.railDirection = railDirection;
+    return this;
+  }
+
+   /**
+   * Get railDirection
+   * @return railDirection
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getRailDirection() {
+    return railDirection;
+  }
+
+  public void setRailDirection(CatalogType railDirection) {
+    this.railDirection = railDirection;
+  }
+
+  public World redstonePower(Integer redstonePower) {
+    this.redstonePower = redstonePower;
+    return this;
+  }
+
+   /**
+   * Get redstonePower
+   * @return redstonePower
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getRedstonePower() {
+    return redstonePower;
+  }
+
+  public void setRedstonePower(Integer redstonePower) {
+    this.redstonePower = redstonePower;
+  }
+
+  public World representedItem(ItemStack representedItem) {
+    this.representedItem = representedItem;
+    return this;
+  }
+
+   /**
+   * Get representedItem
+   * @return representedItem
+  **/
+  @ApiModelProperty(value = "")
+  public ItemStack getRepresentedItem() {
+    return representedItem;
+  }
+
+  public void setRepresentedItem(ItemStack representedItem) {
+    this.representedItem = representedItem;
+  }
+
+  public World representedPlayer(String representedPlayer) {
+    this.representedPlayer = representedPlayer;
+    return this;
+  }
+
+   /**
+   * Get representedPlayer
+   * @return representedPlayer
+  **/
+  @ApiModelProperty(value = "")
+  public String getRepresentedPlayer() {
+    return representedPlayer;
+  }
+
+  public void setRepresentedPlayer(String representedPlayer) {
+    this.representedPlayer = representedPlayer;
+  }
+
+  public World respawnLocations(Map<String, Location> respawnLocations) {
+    this.respawnLocations = respawnLocations;
+    return this;
+  }
+
+  public World putRespawnLocationsItem(String key, Location respawnLocationsItem) {
+    if (this.respawnLocations == null) {
+      this.respawnLocations = new HashMap<String, Location>();
+    }
+    this.respawnLocations.put(key, respawnLocationsItem);
+    return this;
+  }
+
+   /**
+   * Get respawnLocations
+   * @return respawnLocations
+  **/
+  @ApiModelProperty(value = "")
+  public Map<String, Location> getRespawnLocations() {
+    return respawnLocations;
+  }
+
+  public void setRespawnLocations(Map<String, Location> respawnLocations) {
+    this.respawnLocations = respawnLocations;
+  }
+
+  public World sand(CatalogType sand) {
+    this.sand = sand;
+    return this;
+  }
+
+   /**
+   * Get sand
+   * @return sand
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getSand() {
+    return sand;
+  }
+
+  public void setSand(CatalogType sand) {
+    this.sand = sand;
+  }
+
+  public World sandStone(CatalogType sandStone) {
+    this.sandStone = sandStone;
+    return this;
+  }
+
+   /**
+   * Get sandStone
+   * @return sandStone
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getSandStone() {
+    return sandStone;
+  }
+
+  public void setSandStone(CatalogType sandStone) {
+    this.sandStone = sandStone;
+  }
+
+  public World screaming(Boolean screaming) {
+    this.screaming = screaming;
+    return this;
+  }
+
+   /**
+   * Get screaming
+   * @return screaming
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isScreaming() {
+    return screaming;
+  }
+
+  public void setScreaming(Boolean screaming) {
+    this.screaming = screaming;
+  }
+
+  public World seamless(Boolean seamless) {
+    this.seamless = seamless;
+    return this;
+  }
+
+   /**
+   * Get seamless
+   * @return seamless
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isSeamless() {
+    return seamless;
+  }
+
+  public void setSeamless(Boolean seamless) {
+    this.seamless = seamless;
+  }
+
+  public World shatters(Boolean shatters) {
+    this.shatters = shatters;
+    return this;
+  }
+
+   /**
+   * Get shatters
+   * @return shatters
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isShatters() {
+    return shatters;
+  }
+
+  public void setShatters(Boolean shatters) {
+    this.shatters = shatters;
+  }
+
+  public World sheared(Boolean sheared) {
+    this.sheared = sheared;
+    return this;
+  }
+
+   /**
+   * Get sheared
+   * @return sheared
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isSheared() {
+    return sheared;
+  }
+
+  public void setSheared(Boolean sheared) {
+    this.sheared = sheared;
+  }
+
+  public World shrub(CatalogType shrub) {
+    this.shrub = shrub;
+    return this;
+  }
+
+   /**
+   * Get shrub
+   * @return shrub
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getShrub() {
+    return shrub;
+  }
+
+  public void setShrub(CatalogType shrub) {
+    this.shrub = shrub;
+  }
+
+  public World sign(List<String> sign) {
+    this.sign = sign;
+    return this;
+  }
+
+  public World addSignItem(String signItem) {
+    if (this.sign == null) {
+      this.sign = new ArrayList<String>();
+    }
+    this.sign.add(signItem);
+    return this;
+  }
+
+   /**
+   * Get sign
+   * @return sign
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getSign() {
+    return sign;
+  }
+
+  public void setSign(List<String> sign) {
+    this.sign = sign;
+  }
+
+  public World silent(Boolean silent) {
+    this.silent = silent;
+    return this;
+  }
+
+   /**
+   * Get silent
+   * @return silent
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isSilent() {
+    return silent;
+  }
+
+  public void setSilent(Boolean silent) {
+    this.silent = silent;
+  }
+
+  public World sitting(Boolean sitting) {
+    this.sitting = sitting;
+    return this;
+  }
+
+   /**
+   * Get sitting
+   * @return sitting
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isSitting() {
+    return sitting;
+  }
+
+  public void setSitting(Boolean sitting) {
+    this.sitting = sitting;
+  }
+
+  public World skin(UUID skin) {
+    this.skin = skin;
+    return this;
+  }
+
+   /**
+   * Get skin
+   * @return skin
+  **/
+  @ApiModelProperty(value = "")
+  public UUID getSkin() {
+    return skin;
+  }
+
+  public void setSkin(UUID skin) {
+    this.skin = skin;
+  }
+
+  public World skull(CatalogType skull) {
+    this.skull = skull;
+    return this;
+  }
+
+   /**
+   * Get skull
+   * @return skull
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getSkull() {
+    return skull;
+  }
+
+  public void setSkull(CatalogType skull) {
+    this.skull = skull;
+  }
+
+  public World slab(CatalogType slab) {
+    this.slab = slab;
+    return this;
+  }
+
+   /**
+   * Get slab
+   * @return slab
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getSlab() {
+    return slab;
+  }
+
+  public void setSlab(CatalogType slab) {
+    this.slab = slab;
+  }
+
+  public World sleeping(Boolean sleeping) {
+    this.sleeping = sleeping;
+    return this;
+  }
+
+   /**
+   * Get sleeping
+   * @return sleeping
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isSleeping() {
+    return sleeping;
+  }
+
+  public void setSleeping(Boolean sleeping) {
+    this.sleeping = sleeping;
+  }
+
+  public World slime(SlimeData slime) {
+    this.slime = slime;
+    return this;
+  }
+
+   /**
+   * Get slime
+   * @return slime
+  **/
+  @ApiModelProperty(value = "")
+  public SlimeData getSlime() {
+    return slime;
+  }
+
+  public void setSlime(SlimeData slime) {
+    this.slime = slime;
+  }
+
+  public World sneaking(Boolean sneaking) {
+    this.sneaking = sneaking;
+    return this;
+  }
+
+   /**
+   * Get sneaking
+   * @return sneaking
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isSneaking() {
+    return sneaking;
+  }
+
+  public void setSneaking(Boolean sneaking) {
+    this.sneaking = sneaking;
+  }
+
+  public World snow(Boolean snow) {
+    this.snow = snow;
+    return this;
+  }
+
+   /**
+   * Get snow
+   * @return snow
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isSnow() {
+    return snow;
+  }
+
+  public void setSnow(Boolean snow) {
+    this.snow = snow;
+  }
+
+  public World sprinting(Boolean sprinting) {
+    this.sprinting = sprinting;
+    return this;
+  }
+
+   /**
+   * Get sprinting
+   * @return sprinting
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isSprinting() {
+    return sprinting;
+  }
+
+  public void setSprinting(Boolean sprinting) {
+    this.sprinting = sprinting;
+  }
+
+  public World stairShape(CatalogType stairShape) {
+    this.stairShape = stairShape;
+    return this;
+  }
+
+   /**
+   * Get stairShape
+   * @return stairShape
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getStairShape() {
+    return stairShape;
+  }
+
+  public void setStairShape(CatalogType stairShape) {
+    this.stairShape = stairShape;
+  }
+
+  public World statistics(List<Stat> statistics) {
+    this.statistics = statistics;
+    return this;
+  }
+
+  public World addStatisticsItem(Stat statisticsItem) {
+    if (this.statistics == null) {
+      this.statistics = new ArrayList<Stat>();
+    }
+    this.statistics.add(statisticsItem);
+    return this;
+  }
+
+   /**
+   * Get statistics
+   * @return statistics
+  **/
+  @ApiModelProperty(value = "")
+  public List<Stat> getStatistics() {
+    return statistics;
+  }
+
+  public void setStatistics(List<Stat> statistics) {
+    this.statistics = statistics;
+  }
+
+  public World stone(CatalogType stone) {
+    this.stone = stone;
+    return this;
+  }
+
+   /**
+   * Get stone
+   * @return stone
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getStone() {
+    return stone;
+  }
+
+  public void setStone(CatalogType stone) {
+    this.stone = stone;
+  }
+
+  public World storedEnchantments(List<Enchantment> storedEnchantments) {
+    this.storedEnchantments = storedEnchantments;
+    return this;
+  }
+
+  public World addStoredEnchantmentsItem(Enchantment storedEnchantmentsItem) {
+    if (this.storedEnchantments == null) {
+      this.storedEnchantments = new ArrayList<Enchantment>();
+    }
+    this.storedEnchantments.add(storedEnchantmentsItem);
+    return this;
+  }
+
+   /**
+   * Get storedEnchantments
+   * @return storedEnchantments
+  **/
+  @ApiModelProperty(value = "")
+  public List<Enchantment> getStoredEnchantments() {
+    return storedEnchantments;
+  }
+
+  public void setStoredEnchantments(List<Enchantment> storedEnchantments) {
+    this.storedEnchantments = storedEnchantments;
+  }
+
+  public World structure(StructureData structure) {
+    this.structure = structure;
+    return this;
+  }
+
+   /**
+   * Get structure
+   * @return structure
+  **/
+  @ApiModelProperty(value = "")
+  public StructureData getStructure() {
+    return structure;
+  }
+
+  public void setStructure(StructureData structure) {
+    this.structure = structure;
+  }
+
+  public World stuckArrows(Integer stuckArrows) {
+    this.stuckArrows = stuckArrows;
+    return this;
+  }
+
+   /**
+   * Get stuckArrows
+   * @return stuckArrows
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getStuckArrows() {
+    return stuckArrows;
+  }
+
+  public void setStuckArrows(Integer stuckArrows) {
+    this.stuckArrows = stuckArrows;
+  }
+
+  public World tamed(TameableData tamed) {
+    this.tamed = tamed;
+    return this;
+  }
+
+   /**
+   * Get tamed
+   * @return tamed
+  **/
+  @ApiModelProperty(value = "")
+  public TameableData getTamed() {
+    return tamed;
+  }
+
+  public void setTamed(TameableData tamed) {
+    this.tamed = tamed;
+  }
+
+  public World target(Vector3d target) {
+    this.target = target;
+    return this;
+  }
+
+   /**
+   * Get target
+   * @return target
+  **/
+  @ApiModelProperty(value = "")
+  public Vector3d getTarget() {
+    return target;
+  }
+
+  public void setTarget(Vector3d target) {
+    this.target = target;
+  }
+
+  public World trades(List<TradeOffer> trades) {
+    this.trades = trades;
+    return this;
+  }
+
+  public World addTradesItem(TradeOffer tradesItem) {
+    if (this.trades == null) {
+      this.trades = new ArrayList<TradeOffer>();
+    }
+    this.trades.add(tradesItem);
+    return this;
+  }
+
+   /**
+   * Get trades
+   * @return trades
+  **/
+  @ApiModelProperty(value = "")
+  public List<TradeOffer> getTrades() {
+    return trades;
+  }
+
+  public void setTrades(List<TradeOffer> trades) {
+    this.trades = trades;
+  }
+
+  public World tree(CatalogType tree) {
+    this.tree = tree;
+    return this;
+  }
+
+   /**
+   * Get tree
+   * @return tree
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getTree() {
+    return tree;
+  }
+
+  public void setTree(CatalogType tree) {
+    this.tree = tree;
+  }
+
+  public World vehicle(VehicleData vehicle) {
+    this.vehicle = vehicle;
+    return this;
+  }
+
+   /**
+   * Get vehicle
+   * @return vehicle
+  **/
+  @ApiModelProperty(value = "")
+  public VehicleData getVehicle() {
+    return vehicle;
+  }
+
+  public void setVehicle(VehicleData vehicle) {
+    this.vehicle = vehicle;
+  }
+
+  public World wall(CatalogType wall) {
+    this.wall = wall;
+    return this;
+  }
+
+   /**
+   * Get wall
+   * @return wall
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getWall() {
+    return wall;
+  }
+
+  public void setWall(CatalogType wall) {
+    this.wall = wall;
+  }
+
+  public World wet(Boolean wet) {
+    this.wet = wet;
+    return this;
+  }
+
+   /**
+   * Get wet
+   * @return wet
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isWet() {
+    return wet;
+  }
+
+  public void setWet(Boolean wet) {
+    this.wet = wet;
+  }
+
+  public World wires(WireAttachmentData wires) {
+    this.wires = wires;
+    return this;
+  }
+
+   /**
+   * Get wires
+   * @return wires
+  **/
+  @ApiModelProperty(value = "")
+  public WireAttachmentData getWires() {
+    return wires;
+  }
+
+  public void setWires(WireAttachmentData wires) {
+    this.wires = wires;
+  }
+
+  public World acceptsItems(AcceptsItems acceptsItems) {
+    this.acceptsItems = acceptsItems;
+    return this;
+  }
+
+   /**
+   * Get acceptsItems
+   * @return acceptsItems
+  **/
+  @ApiModelProperty(value = "")
+  public AcceptsItems getAcceptsItems() {
+    return acceptsItems;
+  }
+
+  public void setAcceptsItems(AcceptsItems acceptsItems) {
+    this.acceptsItems = acceptsItems;
+  }
+
+  public World applicableEffect(List<PotionEffect> applicableEffect) {
+    this.applicableEffect = applicableEffect;
+    return this;
+  }
+
+  public World addApplicableEffectItem(PotionEffect applicableEffectItem) {
+    if (this.applicableEffect == null) {
+      this.applicableEffect = new ArrayList<PotionEffect>();
+    }
+    this.applicableEffect.add(applicableEffectItem);
+    return this;
+  }
+
+   /**
+   * Get applicableEffect
+   * @return applicableEffect
+  **/
+  @ApiModelProperty(value = "")
+  public List<PotionEffect> getApplicableEffect() {
+    return applicableEffect;
+  }
+
+  public void setApplicableEffect(List<PotionEffect> applicableEffect) {
+    this.applicableEffect = applicableEffect;
+  }
+
+  public World armorSlotType(ArmorSlotType armorSlotType) {
+    this.armorSlotType = armorSlotType;
+    return this;
+  }
+
+   /**
+   * Get armorSlotType
+   * @return armorSlotType
+  **/
+  @ApiModelProperty(value = "")
+  public ArmorSlotType getArmorSlotType() {
+    return armorSlotType;
+  }
+
+  public void setArmorSlotType(ArmorSlotType armorSlotType) {
+    this.armorSlotType = armorSlotType;
+  }
+
+  public World armorType(CatalogType armorType) {
+    this.armorType = armorType;
+    return this;
+  }
+
+   /**
+   * Get armorType
+   * @return armorType
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getArmorType() {
+    return armorType;
+  }
+
+  public void setArmorType(CatalogType armorType) {
+    this.armorType = armorType;
+  }
+
+  public World blastResistance(Double blastResistance) {
+    this.blastResistance = blastResistance;
+    return this;
+  }
+
+   /**
+   * Get blastResistance
+   * @return blastResistance
+  **/
+  @ApiModelProperty(value = "")
+  public Double getBlastResistance() {
+    return blastResistance;
+  }
+
+  public void setBlastResistance(Double blastResistance) {
+    this.blastResistance = blastResistance;
+  }
+
+  public World burningFuel(Integer burningFuel) {
+    this.burningFuel = burningFuel;
+    return this;
+  }
+
+   /**
+   * Get burningFuel
+   * @return burningFuel
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getBurningFuel() {
+    return burningFuel;
+  }
+
+  public void setBurningFuel(Integer burningFuel) {
+    this.burningFuel = burningFuel;
+  }
+
+  public World damageAbsorption(Integer damageAbsorption) {
+    this.damageAbsorption = damageAbsorption;
+    return this;
+  }
+
+   /**
+   * Get damageAbsorption
+   * @return damageAbsorption
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getDamageAbsorption() {
+    return damageAbsorption;
+  }
+
+  public void setDamageAbsorption(Integer damageAbsorption) {
+    this.damageAbsorption = damageAbsorption;
+  }
+
+  public World efficiency(Double efficiency) {
+    this.efficiency = efficiency;
+    return this;
+  }
+
+   /**
+   * Get efficiency
+   * @return efficiency
+  **/
+  @ApiModelProperty(value = "")
+  public Double getEfficiency() {
+    return efficiency;
+  }
+
+  public void setEfficiency(Double efficiency) {
+    this.efficiency = efficiency;
+  }
+
+  public World equipmentType(CatalogType equipmentType) {
+    this.equipmentType = equipmentType;
+    return this;
+  }
+
+   /**
+   * Get equipmentType
+   * @return equipmentType
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getEquipmentType() {
+    return equipmentType;
+  }
+
+  public void setEquipmentType(CatalogType equipmentType) {
+    this.equipmentType = equipmentType;
+  }
+
+  public World equiptmentSlotType(EquipmentSlotType equiptmentSlotType) {
+    this.equiptmentSlotType = equiptmentSlotType;
+    return this;
+  }
+
+   /**
+   * Get equiptmentSlotType
+   * @return equiptmentSlotType
+  **/
+  @ApiModelProperty(value = "")
+  public EquipmentSlotType getEquiptmentSlotType() {
+    return equiptmentSlotType;
+  }
+
+  public void setEquiptmentSlotType(EquipmentSlotType equiptmentSlotType) {
+    this.equiptmentSlotType = equiptmentSlotType;
+  }
+
+  public World eyeHeight(Double eyeHeight) {
+    this.eyeHeight = eyeHeight;
+    return this;
+  }
+
+   /**
+   * Get eyeHeight
+   * @return eyeHeight
+  **/
+  @ApiModelProperty(value = "")
+  public Double getEyeHeight() {
+    return eyeHeight;
+  }
+
+  public void setEyeHeight(Double eyeHeight) {
+    this.eyeHeight = eyeHeight;
+  }
+
+  public World eyeLocation(Vector3d eyeLocation) {
+    this.eyeLocation = eyeLocation;
+    return this;
+  }
+
+   /**
+   * Get eyeLocation
+   * @return eyeLocation
+  **/
+  @ApiModelProperty(value = "")
+  public Vector3d getEyeLocation() {
+    return eyeLocation;
+  }
+
+  public void setEyeLocation(Vector3d eyeLocation) {
+    this.eyeLocation = eyeLocation;
+  }
+
+  public World fluidTemperature(Integer fluidTemperature) {
+    this.fluidTemperature = fluidTemperature;
+    return this;
+  }
+
+   /**
+   * Get fluidTemperature
+   * @return fluidTemperature
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getFluidTemperature() {
+    return fluidTemperature;
+  }
+
+  public void setFluidTemperature(Integer fluidTemperature) {
+    this.fluidTemperature = fluidTemperature;
+  }
+
+  public World fluidViscosity(Integer fluidViscosity) {
+    this.fluidViscosity = fluidViscosity;
+    return this;
+  }
+
+   /**
+   * Get fluidViscosity
+   * @return fluidViscosity
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getFluidViscosity() {
+    return fluidViscosity;
+  }
+
+  public void setFluidViscosity(Integer fluidViscosity) {
+    this.fluidViscosity = fluidViscosity;
+  }
+
+  public World foodRestoration(Integer foodRestoration) {
+    this.foodRestoration = foodRestoration;
+    return this;
+  }
+
+   /**
+   * Get foodRestoration
+   * @return foodRestoration
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getFoodRestoration() {
+    return foodRestoration;
+  }
+
+  public void setFoodRestoration(Integer foodRestoration) {
+    this.foodRestoration = foodRestoration;
+  }
+
+  public World fullBlockSelectionBox(Boolean fullBlockSelectionBox) {
+    this.fullBlockSelectionBox = fullBlockSelectionBox;
+    return this;
+  }
+
+   /**
+   * Get fullBlockSelectionBox
+   * @return fullBlockSelectionBox
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isFullBlockSelectionBox() {
+    return fullBlockSelectionBox;
+  }
+
+  public void setFullBlockSelectionBox(Boolean fullBlockSelectionBox) {
+    this.fullBlockSelectionBox = fullBlockSelectionBox;
+  }
+
+  public World gravityAffected(Boolean gravityAffected) {
+    this.gravityAffected = gravityAffected;
+    return this;
+  }
+
+   /**
+   * Get gravityAffected
+   * @return gravityAffected
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isGravityAffected() {
+    return gravityAffected;
+  }
+
+  public void setGravityAffected(Boolean gravityAffected) {
+    this.gravityAffected = gravityAffected;
+  }
+
+  public World groundLuminance(Double groundLuminance) {
+    this.groundLuminance = groundLuminance;
+    return this;
+  }
+
+   /**
+   * Get groundLuminance
+   * @return groundLuminance
+  **/
+  @ApiModelProperty(value = "")
+  public Double getGroundLuminance() {
+    return groundLuminance;
+  }
+
+  public void setGroundLuminance(Double groundLuminance) {
+    this.groundLuminance = groundLuminance;
+  }
+
+  public World guiId(GuiIdProperty guiId) {
+    this.guiId = guiId;
+    return this;
+  }
+
+   /**
+   * Get guiId
+   * @return guiId
+  **/
+  @ApiModelProperty(value = "")
+  public GuiIdProperty getGuiId() {
+    return guiId;
+  }
+
+  public void setGuiId(GuiIdProperty guiId) {
+    this.guiId = guiId;
+  }
+
+  public World hardness(Double hardness) {
+    this.hardness = hardness;
+    return this;
+  }
+
+   /**
+   * Get hardness
+   * @return hardness
+  **/
+  @ApiModelProperty(value = "")
+  public Double getHardness() {
+    return hardness;
+  }
+
+  public void setHardness(Double hardness) {
+    this.hardness = hardness;
+  }
+
+  public World heldItem(CatalogType heldItem) {
+    this.heldItem = heldItem;
+    return this;
+  }
+
+   /**
+   * Get heldItem
+   * @return heldItem
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getHeldItem() {
+    return heldItem;
+  }
+
+  public void setHeldItem(CatalogType heldItem) {
+    this.heldItem = heldItem;
+  }
+
+  public World identifiable(Identifiable identifiable) {
+    this.identifiable = identifiable;
+    return this;
+  }
+
+   /**
+   * Get identifiable
+   * @return identifiable
+  **/
+  @ApiModelProperty(value = "")
+  public Identifiable getIdentifiable() {
+    return identifiable;
+  }
+
+  public void setIdentifiable(Identifiable identifiable) {
+    this.identifiable = identifiable;
+  }
+
+  public World indirectlyPowered(Boolean indirectlyPowered) {
+    this.indirectlyPowered = indirectlyPowered;
+    return this;
+  }
+
+   /**
+   * Get indirectlyPowered
+   * @return indirectlyPowered
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIndirectlyPowered() {
+    return indirectlyPowered;
+  }
+
+  public void setIndirectlyPowered(Boolean indirectlyPowered) {
+    this.indirectlyPowered = indirectlyPowered;
+  }
+
+  public World instrument(CatalogType instrument) {
+    this.instrument = instrument;
+    return this;
+  }
+
+   /**
+   * Get instrument
+   * @return instrument
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getInstrument() {
+    return instrument;
+  }
+
+  public void setInstrument(CatalogType instrument) {
+    this.instrument = instrument;
+  }
+
+  public World inventoryCapacity(InventoryCapacity inventoryCapacity) {
+    this.inventoryCapacity = inventoryCapacity;
+    return this;
+  }
+
+   /**
+   * Get inventoryCapacity
+   * @return inventoryCapacity
+  **/
+  @ApiModelProperty(value = "")
+  public InventoryCapacity getInventoryCapacity() {
+    return inventoryCapacity;
+  }
+
+  public void setInventoryCapacity(InventoryCapacity inventoryCapacity) {
+    this.inventoryCapacity = inventoryCapacity;
+  }
+
+  public World inventoryDimension(InventoryDimension inventoryDimension) {
+    this.inventoryDimension = inventoryDimension;
+    return this;
+  }
+
+   /**
+   * Get inventoryDimension
+   * @return inventoryDimension
+  **/
+  @ApiModelProperty(value = "")
+  public InventoryDimension getInventoryDimension() {
+    return inventoryDimension;
+  }
+
+  public void setInventoryDimension(InventoryDimension inventoryDimension) {
+    this.inventoryDimension = inventoryDimension;
+  }
+
+  public World inventoryTitle(InventoryTitle inventoryTitle) {
+    this.inventoryTitle = inventoryTitle;
+    return this;
+  }
+
+   /**
+   * Get inventoryTitle
+   * @return inventoryTitle
+  **/
+  @ApiModelProperty(value = "")
+  public InventoryTitle getInventoryTitle() {
+    return inventoryTitle;
+  }
+
+  public void setInventoryTitle(InventoryTitle inventoryTitle) {
+    this.inventoryTitle = inventoryTitle;
+  }
+
+  public World lightEmission(Integer lightEmission) {
+    this.lightEmission = lightEmission;
+    return this;
+  }
+
+   /**
+   * Get lightEmission
+   * @return lightEmission
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getLightEmission() {
+    return lightEmission;
+  }
+
+  public void setLightEmission(Integer lightEmission) {
+    this.lightEmission = lightEmission;
+  }
+
+  public World matter(MatterEnum matter) {
+    this.matter = matter;
+    return this;
+  }
+
+   /**
+   * Get matter
+   * @return matter
+  **/
+  @ApiModelProperty(value = "")
+  public MatterEnum getMatter() {
+    return matter;
+  }
+
+  public void setMatter(MatterEnum matter) {
+    this.matter = matter;
+  }
+
+  public World passable(Boolean passable) {
+    this.passable = passable;
+    return this;
+  }
+
+   /**
+   * Get passable
+   * @return passable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isPassable() {
+    return passable;
+  }
+
+  public void setPassable(Boolean passable) {
+    this.passable = passable;
+  }
+
+  public World record(CatalogType record) {
+    this.record = record;
+    return this;
+  }
+
+   /**
+   * Get record
+   * @return record
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getRecord() {
+    return record;
+  }
+
+  public void setRecord(CatalogType record) {
+    this.record = record;
+  }
+
+  public World replaceable(Boolean replaceable) {
+    this.replaceable = replaceable;
+    return this;
+  }
+
+   /**
+   * Get replaceable
+   * @return replaceable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isReplaceable() {
+    return replaceable;
+  }
+
+  public void setReplaceable(Boolean replaceable) {
+    this.replaceable = replaceable;
+  }
+
+  public World saturationProperty(Double saturationProperty) {
+    this.saturationProperty = saturationProperty;
+    return this;
+  }
+
+   /**
+   * Get saturationProperty
+   * @return saturationProperty
+  **/
+  @ApiModelProperty(value = "")
+  public Double getSaturationProperty() {
+    return saturationProperty;
+  }
+
+  public void setSaturationProperty(Double saturationProperty) {
+    this.saturationProperty = saturationProperty;
+  }
+
+  public World skyLuminance(Double skyLuminance) {
+    this.skyLuminance = skyLuminance;
+    return this;
+  }
+
+   /**
+   * Get skyLuminance
+   * @return skyLuminance
+  **/
+  @ApiModelProperty(value = "")
+  public Double getSkyLuminance() {
+    return skyLuminance;
+  }
+
+  public void setSkyLuminance(Double skyLuminance) {
+    this.skyLuminance = skyLuminance;
+  }
+
+  public World slotIndex(SlotIndex slotIndex) {
+    this.slotIndex = slotIndex;
+    return this;
+  }
+
+   /**
+   * Get slotIndex
+   * @return slotIndex
+  **/
+  @ApiModelProperty(value = "")
+  public SlotIndex getSlotIndex() {
+    return slotIndex;
+  }
+
+  public void setSlotIndex(SlotIndex slotIndex) {
+    this.slotIndex = slotIndex;
+  }
+
+  public World slotPos(SlotPos slotPos) {
+    this.slotPos = slotPos;
+    return this;
+  }
+
+   /**
+   * Get slotPos
+   * @return slotPos
+  **/
+  @ApiModelProperty(value = "")
+  public SlotPos getSlotPos() {
+    return slotPos;
+  }
+
+  public void setSlotPos(SlotPos slotPos) {
+    this.slotPos = slotPos;
+  }
+
+  public World slotSide(SlotSide slotSide) {
+    this.slotSide = slotSide;
+    return this;
+  }
+
+   /**
+   * Get slotSide
+   * @return slotSide
+  **/
+  @ApiModelProperty(value = "")
+  public SlotSide getSlotSide() {
+    return slotSide;
+  }
+
+  public void setSlotSide(SlotSide slotSide) {
+    this.slotSide = slotSide;
+  }
+
+  public World smeltable(Boolean smeltable) {
+    this.smeltable = smeltable;
+    return this;
+  }
+
+   /**
+   * Get smeltable
+   * @return smeltable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isSmeltable() {
+    return smeltable;
+  }
+
+  public void setSmeltable(Boolean smeltable) {
+    this.smeltable = smeltable;
+  }
+
+  public World solidCube(Boolean solidCube) {
+    this.solidCube = solidCube;
+    return this;
+  }
+
+   /**
+   * Get solidCube
+   * @return solidCube
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isSolidCube() {
+    return solidCube;
+  }
+
+  public void setSolidCube(Boolean solidCube) {
+    this.solidCube = solidCube;
+  }
+
+  public World statisticsTracked(Boolean statisticsTracked) {
+    this.statisticsTracked = statisticsTracked;
+    return this;
+  }
+
+   /**
+   * Get statisticsTracked
+   * @return statisticsTracked
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isStatisticsTracked() {
+    return statisticsTracked;
+  }
+
+  public void setStatisticsTracked(Boolean statisticsTracked) {
+    this.statisticsTracked = statisticsTracked;
+  }
+
+  public World surrogateBlock(Boolean surrogateBlock) {
+    this.surrogateBlock = surrogateBlock;
+    return this;
+  }
+
+   /**
+   * Get surrogateBlock
+   * @return surrogateBlock
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isSurrogateBlock() {
+    return surrogateBlock;
+  }
+
+  public void setSurrogateBlock(Boolean surrogateBlock) {
+    this.surrogateBlock = surrogateBlock;
+  }
+
+  public World temperature(Double temperature) {
+    this.temperature = temperature;
+    return this;
+  }
+
+   /**
+   * Get temperature
+   * @return temperature
+  **/
+  @ApiModelProperty(value = "")
+  public Double getTemperature() {
+    return temperature;
+  }
+
+  public void setTemperature(Double temperature) {
+    this.temperature = temperature;
+  }
+
+  public World toolType(CatalogType toolType) {
+    this.toolType = toolType;
+    return this;
+  }
+
+   /**
+   * Get toolType
+   * @return toolType
+  **/
+  @ApiModelProperty(value = "")
+  public CatalogType getToolType() {
+    return toolType;
+  }
+
+  public void setToolType(CatalogType toolType) {
+    this.toolType = toolType;
+  }
+
+  public World unbreakable(Boolean unbreakable) {
+    this.unbreakable = unbreakable;
+    return this;
+  }
+
+   /**
+   * Get unbreakable
+   * @return unbreakable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isUnbreakable() {
+    return unbreakable;
+  }
+
+  public void setUnbreakable(Boolean unbreakable) {
+    this.unbreakable = unbreakable;
+  }
+
+  public World useLimit(Integer useLimit) {
+    this.useLimit = useLimit;
+    return this;
+  }
+
+   /**
+   * Get useLimit
+   * @return useLimit
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getUseLimit() {
+    return useLimit;
+  }
+
+  public void setUseLimit(Integer useLimit) {
+    this.useLimit = useLimit;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -114,15 +4937,223 @@ public class World {
       return false;
     }
     World world = (World) o;
-    return Objects.equals(this.link, world.link) &&
+    return Objects.equals(this.allowCommands, world.allowCommands) &&
+        Objects.equals(this.border, world.border) &&
+        Objects.equals(this.difficulty, world.difficulty) &&
+        Objects.equals(this.dimensionType, world.dimensionType) &&
+        Objects.equals(this.gameMode, world.gameMode) &&
+        Objects.equals(this.gameRules, world.gameRules) &&
+        Objects.equals(this.generateBonusChests, world.generateBonusChests) &&
+        Objects.equals(this.generatorType, world.generatorType) &&
+        Objects.equals(this.keepSpawnLoaded, world.keepSpawnLoaded) &&
+        Objects.equals(this.link, world.link) &&
+        Objects.equals(this.loadOnStartup, world.loadOnStartup) &&
         Objects.equals(this.loaded, world.loaded) &&
+        Objects.equals(this.mapFeaturesEnabled, world.mapFeaturesEnabled) &&
         Objects.equals(this.name, world.name) &&
-        Objects.equals(this.uuid, world.uuid);
+        Objects.equals(this.seed, world.seed) &&
+        Objects.equals(this.spawn, world.spawn) &&
+        Objects.equals(this.time, world.time) &&
+        Objects.equals(this.uuid, world.uuid) &&
+        Objects.equals(this.weather, world.weather) &&
+        Objects.equals(this.absorption, world.absorption) &&
+        Objects.equals(this.age, world.age) &&
+        Objects.equals(this.aggressive, world.aggressive) &&
+        Objects.equals(this.aiEnabled, world.aiEnabled) &&
+        Objects.equals(this.angerLevel, world.angerLevel) &&
+        Objects.equals(this.armorStand, world.armorStand) &&
+        Objects.equals(this.art, world.art) &&
+        Objects.equals(this.attached, world.attached) &&
+        Objects.equals(this.author, world.author) &&
+        Objects.equals(this.axis, world.axis) &&
+        Objects.equals(this.banner, world.banner) &&
+        Objects.equals(this.beacon, world.beacon) &&
+        Objects.equals(this.bigMushroom, world.bigMushroom) &&
+        Objects.equals(this.block, world.block) &&
+        Objects.equals(this.breathing, world.breathing) &&
+        Objects.equals(this.breedable, world.breedable) &&
+        Objects.equals(this.brewingStand, world.brewingStand) &&
+        Objects.equals(this.brick, world.brick) &&
+        Objects.equals(this.career, world.career) &&
+        Objects.equals(this.charged, world.charged) &&
+        Objects.equals(this.coal, world.coal) &&
+        Objects.equals(this.color, world.color) &&
+        Objects.equals(this.command, world.command) &&
+        Objects.equals(this.comparator, world.comparator) &&
+        Objects.equals(this.connectedDirection, world.connectedDirection) &&
+        Objects.equals(this.cookedFish, world.cookedFish) &&
+        Objects.equals(this.cooldown, world.cooldown) &&
+        Objects.equals(this.criticalHit, world.criticalHit) &&
+        Objects.equals(this.customName, world.customName) &&
+        Objects.equals(this.damage, world.damage) &&
+        Objects.equals(this.damageable, world.damageable) &&
+        Objects.equals(this.decayable, world.decayable) &&
+        Objects.equals(this.delay, world.delay) &&
+        Objects.equals(this.despawnDelay, world.despawnDelay) &&
+        Objects.equals(this.direction, world.direction) &&
+        Objects.equals(this.dirt, world.dirt) &&
+        Objects.equals(this.disarmed, world.disarmed) &&
+        Objects.equals(this.disguisedBlock, world.disguisedBlock) &&
+        Objects.equals(this.displayName, world.displayName) &&
+        Objects.equals(this.dominantHand, world.dominantHand) &&
+        Objects.equals(this.doublePlant, world.doublePlant) &&
+        Objects.equals(this.drops, world.drops) &&
+        Objects.equals(this.durability, world.durability) &&
+        Objects.equals(this.dye, world.dye) &&
+        Objects.equals(this.enchantments, world.enchantments) &&
+        Objects.equals(this.endGateway, world.endGateway) &&
+        Objects.equals(this.expOrb, world.expOrb) &&
+        Objects.equals(this.experience, world.experience) &&
+        Objects.equals(this.expireTicks, world.expireTicks) &&
+        Objects.equals(this.explosionRadius, world.explosionRadius) &&
+        Objects.equals(this.extended, world.extended) &&
+        Objects.equals(this.fallDistance, world.fallDistance) &&
+        Objects.equals(this.fallingBlock, world.fallingBlock) &&
+        Objects.equals(this.filled, world.filled) &&
+        Objects.equals(this.fireworkEffects, world.fireworkEffects) &&
+        Objects.equals(this.fireworkRocket, world.fireworkRocket) &&
+        Objects.equals(this.fish, world.fish) &&
+        Objects.equals(this.flammable, world.flammable) &&
+        Objects.equals(this.fluid, world.fluid) &&
+        Objects.equals(this.fluidLevel, world.fluidLevel) &&
+        Objects.equals(this.fluidTanks, world.fluidTanks) &&
+        Objects.equals(this.flying, world.flying) &&
+        Objects.equals(this.flyingAbility, world.flyingAbility) &&
+        Objects.equals(this.food, world.food) &&
+        Objects.equals(this.furnace, world.furnace) &&
+        Objects.equals(this.fuse, world.fuse) &&
+        Objects.equals(this.generation, world.generation) &&
+        Objects.equals(this.glowing, world.glowing) &&
+        Objects.equals(this.goldenApple, world.goldenApple) &&
+        Objects.equals(this.griefs, world.griefs) &&
+        Objects.equals(this.growth, world.growth) &&
+        Objects.equals(this.health, world.health) &&
+        Objects.equals(this.hide, world.hide) &&
+        Objects.equals(this.hinge, world.hinge) &&
+        Objects.equals(this.horse, world.horse) &&
+        Objects.equals(this.igniteable, world.igniteable) &&
+        Objects.equals(this.inWall, world.inWall) &&
+        Objects.equals(this.inventory, world.inventory) &&
+        Objects.equals(this.invisibility, world.invisibility) &&
+        Objects.equals(this.invulnerability, world.invulnerability) &&
+        Objects.equals(this.joined, world.joined) &&
+        Objects.equals(this.knockback, world.knockback) &&
+        Objects.equals(this.layer, world.layer) &&
+        Objects.equals(this.leash, world.leash) &&
+        Objects.equals(this.lockToken, world.lockToken) &&
+        Objects.equals(this.logAxis, world.logAxis) &&
+        Objects.equals(this.lore, world.lore) &&
+        Objects.equals(this.minecartBlock, world.minecartBlock) &&
+        Objects.equals(this.mobSpawner, world.mobSpawner) &&
+        Objects.equals(this.moisture, world.moisture) &&
+        Objects.equals(this.note, world.note) &&
+        Objects.equals(this.occupied, world.occupied) &&
+        Objects.equals(this.ocelot, world.ocelot) &&
+        Objects.equals(this.open, world.open) &&
+        Objects.equals(this.pages, world.pages) &&
+        Objects.equals(this.passengers, world.passengers) &&
+        Objects.equals(this.persists, world.persists) &&
+        Objects.equals(this.pickupDelay, world.pickupDelay) &&
+        Objects.equals(this.pickupRule, world.pickupRule) &&
+        Objects.equals(this.pigSaddle, world.pigSaddle) &&
+        Objects.equals(this.piston, world.piston) &&
+        Objects.equals(this.placeableOn, world.placeableOn) &&
+        Objects.equals(this.plant, world.plant) &&
+        Objects.equals(this.playerCreated, world.playerCreated) &&
+        Objects.equals(this.playing, world.playing) &&
+        Objects.equals(this.portion, world.portion) &&
+        Objects.equals(this.potionEffects, world.potionEffects) &&
+        Objects.equals(this.powered, world.powered) &&
+        Objects.equals(this.prismarine, world.prismarine) &&
+        Objects.equals(this.quartz, world.quartz) &&
+        Objects.equals(this.rabbit, world.rabbit) &&
+        Objects.equals(this.railDirection, world.railDirection) &&
+        Objects.equals(this.redstonePower, world.redstonePower) &&
+        Objects.equals(this.representedItem, world.representedItem) &&
+        Objects.equals(this.representedPlayer, world.representedPlayer) &&
+        Objects.equals(this.respawnLocations, world.respawnLocations) &&
+        Objects.equals(this.sand, world.sand) &&
+        Objects.equals(this.sandStone, world.sandStone) &&
+        Objects.equals(this.screaming, world.screaming) &&
+        Objects.equals(this.seamless, world.seamless) &&
+        Objects.equals(this.shatters, world.shatters) &&
+        Objects.equals(this.sheared, world.sheared) &&
+        Objects.equals(this.shrub, world.shrub) &&
+        Objects.equals(this.sign, world.sign) &&
+        Objects.equals(this.silent, world.silent) &&
+        Objects.equals(this.sitting, world.sitting) &&
+        Objects.equals(this.skin, world.skin) &&
+        Objects.equals(this.skull, world.skull) &&
+        Objects.equals(this.slab, world.slab) &&
+        Objects.equals(this.sleeping, world.sleeping) &&
+        Objects.equals(this.slime, world.slime) &&
+        Objects.equals(this.sneaking, world.sneaking) &&
+        Objects.equals(this.snow, world.snow) &&
+        Objects.equals(this.sprinting, world.sprinting) &&
+        Objects.equals(this.stairShape, world.stairShape) &&
+        Objects.equals(this.statistics, world.statistics) &&
+        Objects.equals(this.stone, world.stone) &&
+        Objects.equals(this.storedEnchantments, world.storedEnchantments) &&
+        Objects.equals(this.structure, world.structure) &&
+        Objects.equals(this.stuckArrows, world.stuckArrows) &&
+        Objects.equals(this.tamed, world.tamed) &&
+        Objects.equals(this.target, world.target) &&
+        Objects.equals(this.trades, world.trades) &&
+        Objects.equals(this.tree, world.tree) &&
+        Objects.equals(this.vehicle, world.vehicle) &&
+        Objects.equals(this.wall, world.wall) &&
+        Objects.equals(this.wet, world.wet) &&
+        Objects.equals(this.wires, world.wires) &&
+        Objects.equals(this.acceptsItems, world.acceptsItems) &&
+        Objects.equals(this.applicableEffect, world.applicableEffect) &&
+        Objects.equals(this.armorSlotType, world.armorSlotType) &&
+        Objects.equals(this.armorType, world.armorType) &&
+        Objects.equals(this.blastResistance, world.blastResistance) &&
+        Objects.equals(this.burningFuel, world.burningFuel) &&
+        Objects.equals(this.damageAbsorption, world.damageAbsorption) &&
+        Objects.equals(this.efficiency, world.efficiency) &&
+        Objects.equals(this.equipmentType, world.equipmentType) &&
+        Objects.equals(this.equiptmentSlotType, world.equiptmentSlotType) &&
+        Objects.equals(this.eyeHeight, world.eyeHeight) &&
+        Objects.equals(this.eyeLocation, world.eyeLocation) &&
+        Objects.equals(this.fluidTemperature, world.fluidTemperature) &&
+        Objects.equals(this.fluidViscosity, world.fluidViscosity) &&
+        Objects.equals(this.foodRestoration, world.foodRestoration) &&
+        Objects.equals(this.fullBlockSelectionBox, world.fullBlockSelectionBox) &&
+        Objects.equals(this.gravityAffected, world.gravityAffected) &&
+        Objects.equals(this.groundLuminance, world.groundLuminance) &&
+        Objects.equals(this.guiId, world.guiId) &&
+        Objects.equals(this.hardness, world.hardness) &&
+        Objects.equals(this.heldItem, world.heldItem) &&
+        Objects.equals(this.identifiable, world.identifiable) &&
+        Objects.equals(this.indirectlyPowered, world.indirectlyPowered) &&
+        Objects.equals(this.instrument, world.instrument) &&
+        Objects.equals(this.inventoryCapacity, world.inventoryCapacity) &&
+        Objects.equals(this.inventoryDimension, world.inventoryDimension) &&
+        Objects.equals(this.inventoryTitle, world.inventoryTitle) &&
+        Objects.equals(this.lightEmission, world.lightEmission) &&
+        Objects.equals(this.matter, world.matter) &&
+        Objects.equals(this.passable, world.passable) &&
+        Objects.equals(this.record, world.record) &&
+        Objects.equals(this.replaceable, world.replaceable) &&
+        Objects.equals(this.saturationProperty, world.saturationProperty) &&
+        Objects.equals(this.skyLuminance, world.skyLuminance) &&
+        Objects.equals(this.slotIndex, world.slotIndex) &&
+        Objects.equals(this.slotPos, world.slotPos) &&
+        Objects.equals(this.slotSide, world.slotSide) &&
+        Objects.equals(this.smeltable, world.smeltable) &&
+        Objects.equals(this.solidCube, world.solidCube) &&
+        Objects.equals(this.statisticsTracked, world.statisticsTracked) &&
+        Objects.equals(this.surrogateBlock, world.surrogateBlock) &&
+        Objects.equals(this.temperature, world.temperature) &&
+        Objects.equals(this.toolType, world.toolType) &&
+        Objects.equals(this.unbreakable, world.unbreakable) &&
+        Objects.equals(this.useLimit, world.useLimit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, loaded, name, uuid);
+    return Objects.hash(allowCommands, border, difficulty, dimensionType, gameMode, gameRules, generateBonusChests, generatorType, keepSpawnLoaded, link, loadOnStartup, loaded, mapFeaturesEnabled, name, seed, spawn, time, uuid, weather, absorption, age, aggressive, aiEnabled, angerLevel, armorStand, art, attached, author, axis, banner, beacon, bigMushroom, block, breathing, breedable, brewingStand, brick, career, charged, coal, color, command, comparator, connectedDirection, cookedFish, cooldown, criticalHit, customName, damage, damageable, decayable, delay, despawnDelay, direction, dirt, disarmed, disguisedBlock, displayName, dominantHand, doublePlant, drops, durability, dye, enchantments, endGateway, expOrb, experience, expireTicks, explosionRadius, extended, fallDistance, fallingBlock, filled, fireworkEffects, fireworkRocket, fish, flammable, fluid, fluidLevel, fluidTanks, flying, flyingAbility, food, furnace, fuse, generation, glowing, goldenApple, griefs, growth, health, hide, hinge, horse, igniteable, inWall, inventory, invisibility, invulnerability, joined, knockback, layer, leash, lockToken, logAxis, lore, minecartBlock, mobSpawner, moisture, note, occupied, ocelot, open, pages, passengers, persists, pickupDelay, pickupRule, pigSaddle, piston, placeableOn, plant, playerCreated, playing, portion, potionEffects, powered, prismarine, quartz, rabbit, railDirection, redstonePower, representedItem, representedPlayer, respawnLocations, sand, sandStone, screaming, seamless, shatters, sheared, shrub, sign, silent, sitting, skin, skull, slab, sleeping, slime, sneaking, snow, sprinting, stairShape, statistics, stone, storedEnchantments, structure, stuckArrows, tamed, target, trades, tree, vehicle, wall, wet, wires, acceptsItems, applicableEffect, armorSlotType, armorType, blastResistance, burningFuel, damageAbsorption, efficiency, equipmentType, equiptmentSlotType, eyeHeight, eyeLocation, fluidTemperature, fluidViscosity, foodRestoration, fullBlockSelectionBox, gravityAffected, groundLuminance, guiId, hardness, heldItem, identifiable, indirectlyPowered, instrument, inventoryCapacity, inventoryDimension, inventoryTitle, lightEmission, matter, passable, record, replaceable, saturationProperty, skyLuminance, slotIndex, slotPos, slotSide, smeltable, solidCube, statisticsTracked, surrogateBlock, temperature, toolType, unbreakable, useLimit);
   }
 
 
@@ -131,10 +5162,218 @@ public class World {
     StringBuilder sb = new StringBuilder();
     sb.append("class World {\n");
     
+    sb.append("    allowCommands: ").append(toIndentedString(allowCommands)).append("\n");
+    sb.append("    border: ").append(toIndentedString(border)).append("\n");
+    sb.append("    difficulty: ").append(toIndentedString(difficulty)).append("\n");
+    sb.append("    dimensionType: ").append(toIndentedString(dimensionType)).append("\n");
+    sb.append("    gameMode: ").append(toIndentedString(gameMode)).append("\n");
+    sb.append("    gameRules: ").append(toIndentedString(gameRules)).append("\n");
+    sb.append("    generateBonusChests: ").append(toIndentedString(generateBonusChests)).append("\n");
+    sb.append("    generatorType: ").append(toIndentedString(generatorType)).append("\n");
+    sb.append("    keepSpawnLoaded: ").append(toIndentedString(keepSpawnLoaded)).append("\n");
     sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    loadOnStartup: ").append(toIndentedString(loadOnStartup)).append("\n");
     sb.append("    loaded: ").append(toIndentedString(loaded)).append("\n");
+    sb.append("    mapFeaturesEnabled: ").append(toIndentedString(mapFeaturesEnabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    seed: ").append(toIndentedString(seed)).append("\n");
+    sb.append("    spawn: ").append(toIndentedString(spawn)).append("\n");
+    sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
+    sb.append("    weather: ").append(toIndentedString(weather)).append("\n");
+    sb.append("    absorption: ").append(toIndentedString(absorption)).append("\n");
+    sb.append("    age: ").append(toIndentedString(age)).append("\n");
+    sb.append("    aggressive: ").append(toIndentedString(aggressive)).append("\n");
+    sb.append("    aiEnabled: ").append(toIndentedString(aiEnabled)).append("\n");
+    sb.append("    angerLevel: ").append(toIndentedString(angerLevel)).append("\n");
+    sb.append("    armorStand: ").append(toIndentedString(armorStand)).append("\n");
+    sb.append("    art: ").append(toIndentedString(art)).append("\n");
+    sb.append("    attached: ").append(toIndentedString(attached)).append("\n");
+    sb.append("    author: ").append(toIndentedString(author)).append("\n");
+    sb.append("    axis: ").append(toIndentedString(axis)).append("\n");
+    sb.append("    banner: ").append(toIndentedString(banner)).append("\n");
+    sb.append("    beacon: ").append(toIndentedString(beacon)).append("\n");
+    sb.append("    bigMushroom: ").append(toIndentedString(bigMushroom)).append("\n");
+    sb.append("    block: ").append(toIndentedString(block)).append("\n");
+    sb.append("    breathing: ").append(toIndentedString(breathing)).append("\n");
+    sb.append("    breedable: ").append(toIndentedString(breedable)).append("\n");
+    sb.append("    brewingStand: ").append(toIndentedString(brewingStand)).append("\n");
+    sb.append("    brick: ").append(toIndentedString(brick)).append("\n");
+    sb.append("    career: ").append(toIndentedString(career)).append("\n");
+    sb.append("    charged: ").append(toIndentedString(charged)).append("\n");
+    sb.append("    coal: ").append(toIndentedString(coal)).append("\n");
+    sb.append("    color: ").append(toIndentedString(color)).append("\n");
+    sb.append("    command: ").append(toIndentedString(command)).append("\n");
+    sb.append("    comparator: ").append(toIndentedString(comparator)).append("\n");
+    sb.append("    connectedDirection: ").append(toIndentedString(connectedDirection)).append("\n");
+    sb.append("    cookedFish: ").append(toIndentedString(cookedFish)).append("\n");
+    sb.append("    cooldown: ").append(toIndentedString(cooldown)).append("\n");
+    sb.append("    criticalHit: ").append(toIndentedString(criticalHit)).append("\n");
+    sb.append("    customName: ").append(toIndentedString(customName)).append("\n");
+    sb.append("    damage: ").append(toIndentedString(damage)).append("\n");
+    sb.append("    damageable: ").append(toIndentedString(damageable)).append("\n");
+    sb.append("    decayable: ").append(toIndentedString(decayable)).append("\n");
+    sb.append("    delay: ").append(toIndentedString(delay)).append("\n");
+    sb.append("    despawnDelay: ").append(toIndentedString(despawnDelay)).append("\n");
+    sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
+    sb.append("    dirt: ").append(toIndentedString(dirt)).append("\n");
+    sb.append("    disarmed: ").append(toIndentedString(disarmed)).append("\n");
+    sb.append("    disguisedBlock: ").append(toIndentedString(disguisedBlock)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    dominantHand: ").append(toIndentedString(dominantHand)).append("\n");
+    sb.append("    doublePlant: ").append(toIndentedString(doublePlant)).append("\n");
+    sb.append("    drops: ").append(toIndentedString(drops)).append("\n");
+    sb.append("    durability: ").append(toIndentedString(durability)).append("\n");
+    sb.append("    dye: ").append(toIndentedString(dye)).append("\n");
+    sb.append("    enchantments: ").append(toIndentedString(enchantments)).append("\n");
+    sb.append("    endGateway: ").append(toIndentedString(endGateway)).append("\n");
+    sb.append("    expOrb: ").append(toIndentedString(expOrb)).append("\n");
+    sb.append("    experience: ").append(toIndentedString(experience)).append("\n");
+    sb.append("    expireTicks: ").append(toIndentedString(expireTicks)).append("\n");
+    sb.append("    explosionRadius: ").append(toIndentedString(explosionRadius)).append("\n");
+    sb.append("    extended: ").append(toIndentedString(extended)).append("\n");
+    sb.append("    fallDistance: ").append(toIndentedString(fallDistance)).append("\n");
+    sb.append("    fallingBlock: ").append(toIndentedString(fallingBlock)).append("\n");
+    sb.append("    filled: ").append(toIndentedString(filled)).append("\n");
+    sb.append("    fireworkEffects: ").append(toIndentedString(fireworkEffects)).append("\n");
+    sb.append("    fireworkRocket: ").append(toIndentedString(fireworkRocket)).append("\n");
+    sb.append("    fish: ").append(toIndentedString(fish)).append("\n");
+    sb.append("    flammable: ").append(toIndentedString(flammable)).append("\n");
+    sb.append("    fluid: ").append(toIndentedString(fluid)).append("\n");
+    sb.append("    fluidLevel: ").append(toIndentedString(fluidLevel)).append("\n");
+    sb.append("    fluidTanks: ").append(toIndentedString(fluidTanks)).append("\n");
+    sb.append("    flying: ").append(toIndentedString(flying)).append("\n");
+    sb.append("    flyingAbility: ").append(toIndentedString(flyingAbility)).append("\n");
+    sb.append("    food: ").append(toIndentedString(food)).append("\n");
+    sb.append("    furnace: ").append(toIndentedString(furnace)).append("\n");
+    sb.append("    fuse: ").append(toIndentedString(fuse)).append("\n");
+    sb.append("    generation: ").append(toIndentedString(generation)).append("\n");
+    sb.append("    glowing: ").append(toIndentedString(glowing)).append("\n");
+    sb.append("    goldenApple: ").append(toIndentedString(goldenApple)).append("\n");
+    sb.append("    griefs: ").append(toIndentedString(griefs)).append("\n");
+    sb.append("    growth: ").append(toIndentedString(growth)).append("\n");
+    sb.append("    health: ").append(toIndentedString(health)).append("\n");
+    sb.append("    hide: ").append(toIndentedString(hide)).append("\n");
+    sb.append("    hinge: ").append(toIndentedString(hinge)).append("\n");
+    sb.append("    horse: ").append(toIndentedString(horse)).append("\n");
+    sb.append("    igniteable: ").append(toIndentedString(igniteable)).append("\n");
+    sb.append("    inWall: ").append(toIndentedString(inWall)).append("\n");
+    sb.append("    inventory: ").append(toIndentedString(inventory)).append("\n");
+    sb.append("    invisibility: ").append(toIndentedString(invisibility)).append("\n");
+    sb.append("    invulnerability: ").append(toIndentedString(invulnerability)).append("\n");
+    sb.append("    joined: ").append(toIndentedString(joined)).append("\n");
+    sb.append("    knockback: ").append(toIndentedString(knockback)).append("\n");
+    sb.append("    layer: ").append(toIndentedString(layer)).append("\n");
+    sb.append("    leash: ").append(toIndentedString(leash)).append("\n");
+    sb.append("    lockToken: ").append(toIndentedString(lockToken)).append("\n");
+    sb.append("    logAxis: ").append(toIndentedString(logAxis)).append("\n");
+    sb.append("    lore: ").append(toIndentedString(lore)).append("\n");
+    sb.append("    minecartBlock: ").append(toIndentedString(minecartBlock)).append("\n");
+    sb.append("    mobSpawner: ").append(toIndentedString(mobSpawner)).append("\n");
+    sb.append("    moisture: ").append(toIndentedString(moisture)).append("\n");
+    sb.append("    note: ").append(toIndentedString(note)).append("\n");
+    sb.append("    occupied: ").append(toIndentedString(occupied)).append("\n");
+    sb.append("    ocelot: ").append(toIndentedString(ocelot)).append("\n");
+    sb.append("    open: ").append(toIndentedString(open)).append("\n");
+    sb.append("    pages: ").append(toIndentedString(pages)).append("\n");
+    sb.append("    passengers: ").append(toIndentedString(passengers)).append("\n");
+    sb.append("    persists: ").append(toIndentedString(persists)).append("\n");
+    sb.append("    pickupDelay: ").append(toIndentedString(pickupDelay)).append("\n");
+    sb.append("    pickupRule: ").append(toIndentedString(pickupRule)).append("\n");
+    sb.append("    pigSaddle: ").append(toIndentedString(pigSaddle)).append("\n");
+    sb.append("    piston: ").append(toIndentedString(piston)).append("\n");
+    sb.append("    placeableOn: ").append(toIndentedString(placeableOn)).append("\n");
+    sb.append("    plant: ").append(toIndentedString(plant)).append("\n");
+    sb.append("    playerCreated: ").append(toIndentedString(playerCreated)).append("\n");
+    sb.append("    playing: ").append(toIndentedString(playing)).append("\n");
+    sb.append("    portion: ").append(toIndentedString(portion)).append("\n");
+    sb.append("    potionEffects: ").append(toIndentedString(potionEffects)).append("\n");
+    sb.append("    powered: ").append(toIndentedString(powered)).append("\n");
+    sb.append("    prismarine: ").append(toIndentedString(prismarine)).append("\n");
+    sb.append("    quartz: ").append(toIndentedString(quartz)).append("\n");
+    sb.append("    rabbit: ").append(toIndentedString(rabbit)).append("\n");
+    sb.append("    railDirection: ").append(toIndentedString(railDirection)).append("\n");
+    sb.append("    redstonePower: ").append(toIndentedString(redstonePower)).append("\n");
+    sb.append("    representedItem: ").append(toIndentedString(representedItem)).append("\n");
+    sb.append("    representedPlayer: ").append(toIndentedString(representedPlayer)).append("\n");
+    sb.append("    respawnLocations: ").append(toIndentedString(respawnLocations)).append("\n");
+    sb.append("    sand: ").append(toIndentedString(sand)).append("\n");
+    sb.append("    sandStone: ").append(toIndentedString(sandStone)).append("\n");
+    sb.append("    screaming: ").append(toIndentedString(screaming)).append("\n");
+    sb.append("    seamless: ").append(toIndentedString(seamless)).append("\n");
+    sb.append("    shatters: ").append(toIndentedString(shatters)).append("\n");
+    sb.append("    sheared: ").append(toIndentedString(sheared)).append("\n");
+    sb.append("    shrub: ").append(toIndentedString(shrub)).append("\n");
+    sb.append("    sign: ").append(toIndentedString(sign)).append("\n");
+    sb.append("    silent: ").append(toIndentedString(silent)).append("\n");
+    sb.append("    sitting: ").append(toIndentedString(sitting)).append("\n");
+    sb.append("    skin: ").append(toIndentedString(skin)).append("\n");
+    sb.append("    skull: ").append(toIndentedString(skull)).append("\n");
+    sb.append("    slab: ").append(toIndentedString(slab)).append("\n");
+    sb.append("    sleeping: ").append(toIndentedString(sleeping)).append("\n");
+    sb.append("    slime: ").append(toIndentedString(slime)).append("\n");
+    sb.append("    sneaking: ").append(toIndentedString(sneaking)).append("\n");
+    sb.append("    snow: ").append(toIndentedString(snow)).append("\n");
+    sb.append("    sprinting: ").append(toIndentedString(sprinting)).append("\n");
+    sb.append("    stairShape: ").append(toIndentedString(stairShape)).append("\n");
+    sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
+    sb.append("    stone: ").append(toIndentedString(stone)).append("\n");
+    sb.append("    storedEnchantments: ").append(toIndentedString(storedEnchantments)).append("\n");
+    sb.append("    structure: ").append(toIndentedString(structure)).append("\n");
+    sb.append("    stuckArrows: ").append(toIndentedString(stuckArrows)).append("\n");
+    sb.append("    tamed: ").append(toIndentedString(tamed)).append("\n");
+    sb.append("    target: ").append(toIndentedString(target)).append("\n");
+    sb.append("    trades: ").append(toIndentedString(trades)).append("\n");
+    sb.append("    tree: ").append(toIndentedString(tree)).append("\n");
+    sb.append("    vehicle: ").append(toIndentedString(vehicle)).append("\n");
+    sb.append("    wall: ").append(toIndentedString(wall)).append("\n");
+    sb.append("    wet: ").append(toIndentedString(wet)).append("\n");
+    sb.append("    wires: ").append(toIndentedString(wires)).append("\n");
+    sb.append("    acceptsItems: ").append(toIndentedString(acceptsItems)).append("\n");
+    sb.append("    applicableEffect: ").append(toIndentedString(applicableEffect)).append("\n");
+    sb.append("    armorSlotType: ").append(toIndentedString(armorSlotType)).append("\n");
+    sb.append("    armorType: ").append(toIndentedString(armorType)).append("\n");
+    sb.append("    blastResistance: ").append(toIndentedString(blastResistance)).append("\n");
+    sb.append("    burningFuel: ").append(toIndentedString(burningFuel)).append("\n");
+    sb.append("    damageAbsorption: ").append(toIndentedString(damageAbsorption)).append("\n");
+    sb.append("    efficiency: ").append(toIndentedString(efficiency)).append("\n");
+    sb.append("    equipmentType: ").append(toIndentedString(equipmentType)).append("\n");
+    sb.append("    equiptmentSlotType: ").append(toIndentedString(equiptmentSlotType)).append("\n");
+    sb.append("    eyeHeight: ").append(toIndentedString(eyeHeight)).append("\n");
+    sb.append("    eyeLocation: ").append(toIndentedString(eyeLocation)).append("\n");
+    sb.append("    fluidTemperature: ").append(toIndentedString(fluidTemperature)).append("\n");
+    sb.append("    fluidViscosity: ").append(toIndentedString(fluidViscosity)).append("\n");
+    sb.append("    foodRestoration: ").append(toIndentedString(foodRestoration)).append("\n");
+    sb.append("    fullBlockSelectionBox: ").append(toIndentedString(fullBlockSelectionBox)).append("\n");
+    sb.append("    gravityAffected: ").append(toIndentedString(gravityAffected)).append("\n");
+    sb.append("    groundLuminance: ").append(toIndentedString(groundLuminance)).append("\n");
+    sb.append("    guiId: ").append(toIndentedString(guiId)).append("\n");
+    sb.append("    hardness: ").append(toIndentedString(hardness)).append("\n");
+    sb.append("    heldItem: ").append(toIndentedString(heldItem)).append("\n");
+    sb.append("    identifiable: ").append(toIndentedString(identifiable)).append("\n");
+    sb.append("    indirectlyPowered: ").append(toIndentedString(indirectlyPowered)).append("\n");
+    sb.append("    instrument: ").append(toIndentedString(instrument)).append("\n");
+    sb.append("    inventoryCapacity: ").append(toIndentedString(inventoryCapacity)).append("\n");
+    sb.append("    inventoryDimension: ").append(toIndentedString(inventoryDimension)).append("\n");
+    sb.append("    inventoryTitle: ").append(toIndentedString(inventoryTitle)).append("\n");
+    sb.append("    lightEmission: ").append(toIndentedString(lightEmission)).append("\n");
+    sb.append("    matter: ").append(toIndentedString(matter)).append("\n");
+    sb.append("    passable: ").append(toIndentedString(passable)).append("\n");
+    sb.append("    record: ").append(toIndentedString(record)).append("\n");
+    sb.append("    replaceable: ").append(toIndentedString(replaceable)).append("\n");
+    sb.append("    saturationProperty: ").append(toIndentedString(saturationProperty)).append("\n");
+    sb.append("    skyLuminance: ").append(toIndentedString(skyLuminance)).append("\n");
+    sb.append("    slotIndex: ").append(toIndentedString(slotIndex)).append("\n");
+    sb.append("    slotPos: ").append(toIndentedString(slotPos)).append("\n");
+    sb.append("    slotSide: ").append(toIndentedString(slotSide)).append("\n");
+    sb.append("    smeltable: ").append(toIndentedString(smeltable)).append("\n");
+    sb.append("    solidCube: ").append(toIndentedString(solidCube)).append("\n");
+    sb.append("    statisticsTracked: ").append(toIndentedString(statisticsTracked)).append("\n");
+    sb.append("    surrogateBlock: ").append(toIndentedString(surrogateBlock)).append("\n");
+    sb.append("    temperature: ").append(toIndentedString(temperature)).append("\n");
+    sb.append("    toolType: ").append(toIndentedString(toolType)).append("\n");
+    sb.append("    unbreakable: ").append(toIndentedString(unbreakable)).append("\n");
+    sb.append("    useLimit: ").append(toIndentedString(useLimit)).append("\n");
     sb.append("}");
     return sb.toString();
   }

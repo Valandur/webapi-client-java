@@ -15,10 +15,15 @@ package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
 import io.swagger.client.model.AuthenticationRequest;
+import io.swagger.client.model.CreateUserRequest;
+import io.swagger.client.model.InlineResponse400;
 import io.swagger.client.model.InlineResponse401;
 import io.swagger.client.model.InlineResponse403;
+import io.swagger.client.model.InlineResponse404;
 import io.swagger.client.model.InlineResponse500;
+import io.swagger.client.model.ModifyUserRequest;
 import io.swagger.client.model.PermissionStruct;
+import io.swagger.client.model.UserPermissionStruct;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -37,19 +42,75 @@ public class UserApiTest {
 
     
     /**
-     * Check info
+     * Create a user
      *
-     * Checks to see if the passed api key is still valid and retrieves the user info and permissions associated with this key     **Required permissions:**    - **user.user**   
+     * Creates a new Web-API user with the specified username and password.     **Required permissions:**    - **user.create**   
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void getUserDetailsTest() throws ApiException {
+    public void createUserTest() throws ApiException {
+        CreateUserRequest body = null;
         Boolean details = null;
         String accept = null;
         Boolean pretty = null;
-        PermissionStruct response = api.getUserDetails(details, accept, pretty);
+        UserPermissionStruct response = api.createUser(body, details, accept, pretty);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a user
+     *
+     * Removes a Web-API user.     **Required permissions:**    - **user.delete**   
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteUserTest() throws ApiException {
+        String name = null;
+        Boolean details = null;
+        String accept = null;
+        Boolean pretty = null;
+        UserPermissionStruct response = api.deleteUser(name, details, accept, pretty);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Check info
+     *
+     * Checks to see if the passed api key is still valid and retrieves the user info and permissions associated with this key     **Required permissions:**    - **user.**   
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getMeTest() throws ApiException {
+        Boolean details = null;
+        String accept = null;
+        Boolean pretty = null;
+        PermissionStruct response = api.getMe(details, accept, pretty);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List users
+     *
+     * Gets a list of all the Web-API users.     **Required permissions:**    - **user.list**   
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getUsersTest() throws ApiException {
+        Boolean details = null;
+        String accept = null;
+        Boolean pretty = null;
+        List<UserPermissionStruct> response = api.getUsers(details, accept, pretty);
 
         // TODO: test validations
     }
@@ -76,7 +137,7 @@ public class UserApiTest {
     /**
      * Logout
      *
-     * Invalidate the current API key, logging out the active user.
+     * Invalidate the current API key, logging out the active user.     **Required permissions:**    - **user.**   
      *
      * @throws ApiException
      *          if the Api call fails
@@ -87,6 +148,45 @@ public class UserApiTest {
         String accept = null;
         Boolean pretty = null;
         PermissionStruct response = api.logout(details, accept, pretty);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * null     **Required permissions:**    - **user.**   
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void logoutRedirectTest() throws ApiException {
+        String redirect = null;
+        Boolean details = null;
+        String accept = null;
+        Boolean pretty = null;
+        api.logoutRedirect(redirect, details, accept, pretty);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a user
+     *
+     * Changes the properties of a Web-API user     **Required permissions:**    - **user.modify**   
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void modifyUserTest() throws ApiException {
+        String name = null;
+        ModifyUserRequest body = null;
+        Boolean details = null;
+        String accept = null;
+        Boolean pretty = null;
+        UserPermissionStruct response = api.modifyUser(name, body, details, accept, pretty);
 
         // TODO: test validations
     }

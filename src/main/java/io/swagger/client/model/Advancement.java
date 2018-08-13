@@ -28,13 +28,10 @@ import java.io.IOException;
 /**
  * Advancement
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
 public class Advancement {
   @SerializedName("id")
   private String id = null;
-
-  @SerializedName("link")
-  private String link = null;
 
   @SerializedName("name")
   private String name = null;
@@ -79,30 +76,12 @@ public class Advancement {
   }
 
    /**
-   * The API link that can be used to obtain more information about this object
-   * @return link
-  **/
-  @ApiModelProperty(required = true, value = "The API link that can be used to obtain more information about this object")
-  public String getLink() {
-    return link;
-  }
-
-  public Advancement name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
    * The name of the advancement
    * @return name
   **/
   @ApiModelProperty(required = true, value = "The name of the advancement")
   public String getName() {
     return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
   }
 
   public Advancement title(String title) {
@@ -242,7 +221,6 @@ public class Advancement {
     }
     Advancement advancement = (Advancement) o;
     return Objects.equals(this.id, advancement.id) &&
-        Objects.equals(this.link, advancement.link) &&
         Objects.equals(this.name, advancement.name) &&
         Objects.equals(this.title, advancement.title) &&
         Objects.equals(this.announceToChat, advancement.announceToChat) &&
@@ -255,7 +233,7 @@ public class Advancement {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, link, name, title, announceToChat, description, hidden, parent, showToast, tree);
+    return Objects.hash(id, name, title, announceToChat, description, hidden, parent, showToast, tree);
   }
 
 
@@ -265,7 +243,6 @@ public class Advancement {
     sb.append("class Advancement {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    announceToChat: ").append(toIndentedString(announceToChat)).append("\n");

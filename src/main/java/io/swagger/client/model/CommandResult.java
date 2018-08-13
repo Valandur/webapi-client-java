@@ -26,11 +26,8 @@ import java.io.IOException;
 /**
  * CommandResult
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
 public class CommandResult {
-  @SerializedName("link")
-  private String link = null;
-
   @SerializedName("affectedBlocks")
   private Integer affectedBlocks = null;
 
@@ -45,15 +42,6 @@ public class CommandResult {
 
   @SerializedName("successCount")
   private Integer successCount = null;
-
-   /**
-   * The API link that can be used to obtain more information about this object
-   * @return link
-  **/
-  @ApiModelProperty(required = true, value = "The API link that can be used to obtain more information about this object")
-  public String getLink() {
-    return link;
-  }
 
   public CommandResult affectedBlocks(Integer affectedBlocks) {
     this.affectedBlocks = affectedBlocks;
@@ -155,8 +143,7 @@ public class CommandResult {
       return false;
     }
     CommandResult commandResult = (CommandResult) o;
-    return Objects.equals(this.link, commandResult.link) &&
-        Objects.equals(this.affectedBlocks, commandResult.affectedBlocks) &&
+    return Objects.equals(this.affectedBlocks, commandResult.affectedBlocks) &&
         Objects.equals(this.affectedEntities, commandResult.affectedEntities) &&
         Objects.equals(this.affectedItems, commandResult.affectedItems) &&
         Objects.equals(this.queryResult, commandResult.queryResult) &&
@@ -165,7 +152,7 @@ public class CommandResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, affectedBlocks, affectedEntities, affectedItems, queryResult, successCount);
+    return Objects.hash(affectedBlocks, affectedEntities, affectedItems, queryResult, successCount);
   }
 
 
@@ -174,7 +161,6 @@ public class CommandResult {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommandResult {\n");
     
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    affectedBlocks: ").append(toIndentedString(affectedBlocks)).append("\n");
     sb.append("    affectedEntities: ").append(toIndentedString(affectedEntities)).append("\n");
     sb.append("    affectedItems: ").append(toIndentedString(affectedItems)).append("\n");

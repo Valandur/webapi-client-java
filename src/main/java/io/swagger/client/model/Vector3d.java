@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Vector3d
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
 public class Vector3d {
   @SerializedName("x")
   private Double x = null;

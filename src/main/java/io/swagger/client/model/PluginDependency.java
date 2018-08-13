@@ -26,13 +26,10 @@ import java.io.IOException;
 /**
  * PluginDependency
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
 public class PluginDependency {
   @SerializedName("id")
   private String id = null;
-
-  @SerializedName("link")
-  private String link = null;
 
   /**
    * The load order of the original plugin in relation to the dependency
@@ -110,15 +107,6 @@ public class PluginDependency {
     this.id = id;
   }
 
-   /**
-   * The API link that can be used to obtain more information about this object
-   * @return link
-  **/
-  @ApiModelProperty(required = true, value = "The API link that can be used to obtain more information about this object")
-  public String getLink() {
-    return link;
-  }
-
   public PluginDependency loadOrder(LoadOrderEnum loadOrder) {
     this.loadOrder = loadOrder;
     return this;
@@ -184,7 +172,6 @@ public class PluginDependency {
     }
     PluginDependency pluginDependency = (PluginDependency) o;
     return Objects.equals(this.id, pluginDependency.id) &&
-        Objects.equals(this.link, pluginDependency.link) &&
         Objects.equals(this.loadOrder, pluginDependency.loadOrder) &&
         Objects.equals(this.optional, pluginDependency.optional) &&
         Objects.equals(this.version, pluginDependency.version);
@@ -192,7 +179,7 @@ public class PluginDependency {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, link, loadOrder, optional, version);
+    return Objects.hash(id, loadOrder, optional, version);
   }
 
 
@@ -202,7 +189,6 @@ public class PluginDependency {
     sb.append("class PluginDependency {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    loadOrder: ").append(toIndentedString(loadOrder)).append("\n");
     sb.append("    optional: ").append(toIndentedString(optional)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

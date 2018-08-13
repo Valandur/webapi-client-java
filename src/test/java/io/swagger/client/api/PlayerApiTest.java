@@ -21,7 +21,7 @@ import io.swagger.client.model.InlineResponse401;
 import io.swagger.client.model.InlineResponse403;
 import io.swagger.client.model.InlineResponse404;
 import io.swagger.client.model.InlineResponse500;
-import io.swagger.client.model.PlayerFull;
+import io.swagger.client.model.Player;
 import io.swagger.client.model.UpdatePlayerRequest;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -74,7 +74,7 @@ public class PlayerApiTest {
         Boolean details = null;
         String accept = null;
         Boolean pretty = null;
-        PlayerFull response = api.getPlayer(player, details, accept, pretty);
+        Player response = api.getPlayer(player, details, accept, pretty);
 
         // TODO: test validations
     }
@@ -92,7 +92,7 @@ public class PlayerApiTest {
         Boolean details = null;
         String accept = null;
         Boolean pretty = null;
-        List<PlayerFull> response = api.listPlayers(details, accept, pretty);
+        List<Player> response = api.listPlayers(details, accept, pretty);
 
         // TODO: test validations
     }
@@ -112,7 +112,7 @@ public class PlayerApiTest {
         Boolean details = null;
         String accept = null;
         Boolean pretty = null;
-        PlayerFull response = api.modifyPlayer(player, body, details, accept, pretty);
+        Player response = api.modifyPlayer(player, body, details, accept, pretty);
 
         // TODO: test validations
     }

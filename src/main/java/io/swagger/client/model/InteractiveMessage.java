@@ -30,7 +30,7 @@ import java.util.UUID;
 /**
  * InteractiveMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
 public class InteractiveMessage {
   @SerializedName("id")
   private String id = null;
@@ -62,10 +62,10 @@ public class InteractiveMessage {
   }
 
    /**
-   * The id of the message. Used for sender of the message to identify responses.
+   * The id of the message. Used to identify responses.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "The id of the message. Used for sender of the message to identify responses.")
+  @ApiModelProperty(required = true, value = "The id of the message. Used to identify responses.")
   public String getId() {
     return id;
   }

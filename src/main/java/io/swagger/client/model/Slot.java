@@ -22,7 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.AcceptsItems;
-import io.swagger.client.model.Advancement;
 import io.swagger.client.model.AgeableData;
 import io.swagger.client.model.ArmorSlotType;
 import io.swagger.client.model.ArmorStandData;
@@ -71,7 +70,6 @@ import io.swagger.client.model.Location;
 import io.swagger.client.model.MinecartBlockData;
 import io.swagger.client.model.MobSpawnerData;
 import io.swagger.client.model.PickupDelayData;
-import io.swagger.client.model.Player;
 import io.swagger.client.model.PotionEffect;
 import io.swagger.client.model.SlimeData;
 import io.swagger.client.model.SlotIndex;
@@ -92,57 +90,12 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
- * PlayerFull
+ * Slot
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
-public class PlayerFull {
-  @SerializedName("link")
-  private String link = null;
-
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("online")
-  private Boolean online = null;
-
-  @SerializedName("uuid")
-  private UUID uuid = null;
-
-  @SerializedName("unlockedAdvancements")
-  private List<Advancement> unlockedAdvancements = new ArrayList<Advancement>();
-
-  @SerializedName("latency")
-  private Integer latency = null;
-
-  @SerializedName("rotation")
-  private Vector3d rotation = null;
-
-  @SerializedName("scale")
-  private Vector3d scale = null;
-
-  @SerializedName("velocity")
-  private Vector3d velocity = null;
-
-  @SerializedName("inventory")
-  private Inventory inventory = null;
-
-  @SerializedName("helmet")
-  private ItemStack helmet = null;
-
-  @SerializedName("chestplate")
-  private ItemStack chestplate = null;
-
-  @SerializedName("leggings")
-  private ItemStack leggings = null;
-
-  @SerializedName("boots")
-  private ItemStack boots = null;
-
-  @SerializedName("address")
-  private String address = null;
-
-  @SerializedName("location")
-  private Location location = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
+public class Slot {
+  @SerializedName("stack")
+  private ItemStack stack = null;
 
   @SerializedName("absorption")
   private Double absorption = null;
@@ -589,6 +542,9 @@ public class PlayerFull {
   @SerializedName("inWall")
   private Boolean inWall = null;
 
+  @SerializedName("inventory")
+  private Inventory inventory = null;
+
   @SerializedName("invisibility")
   private InvisibilityData invisibility = null;
 
@@ -986,291 +942,25 @@ public class PlayerFull {
   @SerializedName("useLimit")
   private Integer useLimit = null;
 
-   /**
-   * The API link that can be used to obtain more information about this object
-   * @return link
-  **/
-  @ApiModelProperty(required = true, value = "The API link that can be used to obtain more information about this object")
-  public String getLink() {
-    return link;
-  }
-
-  public PlayerFull name(String name) {
-    this.name = name;
+  public Slot stack(ItemStack stack) {
+    this.stack = stack;
     return this;
   }
 
    /**
-   * The players name
-   * @return name
+   * The item stack that is in this slot
+   * @return stack
   **/
-  @ApiModelProperty(required = true, value = "The players name")
-  public String getName() {
-    return name;
+  @ApiModelProperty(required = true, value = "The item stack that is in this slot")
+  public ItemStack getStack() {
+    return stack;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setStack(ItemStack stack) {
+    this.stack = stack;
   }
 
-  public PlayerFull online(Boolean online) {
-    this.online = online;
-    return this;
-  }
-
-   /**
-   * True if the player is online, false otherwise
-   * @return online
-  **/
-  @ApiModelProperty(required = true, value = "True if the player is online, false otherwise")
-  public Boolean isOnline() {
-    return online;
-  }
-
-  public void setOnline(Boolean online) {
-    this.online = online;
-  }
-
-  public PlayerFull uuid(UUID uuid) {
-    this.uuid = uuid;
-    return this;
-  }
-
-   /**
-   * The unique UUID of this player
-   * @return uuid
-  **/
-  @ApiModelProperty(required = true, value = "The unique UUID of this player")
-  public UUID getUuid() {
-    return uuid;
-  }
-
-  public void setUuid(UUID uuid) {
-    this.uuid = uuid;
-  }
-
-  public PlayerFull unlockedAdvancements(List<Advancement> unlockedAdvancements) {
-    this.unlockedAdvancements = unlockedAdvancements;
-    return this;
-  }
-
-  public PlayerFull addUnlockedAdvancementsItem(Advancement unlockedAdvancementsItem) {
-    this.unlockedAdvancements.add(unlockedAdvancementsItem);
-    return this;
-  }
-
-   /**
-   * A list of all unlocked advancements of this player
-   * @return unlockedAdvancements
-  **/
-  @ApiModelProperty(required = true, value = "A list of all unlocked advancements of this player")
-  public List<Advancement> getUnlockedAdvancements() {
-    return unlockedAdvancements;
-  }
-
-  public void setUnlockedAdvancements(List<Advancement> unlockedAdvancements) {
-    this.unlockedAdvancements = unlockedAdvancements;
-  }
-
-  public PlayerFull latency(Integer latency) {
-    this.latency = latency;
-    return this;
-  }
-
-   /**
-   * The latency (in milliseconds) of the player
-   * @return latency
-  **/
-  @ApiModelProperty(required = true, value = "The latency (in milliseconds) of the player")
-  public Integer getLatency() {
-    return latency;
-  }
-
-  public void setLatency(Integer latency) {
-    this.latency = latency;
-  }
-
-  public PlayerFull rotation(Vector3d rotation) {
-    this.rotation = rotation;
-    return this;
-  }
-
-   /**
-   * The current rotation of the player
-   * @return rotation
-  **/
-  @ApiModelProperty(required = true, value = "The current rotation of the player")
-  public Vector3d getRotation() {
-    return rotation;
-  }
-
-  public void setRotation(Vector3d rotation) {
-    this.rotation = rotation;
-  }
-
-  public PlayerFull scale(Vector3d scale) {
-    this.scale = scale;
-    return this;
-  }
-
-   /**
-   * The current scale of the player
-   * @return scale
-  **/
-  @ApiModelProperty(required = true, value = "The current scale of the player")
-  public Vector3d getScale() {
-    return scale;
-  }
-
-  public void setScale(Vector3d scale) {
-    this.scale = scale;
-  }
-
-  public PlayerFull velocity(Vector3d velocity) {
-    this.velocity = velocity;
-    return this;
-  }
-
-   /**
-   * The current velocity of the player
-   * @return velocity
-  **/
-  @ApiModelProperty(required = true, value = "The current velocity of the player")
-  public Vector3d getVelocity() {
-    return velocity;
-  }
-
-  public void setVelocity(Vector3d velocity) {
-    this.velocity = velocity;
-  }
-
-  public PlayerFull inventory(Inventory inventory) {
-    this.inventory = inventory;
-    return this;
-  }
-
-   /**
-   * Get inventory
-   * @return inventory
-  **/
-  @ApiModelProperty(value = "")
-  public Inventory getInventory() {
-    return inventory;
-  }
-
-  public void setInventory(Inventory inventory) {
-    this.inventory = inventory;
-  }
-
-  public PlayerFull helmet(ItemStack helmet) {
-    this.helmet = helmet;
-    return this;
-  }
-
-   /**
-   * The item stack that the player is wearing as a helmet
-   * @return helmet
-  **/
-  @ApiModelProperty(value = "The item stack that the player is wearing as a helmet")
-  public ItemStack getHelmet() {
-    return helmet;
-  }
-
-  public void setHelmet(ItemStack helmet) {
-    this.helmet = helmet;
-  }
-
-  public PlayerFull chestplate(ItemStack chestplate) {
-    this.chestplate = chestplate;
-    return this;
-  }
-
-   /**
-   * The item stack that the player is wearing as chestplate
-   * @return chestplate
-  **/
-  @ApiModelProperty(value = "The item stack that the player is wearing as chestplate")
-  public ItemStack getChestplate() {
-    return chestplate;
-  }
-
-  public void setChestplate(ItemStack chestplate) {
-    this.chestplate = chestplate;
-  }
-
-  public PlayerFull leggings(ItemStack leggings) {
-    this.leggings = leggings;
-    return this;
-  }
-
-   /**
-   * The item stack that the player is wearing as leggings
-   * @return leggings
-  **/
-  @ApiModelProperty(value = "The item stack that the player is wearing as leggings")
-  public ItemStack getLeggings() {
-    return leggings;
-  }
-
-  public void setLeggings(ItemStack leggings) {
-    this.leggings = leggings;
-  }
-
-  public PlayerFull boots(ItemStack boots) {
-    this.boots = boots;
-    return this;
-  }
-
-   /**
-   * The item stack that the player is wearing as boots
-   * @return boots
-  **/
-  @ApiModelProperty(value = "The item stack that the player is wearing as boots")
-  public ItemStack getBoots() {
-    return boots;
-  }
-
-  public void setBoots(ItemStack boots) {
-    this.boots = boots;
-  }
-
-  public PlayerFull address(String address) {
-    this.address = address;
-    return this;
-  }
-
-   /**
-   * The player&#39;s IP address and port
-   * @return address
-  **/
-  @ApiModelProperty(required = true, value = "The player's IP address and port")
-  public String getAddress() {
-    return address;
-  }
-
-  public void setAddress(String address) {
-    this.address = address;
-  }
-
-  public PlayerFull location(Location location) {
-    this.location = location;
-    return this;
-  }
-
-   /**
-   * The current Location of the player
-   * @return location
-  **/
-  @ApiModelProperty(required = true, value = "The current Location of the player")
-  public Location getLocation() {
-    return location;
-  }
-
-  public void setLocation(Location location) {
-    this.location = location;
-  }
-
-  public PlayerFull absorption(Double absorption) {
+  public Slot absorption(Double absorption) {
     this.absorption = absorption;
     return this;
   }
@@ -1288,7 +978,7 @@ public class PlayerFull {
     this.absorption = absorption;
   }
 
-  public PlayerFull age(AgeableData age) {
+  public Slot age(AgeableData age) {
     this.age = age;
     return this;
   }
@@ -1306,7 +996,7 @@ public class PlayerFull {
     this.age = age;
   }
 
-  public PlayerFull aggressive(Boolean aggressive) {
+  public Slot aggressive(Boolean aggressive) {
     this.aggressive = aggressive;
     return this;
   }
@@ -1324,7 +1014,7 @@ public class PlayerFull {
     this.aggressive = aggressive;
   }
 
-  public PlayerFull aiEnabled(Boolean aiEnabled) {
+  public Slot aiEnabled(Boolean aiEnabled) {
     this.aiEnabled = aiEnabled;
     return this;
   }
@@ -1342,7 +1032,7 @@ public class PlayerFull {
     this.aiEnabled = aiEnabled;
   }
 
-  public PlayerFull angerLevel(Integer angerLevel) {
+  public Slot angerLevel(Integer angerLevel) {
     this.angerLevel = angerLevel;
     return this;
   }
@@ -1360,7 +1050,7 @@ public class PlayerFull {
     this.angerLevel = angerLevel;
   }
 
-  public PlayerFull armorStand(ArmorStandData armorStand) {
+  public Slot armorStand(ArmorStandData armorStand) {
     this.armorStand = armorStand;
     return this;
   }
@@ -1378,7 +1068,7 @@ public class PlayerFull {
     this.armorStand = armorStand;
   }
 
-  public PlayerFull art(CatalogType art) {
+  public Slot art(CatalogType art) {
     this.art = art;
     return this;
   }
@@ -1396,7 +1086,7 @@ public class PlayerFull {
     this.art = art;
   }
 
-  public PlayerFull attached(Boolean attached) {
+  public Slot attached(Boolean attached) {
     this.attached = attached;
     return this;
   }
@@ -1414,7 +1104,7 @@ public class PlayerFull {
     this.attached = attached;
   }
 
-  public PlayerFull author(String author) {
+  public Slot author(String author) {
     this.author = author;
     return this;
   }
@@ -1432,7 +1122,7 @@ public class PlayerFull {
     this.author = author;
   }
 
-  public PlayerFull axis(AxisEnum axis) {
+  public Slot axis(AxisEnum axis) {
     this.axis = axis;
     return this;
   }
@@ -1450,7 +1140,7 @@ public class PlayerFull {
     this.axis = axis;
   }
 
-  public PlayerFull banner(BannerData banner) {
+  public Slot banner(BannerData banner) {
     this.banner = banner;
     return this;
   }
@@ -1468,7 +1158,7 @@ public class PlayerFull {
     this.banner = banner;
   }
 
-  public PlayerFull beacon(BeaconData beacon) {
+  public Slot beacon(BeaconData beacon) {
     this.beacon = beacon;
     return this;
   }
@@ -1486,7 +1176,7 @@ public class PlayerFull {
     this.beacon = beacon;
   }
 
-  public PlayerFull bigMushroom(CatalogType bigMushroom) {
+  public Slot bigMushroom(CatalogType bigMushroom) {
     this.bigMushroom = bigMushroom;
     return this;
   }
@@ -1504,7 +1194,7 @@ public class PlayerFull {
     this.bigMushroom = bigMushroom;
   }
 
-  public PlayerFull block(BlockState block) {
+  public Slot block(BlockState block) {
     this.block = block;
     return this;
   }
@@ -1522,7 +1212,7 @@ public class PlayerFull {
     this.block = block;
   }
 
-  public PlayerFull breathing(BreathingData breathing) {
+  public Slot breathing(BreathingData breathing) {
     this.breathing = breathing;
     return this;
   }
@@ -1540,7 +1230,7 @@ public class PlayerFull {
     this.breathing = breathing;
   }
 
-  public PlayerFull breedable(Boolean breedable) {
+  public Slot breedable(Boolean breedable) {
     this.breedable = breedable;
     return this;
   }
@@ -1558,7 +1248,7 @@ public class PlayerFull {
     this.breedable = breedable;
   }
 
-  public PlayerFull brewingStand(BrewingStandData brewingStand) {
+  public Slot brewingStand(BrewingStandData brewingStand) {
     this.brewingStand = brewingStand;
     return this;
   }
@@ -1576,7 +1266,7 @@ public class PlayerFull {
     this.brewingStand = brewingStand;
   }
 
-  public PlayerFull brick(CatalogType brick) {
+  public Slot brick(CatalogType brick) {
     this.brick = brick;
     return this;
   }
@@ -1594,7 +1284,7 @@ public class PlayerFull {
     this.brick = brick;
   }
 
-  public PlayerFull career(Career career) {
+  public Slot career(Career career) {
     this.career = career;
     return this;
   }
@@ -1612,7 +1302,7 @@ public class PlayerFull {
     this.career = career;
   }
 
-  public PlayerFull charged(Boolean charged) {
+  public Slot charged(Boolean charged) {
     this.charged = charged;
     return this;
   }
@@ -1630,7 +1320,7 @@ public class PlayerFull {
     this.charged = charged;
   }
 
-  public PlayerFull coal(CatalogType coal) {
+  public Slot coal(CatalogType coal) {
     this.coal = coal;
     return this;
   }
@@ -1648,7 +1338,7 @@ public class PlayerFull {
     this.coal = coal;
   }
 
-  public PlayerFull color(Color color) {
+  public Slot color(Color color) {
     this.color = color;
     return this;
   }
@@ -1666,7 +1356,7 @@ public class PlayerFull {
     this.color = color;
   }
 
-  public PlayerFull command(CommandData command) {
+  public Slot command(CommandData command) {
     this.command = command;
     return this;
   }
@@ -1684,7 +1374,7 @@ public class PlayerFull {
     this.command = command;
   }
 
-  public PlayerFull comparator(CatalogType comparator) {
+  public Slot comparator(CatalogType comparator) {
     this.comparator = comparator;
     return this;
   }
@@ -1702,12 +1392,12 @@ public class PlayerFull {
     this.comparator = comparator;
   }
 
-  public PlayerFull connectedDirection(List<ConnectedDirectionEnum> connectedDirection) {
+  public Slot connectedDirection(List<ConnectedDirectionEnum> connectedDirection) {
     this.connectedDirection = connectedDirection;
     return this;
   }
 
-  public PlayerFull addConnectedDirectionItem(ConnectedDirectionEnum connectedDirectionItem) {
+  public Slot addConnectedDirectionItem(ConnectedDirectionEnum connectedDirectionItem) {
     if (this.connectedDirection == null) {
       this.connectedDirection = new ArrayList<ConnectedDirectionEnum>();
     }
@@ -1728,7 +1418,7 @@ public class PlayerFull {
     this.connectedDirection = connectedDirection;
   }
 
-  public PlayerFull cookedFish(CatalogType cookedFish) {
+  public Slot cookedFish(CatalogType cookedFish) {
     this.cookedFish = cookedFish;
     return this;
   }
@@ -1746,7 +1436,7 @@ public class PlayerFull {
     this.cookedFish = cookedFish;
   }
 
-  public PlayerFull cooldown(Integer cooldown) {
+  public Slot cooldown(Integer cooldown) {
     this.cooldown = cooldown;
     return this;
   }
@@ -1764,7 +1454,7 @@ public class PlayerFull {
     this.cooldown = cooldown;
   }
 
-  public PlayerFull criticalHit(Boolean criticalHit) {
+  public Slot criticalHit(Boolean criticalHit) {
     this.criticalHit = criticalHit;
     return this;
   }
@@ -1782,7 +1472,7 @@ public class PlayerFull {
     this.criticalHit = criticalHit;
   }
 
-  public PlayerFull customName(Boolean customName) {
+  public Slot customName(Boolean customName) {
     this.customName = customName;
     return this;
   }
@@ -1800,7 +1490,7 @@ public class PlayerFull {
     this.customName = customName;
   }
 
-  public PlayerFull damage(Double damage) {
+  public Slot damage(Double damage) {
     this.damage = damage;
     return this;
   }
@@ -1818,7 +1508,7 @@ public class PlayerFull {
     this.damage = damage;
   }
 
-  public PlayerFull damageable(DamageableData damageable) {
+  public Slot damageable(DamageableData damageable) {
     this.damageable = damageable;
     return this;
   }
@@ -1836,7 +1526,7 @@ public class PlayerFull {
     this.damageable = damageable;
   }
 
-  public PlayerFull decayable(Boolean decayable) {
+  public Slot decayable(Boolean decayable) {
     this.decayable = decayable;
     return this;
   }
@@ -1854,7 +1544,7 @@ public class PlayerFull {
     this.decayable = decayable;
   }
 
-  public PlayerFull delay(Integer delay) {
+  public Slot delay(Integer delay) {
     this.delay = delay;
     return this;
   }
@@ -1872,7 +1562,7 @@ public class PlayerFull {
     this.delay = delay;
   }
 
-  public PlayerFull despawnDelay(DespawnDelayData despawnDelay) {
+  public Slot despawnDelay(DespawnDelayData despawnDelay) {
     this.despawnDelay = despawnDelay;
     return this;
   }
@@ -1890,7 +1580,7 @@ public class PlayerFull {
     this.despawnDelay = despawnDelay;
   }
 
-  public PlayerFull direction(DirectionEnum direction) {
+  public Slot direction(DirectionEnum direction) {
     this.direction = direction;
     return this;
   }
@@ -1908,7 +1598,7 @@ public class PlayerFull {
     this.direction = direction;
   }
 
-  public PlayerFull dirt(CatalogType dirt) {
+  public Slot dirt(CatalogType dirt) {
     this.dirt = dirt;
     return this;
   }
@@ -1926,7 +1616,7 @@ public class PlayerFull {
     this.dirt = dirt;
   }
 
-  public PlayerFull disarmed(Boolean disarmed) {
+  public Slot disarmed(Boolean disarmed) {
     this.disarmed = disarmed;
     return this;
   }
@@ -1944,7 +1634,7 @@ public class PlayerFull {
     this.disarmed = disarmed;
   }
 
-  public PlayerFull disguisedBlock(CatalogType disguisedBlock) {
+  public Slot disguisedBlock(CatalogType disguisedBlock) {
     this.disguisedBlock = disguisedBlock;
     return this;
   }
@@ -1962,7 +1652,7 @@ public class PlayerFull {
     this.disguisedBlock = disguisedBlock;
   }
 
-  public PlayerFull displayName(String displayName) {
+  public Slot displayName(String displayName) {
     this.displayName = displayName;
     return this;
   }
@@ -1980,7 +1670,7 @@ public class PlayerFull {
     this.displayName = displayName;
   }
 
-  public PlayerFull dominantHand(CatalogType dominantHand) {
+  public Slot dominantHand(CatalogType dominantHand) {
     this.dominantHand = dominantHand;
     return this;
   }
@@ -1998,7 +1688,7 @@ public class PlayerFull {
     this.dominantHand = dominantHand;
   }
 
-  public PlayerFull doublePlant(CatalogType doublePlant) {
+  public Slot doublePlant(CatalogType doublePlant) {
     this.doublePlant = doublePlant;
     return this;
   }
@@ -2016,7 +1706,7 @@ public class PlayerFull {
     this.doublePlant = doublePlant;
   }
 
-  public PlayerFull drops(Boolean drops) {
+  public Slot drops(Boolean drops) {
     this.drops = drops;
     return this;
   }
@@ -2034,7 +1724,7 @@ public class PlayerFull {
     this.drops = drops;
   }
 
-  public PlayerFull durability(DurabilityData durability) {
+  public Slot durability(DurabilityData durability) {
     this.durability = durability;
     return this;
   }
@@ -2052,7 +1742,7 @@ public class PlayerFull {
     this.durability = durability;
   }
 
-  public PlayerFull dye(DyeColor dye) {
+  public Slot dye(DyeColor dye) {
     this.dye = dye;
     return this;
   }
@@ -2070,12 +1760,12 @@ public class PlayerFull {
     this.dye = dye;
   }
 
-  public PlayerFull enchantments(List<Enchantment> enchantments) {
+  public Slot enchantments(List<Enchantment> enchantments) {
     this.enchantments = enchantments;
     return this;
   }
 
-  public PlayerFull addEnchantmentsItem(Enchantment enchantmentsItem) {
+  public Slot addEnchantmentsItem(Enchantment enchantmentsItem) {
     if (this.enchantments == null) {
       this.enchantments = new ArrayList<Enchantment>();
     }
@@ -2096,7 +1786,7 @@ public class PlayerFull {
     this.enchantments = enchantments;
   }
 
-  public PlayerFull endGateway(EndGatewayData endGateway) {
+  public Slot endGateway(EndGatewayData endGateway) {
     this.endGateway = endGateway;
     return this;
   }
@@ -2114,7 +1804,7 @@ public class PlayerFull {
     this.endGateway = endGateway;
   }
 
-  public PlayerFull expOrb(Integer expOrb) {
+  public Slot expOrb(Integer expOrb) {
     this.expOrb = expOrb;
     return this;
   }
@@ -2132,7 +1822,7 @@ public class PlayerFull {
     this.expOrb = expOrb;
   }
 
-  public PlayerFull experience(ExperienceHolderData experience) {
+  public Slot experience(ExperienceHolderData experience) {
     this.experience = experience;
     return this;
   }
@@ -2150,7 +1840,7 @@ public class PlayerFull {
     this.experience = experience;
   }
 
-  public PlayerFull expireTicks(Integer expireTicks) {
+  public Slot expireTicks(Integer expireTicks) {
     this.expireTicks = expireTicks;
     return this;
   }
@@ -2168,7 +1858,7 @@ public class PlayerFull {
     this.expireTicks = expireTicks;
   }
 
-  public PlayerFull explosionRadius(Integer explosionRadius) {
+  public Slot explosionRadius(Integer explosionRadius) {
     this.explosionRadius = explosionRadius;
     return this;
   }
@@ -2186,7 +1876,7 @@ public class PlayerFull {
     this.explosionRadius = explosionRadius;
   }
 
-  public PlayerFull extended(Boolean extended) {
+  public Slot extended(Boolean extended) {
     this.extended = extended;
     return this;
   }
@@ -2204,7 +1894,7 @@ public class PlayerFull {
     this.extended = extended;
   }
 
-  public PlayerFull fallDistance(Float fallDistance) {
+  public Slot fallDistance(Float fallDistance) {
     this.fallDistance = fallDistance;
     return this;
   }
@@ -2222,7 +1912,7 @@ public class PlayerFull {
     this.fallDistance = fallDistance;
   }
 
-  public PlayerFull fallingBlock(FallingBlockData fallingBlock) {
+  public Slot fallingBlock(FallingBlockData fallingBlock) {
     this.fallingBlock = fallingBlock;
     return this;
   }
@@ -2240,7 +1930,7 @@ public class PlayerFull {
     this.fallingBlock = fallingBlock;
   }
 
-  public PlayerFull filled(Boolean filled) {
+  public Slot filled(Boolean filled) {
     this.filled = filled;
     return this;
   }
@@ -2258,12 +1948,12 @@ public class PlayerFull {
     this.filled = filled;
   }
 
-  public PlayerFull fireworkEffects(List<FireworkEffect> fireworkEffects) {
+  public Slot fireworkEffects(List<FireworkEffect> fireworkEffects) {
     this.fireworkEffects = fireworkEffects;
     return this;
   }
 
-  public PlayerFull addFireworkEffectsItem(FireworkEffect fireworkEffectsItem) {
+  public Slot addFireworkEffectsItem(FireworkEffect fireworkEffectsItem) {
     if (this.fireworkEffects == null) {
       this.fireworkEffects = new ArrayList<FireworkEffect>();
     }
@@ -2284,7 +1974,7 @@ public class PlayerFull {
     this.fireworkEffects = fireworkEffects;
   }
 
-  public PlayerFull fireworkRocket(FireworkRocketData fireworkRocket) {
+  public Slot fireworkRocket(FireworkRocketData fireworkRocket) {
     this.fireworkRocket = fireworkRocket;
     return this;
   }
@@ -2302,7 +1992,7 @@ public class PlayerFull {
     this.fireworkRocket = fireworkRocket;
   }
 
-  public PlayerFull fish(CatalogType fish) {
+  public Slot fish(CatalogType fish) {
     this.fish = fish;
     return this;
   }
@@ -2320,7 +2010,7 @@ public class PlayerFull {
     this.fish = fish;
   }
 
-  public PlayerFull flammable(Boolean flammable) {
+  public Slot flammable(Boolean flammable) {
     this.flammable = flammable;
     return this;
   }
@@ -2338,7 +2028,7 @@ public class PlayerFull {
     this.flammable = flammable;
   }
 
-  public PlayerFull fluid(FluidStack fluid) {
+  public Slot fluid(FluidStack fluid) {
     this.fluid = fluid;
     return this;
   }
@@ -2356,7 +2046,7 @@ public class PlayerFull {
     this.fluid = fluid;
   }
 
-  public PlayerFull fluidLevel(Integer fluidLevel) {
+  public Slot fluidLevel(Integer fluidLevel) {
     this.fluidLevel = fluidLevel;
     return this;
   }
@@ -2374,12 +2064,12 @@ public class PlayerFull {
     this.fluidLevel = fluidLevel;
   }
 
-  public PlayerFull fluidTanks(Map<String, List<FluidStack>> fluidTanks) {
+  public Slot fluidTanks(Map<String, List<FluidStack>> fluidTanks) {
     this.fluidTanks = fluidTanks;
     return this;
   }
 
-  public PlayerFull putFluidTanksItem(String key, List<FluidStack> fluidTanksItem) {
+  public Slot putFluidTanksItem(String key, List<FluidStack> fluidTanksItem) {
     if (this.fluidTanks == null) {
       this.fluidTanks = new HashMap<String, List<FluidStack>>();
     }
@@ -2400,7 +2090,7 @@ public class PlayerFull {
     this.fluidTanks = fluidTanks;
   }
 
-  public PlayerFull flying(Boolean flying) {
+  public Slot flying(Boolean flying) {
     this.flying = flying;
     return this;
   }
@@ -2418,7 +2108,7 @@ public class PlayerFull {
     this.flying = flying;
   }
 
-  public PlayerFull flyingAbility(Boolean flyingAbility) {
+  public Slot flyingAbility(Boolean flyingAbility) {
     this.flyingAbility = flyingAbility;
     return this;
   }
@@ -2436,7 +2126,7 @@ public class PlayerFull {
     this.flyingAbility = flyingAbility;
   }
 
-  public PlayerFull food(FoodData food) {
+  public Slot food(FoodData food) {
     this.food = food;
     return this;
   }
@@ -2454,7 +2144,7 @@ public class PlayerFull {
     this.food = food;
   }
 
-  public PlayerFull furnace(FurnaceData furnace) {
+  public Slot furnace(FurnaceData furnace) {
     this.furnace = furnace;
     return this;
   }
@@ -2472,7 +2162,7 @@ public class PlayerFull {
     this.furnace = furnace;
   }
 
-  public PlayerFull fuse(FuseData fuse) {
+  public Slot fuse(FuseData fuse) {
     this.fuse = fuse;
     return this;
   }
@@ -2490,7 +2180,7 @@ public class PlayerFull {
     this.fuse = fuse;
   }
 
-  public PlayerFull gameMode(GameMode gameMode) {
+  public Slot gameMode(GameMode gameMode) {
     this.gameMode = gameMode;
     return this;
   }
@@ -2508,7 +2198,7 @@ public class PlayerFull {
     this.gameMode = gameMode;
   }
 
-  public PlayerFull generation(Integer generation) {
+  public Slot generation(Integer generation) {
     this.generation = generation;
     return this;
   }
@@ -2526,7 +2216,7 @@ public class PlayerFull {
     this.generation = generation;
   }
 
-  public PlayerFull glowing(Boolean glowing) {
+  public Slot glowing(Boolean glowing) {
     this.glowing = glowing;
     return this;
   }
@@ -2544,7 +2234,7 @@ public class PlayerFull {
     this.glowing = glowing;
   }
 
-  public PlayerFull goldenApple(CatalogType goldenApple) {
+  public Slot goldenApple(CatalogType goldenApple) {
     this.goldenApple = goldenApple;
     return this;
   }
@@ -2562,7 +2252,7 @@ public class PlayerFull {
     this.goldenApple = goldenApple;
   }
 
-  public PlayerFull griefs(Boolean griefs) {
+  public Slot griefs(Boolean griefs) {
     this.griefs = griefs;
     return this;
   }
@@ -2580,7 +2270,7 @@ public class PlayerFull {
     this.griefs = griefs;
   }
 
-  public PlayerFull growth(GrowthData growth) {
+  public Slot growth(GrowthData growth) {
     this.growth = growth;
     return this;
   }
@@ -2598,7 +2288,7 @@ public class PlayerFull {
     this.growth = growth;
   }
 
-  public PlayerFull health(HealthData health) {
+  public Slot health(HealthData health) {
     this.health = health;
     return this;
   }
@@ -2616,7 +2306,7 @@ public class PlayerFull {
     this.health = health;
   }
 
-  public PlayerFull hide(HideData hide) {
+  public Slot hide(HideData hide) {
     this.hide = hide;
     return this;
   }
@@ -2634,7 +2324,7 @@ public class PlayerFull {
     this.hide = hide;
   }
 
-  public PlayerFull hinge(CatalogType hinge) {
+  public Slot hinge(CatalogType hinge) {
     this.hinge = hinge;
     return this;
   }
@@ -2652,7 +2342,7 @@ public class PlayerFull {
     this.hinge = hinge;
   }
 
-  public PlayerFull horse(HorseData horse) {
+  public Slot horse(HorseData horse) {
     this.horse = horse;
     return this;
   }
@@ -2670,7 +2360,7 @@ public class PlayerFull {
     this.horse = horse;
   }
 
-  public PlayerFull igniteable(IgniteableData igniteable) {
+  public Slot igniteable(IgniteableData igniteable) {
     this.igniteable = igniteable;
     return this;
   }
@@ -2688,7 +2378,7 @@ public class PlayerFull {
     this.igniteable = igniteable;
   }
 
-  public PlayerFull inWall(Boolean inWall) {
+  public Slot inWall(Boolean inWall) {
     this.inWall = inWall;
     return this;
   }
@@ -2706,7 +2396,25 @@ public class PlayerFull {
     this.inWall = inWall;
   }
 
-  public PlayerFull invisibility(InvisibilityData invisibility) {
+  public Slot inventory(Inventory inventory) {
+    this.inventory = inventory;
+    return this;
+  }
+
+   /**
+   * Get inventory
+   * @return inventory
+  **/
+  @ApiModelProperty(value = "")
+  public Inventory getInventory() {
+    return inventory;
+  }
+
+  public void setInventory(Inventory inventory) {
+    this.inventory = inventory;
+  }
+
+  public Slot invisibility(InvisibilityData invisibility) {
     this.invisibility = invisibility;
     return this;
   }
@@ -2724,7 +2432,7 @@ public class PlayerFull {
     this.invisibility = invisibility;
   }
 
-  public PlayerFull invulnerability(InvulnerabilityData invulnerability) {
+  public Slot invulnerability(InvulnerabilityData invulnerability) {
     this.invulnerability = invulnerability;
     return this;
   }
@@ -2742,7 +2450,7 @@ public class PlayerFull {
     this.invulnerability = invulnerability;
   }
 
-  public PlayerFull joined(JoinData joined) {
+  public Slot joined(JoinData joined) {
     this.joined = joined;
     return this;
   }
@@ -2760,7 +2468,7 @@ public class PlayerFull {
     this.joined = joined;
   }
 
-  public PlayerFull knockback(Integer knockback) {
+  public Slot knockback(Integer knockback) {
     this.knockback = knockback;
     return this;
   }
@@ -2778,7 +2486,7 @@ public class PlayerFull {
     this.knockback = knockback;
   }
 
-  public PlayerFull layer(Integer layer) {
+  public Slot layer(Integer layer) {
     this.layer = layer;
     return this;
   }
@@ -2796,7 +2504,7 @@ public class PlayerFull {
     this.layer = layer;
   }
 
-  public PlayerFull leash(LeashData leash) {
+  public Slot leash(LeashData leash) {
     this.leash = leash;
     return this;
   }
@@ -2814,7 +2522,7 @@ public class PlayerFull {
     this.leash = leash;
   }
 
-  public PlayerFull lockToken(String lockToken) {
+  public Slot lockToken(String lockToken) {
     this.lockToken = lockToken;
     return this;
   }
@@ -2832,7 +2540,7 @@ public class PlayerFull {
     this.lockToken = lockToken;
   }
 
-  public PlayerFull logAxis(CatalogType logAxis) {
+  public Slot logAxis(CatalogType logAxis) {
     this.logAxis = logAxis;
     return this;
   }
@@ -2850,12 +2558,12 @@ public class PlayerFull {
     this.logAxis = logAxis;
   }
 
-  public PlayerFull lore(List<String> lore) {
+  public Slot lore(List<String> lore) {
     this.lore = lore;
     return this;
   }
 
-  public PlayerFull addLoreItem(String loreItem) {
+  public Slot addLoreItem(String loreItem) {
     if (this.lore == null) {
       this.lore = new ArrayList<String>();
     }
@@ -2876,7 +2584,7 @@ public class PlayerFull {
     this.lore = lore;
   }
 
-  public PlayerFull minecartBlock(MinecartBlockData minecartBlock) {
+  public Slot minecartBlock(MinecartBlockData minecartBlock) {
     this.minecartBlock = minecartBlock;
     return this;
   }
@@ -2894,7 +2602,7 @@ public class PlayerFull {
     this.minecartBlock = minecartBlock;
   }
 
-  public PlayerFull mobSpawner(MobSpawnerData mobSpawner) {
+  public Slot mobSpawner(MobSpawnerData mobSpawner) {
     this.mobSpawner = mobSpawner;
     return this;
   }
@@ -2912,7 +2620,7 @@ public class PlayerFull {
     this.mobSpawner = mobSpawner;
   }
 
-  public PlayerFull moisture(Integer moisture) {
+  public Slot moisture(Integer moisture) {
     this.moisture = moisture;
     return this;
   }
@@ -2930,7 +2638,7 @@ public class PlayerFull {
     this.moisture = moisture;
   }
 
-  public PlayerFull note(CatalogType note) {
+  public Slot note(CatalogType note) {
     this.note = note;
     return this;
   }
@@ -2948,7 +2656,7 @@ public class PlayerFull {
     this.note = note;
   }
 
-  public PlayerFull occupied(Boolean occupied) {
+  public Slot occupied(Boolean occupied) {
     this.occupied = occupied;
     return this;
   }
@@ -2966,7 +2674,7 @@ public class PlayerFull {
     this.occupied = occupied;
   }
 
-  public PlayerFull ocelot(CatalogType ocelot) {
+  public Slot ocelot(CatalogType ocelot) {
     this.ocelot = ocelot;
     return this;
   }
@@ -2984,7 +2692,7 @@ public class PlayerFull {
     this.ocelot = ocelot;
   }
 
-  public PlayerFull open(Boolean open) {
+  public Slot open(Boolean open) {
     this.open = open;
     return this;
   }
@@ -3002,12 +2710,12 @@ public class PlayerFull {
     this.open = open;
   }
 
-  public PlayerFull pages(List<String> pages) {
+  public Slot pages(List<String> pages) {
     this.pages = pages;
     return this;
   }
 
-  public PlayerFull addPagesItem(String pagesItem) {
+  public Slot addPagesItem(String pagesItem) {
     if (this.pages == null) {
       this.pages = new ArrayList<String>();
     }
@@ -3028,12 +2736,12 @@ public class PlayerFull {
     this.pages = pages;
   }
 
-  public PlayerFull passengers(List<UUID> passengers) {
+  public Slot passengers(List<UUID> passengers) {
     this.passengers = passengers;
     return this;
   }
 
-  public PlayerFull addPassengersItem(UUID passengersItem) {
+  public Slot addPassengersItem(UUID passengersItem) {
     if (this.passengers == null) {
       this.passengers = new ArrayList<UUID>();
     }
@@ -3054,7 +2762,7 @@ public class PlayerFull {
     this.passengers = passengers;
   }
 
-  public PlayerFull persists(Boolean persists) {
+  public Slot persists(Boolean persists) {
     this.persists = persists;
     return this;
   }
@@ -3072,7 +2780,7 @@ public class PlayerFull {
     this.persists = persists;
   }
 
-  public PlayerFull pickupDelay(PickupDelayData pickupDelay) {
+  public Slot pickupDelay(PickupDelayData pickupDelay) {
     this.pickupDelay = pickupDelay;
     return this;
   }
@@ -3090,7 +2798,7 @@ public class PlayerFull {
     this.pickupDelay = pickupDelay;
   }
 
-  public PlayerFull pickupRule(CatalogType pickupRule) {
+  public Slot pickupRule(CatalogType pickupRule) {
     this.pickupRule = pickupRule;
     return this;
   }
@@ -3108,7 +2816,7 @@ public class PlayerFull {
     this.pickupRule = pickupRule;
   }
 
-  public PlayerFull pigSaddle(Boolean pigSaddle) {
+  public Slot pigSaddle(Boolean pigSaddle) {
     this.pigSaddle = pigSaddle;
     return this;
   }
@@ -3126,7 +2834,7 @@ public class PlayerFull {
     this.pigSaddle = pigSaddle;
   }
 
-  public PlayerFull piston(CatalogType piston) {
+  public Slot piston(CatalogType piston) {
     this.piston = piston;
     return this;
   }
@@ -3144,12 +2852,12 @@ public class PlayerFull {
     this.piston = piston;
   }
 
-  public PlayerFull placeableOn(List<CatalogType> placeableOn) {
+  public Slot placeableOn(List<CatalogType> placeableOn) {
     this.placeableOn = placeableOn;
     return this;
   }
 
-  public PlayerFull addPlaceableOnItem(CatalogType placeableOnItem) {
+  public Slot addPlaceableOnItem(CatalogType placeableOnItem) {
     if (this.placeableOn == null) {
       this.placeableOn = new ArrayList<CatalogType>();
     }
@@ -3170,7 +2878,7 @@ public class PlayerFull {
     this.placeableOn = placeableOn;
   }
 
-  public PlayerFull plant(CatalogType plant) {
+  public Slot plant(CatalogType plant) {
     this.plant = plant;
     return this;
   }
@@ -3188,7 +2896,7 @@ public class PlayerFull {
     this.plant = plant;
   }
 
-  public PlayerFull playerCreated(Boolean playerCreated) {
+  public Slot playerCreated(Boolean playerCreated) {
     this.playerCreated = playerCreated;
     return this;
   }
@@ -3206,7 +2914,7 @@ public class PlayerFull {
     this.playerCreated = playerCreated;
   }
 
-  public PlayerFull playing(Boolean playing) {
+  public Slot playing(Boolean playing) {
     this.playing = playing;
     return this;
   }
@@ -3224,7 +2932,7 @@ public class PlayerFull {
     this.playing = playing;
   }
 
-  public PlayerFull portion(CatalogType portion) {
+  public Slot portion(CatalogType portion) {
     this.portion = portion;
     return this;
   }
@@ -3242,12 +2950,12 @@ public class PlayerFull {
     this.portion = portion;
   }
 
-  public PlayerFull potionEffects(List<PotionEffect> potionEffects) {
+  public Slot potionEffects(List<PotionEffect> potionEffects) {
     this.potionEffects = potionEffects;
     return this;
   }
 
-  public PlayerFull addPotionEffectsItem(PotionEffect potionEffectsItem) {
+  public Slot addPotionEffectsItem(PotionEffect potionEffectsItem) {
     if (this.potionEffects == null) {
       this.potionEffects = new ArrayList<PotionEffect>();
     }
@@ -3268,7 +2976,7 @@ public class PlayerFull {
     this.potionEffects = potionEffects;
   }
 
-  public PlayerFull powered(Boolean powered) {
+  public Slot powered(Boolean powered) {
     this.powered = powered;
     return this;
   }
@@ -3286,7 +2994,7 @@ public class PlayerFull {
     this.powered = powered;
   }
 
-  public PlayerFull prismarine(CatalogType prismarine) {
+  public Slot prismarine(CatalogType prismarine) {
     this.prismarine = prismarine;
     return this;
   }
@@ -3304,7 +3012,7 @@ public class PlayerFull {
     this.prismarine = prismarine;
   }
 
-  public PlayerFull quartz(CatalogType quartz) {
+  public Slot quartz(CatalogType quartz) {
     this.quartz = quartz;
     return this;
   }
@@ -3322,7 +3030,7 @@ public class PlayerFull {
     this.quartz = quartz;
   }
 
-  public PlayerFull rabbit(CatalogType rabbit) {
+  public Slot rabbit(CatalogType rabbit) {
     this.rabbit = rabbit;
     return this;
   }
@@ -3340,7 +3048,7 @@ public class PlayerFull {
     this.rabbit = rabbit;
   }
 
-  public PlayerFull railDirection(CatalogType railDirection) {
+  public Slot railDirection(CatalogType railDirection) {
     this.railDirection = railDirection;
     return this;
   }
@@ -3358,7 +3066,7 @@ public class PlayerFull {
     this.railDirection = railDirection;
   }
 
-  public PlayerFull redstonePower(Integer redstonePower) {
+  public Slot redstonePower(Integer redstonePower) {
     this.redstonePower = redstonePower;
     return this;
   }
@@ -3376,7 +3084,7 @@ public class PlayerFull {
     this.redstonePower = redstonePower;
   }
 
-  public PlayerFull representedItem(ItemStack representedItem) {
+  public Slot representedItem(ItemStack representedItem) {
     this.representedItem = representedItem;
     return this;
   }
@@ -3394,7 +3102,7 @@ public class PlayerFull {
     this.representedItem = representedItem;
   }
 
-  public PlayerFull representedPlayer(String representedPlayer) {
+  public Slot representedPlayer(String representedPlayer) {
     this.representedPlayer = representedPlayer;
     return this;
   }
@@ -3412,12 +3120,12 @@ public class PlayerFull {
     this.representedPlayer = representedPlayer;
   }
 
-  public PlayerFull respawnLocations(Map<String, Location> respawnLocations) {
+  public Slot respawnLocations(Map<String, Location> respawnLocations) {
     this.respawnLocations = respawnLocations;
     return this;
   }
 
-  public PlayerFull putRespawnLocationsItem(String key, Location respawnLocationsItem) {
+  public Slot putRespawnLocationsItem(String key, Location respawnLocationsItem) {
     if (this.respawnLocations == null) {
       this.respawnLocations = new HashMap<String, Location>();
     }
@@ -3438,7 +3146,7 @@ public class PlayerFull {
     this.respawnLocations = respawnLocations;
   }
 
-  public PlayerFull sand(CatalogType sand) {
+  public Slot sand(CatalogType sand) {
     this.sand = sand;
     return this;
   }
@@ -3456,7 +3164,7 @@ public class PlayerFull {
     this.sand = sand;
   }
 
-  public PlayerFull sandStone(CatalogType sandStone) {
+  public Slot sandStone(CatalogType sandStone) {
     this.sandStone = sandStone;
     return this;
   }
@@ -3474,7 +3182,7 @@ public class PlayerFull {
     this.sandStone = sandStone;
   }
 
-  public PlayerFull screaming(Boolean screaming) {
+  public Slot screaming(Boolean screaming) {
     this.screaming = screaming;
     return this;
   }
@@ -3492,7 +3200,7 @@ public class PlayerFull {
     this.screaming = screaming;
   }
 
-  public PlayerFull seamless(Boolean seamless) {
+  public Slot seamless(Boolean seamless) {
     this.seamless = seamless;
     return this;
   }
@@ -3510,7 +3218,7 @@ public class PlayerFull {
     this.seamless = seamless;
   }
 
-  public PlayerFull shatters(Boolean shatters) {
+  public Slot shatters(Boolean shatters) {
     this.shatters = shatters;
     return this;
   }
@@ -3528,7 +3236,7 @@ public class PlayerFull {
     this.shatters = shatters;
   }
 
-  public PlayerFull sheared(Boolean sheared) {
+  public Slot sheared(Boolean sheared) {
     this.sheared = sheared;
     return this;
   }
@@ -3546,7 +3254,7 @@ public class PlayerFull {
     this.sheared = sheared;
   }
 
-  public PlayerFull shrub(CatalogType shrub) {
+  public Slot shrub(CatalogType shrub) {
     this.shrub = shrub;
     return this;
   }
@@ -3564,12 +3272,12 @@ public class PlayerFull {
     this.shrub = shrub;
   }
 
-  public PlayerFull sign(List<String> sign) {
+  public Slot sign(List<String> sign) {
     this.sign = sign;
     return this;
   }
 
-  public PlayerFull addSignItem(String signItem) {
+  public Slot addSignItem(String signItem) {
     if (this.sign == null) {
       this.sign = new ArrayList<String>();
     }
@@ -3590,7 +3298,7 @@ public class PlayerFull {
     this.sign = sign;
   }
 
-  public PlayerFull silent(Boolean silent) {
+  public Slot silent(Boolean silent) {
     this.silent = silent;
     return this;
   }
@@ -3608,7 +3316,7 @@ public class PlayerFull {
     this.silent = silent;
   }
 
-  public PlayerFull sitting(Boolean sitting) {
+  public Slot sitting(Boolean sitting) {
     this.sitting = sitting;
     return this;
   }
@@ -3626,7 +3334,7 @@ public class PlayerFull {
     this.sitting = sitting;
   }
 
-  public PlayerFull skin(UUID skin) {
+  public Slot skin(UUID skin) {
     this.skin = skin;
     return this;
   }
@@ -3644,7 +3352,7 @@ public class PlayerFull {
     this.skin = skin;
   }
 
-  public PlayerFull skull(CatalogType skull) {
+  public Slot skull(CatalogType skull) {
     this.skull = skull;
     return this;
   }
@@ -3662,7 +3370,7 @@ public class PlayerFull {
     this.skull = skull;
   }
 
-  public PlayerFull slab(CatalogType slab) {
+  public Slot slab(CatalogType slab) {
     this.slab = slab;
     return this;
   }
@@ -3680,7 +3388,7 @@ public class PlayerFull {
     this.slab = slab;
   }
 
-  public PlayerFull sleeping(Boolean sleeping) {
+  public Slot sleeping(Boolean sleeping) {
     this.sleeping = sleeping;
     return this;
   }
@@ -3698,7 +3406,7 @@ public class PlayerFull {
     this.sleeping = sleeping;
   }
 
-  public PlayerFull slime(SlimeData slime) {
+  public Slot slime(SlimeData slime) {
     this.slime = slime;
     return this;
   }
@@ -3716,7 +3424,7 @@ public class PlayerFull {
     this.slime = slime;
   }
 
-  public PlayerFull sneaking(Boolean sneaking) {
+  public Slot sneaking(Boolean sneaking) {
     this.sneaking = sneaking;
     return this;
   }
@@ -3734,7 +3442,7 @@ public class PlayerFull {
     this.sneaking = sneaking;
   }
 
-  public PlayerFull snow(Boolean snow) {
+  public Slot snow(Boolean snow) {
     this.snow = snow;
     return this;
   }
@@ -3752,7 +3460,7 @@ public class PlayerFull {
     this.snow = snow;
   }
 
-  public PlayerFull spawn(CatalogType spawn) {
+  public Slot spawn(CatalogType spawn) {
     this.spawn = spawn;
     return this;
   }
@@ -3770,7 +3478,7 @@ public class PlayerFull {
     this.spawn = spawn;
   }
 
-  public PlayerFull sprinting(Boolean sprinting) {
+  public Slot sprinting(Boolean sprinting) {
     this.sprinting = sprinting;
     return this;
   }
@@ -3788,7 +3496,7 @@ public class PlayerFull {
     this.sprinting = sprinting;
   }
 
-  public PlayerFull stairShape(CatalogType stairShape) {
+  public Slot stairShape(CatalogType stairShape) {
     this.stairShape = stairShape;
     return this;
   }
@@ -3806,12 +3514,12 @@ public class PlayerFull {
     this.stairShape = stairShape;
   }
 
-  public PlayerFull statistics(List<Stat> statistics) {
+  public Slot statistics(List<Stat> statistics) {
     this.statistics = statistics;
     return this;
   }
 
-  public PlayerFull addStatisticsItem(Stat statisticsItem) {
+  public Slot addStatisticsItem(Stat statisticsItem) {
     if (this.statistics == null) {
       this.statistics = new ArrayList<Stat>();
     }
@@ -3832,7 +3540,7 @@ public class PlayerFull {
     this.statistics = statistics;
   }
 
-  public PlayerFull stone(CatalogType stone) {
+  public Slot stone(CatalogType stone) {
     this.stone = stone;
     return this;
   }
@@ -3850,12 +3558,12 @@ public class PlayerFull {
     this.stone = stone;
   }
 
-  public PlayerFull storedEnchantments(List<Enchantment> storedEnchantments) {
+  public Slot storedEnchantments(List<Enchantment> storedEnchantments) {
     this.storedEnchantments = storedEnchantments;
     return this;
   }
 
-  public PlayerFull addStoredEnchantmentsItem(Enchantment storedEnchantmentsItem) {
+  public Slot addStoredEnchantmentsItem(Enchantment storedEnchantmentsItem) {
     if (this.storedEnchantments == null) {
       this.storedEnchantments = new ArrayList<Enchantment>();
     }
@@ -3876,7 +3584,7 @@ public class PlayerFull {
     this.storedEnchantments = storedEnchantments;
   }
 
-  public PlayerFull structure(StructureData structure) {
+  public Slot structure(StructureData structure) {
     this.structure = structure;
     return this;
   }
@@ -3894,7 +3602,7 @@ public class PlayerFull {
     this.structure = structure;
   }
 
-  public PlayerFull stuckArrows(Integer stuckArrows) {
+  public Slot stuckArrows(Integer stuckArrows) {
     this.stuckArrows = stuckArrows;
     return this;
   }
@@ -3912,7 +3620,7 @@ public class PlayerFull {
     this.stuckArrows = stuckArrows;
   }
 
-  public PlayerFull tamed(TameableData tamed) {
+  public Slot tamed(TameableData tamed) {
     this.tamed = tamed;
     return this;
   }
@@ -3930,7 +3638,7 @@ public class PlayerFull {
     this.tamed = tamed;
   }
 
-  public PlayerFull target(Vector3d target) {
+  public Slot target(Vector3d target) {
     this.target = target;
     return this;
   }
@@ -3948,12 +3656,12 @@ public class PlayerFull {
     this.target = target;
   }
 
-  public PlayerFull trades(List<TradeOffer> trades) {
+  public Slot trades(List<TradeOffer> trades) {
     this.trades = trades;
     return this;
   }
 
-  public PlayerFull addTradesItem(TradeOffer tradesItem) {
+  public Slot addTradesItem(TradeOffer tradesItem) {
     if (this.trades == null) {
       this.trades = new ArrayList<TradeOffer>();
     }
@@ -3974,7 +3682,7 @@ public class PlayerFull {
     this.trades = trades;
   }
 
-  public PlayerFull tree(CatalogType tree) {
+  public Slot tree(CatalogType tree) {
     this.tree = tree;
     return this;
   }
@@ -3992,7 +3700,7 @@ public class PlayerFull {
     this.tree = tree;
   }
 
-  public PlayerFull vehicle(VehicleData vehicle) {
+  public Slot vehicle(VehicleData vehicle) {
     this.vehicle = vehicle;
     return this;
   }
@@ -4010,7 +3718,7 @@ public class PlayerFull {
     this.vehicle = vehicle;
   }
 
-  public PlayerFull wall(CatalogType wall) {
+  public Slot wall(CatalogType wall) {
     this.wall = wall;
     return this;
   }
@@ -4028,7 +3736,7 @@ public class PlayerFull {
     this.wall = wall;
   }
 
-  public PlayerFull wet(Boolean wet) {
+  public Slot wet(Boolean wet) {
     this.wet = wet;
     return this;
   }
@@ -4046,7 +3754,7 @@ public class PlayerFull {
     this.wet = wet;
   }
 
-  public PlayerFull wires(WireAttachmentData wires) {
+  public Slot wires(WireAttachmentData wires) {
     this.wires = wires;
     return this;
   }
@@ -4064,7 +3772,7 @@ public class PlayerFull {
     this.wires = wires;
   }
 
-  public PlayerFull acceptsItems(AcceptsItems acceptsItems) {
+  public Slot acceptsItems(AcceptsItems acceptsItems) {
     this.acceptsItems = acceptsItems;
     return this;
   }
@@ -4082,12 +3790,12 @@ public class PlayerFull {
     this.acceptsItems = acceptsItems;
   }
 
-  public PlayerFull applicableEffect(List<PotionEffect> applicableEffect) {
+  public Slot applicableEffect(List<PotionEffect> applicableEffect) {
     this.applicableEffect = applicableEffect;
     return this;
   }
 
-  public PlayerFull addApplicableEffectItem(PotionEffect applicableEffectItem) {
+  public Slot addApplicableEffectItem(PotionEffect applicableEffectItem) {
     if (this.applicableEffect == null) {
       this.applicableEffect = new ArrayList<PotionEffect>();
     }
@@ -4108,7 +3816,7 @@ public class PlayerFull {
     this.applicableEffect = applicableEffect;
   }
 
-  public PlayerFull armorSlotType(ArmorSlotType armorSlotType) {
+  public Slot armorSlotType(ArmorSlotType armorSlotType) {
     this.armorSlotType = armorSlotType;
     return this;
   }
@@ -4126,7 +3834,7 @@ public class PlayerFull {
     this.armorSlotType = armorSlotType;
   }
 
-  public PlayerFull armorType(CatalogType armorType) {
+  public Slot armorType(CatalogType armorType) {
     this.armorType = armorType;
     return this;
   }
@@ -4144,7 +3852,7 @@ public class PlayerFull {
     this.armorType = armorType;
   }
 
-  public PlayerFull blastResistance(Double blastResistance) {
+  public Slot blastResistance(Double blastResistance) {
     this.blastResistance = blastResistance;
     return this;
   }
@@ -4162,7 +3870,7 @@ public class PlayerFull {
     this.blastResistance = blastResistance;
   }
 
-  public PlayerFull burningFuel(Integer burningFuel) {
+  public Slot burningFuel(Integer burningFuel) {
     this.burningFuel = burningFuel;
     return this;
   }
@@ -4180,7 +3888,7 @@ public class PlayerFull {
     this.burningFuel = burningFuel;
   }
 
-  public PlayerFull damageAbsorption(Integer damageAbsorption) {
+  public Slot damageAbsorption(Integer damageAbsorption) {
     this.damageAbsorption = damageAbsorption;
     return this;
   }
@@ -4198,7 +3906,7 @@ public class PlayerFull {
     this.damageAbsorption = damageAbsorption;
   }
 
-  public PlayerFull efficiency(Double efficiency) {
+  public Slot efficiency(Double efficiency) {
     this.efficiency = efficiency;
     return this;
   }
@@ -4216,7 +3924,7 @@ public class PlayerFull {
     this.efficiency = efficiency;
   }
 
-  public PlayerFull equipmentType(CatalogType equipmentType) {
+  public Slot equipmentType(CatalogType equipmentType) {
     this.equipmentType = equipmentType;
     return this;
   }
@@ -4234,7 +3942,7 @@ public class PlayerFull {
     this.equipmentType = equipmentType;
   }
 
-  public PlayerFull equiptmentSlotType(EquipmentSlotType equiptmentSlotType) {
+  public Slot equiptmentSlotType(EquipmentSlotType equiptmentSlotType) {
     this.equiptmentSlotType = equiptmentSlotType;
     return this;
   }
@@ -4252,7 +3960,7 @@ public class PlayerFull {
     this.equiptmentSlotType = equiptmentSlotType;
   }
 
-  public PlayerFull eyeHeight(Double eyeHeight) {
+  public Slot eyeHeight(Double eyeHeight) {
     this.eyeHeight = eyeHeight;
     return this;
   }
@@ -4270,7 +3978,7 @@ public class PlayerFull {
     this.eyeHeight = eyeHeight;
   }
 
-  public PlayerFull eyeLocation(Vector3d eyeLocation) {
+  public Slot eyeLocation(Vector3d eyeLocation) {
     this.eyeLocation = eyeLocation;
     return this;
   }
@@ -4288,7 +3996,7 @@ public class PlayerFull {
     this.eyeLocation = eyeLocation;
   }
 
-  public PlayerFull fluidTemperature(Integer fluidTemperature) {
+  public Slot fluidTemperature(Integer fluidTemperature) {
     this.fluidTemperature = fluidTemperature;
     return this;
   }
@@ -4306,7 +4014,7 @@ public class PlayerFull {
     this.fluidTemperature = fluidTemperature;
   }
 
-  public PlayerFull fluidViscosity(Integer fluidViscosity) {
+  public Slot fluidViscosity(Integer fluidViscosity) {
     this.fluidViscosity = fluidViscosity;
     return this;
   }
@@ -4324,7 +4032,7 @@ public class PlayerFull {
     this.fluidViscosity = fluidViscosity;
   }
 
-  public PlayerFull foodRestoration(Integer foodRestoration) {
+  public Slot foodRestoration(Integer foodRestoration) {
     this.foodRestoration = foodRestoration;
     return this;
   }
@@ -4342,7 +4050,7 @@ public class PlayerFull {
     this.foodRestoration = foodRestoration;
   }
 
-  public PlayerFull fullBlockSelectionBox(Boolean fullBlockSelectionBox) {
+  public Slot fullBlockSelectionBox(Boolean fullBlockSelectionBox) {
     this.fullBlockSelectionBox = fullBlockSelectionBox;
     return this;
   }
@@ -4360,7 +4068,7 @@ public class PlayerFull {
     this.fullBlockSelectionBox = fullBlockSelectionBox;
   }
 
-  public PlayerFull gravityAffected(Boolean gravityAffected) {
+  public Slot gravityAffected(Boolean gravityAffected) {
     this.gravityAffected = gravityAffected;
     return this;
   }
@@ -4378,7 +4086,7 @@ public class PlayerFull {
     this.gravityAffected = gravityAffected;
   }
 
-  public PlayerFull groundLuminance(Double groundLuminance) {
+  public Slot groundLuminance(Double groundLuminance) {
     this.groundLuminance = groundLuminance;
     return this;
   }
@@ -4396,7 +4104,7 @@ public class PlayerFull {
     this.groundLuminance = groundLuminance;
   }
 
-  public PlayerFull guiId(GuiIdProperty guiId) {
+  public Slot guiId(GuiIdProperty guiId) {
     this.guiId = guiId;
     return this;
   }
@@ -4414,7 +4122,7 @@ public class PlayerFull {
     this.guiId = guiId;
   }
 
-  public PlayerFull hardness(Double hardness) {
+  public Slot hardness(Double hardness) {
     this.hardness = hardness;
     return this;
   }
@@ -4432,7 +4140,7 @@ public class PlayerFull {
     this.hardness = hardness;
   }
 
-  public PlayerFull heldItem(CatalogType heldItem) {
+  public Slot heldItem(CatalogType heldItem) {
     this.heldItem = heldItem;
     return this;
   }
@@ -4450,7 +4158,7 @@ public class PlayerFull {
     this.heldItem = heldItem;
   }
 
-  public PlayerFull identifiable(Identifiable identifiable) {
+  public Slot identifiable(Identifiable identifiable) {
     this.identifiable = identifiable;
     return this;
   }
@@ -4468,7 +4176,7 @@ public class PlayerFull {
     this.identifiable = identifiable;
   }
 
-  public PlayerFull indirectlyPowered(Boolean indirectlyPowered) {
+  public Slot indirectlyPowered(Boolean indirectlyPowered) {
     this.indirectlyPowered = indirectlyPowered;
     return this;
   }
@@ -4486,7 +4194,7 @@ public class PlayerFull {
     this.indirectlyPowered = indirectlyPowered;
   }
 
-  public PlayerFull instrument(CatalogType instrument) {
+  public Slot instrument(CatalogType instrument) {
     this.instrument = instrument;
     return this;
   }
@@ -4504,7 +4212,7 @@ public class PlayerFull {
     this.instrument = instrument;
   }
 
-  public PlayerFull inventoryCapacity(InventoryCapacity inventoryCapacity) {
+  public Slot inventoryCapacity(InventoryCapacity inventoryCapacity) {
     this.inventoryCapacity = inventoryCapacity;
     return this;
   }
@@ -4522,7 +4230,7 @@ public class PlayerFull {
     this.inventoryCapacity = inventoryCapacity;
   }
 
-  public PlayerFull inventoryDimension(InventoryDimension inventoryDimension) {
+  public Slot inventoryDimension(InventoryDimension inventoryDimension) {
     this.inventoryDimension = inventoryDimension;
     return this;
   }
@@ -4540,7 +4248,7 @@ public class PlayerFull {
     this.inventoryDimension = inventoryDimension;
   }
 
-  public PlayerFull inventoryTitle(InventoryTitle inventoryTitle) {
+  public Slot inventoryTitle(InventoryTitle inventoryTitle) {
     this.inventoryTitle = inventoryTitle;
     return this;
   }
@@ -4558,7 +4266,7 @@ public class PlayerFull {
     this.inventoryTitle = inventoryTitle;
   }
 
-  public PlayerFull lightEmission(Integer lightEmission) {
+  public Slot lightEmission(Integer lightEmission) {
     this.lightEmission = lightEmission;
     return this;
   }
@@ -4576,7 +4284,7 @@ public class PlayerFull {
     this.lightEmission = lightEmission;
   }
 
-  public PlayerFull matter(MatterEnum matter) {
+  public Slot matter(MatterEnum matter) {
     this.matter = matter;
     return this;
   }
@@ -4594,7 +4302,7 @@ public class PlayerFull {
     this.matter = matter;
   }
 
-  public PlayerFull passable(Boolean passable) {
+  public Slot passable(Boolean passable) {
     this.passable = passable;
     return this;
   }
@@ -4612,7 +4320,7 @@ public class PlayerFull {
     this.passable = passable;
   }
 
-  public PlayerFull record(CatalogType record) {
+  public Slot record(CatalogType record) {
     this.record = record;
     return this;
   }
@@ -4630,7 +4338,7 @@ public class PlayerFull {
     this.record = record;
   }
 
-  public PlayerFull replaceable(Boolean replaceable) {
+  public Slot replaceable(Boolean replaceable) {
     this.replaceable = replaceable;
     return this;
   }
@@ -4648,7 +4356,7 @@ public class PlayerFull {
     this.replaceable = replaceable;
   }
 
-  public PlayerFull saturationProperty(Double saturationProperty) {
+  public Slot saturationProperty(Double saturationProperty) {
     this.saturationProperty = saturationProperty;
     return this;
   }
@@ -4666,7 +4374,7 @@ public class PlayerFull {
     this.saturationProperty = saturationProperty;
   }
 
-  public PlayerFull skyLuminance(Double skyLuminance) {
+  public Slot skyLuminance(Double skyLuminance) {
     this.skyLuminance = skyLuminance;
     return this;
   }
@@ -4684,7 +4392,7 @@ public class PlayerFull {
     this.skyLuminance = skyLuminance;
   }
 
-  public PlayerFull slotIndex(SlotIndex slotIndex) {
+  public Slot slotIndex(SlotIndex slotIndex) {
     this.slotIndex = slotIndex;
     return this;
   }
@@ -4702,7 +4410,7 @@ public class PlayerFull {
     this.slotIndex = slotIndex;
   }
 
-  public PlayerFull slotPos(SlotPos slotPos) {
+  public Slot slotPos(SlotPos slotPos) {
     this.slotPos = slotPos;
     return this;
   }
@@ -4720,7 +4428,7 @@ public class PlayerFull {
     this.slotPos = slotPos;
   }
 
-  public PlayerFull slotSide(SlotSide slotSide) {
+  public Slot slotSide(SlotSide slotSide) {
     this.slotSide = slotSide;
     return this;
   }
@@ -4738,7 +4446,7 @@ public class PlayerFull {
     this.slotSide = slotSide;
   }
 
-  public PlayerFull smeltable(Boolean smeltable) {
+  public Slot smeltable(Boolean smeltable) {
     this.smeltable = smeltable;
     return this;
   }
@@ -4756,7 +4464,7 @@ public class PlayerFull {
     this.smeltable = smeltable;
   }
 
-  public PlayerFull solidCube(Boolean solidCube) {
+  public Slot solidCube(Boolean solidCube) {
     this.solidCube = solidCube;
     return this;
   }
@@ -4774,7 +4482,7 @@ public class PlayerFull {
     this.solidCube = solidCube;
   }
 
-  public PlayerFull statisticsTracked(Boolean statisticsTracked) {
+  public Slot statisticsTracked(Boolean statisticsTracked) {
     this.statisticsTracked = statisticsTracked;
     return this;
   }
@@ -4792,7 +4500,7 @@ public class PlayerFull {
     this.statisticsTracked = statisticsTracked;
   }
 
-  public PlayerFull surrogateBlock(Boolean surrogateBlock) {
+  public Slot surrogateBlock(Boolean surrogateBlock) {
     this.surrogateBlock = surrogateBlock;
     return this;
   }
@@ -4810,7 +4518,7 @@ public class PlayerFull {
     this.surrogateBlock = surrogateBlock;
   }
 
-  public PlayerFull temperature(Double temperature) {
+  public Slot temperature(Double temperature) {
     this.temperature = temperature;
     return this;
   }
@@ -4828,7 +4536,7 @@ public class PlayerFull {
     this.temperature = temperature;
   }
 
-  public PlayerFull toolType(CatalogType toolType) {
+  public Slot toolType(CatalogType toolType) {
     this.toolType = toolType;
     return this;
   }
@@ -4846,7 +4554,7 @@ public class PlayerFull {
     this.toolType = toolType;
   }
 
-  public PlayerFull unbreakable(Boolean unbreakable) {
+  public Slot unbreakable(Boolean unbreakable) {
     this.unbreakable = unbreakable;
     return this;
   }
@@ -4864,7 +4572,7 @@ public class PlayerFull {
     this.unbreakable = unbreakable;
   }
 
-  public PlayerFull useLimit(Integer useLimit) {
+  public Slot useLimit(Integer useLimit) {
     this.useLimit = useLimit;
     return this;
   }
@@ -4891,246 +4599,217 @@ public class PlayerFull {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PlayerFull playerFull = (PlayerFull) o;
-    return Objects.equals(this.link, playerFull.link) &&
-        Objects.equals(this.name, playerFull.name) &&
-        Objects.equals(this.online, playerFull.online) &&
-        Objects.equals(this.uuid, playerFull.uuid) &&
-        Objects.equals(this.unlockedAdvancements, playerFull.unlockedAdvancements) &&
-        Objects.equals(this.latency, playerFull.latency) &&
-        Objects.equals(this.rotation, playerFull.rotation) &&
-        Objects.equals(this.scale, playerFull.scale) &&
-        Objects.equals(this.velocity, playerFull.velocity) &&
-        Objects.equals(this.inventory, playerFull.inventory) &&
-        Objects.equals(this.helmet, playerFull.helmet) &&
-        Objects.equals(this.chestplate, playerFull.chestplate) &&
-        Objects.equals(this.leggings, playerFull.leggings) &&
-        Objects.equals(this.boots, playerFull.boots) &&
-        Objects.equals(this.address, playerFull.address) &&
-        Objects.equals(this.location, playerFull.location) &&
-        Objects.equals(this.absorption, playerFull.absorption) &&
-        Objects.equals(this.age, playerFull.age) &&
-        Objects.equals(this.aggressive, playerFull.aggressive) &&
-        Objects.equals(this.aiEnabled, playerFull.aiEnabled) &&
-        Objects.equals(this.angerLevel, playerFull.angerLevel) &&
-        Objects.equals(this.armorStand, playerFull.armorStand) &&
-        Objects.equals(this.art, playerFull.art) &&
-        Objects.equals(this.attached, playerFull.attached) &&
-        Objects.equals(this.author, playerFull.author) &&
-        Objects.equals(this.axis, playerFull.axis) &&
-        Objects.equals(this.banner, playerFull.banner) &&
-        Objects.equals(this.beacon, playerFull.beacon) &&
-        Objects.equals(this.bigMushroom, playerFull.bigMushroom) &&
-        Objects.equals(this.block, playerFull.block) &&
-        Objects.equals(this.breathing, playerFull.breathing) &&
-        Objects.equals(this.breedable, playerFull.breedable) &&
-        Objects.equals(this.brewingStand, playerFull.brewingStand) &&
-        Objects.equals(this.brick, playerFull.brick) &&
-        Objects.equals(this.career, playerFull.career) &&
-        Objects.equals(this.charged, playerFull.charged) &&
-        Objects.equals(this.coal, playerFull.coal) &&
-        Objects.equals(this.color, playerFull.color) &&
-        Objects.equals(this.command, playerFull.command) &&
-        Objects.equals(this.comparator, playerFull.comparator) &&
-        Objects.equals(this.connectedDirection, playerFull.connectedDirection) &&
-        Objects.equals(this.cookedFish, playerFull.cookedFish) &&
-        Objects.equals(this.cooldown, playerFull.cooldown) &&
-        Objects.equals(this.criticalHit, playerFull.criticalHit) &&
-        Objects.equals(this.customName, playerFull.customName) &&
-        Objects.equals(this.damage, playerFull.damage) &&
-        Objects.equals(this.damageable, playerFull.damageable) &&
-        Objects.equals(this.decayable, playerFull.decayable) &&
-        Objects.equals(this.delay, playerFull.delay) &&
-        Objects.equals(this.despawnDelay, playerFull.despawnDelay) &&
-        Objects.equals(this.direction, playerFull.direction) &&
-        Objects.equals(this.dirt, playerFull.dirt) &&
-        Objects.equals(this.disarmed, playerFull.disarmed) &&
-        Objects.equals(this.disguisedBlock, playerFull.disguisedBlock) &&
-        Objects.equals(this.displayName, playerFull.displayName) &&
-        Objects.equals(this.dominantHand, playerFull.dominantHand) &&
-        Objects.equals(this.doublePlant, playerFull.doublePlant) &&
-        Objects.equals(this.drops, playerFull.drops) &&
-        Objects.equals(this.durability, playerFull.durability) &&
-        Objects.equals(this.dye, playerFull.dye) &&
-        Objects.equals(this.enchantments, playerFull.enchantments) &&
-        Objects.equals(this.endGateway, playerFull.endGateway) &&
-        Objects.equals(this.expOrb, playerFull.expOrb) &&
-        Objects.equals(this.experience, playerFull.experience) &&
-        Objects.equals(this.expireTicks, playerFull.expireTicks) &&
-        Objects.equals(this.explosionRadius, playerFull.explosionRadius) &&
-        Objects.equals(this.extended, playerFull.extended) &&
-        Objects.equals(this.fallDistance, playerFull.fallDistance) &&
-        Objects.equals(this.fallingBlock, playerFull.fallingBlock) &&
-        Objects.equals(this.filled, playerFull.filled) &&
-        Objects.equals(this.fireworkEffects, playerFull.fireworkEffects) &&
-        Objects.equals(this.fireworkRocket, playerFull.fireworkRocket) &&
-        Objects.equals(this.fish, playerFull.fish) &&
-        Objects.equals(this.flammable, playerFull.flammable) &&
-        Objects.equals(this.fluid, playerFull.fluid) &&
-        Objects.equals(this.fluidLevel, playerFull.fluidLevel) &&
-        Objects.equals(this.fluidTanks, playerFull.fluidTanks) &&
-        Objects.equals(this.flying, playerFull.flying) &&
-        Objects.equals(this.flyingAbility, playerFull.flyingAbility) &&
-        Objects.equals(this.food, playerFull.food) &&
-        Objects.equals(this.furnace, playerFull.furnace) &&
-        Objects.equals(this.fuse, playerFull.fuse) &&
-        Objects.equals(this.gameMode, playerFull.gameMode) &&
-        Objects.equals(this.generation, playerFull.generation) &&
-        Objects.equals(this.glowing, playerFull.glowing) &&
-        Objects.equals(this.goldenApple, playerFull.goldenApple) &&
-        Objects.equals(this.griefs, playerFull.griefs) &&
-        Objects.equals(this.growth, playerFull.growth) &&
-        Objects.equals(this.health, playerFull.health) &&
-        Objects.equals(this.hide, playerFull.hide) &&
-        Objects.equals(this.hinge, playerFull.hinge) &&
-        Objects.equals(this.horse, playerFull.horse) &&
-        Objects.equals(this.igniteable, playerFull.igniteable) &&
-        Objects.equals(this.inWall, playerFull.inWall) &&
-        Objects.equals(this.invisibility, playerFull.invisibility) &&
-        Objects.equals(this.invulnerability, playerFull.invulnerability) &&
-        Objects.equals(this.joined, playerFull.joined) &&
-        Objects.equals(this.knockback, playerFull.knockback) &&
-        Objects.equals(this.layer, playerFull.layer) &&
-        Objects.equals(this.leash, playerFull.leash) &&
-        Objects.equals(this.lockToken, playerFull.lockToken) &&
-        Objects.equals(this.logAxis, playerFull.logAxis) &&
-        Objects.equals(this.lore, playerFull.lore) &&
-        Objects.equals(this.minecartBlock, playerFull.minecartBlock) &&
-        Objects.equals(this.mobSpawner, playerFull.mobSpawner) &&
-        Objects.equals(this.moisture, playerFull.moisture) &&
-        Objects.equals(this.note, playerFull.note) &&
-        Objects.equals(this.occupied, playerFull.occupied) &&
-        Objects.equals(this.ocelot, playerFull.ocelot) &&
-        Objects.equals(this.open, playerFull.open) &&
-        Objects.equals(this.pages, playerFull.pages) &&
-        Objects.equals(this.passengers, playerFull.passengers) &&
-        Objects.equals(this.persists, playerFull.persists) &&
-        Objects.equals(this.pickupDelay, playerFull.pickupDelay) &&
-        Objects.equals(this.pickupRule, playerFull.pickupRule) &&
-        Objects.equals(this.pigSaddle, playerFull.pigSaddle) &&
-        Objects.equals(this.piston, playerFull.piston) &&
-        Objects.equals(this.placeableOn, playerFull.placeableOn) &&
-        Objects.equals(this.plant, playerFull.plant) &&
-        Objects.equals(this.playerCreated, playerFull.playerCreated) &&
-        Objects.equals(this.playing, playerFull.playing) &&
-        Objects.equals(this.portion, playerFull.portion) &&
-        Objects.equals(this.potionEffects, playerFull.potionEffects) &&
-        Objects.equals(this.powered, playerFull.powered) &&
-        Objects.equals(this.prismarine, playerFull.prismarine) &&
-        Objects.equals(this.quartz, playerFull.quartz) &&
-        Objects.equals(this.rabbit, playerFull.rabbit) &&
-        Objects.equals(this.railDirection, playerFull.railDirection) &&
-        Objects.equals(this.redstonePower, playerFull.redstonePower) &&
-        Objects.equals(this.representedItem, playerFull.representedItem) &&
-        Objects.equals(this.representedPlayer, playerFull.representedPlayer) &&
-        Objects.equals(this.respawnLocations, playerFull.respawnLocations) &&
-        Objects.equals(this.sand, playerFull.sand) &&
-        Objects.equals(this.sandStone, playerFull.sandStone) &&
-        Objects.equals(this.screaming, playerFull.screaming) &&
-        Objects.equals(this.seamless, playerFull.seamless) &&
-        Objects.equals(this.shatters, playerFull.shatters) &&
-        Objects.equals(this.sheared, playerFull.sheared) &&
-        Objects.equals(this.shrub, playerFull.shrub) &&
-        Objects.equals(this.sign, playerFull.sign) &&
-        Objects.equals(this.silent, playerFull.silent) &&
-        Objects.equals(this.sitting, playerFull.sitting) &&
-        Objects.equals(this.skin, playerFull.skin) &&
-        Objects.equals(this.skull, playerFull.skull) &&
-        Objects.equals(this.slab, playerFull.slab) &&
-        Objects.equals(this.sleeping, playerFull.sleeping) &&
-        Objects.equals(this.slime, playerFull.slime) &&
-        Objects.equals(this.sneaking, playerFull.sneaking) &&
-        Objects.equals(this.snow, playerFull.snow) &&
-        Objects.equals(this.spawn, playerFull.spawn) &&
-        Objects.equals(this.sprinting, playerFull.sprinting) &&
-        Objects.equals(this.stairShape, playerFull.stairShape) &&
-        Objects.equals(this.statistics, playerFull.statistics) &&
-        Objects.equals(this.stone, playerFull.stone) &&
-        Objects.equals(this.storedEnchantments, playerFull.storedEnchantments) &&
-        Objects.equals(this.structure, playerFull.structure) &&
-        Objects.equals(this.stuckArrows, playerFull.stuckArrows) &&
-        Objects.equals(this.tamed, playerFull.tamed) &&
-        Objects.equals(this.target, playerFull.target) &&
-        Objects.equals(this.trades, playerFull.trades) &&
-        Objects.equals(this.tree, playerFull.tree) &&
-        Objects.equals(this.vehicle, playerFull.vehicle) &&
-        Objects.equals(this.wall, playerFull.wall) &&
-        Objects.equals(this.wet, playerFull.wet) &&
-        Objects.equals(this.wires, playerFull.wires) &&
-        Objects.equals(this.acceptsItems, playerFull.acceptsItems) &&
-        Objects.equals(this.applicableEffect, playerFull.applicableEffect) &&
-        Objects.equals(this.armorSlotType, playerFull.armorSlotType) &&
-        Objects.equals(this.armorType, playerFull.armorType) &&
-        Objects.equals(this.blastResistance, playerFull.blastResistance) &&
-        Objects.equals(this.burningFuel, playerFull.burningFuel) &&
-        Objects.equals(this.damageAbsorption, playerFull.damageAbsorption) &&
-        Objects.equals(this.efficiency, playerFull.efficiency) &&
-        Objects.equals(this.equipmentType, playerFull.equipmentType) &&
-        Objects.equals(this.equiptmentSlotType, playerFull.equiptmentSlotType) &&
-        Objects.equals(this.eyeHeight, playerFull.eyeHeight) &&
-        Objects.equals(this.eyeLocation, playerFull.eyeLocation) &&
-        Objects.equals(this.fluidTemperature, playerFull.fluidTemperature) &&
-        Objects.equals(this.fluidViscosity, playerFull.fluidViscosity) &&
-        Objects.equals(this.foodRestoration, playerFull.foodRestoration) &&
-        Objects.equals(this.fullBlockSelectionBox, playerFull.fullBlockSelectionBox) &&
-        Objects.equals(this.gravityAffected, playerFull.gravityAffected) &&
-        Objects.equals(this.groundLuminance, playerFull.groundLuminance) &&
-        Objects.equals(this.guiId, playerFull.guiId) &&
-        Objects.equals(this.hardness, playerFull.hardness) &&
-        Objects.equals(this.heldItem, playerFull.heldItem) &&
-        Objects.equals(this.identifiable, playerFull.identifiable) &&
-        Objects.equals(this.indirectlyPowered, playerFull.indirectlyPowered) &&
-        Objects.equals(this.instrument, playerFull.instrument) &&
-        Objects.equals(this.inventoryCapacity, playerFull.inventoryCapacity) &&
-        Objects.equals(this.inventoryDimension, playerFull.inventoryDimension) &&
-        Objects.equals(this.inventoryTitle, playerFull.inventoryTitle) &&
-        Objects.equals(this.lightEmission, playerFull.lightEmission) &&
-        Objects.equals(this.matter, playerFull.matter) &&
-        Objects.equals(this.passable, playerFull.passable) &&
-        Objects.equals(this.record, playerFull.record) &&
-        Objects.equals(this.replaceable, playerFull.replaceable) &&
-        Objects.equals(this.saturationProperty, playerFull.saturationProperty) &&
-        Objects.equals(this.skyLuminance, playerFull.skyLuminance) &&
-        Objects.equals(this.slotIndex, playerFull.slotIndex) &&
-        Objects.equals(this.slotPos, playerFull.slotPos) &&
-        Objects.equals(this.slotSide, playerFull.slotSide) &&
-        Objects.equals(this.smeltable, playerFull.smeltable) &&
-        Objects.equals(this.solidCube, playerFull.solidCube) &&
-        Objects.equals(this.statisticsTracked, playerFull.statisticsTracked) &&
-        Objects.equals(this.surrogateBlock, playerFull.surrogateBlock) &&
-        Objects.equals(this.temperature, playerFull.temperature) &&
-        Objects.equals(this.toolType, playerFull.toolType) &&
-        Objects.equals(this.unbreakable, playerFull.unbreakable) &&
-        Objects.equals(this.useLimit, playerFull.useLimit);
+    Slot slot = (Slot) o;
+    return Objects.equals(this.stack, slot.stack) &&
+        Objects.equals(this.absorption, slot.absorption) &&
+        Objects.equals(this.age, slot.age) &&
+        Objects.equals(this.aggressive, slot.aggressive) &&
+        Objects.equals(this.aiEnabled, slot.aiEnabled) &&
+        Objects.equals(this.angerLevel, slot.angerLevel) &&
+        Objects.equals(this.armorStand, slot.armorStand) &&
+        Objects.equals(this.art, slot.art) &&
+        Objects.equals(this.attached, slot.attached) &&
+        Objects.equals(this.author, slot.author) &&
+        Objects.equals(this.axis, slot.axis) &&
+        Objects.equals(this.banner, slot.banner) &&
+        Objects.equals(this.beacon, slot.beacon) &&
+        Objects.equals(this.bigMushroom, slot.bigMushroom) &&
+        Objects.equals(this.block, slot.block) &&
+        Objects.equals(this.breathing, slot.breathing) &&
+        Objects.equals(this.breedable, slot.breedable) &&
+        Objects.equals(this.brewingStand, slot.brewingStand) &&
+        Objects.equals(this.brick, slot.brick) &&
+        Objects.equals(this.career, slot.career) &&
+        Objects.equals(this.charged, slot.charged) &&
+        Objects.equals(this.coal, slot.coal) &&
+        Objects.equals(this.color, slot.color) &&
+        Objects.equals(this.command, slot.command) &&
+        Objects.equals(this.comparator, slot.comparator) &&
+        Objects.equals(this.connectedDirection, slot.connectedDirection) &&
+        Objects.equals(this.cookedFish, slot.cookedFish) &&
+        Objects.equals(this.cooldown, slot.cooldown) &&
+        Objects.equals(this.criticalHit, slot.criticalHit) &&
+        Objects.equals(this.customName, slot.customName) &&
+        Objects.equals(this.damage, slot.damage) &&
+        Objects.equals(this.damageable, slot.damageable) &&
+        Objects.equals(this.decayable, slot.decayable) &&
+        Objects.equals(this.delay, slot.delay) &&
+        Objects.equals(this.despawnDelay, slot.despawnDelay) &&
+        Objects.equals(this.direction, slot.direction) &&
+        Objects.equals(this.dirt, slot.dirt) &&
+        Objects.equals(this.disarmed, slot.disarmed) &&
+        Objects.equals(this.disguisedBlock, slot.disguisedBlock) &&
+        Objects.equals(this.displayName, slot.displayName) &&
+        Objects.equals(this.dominantHand, slot.dominantHand) &&
+        Objects.equals(this.doublePlant, slot.doublePlant) &&
+        Objects.equals(this.drops, slot.drops) &&
+        Objects.equals(this.durability, slot.durability) &&
+        Objects.equals(this.dye, slot.dye) &&
+        Objects.equals(this.enchantments, slot.enchantments) &&
+        Objects.equals(this.endGateway, slot.endGateway) &&
+        Objects.equals(this.expOrb, slot.expOrb) &&
+        Objects.equals(this.experience, slot.experience) &&
+        Objects.equals(this.expireTicks, slot.expireTicks) &&
+        Objects.equals(this.explosionRadius, slot.explosionRadius) &&
+        Objects.equals(this.extended, slot.extended) &&
+        Objects.equals(this.fallDistance, slot.fallDistance) &&
+        Objects.equals(this.fallingBlock, slot.fallingBlock) &&
+        Objects.equals(this.filled, slot.filled) &&
+        Objects.equals(this.fireworkEffects, slot.fireworkEffects) &&
+        Objects.equals(this.fireworkRocket, slot.fireworkRocket) &&
+        Objects.equals(this.fish, slot.fish) &&
+        Objects.equals(this.flammable, slot.flammable) &&
+        Objects.equals(this.fluid, slot.fluid) &&
+        Objects.equals(this.fluidLevel, slot.fluidLevel) &&
+        Objects.equals(this.fluidTanks, slot.fluidTanks) &&
+        Objects.equals(this.flying, slot.flying) &&
+        Objects.equals(this.flyingAbility, slot.flyingAbility) &&
+        Objects.equals(this.food, slot.food) &&
+        Objects.equals(this.furnace, slot.furnace) &&
+        Objects.equals(this.fuse, slot.fuse) &&
+        Objects.equals(this.gameMode, slot.gameMode) &&
+        Objects.equals(this.generation, slot.generation) &&
+        Objects.equals(this.glowing, slot.glowing) &&
+        Objects.equals(this.goldenApple, slot.goldenApple) &&
+        Objects.equals(this.griefs, slot.griefs) &&
+        Objects.equals(this.growth, slot.growth) &&
+        Objects.equals(this.health, slot.health) &&
+        Objects.equals(this.hide, slot.hide) &&
+        Objects.equals(this.hinge, slot.hinge) &&
+        Objects.equals(this.horse, slot.horse) &&
+        Objects.equals(this.igniteable, slot.igniteable) &&
+        Objects.equals(this.inWall, slot.inWall) &&
+        Objects.equals(this.inventory, slot.inventory) &&
+        Objects.equals(this.invisibility, slot.invisibility) &&
+        Objects.equals(this.invulnerability, slot.invulnerability) &&
+        Objects.equals(this.joined, slot.joined) &&
+        Objects.equals(this.knockback, slot.knockback) &&
+        Objects.equals(this.layer, slot.layer) &&
+        Objects.equals(this.leash, slot.leash) &&
+        Objects.equals(this.lockToken, slot.lockToken) &&
+        Objects.equals(this.logAxis, slot.logAxis) &&
+        Objects.equals(this.lore, slot.lore) &&
+        Objects.equals(this.minecartBlock, slot.minecartBlock) &&
+        Objects.equals(this.mobSpawner, slot.mobSpawner) &&
+        Objects.equals(this.moisture, slot.moisture) &&
+        Objects.equals(this.note, slot.note) &&
+        Objects.equals(this.occupied, slot.occupied) &&
+        Objects.equals(this.ocelot, slot.ocelot) &&
+        Objects.equals(this.open, slot.open) &&
+        Objects.equals(this.pages, slot.pages) &&
+        Objects.equals(this.passengers, slot.passengers) &&
+        Objects.equals(this.persists, slot.persists) &&
+        Objects.equals(this.pickupDelay, slot.pickupDelay) &&
+        Objects.equals(this.pickupRule, slot.pickupRule) &&
+        Objects.equals(this.pigSaddle, slot.pigSaddle) &&
+        Objects.equals(this.piston, slot.piston) &&
+        Objects.equals(this.placeableOn, slot.placeableOn) &&
+        Objects.equals(this.plant, slot.plant) &&
+        Objects.equals(this.playerCreated, slot.playerCreated) &&
+        Objects.equals(this.playing, slot.playing) &&
+        Objects.equals(this.portion, slot.portion) &&
+        Objects.equals(this.potionEffects, slot.potionEffects) &&
+        Objects.equals(this.powered, slot.powered) &&
+        Objects.equals(this.prismarine, slot.prismarine) &&
+        Objects.equals(this.quartz, slot.quartz) &&
+        Objects.equals(this.rabbit, slot.rabbit) &&
+        Objects.equals(this.railDirection, slot.railDirection) &&
+        Objects.equals(this.redstonePower, slot.redstonePower) &&
+        Objects.equals(this.representedItem, slot.representedItem) &&
+        Objects.equals(this.representedPlayer, slot.representedPlayer) &&
+        Objects.equals(this.respawnLocations, slot.respawnLocations) &&
+        Objects.equals(this.sand, slot.sand) &&
+        Objects.equals(this.sandStone, slot.sandStone) &&
+        Objects.equals(this.screaming, slot.screaming) &&
+        Objects.equals(this.seamless, slot.seamless) &&
+        Objects.equals(this.shatters, slot.shatters) &&
+        Objects.equals(this.sheared, slot.sheared) &&
+        Objects.equals(this.shrub, slot.shrub) &&
+        Objects.equals(this.sign, slot.sign) &&
+        Objects.equals(this.silent, slot.silent) &&
+        Objects.equals(this.sitting, slot.sitting) &&
+        Objects.equals(this.skin, slot.skin) &&
+        Objects.equals(this.skull, slot.skull) &&
+        Objects.equals(this.slab, slot.slab) &&
+        Objects.equals(this.sleeping, slot.sleeping) &&
+        Objects.equals(this.slime, slot.slime) &&
+        Objects.equals(this.sneaking, slot.sneaking) &&
+        Objects.equals(this.snow, slot.snow) &&
+        Objects.equals(this.spawn, slot.spawn) &&
+        Objects.equals(this.sprinting, slot.sprinting) &&
+        Objects.equals(this.stairShape, slot.stairShape) &&
+        Objects.equals(this.statistics, slot.statistics) &&
+        Objects.equals(this.stone, slot.stone) &&
+        Objects.equals(this.storedEnchantments, slot.storedEnchantments) &&
+        Objects.equals(this.structure, slot.structure) &&
+        Objects.equals(this.stuckArrows, slot.stuckArrows) &&
+        Objects.equals(this.tamed, slot.tamed) &&
+        Objects.equals(this.target, slot.target) &&
+        Objects.equals(this.trades, slot.trades) &&
+        Objects.equals(this.tree, slot.tree) &&
+        Objects.equals(this.vehicle, slot.vehicle) &&
+        Objects.equals(this.wall, slot.wall) &&
+        Objects.equals(this.wet, slot.wet) &&
+        Objects.equals(this.wires, slot.wires) &&
+        Objects.equals(this.acceptsItems, slot.acceptsItems) &&
+        Objects.equals(this.applicableEffect, slot.applicableEffect) &&
+        Objects.equals(this.armorSlotType, slot.armorSlotType) &&
+        Objects.equals(this.armorType, slot.armorType) &&
+        Objects.equals(this.blastResistance, slot.blastResistance) &&
+        Objects.equals(this.burningFuel, slot.burningFuel) &&
+        Objects.equals(this.damageAbsorption, slot.damageAbsorption) &&
+        Objects.equals(this.efficiency, slot.efficiency) &&
+        Objects.equals(this.equipmentType, slot.equipmentType) &&
+        Objects.equals(this.equiptmentSlotType, slot.equiptmentSlotType) &&
+        Objects.equals(this.eyeHeight, slot.eyeHeight) &&
+        Objects.equals(this.eyeLocation, slot.eyeLocation) &&
+        Objects.equals(this.fluidTemperature, slot.fluidTemperature) &&
+        Objects.equals(this.fluidViscosity, slot.fluidViscosity) &&
+        Objects.equals(this.foodRestoration, slot.foodRestoration) &&
+        Objects.equals(this.fullBlockSelectionBox, slot.fullBlockSelectionBox) &&
+        Objects.equals(this.gravityAffected, slot.gravityAffected) &&
+        Objects.equals(this.groundLuminance, slot.groundLuminance) &&
+        Objects.equals(this.guiId, slot.guiId) &&
+        Objects.equals(this.hardness, slot.hardness) &&
+        Objects.equals(this.heldItem, slot.heldItem) &&
+        Objects.equals(this.identifiable, slot.identifiable) &&
+        Objects.equals(this.indirectlyPowered, slot.indirectlyPowered) &&
+        Objects.equals(this.instrument, slot.instrument) &&
+        Objects.equals(this.inventoryCapacity, slot.inventoryCapacity) &&
+        Objects.equals(this.inventoryDimension, slot.inventoryDimension) &&
+        Objects.equals(this.inventoryTitle, slot.inventoryTitle) &&
+        Objects.equals(this.lightEmission, slot.lightEmission) &&
+        Objects.equals(this.matter, slot.matter) &&
+        Objects.equals(this.passable, slot.passable) &&
+        Objects.equals(this.record, slot.record) &&
+        Objects.equals(this.replaceable, slot.replaceable) &&
+        Objects.equals(this.saturationProperty, slot.saturationProperty) &&
+        Objects.equals(this.skyLuminance, slot.skyLuminance) &&
+        Objects.equals(this.slotIndex, slot.slotIndex) &&
+        Objects.equals(this.slotPos, slot.slotPos) &&
+        Objects.equals(this.slotSide, slot.slotSide) &&
+        Objects.equals(this.smeltable, slot.smeltable) &&
+        Objects.equals(this.solidCube, slot.solidCube) &&
+        Objects.equals(this.statisticsTracked, slot.statisticsTracked) &&
+        Objects.equals(this.surrogateBlock, slot.surrogateBlock) &&
+        Objects.equals(this.temperature, slot.temperature) &&
+        Objects.equals(this.toolType, slot.toolType) &&
+        Objects.equals(this.unbreakable, slot.unbreakable) &&
+        Objects.equals(this.useLimit, slot.useLimit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, name, online, uuid, unlockedAdvancements, latency, rotation, scale, velocity, inventory, helmet, chestplate, leggings, boots, address, location, absorption, age, aggressive, aiEnabled, angerLevel, armorStand, art, attached, author, axis, banner, beacon, bigMushroom, block, breathing, breedable, brewingStand, brick, career, charged, coal, color, command, comparator, connectedDirection, cookedFish, cooldown, criticalHit, customName, damage, damageable, decayable, delay, despawnDelay, direction, dirt, disarmed, disguisedBlock, displayName, dominantHand, doublePlant, drops, durability, dye, enchantments, endGateway, expOrb, experience, expireTicks, explosionRadius, extended, fallDistance, fallingBlock, filled, fireworkEffects, fireworkRocket, fish, flammable, fluid, fluidLevel, fluidTanks, flying, flyingAbility, food, furnace, fuse, gameMode, generation, glowing, goldenApple, griefs, growth, health, hide, hinge, horse, igniteable, inWall, invisibility, invulnerability, joined, knockback, layer, leash, lockToken, logAxis, lore, minecartBlock, mobSpawner, moisture, note, occupied, ocelot, open, pages, passengers, persists, pickupDelay, pickupRule, pigSaddle, piston, placeableOn, plant, playerCreated, playing, portion, potionEffects, powered, prismarine, quartz, rabbit, railDirection, redstonePower, representedItem, representedPlayer, respawnLocations, sand, sandStone, screaming, seamless, shatters, sheared, shrub, sign, silent, sitting, skin, skull, slab, sleeping, slime, sneaking, snow, spawn, sprinting, stairShape, statistics, stone, storedEnchantments, structure, stuckArrows, tamed, target, trades, tree, vehicle, wall, wet, wires, acceptsItems, applicableEffect, armorSlotType, armorType, blastResistance, burningFuel, damageAbsorption, efficiency, equipmentType, equiptmentSlotType, eyeHeight, eyeLocation, fluidTemperature, fluidViscosity, foodRestoration, fullBlockSelectionBox, gravityAffected, groundLuminance, guiId, hardness, heldItem, identifiable, indirectlyPowered, instrument, inventoryCapacity, inventoryDimension, inventoryTitle, lightEmission, matter, passable, record, replaceable, saturationProperty, skyLuminance, slotIndex, slotPos, slotSide, smeltable, solidCube, statisticsTracked, surrogateBlock, temperature, toolType, unbreakable, useLimit);
+    return Objects.hash(stack, absorption, age, aggressive, aiEnabled, angerLevel, armorStand, art, attached, author, axis, banner, beacon, bigMushroom, block, breathing, breedable, brewingStand, brick, career, charged, coal, color, command, comparator, connectedDirection, cookedFish, cooldown, criticalHit, customName, damage, damageable, decayable, delay, despawnDelay, direction, dirt, disarmed, disguisedBlock, displayName, dominantHand, doublePlant, drops, durability, dye, enchantments, endGateway, expOrb, experience, expireTicks, explosionRadius, extended, fallDistance, fallingBlock, filled, fireworkEffects, fireworkRocket, fish, flammable, fluid, fluidLevel, fluidTanks, flying, flyingAbility, food, furnace, fuse, gameMode, generation, glowing, goldenApple, griefs, growth, health, hide, hinge, horse, igniteable, inWall, inventory, invisibility, invulnerability, joined, knockback, layer, leash, lockToken, logAxis, lore, minecartBlock, mobSpawner, moisture, note, occupied, ocelot, open, pages, passengers, persists, pickupDelay, pickupRule, pigSaddle, piston, placeableOn, plant, playerCreated, playing, portion, potionEffects, powered, prismarine, quartz, rabbit, railDirection, redstonePower, representedItem, representedPlayer, respawnLocations, sand, sandStone, screaming, seamless, shatters, sheared, shrub, sign, silent, sitting, skin, skull, slab, sleeping, slime, sneaking, snow, spawn, sprinting, stairShape, statistics, stone, storedEnchantments, structure, stuckArrows, tamed, target, trades, tree, vehicle, wall, wet, wires, acceptsItems, applicableEffect, armorSlotType, armorType, blastResistance, burningFuel, damageAbsorption, efficiency, equipmentType, equiptmentSlotType, eyeHeight, eyeLocation, fluidTemperature, fluidViscosity, foodRestoration, fullBlockSelectionBox, gravityAffected, groundLuminance, guiId, hardness, heldItem, identifiable, indirectlyPowered, instrument, inventoryCapacity, inventoryDimension, inventoryTitle, lightEmission, matter, passable, record, replaceable, saturationProperty, skyLuminance, slotIndex, slotPos, slotSide, smeltable, solidCube, statisticsTracked, surrogateBlock, temperature, toolType, unbreakable, useLimit);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PlayerFull {\n");
+    sb.append("class Slot {\n");
     
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    online: ").append(toIndentedString(online)).append("\n");
-    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
-    sb.append("    unlockedAdvancements: ").append(toIndentedString(unlockedAdvancements)).append("\n");
-    sb.append("    latency: ").append(toIndentedString(latency)).append("\n");
-    sb.append("    rotation: ").append(toIndentedString(rotation)).append("\n");
-    sb.append("    scale: ").append(toIndentedString(scale)).append("\n");
-    sb.append("    velocity: ").append(toIndentedString(velocity)).append("\n");
-    sb.append("    inventory: ").append(toIndentedString(inventory)).append("\n");
-    sb.append("    helmet: ").append(toIndentedString(helmet)).append("\n");
-    sb.append("    chestplate: ").append(toIndentedString(chestplate)).append("\n");
-    sb.append("    leggings: ").append(toIndentedString(leggings)).append("\n");
-    sb.append("    boots: ").append(toIndentedString(boots)).append("\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    stack: ").append(toIndentedString(stack)).append("\n");
     sb.append("    absorption: ").append(toIndentedString(absorption)).append("\n");
     sb.append("    age: ").append(toIndentedString(age)).append("\n");
     sb.append("    aggressive: ").append(toIndentedString(aggressive)).append("\n");
@@ -5209,6 +4888,7 @@ public class PlayerFull {
     sb.append("    horse: ").append(toIndentedString(horse)).append("\n");
     sb.append("    igniteable: ").append(toIndentedString(igniteable)).append("\n");
     sb.append("    inWall: ").append(toIndentedString(inWall)).append("\n");
+    sb.append("    inventory: ").append(toIndentedString(inventory)).append("\n");
     sb.append("    invisibility: ").append(toIndentedString(invisibility)).append("\n");
     sb.append("    invulnerability: ").append(toIndentedString(invulnerability)).append("\n");
     sb.append("    joined: ").append(toIndentedString(joined)).append("\n");

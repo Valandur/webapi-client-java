@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.DamageRequest;
-import io.swagger.client.model.ItemStack;
+import io.swagger.client.model.SlotRequest;
 import io.swagger.client.model.Vector3d;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * UpdatePlayerRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
 public class UpdatePlayerRequest {
   @SerializedName("damage")
   private DamageRequest damage = null;
@@ -45,11 +45,14 @@ public class UpdatePlayerRequest {
   @SerializedName("foodLevel")
   private Integer foodLevel = null;
 
+  @SerializedName("gameMode")
+  private String gameMode = null;
+
   @SerializedName("health")
   private Double health = null;
 
   @SerializedName("inventory")
-  private List<ItemStack> inventory = null;
+  private List<SlotRequest> inventory = null;
 
   @SerializedName("level")
   private Integer level = null;
@@ -150,6 +153,24 @@ public class UpdatePlayerRequest {
     this.foodLevel = foodLevel;
   }
 
+  public UpdatePlayerRequest gameMode(String gameMode) {
+    this.gameMode = gameMode;
+    return this;
+  }
+
+   /**
+   * The game mode of the player
+   * @return gameMode
+  **/
+  @ApiModelProperty(value = "The game mode of the player")
+  public String getGameMode() {
+    return gameMode;
+  }
+
+  public void setGameMode(String gameMode) {
+    this.gameMode = gameMode;
+  }
+
   public UpdatePlayerRequest health(Double health) {
     this.health = health;
     return this;
@@ -168,29 +189,29 @@ public class UpdatePlayerRequest {
     this.health = health;
   }
 
-  public UpdatePlayerRequest inventory(List<ItemStack> inventory) {
+  public UpdatePlayerRequest inventory(List<SlotRequest> inventory) {
     this.inventory = inventory;
     return this;
   }
 
-  public UpdatePlayerRequest addInventoryItem(ItemStack inventoryItem) {
+  public UpdatePlayerRequest addInventoryItem(SlotRequest inventoryItem) {
     if (this.inventory == null) {
-      this.inventory = new ArrayList<ItemStack>();
+      this.inventory = new ArrayList<SlotRequest>();
     }
     this.inventory.add(inventoryItem);
     return this;
   }
 
    /**
-   * The ItemStacks in the inventory of the entity
+   * The slots in the inventory of the entity to modify
    * @return inventory
   **/
-  @ApiModelProperty(value = "The ItemStacks in the inventory of the entity")
-  public List<ItemStack> getInventory() {
+  @ApiModelProperty(value = "The slots in the inventory of the entity to modify")
+  public List<SlotRequest> getInventory() {
     return inventory;
   }
 
-  public void setInventory(List<ItemStack> inventory) {
+  public void setInventory(List<SlotRequest> inventory) {
     this.inventory = inventory;
   }
 
@@ -370,6 +391,7 @@ public class UpdatePlayerRequest {
         Objects.equals(this.exhaustion, updatePlayerRequest.exhaustion) &&
         Objects.equals(this.experienceSinceLevel, updatePlayerRequest.experienceSinceLevel) &&
         Objects.equals(this.foodLevel, updatePlayerRequest.foodLevel) &&
+        Objects.equals(this.gameMode, updatePlayerRequest.gameMode) &&
         Objects.equals(this.health, updatePlayerRequest.health) &&
         Objects.equals(this.inventory, updatePlayerRequest.inventory) &&
         Objects.equals(this.level, updatePlayerRequest.level) &&
@@ -385,7 +407,7 @@ public class UpdatePlayerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(damage, exhaustion, experienceSinceLevel, foodLevel, health, inventory, level, maxHealth, position, rotation, saturation, scale, totalExperience, velocity, world);
+    return Objects.hash(damage, exhaustion, experienceSinceLevel, foodLevel, gameMode, health, inventory, level, maxHealth, position, rotation, saturation, scale, totalExperience, velocity, world);
   }
 
 
@@ -398,6 +420,7 @@ public class UpdatePlayerRequest {
     sb.append("    exhaustion: ").append(toIndentedString(exhaustion)).append("\n");
     sb.append("    experienceSinceLevel: ").append(toIndentedString(experienceSinceLevel)).append("\n");
     sb.append("    foodLevel: ").append(toIndentedString(foodLevel)).append("\n");
+    sb.append("    gameMode: ").append(toIndentedString(gameMode)).append("\n");
     sb.append("    health: ").append(toIndentedString(health)).append("\n");
     sb.append("    inventory: ").append(toIndentedString(inventory)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");

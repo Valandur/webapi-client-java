@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 <a name="getPlayer"></a>
 # **getPlayer**
-> PlayerFull getPlayer(player, details, accept, pretty)
+> Player getPlayer(player, details, accept, pretty)
 
 Get a player
 
@@ -116,7 +116,7 @@ Boolean details = true; // Boolean | Add to include additional details, omit or 
 String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
 Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    PlayerFull result = apiInstance.getPlayer(player, details, accept, pretty);
+    Player result = apiInstance.getPlayer(player, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PlayerApi#getPlayer");
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PlayerFull**](PlayerFull.md)
+[**Player**](Player.md)
 
 ### Authorization
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 <a name="listPlayers"></a>
 # **listPlayers**
-> List&lt;PlayerFull&gt; listPlayers(details, accept, pretty)
+> List&lt;Player&gt; listPlayers(details, accept, pretty)
 
 List players
 
@@ -182,7 +182,7 @@ Boolean details = true; // Boolean | Add to include additional details, omit or 
 String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
 Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    List<PlayerFull> result = apiInstance.listPlayers(details, accept, pretty);
+    List<Player> result = apiInstance.listPlayers(details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PlayerApi#listPlayers");
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;PlayerFull&gt;**](PlayerFull.md)
+[**List&lt;Player&gt;**](Player.md)
 
 ### Authorization
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 
 <a name="modifyPlayer"></a>
 # **modifyPlayer**
-> PlayerFull modifyPlayer(player, body, details, accept, pretty)
+> Player modifyPlayer(player, body, details, accept, pretty)
 
 Modify a player
 
@@ -249,7 +249,7 @@ Boolean details = true; // Boolean | Add to include additional details, omit or 
 String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
 Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    PlayerFull result = apiInstance.modifyPlayer(player, body, details, accept, pretty);
+    Player result = apiInstance.modifyPlayer(player, body, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PlayerApi#modifyPlayer");
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PlayerFull**](PlayerFull.md)
+[**Player**](Player.md)
 
 ### Authorization
 

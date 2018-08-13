@@ -30,16 +30,13 @@ import java.util.Map;
 /**
  * Cause
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
 public class Cause {
   @SerializedName("causes")
   private List<Object> causes = new ArrayList<Object>();
 
   @SerializedName("context")
   private Map<String, Object> context = new HashMap<String, Object>();
-
-  @SerializedName("link")
-  private String link = null;
 
   public Cause causes(List<Object> causes) {
     this.causes = causes;
@@ -87,15 +84,6 @@ public class Cause {
     this.context = context;
   }
 
-   /**
-   * The API link that can be used to obtain more information about this object
-   * @return link
-  **/
-  @ApiModelProperty(required = true, value = "The API link that can be used to obtain more information about this object")
-  public String getLink() {
-    return link;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -107,13 +95,12 @@ public class Cause {
     }
     Cause cause = (Cause) o;
     return Objects.equals(this.causes, cause.causes) &&
-        Objects.equals(this.context, cause.context) &&
-        Objects.equals(this.link, cause.link);
+        Objects.equals(this.context, cause.context);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(causes, context, link);
+    return Objects.hash(causes, context);
   }
 
 
@@ -124,7 +111,6 @@ public class Cause {
     
     sb.append("    causes: ").append(toIndentedString(causes)).append("\n");
     sb.append("    context: ").append(toIndentedString(context)).append("\n");
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("}");
     return sb.toString();
   }

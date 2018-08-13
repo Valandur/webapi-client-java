@@ -49,6 +49,18 @@ public class JSON {
 
     public static GsonBuilder createGson() {
         GsonFireBuilder fireBuilder = new GsonFireBuilder()
+          .registerTypeSelector(BlockOperation.class, new TypeSelector() {
+            @Override
+            public Class getClassForElement(JsonElement readElement) {
+                Map classByDiscriminatorValue = new HashMap();
+                classByDiscriminatorValue.put("BlockChangeOperation".toUpperCase(), BlockChangeOperation.class);
+                classByDiscriminatorValue.put("BlockGetOperation".toUpperCase(), BlockGetOperation.class);
+                classByDiscriminatorValue.put("BlockOperation".toUpperCase(), BlockOperation.class);
+                return getClassByDiscriminator(
+                                           classByDiscriminatorValue,
+                                           getDiscriminatorValue(readElement, "type"));
+            }
+          })
           .registerTypeSelector(HuskyCratesCrateRewardObject.class, new TypeSelector() {
             @Override
             public Class getClassForElement(JsonElement readElement) {
