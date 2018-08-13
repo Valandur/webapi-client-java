@@ -29,13 +29,11 @@ import java.util.UUID;
 /**
  * BlockOperation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
+
 public class BlockOperation {
   @SerializedName("error")
   private String error = null;
-
-  @SerializedName("errored")
-  private Boolean errored = null;
 
   @SerializedName("estimatedSecondsRemaining")
   private Float estimatedSecondsRemaining = null;
@@ -182,24 +180,6 @@ public class BlockOperation {
 
   public void setError(String error) {
     this.error = error;
-  }
-
-  public BlockOperation errored(Boolean errored) {
-    this.errored = errored;
-    return this;
-  }
-
-   /**
-   * True if this block operation produced errors, false otherwise.
-   * @return errored
-  **/
-  @ApiModelProperty(required = true, value = "True if this block operation produced errors, false otherwise.")
-  public Boolean isErrored() {
-    return errored;
-  }
-
-  public void setErrored(Boolean errored) {
-    this.errored = errored;
   }
 
   public BlockOperation estimatedSecondsRemaining(Float estimatedSecondsRemaining) {
@@ -366,7 +346,6 @@ public class BlockOperation {
     }
     BlockOperation blockOperation = (BlockOperation) o;
     return Objects.equals(this.error, blockOperation.error) &&
-        Objects.equals(this.errored, blockOperation.errored) &&
         Objects.equals(this.estimatedSecondsRemaining, blockOperation.estimatedSecondsRemaining) &&
         Objects.equals(this.link, blockOperation.link) &&
         Objects.equals(this.max, blockOperation.max) &&
@@ -380,7 +359,7 @@ public class BlockOperation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, errored, estimatedSecondsRemaining, link, max, min, progress, status, type, uuid, world);
+    return Objects.hash(error, estimatedSecondsRemaining, link, max, min, progress, status, type, uuid, world);
   }
 
 
@@ -390,7 +369,6 @@ public class BlockOperation {
     sb.append("class BlockOperation {\n");
     
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
-    sb.append("    errored: ").append(toIndentedString(errored)).append("\n");
     sb.append("    estimatedSecondsRemaining: ").append(toIndentedString(estimatedSecondsRemaining)).append("\n");
     sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    max: ").append(toIndentedString(max)).append("\n");

@@ -38,7 +38,7 @@ public class ChunkApiTest {
     /**
      * Load &amp; Generate a chunk
      *
-     * Forces a chunk to be loaded into memory, and created if it does not exist.     **Required permissions:**    - **chunk.chunk.create**   
+     * Forces a chunk to be loaded into memory, and created if it does not exist.     **Required permissions:**    - **chunk.create**   
      *
      * @throws ApiException
      *          if the Api call fails
@@ -59,7 +59,7 @@ public class ChunkApiTest {
     /**
      * Get a chunk
      *
-     * Get detailed information about a chunk     **Required permissions:**    - **chunk.chunk.one **   
+     * Get detailed information about a chunk     **Required permissions:**    - **chunk.one**   
      *
      * @throws ApiException
      *          if the Api call fails
@@ -80,7 +80,7 @@ public class ChunkApiTest {
     /**
      * List chunks
      *
-     * Gets a list of all the loaded chunks for the specified world.     **Required permissions:**    - **chunk.chunk.list**   
+     * Gets a list of all the loaded chunks for the specified world.     **Required permissions:**    - **chunk.list**   
      *
      * @throws ApiException
      *          if the Api call fails

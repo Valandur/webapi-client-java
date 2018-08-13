@@ -34,7 +34,7 @@ import io.swagger.client.model.InlineResponse401;
 import io.swagger.client.model.InlineResponse403;
 import io.swagger.client.model.InlineResponse404;
 import io.swagger.client.model.InlineResponse500;
-import io.swagger.client.model.PlayerFull;
+import io.swagger.client.model.Player;
 import io.swagger.client.model.UpdatePlayerRequest;
 
 import java.lang.reflect.Type;
@@ -287,11 +287,11 @@ public class PlayerApi {
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
-     * @return PlayerFull
+     * @return Player
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PlayerFull getPlayer(String player, Boolean details, String accept, Boolean pretty) throws ApiException {
-        ApiResponse<PlayerFull> resp = getPlayerWithHttpInfo(player, details, accept, pretty);
+    public Player getPlayer(String player, Boolean details, String accept, Boolean pretty) throws ApiException {
+        ApiResponse<Player> resp = getPlayerWithHttpInfo(player, details, accept, pretty);
         return resp.getData();
     }
 
@@ -302,12 +302,12 @@ public class PlayerApi {
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
-     * @return ApiResponse&lt;PlayerFull&gt;
+     * @return ApiResponse&lt;Player&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PlayerFull> getPlayerWithHttpInfo(String player, Boolean details, String accept, Boolean pretty) throws ApiException {
+    public ApiResponse<Player> getPlayerWithHttpInfo(String player, Boolean details, String accept, Boolean pretty) throws ApiException {
         com.squareup.okhttp.Call call = getPlayerValidateBeforeCall(player, details, accept, pretty, null, null);
-        Type localVarReturnType = new TypeToken<PlayerFull>(){}.getType();
+        Type localVarReturnType = new TypeToken<Player>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -322,7 +322,7 @@ public class PlayerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getPlayerAsync(String player, Boolean details, String accept, Boolean pretty, final ApiCallback<PlayerFull> callback) throws ApiException {
+    public com.squareup.okhttp.Call getPlayerAsync(String player, Boolean details, String accept, Boolean pretty, final ApiCallback<Player> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -344,7 +344,7 @@ public class PlayerApi {
         }
 
         com.squareup.okhttp.Call call = getPlayerValidateBeforeCall(player, details, accept, pretty, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PlayerFull>(){}.getType();
+        Type localVarReturnType = new TypeToken<Player>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -420,11 +420,11 @@ public class PlayerApi {
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
-     * @return List&lt;PlayerFull&gt;
+     * @return List&lt;Player&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<PlayerFull> listPlayers(Boolean details, String accept, Boolean pretty) throws ApiException {
-        ApiResponse<List<PlayerFull>> resp = listPlayersWithHttpInfo(details, accept, pretty);
+    public List<Player> listPlayers(Boolean details, String accept, Boolean pretty) throws ApiException {
+        ApiResponse<List<Player>> resp = listPlayersWithHttpInfo(details, accept, pretty);
         return resp.getData();
     }
 
@@ -434,12 +434,12 @@ public class PlayerApi {
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
-     * @return ApiResponse&lt;List&lt;PlayerFull&gt;&gt;
+     * @return ApiResponse&lt;List&lt;Player&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<PlayerFull>> listPlayersWithHttpInfo(Boolean details, String accept, Boolean pretty) throws ApiException {
+    public ApiResponse<List<Player>> listPlayersWithHttpInfo(Boolean details, String accept, Boolean pretty) throws ApiException {
         com.squareup.okhttp.Call call = listPlayersValidateBeforeCall(details, accept, pretty, null, null);
-        Type localVarReturnType = new TypeToken<List<PlayerFull>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<Player>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -453,7 +453,7 @@ public class PlayerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listPlayersAsync(Boolean details, String accept, Boolean pretty, final ApiCallback<List<PlayerFull>> callback) throws ApiException {
+    public com.squareup.okhttp.Call listPlayersAsync(Boolean details, String accept, Boolean pretty, final ApiCallback<List<Player>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -475,7 +475,7 @@ public class PlayerApi {
         }
 
         com.squareup.okhttp.Call call = listPlayersValidateBeforeCall(details, accept, pretty, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<PlayerFull>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<Player>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -561,11 +561,11 @@ public class PlayerApi {
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
-     * @return PlayerFull
+     * @return Player
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PlayerFull modifyPlayer(String player, UpdatePlayerRequest body, Boolean details, String accept, Boolean pretty) throws ApiException {
-        ApiResponse<PlayerFull> resp = modifyPlayerWithHttpInfo(player, body, details, accept, pretty);
+    public Player modifyPlayer(String player, UpdatePlayerRequest body, Boolean details, String accept, Boolean pretty) throws ApiException {
+        ApiResponse<Player> resp = modifyPlayerWithHttpInfo(player, body, details, accept, pretty);
         return resp.getData();
     }
 
@@ -577,12 +577,12 @@ public class PlayerApi {
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
      * @param pretty Add to make the Web-API pretty print the response (useful for debugging your requests) (optional)
-     * @return ApiResponse&lt;PlayerFull&gt;
+     * @return ApiResponse&lt;Player&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PlayerFull> modifyPlayerWithHttpInfo(String player, UpdatePlayerRequest body, Boolean details, String accept, Boolean pretty) throws ApiException {
+    public ApiResponse<Player> modifyPlayerWithHttpInfo(String player, UpdatePlayerRequest body, Boolean details, String accept, Boolean pretty) throws ApiException {
         com.squareup.okhttp.Call call = modifyPlayerValidateBeforeCall(player, body, details, accept, pretty, null, null);
-        Type localVarReturnType = new TypeToken<PlayerFull>(){}.getType();
+        Type localVarReturnType = new TypeToken<Player>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -598,7 +598,7 @@ public class PlayerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call modifyPlayerAsync(String player, UpdatePlayerRequest body, Boolean details, String accept, Boolean pretty, final ApiCallback<PlayerFull> callback) throws ApiException {
+    public com.squareup.okhttp.Call modifyPlayerAsync(String player, UpdatePlayerRequest body, Boolean details, String accept, Boolean pretty, final ApiCallback<Player> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -620,7 +620,7 @@ public class PlayerApi {
         }
 
         com.squareup.okhttp.Call call = modifyPlayerValidateBeforeCall(player, body, details, accept, pretty, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PlayerFull>(){}.getType();
+        Type localVarReturnType = new TypeToken<Player>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

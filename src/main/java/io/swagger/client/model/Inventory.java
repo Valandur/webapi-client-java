@@ -21,8 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.CatalogType;
-import io.swagger.client.model.ItemStack;
+import io.swagger.client.model.CatalogTypeInventoryArchetype;
+import io.swagger.client.model.Slot;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,25 +30,22 @@ import java.util.List;
 /**
  * Inventory
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
 public class Inventory {
   @SerializedName("capacity")
   private Integer capacity = null;
 
-  @SerializedName("itemStacks")
-  private List<ItemStack> itemStacks = new ArrayList<ItemStack>();
-
-  @SerializedName("link")
-  private String link = null;
-
   @SerializedName("name")
   private String name = null;
+
+  @SerializedName("slots")
+  private List<Slot> slots = new ArrayList<Slot>();
 
   @SerializedName("totalItems")
   private Integer totalItems = null;
 
   @SerializedName("type")
-  private CatalogType type = null;
+  private CatalogTypeInventoryArchetype type = null;
 
   public Inventory capacity(Integer capacity) {
     this.capacity = capacity;
@@ -66,38 +63,6 @@ public class Inventory {
 
   public void setCapacity(Integer capacity) {
     this.capacity = capacity;
-  }
-
-  public Inventory itemStacks(List<ItemStack> itemStacks) {
-    this.itemStacks = itemStacks;
-    return this;
-  }
-
-  public Inventory addItemStacksItem(ItemStack itemStacksItem) {
-    this.itemStacks.add(itemStacksItem);
-    return this;
-  }
-
-   /**
-   * Gets a list of item stacks in the inventory
-   * @return itemStacks
-  **/
-  @ApiModelProperty(required = true, value = "Gets a list of item stacks in the inventory")
-  public List<ItemStack> getItemStacks() {
-    return itemStacks;
-  }
-
-  public void setItemStacks(List<ItemStack> itemStacks) {
-    this.itemStacks = itemStacks;
-  }
-
-   /**
-   * The API link that can be used to obtain more information about this object
-   * @return link
-  **/
-  @ApiModelProperty(required = true, value = "The API link that can be used to obtain more information about this object")
-  public String getLink() {
-    return link;
   }
 
   public Inventory name(String name) {
@@ -118,6 +83,29 @@ public class Inventory {
     this.name = name;
   }
 
+  public Inventory slots(List<Slot> slots) {
+    this.slots = slots;
+    return this;
+  }
+
+  public Inventory addSlotsItem(Slot slotsItem) {
+    this.slots.add(slotsItem);
+    return this;
+  }
+
+   /**
+   * Gets a list of slots in the inventory (with their items)
+   * @return slots
+  **/
+  @ApiModelProperty(required = true, value = "Gets a list of slots in the inventory (with their items)")
+  public List<Slot> getSlots() {
+    return slots;
+  }
+
+  public void setSlots(List<Slot> slots) {
+    this.slots = slots;
+  }
+
   public Inventory totalItems(Integer totalItems) {
     this.totalItems = totalItems;
     return this;
@@ -136,7 +124,7 @@ public class Inventory {
     this.totalItems = totalItems;
   }
 
-  public Inventory type(CatalogType type) {
+  public Inventory type(CatalogTypeInventoryArchetype type) {
     this.type = type;
     return this;
   }
@@ -146,11 +134,11 @@ public class Inventory {
    * @return type
   **/
   @ApiModelProperty(required = true, value = "The type of the inventory")
-  public CatalogType getType() {
+  public CatalogTypeInventoryArchetype getType() {
     return type;
   }
 
-  public void setType(CatalogType type) {
+  public void setType(CatalogTypeInventoryArchetype type) {
     this.type = type;
   }
 
@@ -165,16 +153,15 @@ public class Inventory {
     }
     Inventory inventory = (Inventory) o;
     return Objects.equals(this.capacity, inventory.capacity) &&
-        Objects.equals(this.itemStacks, inventory.itemStacks) &&
-        Objects.equals(this.link, inventory.link) &&
         Objects.equals(this.name, inventory.name) &&
+        Objects.equals(this.slots, inventory.slots) &&
         Objects.equals(this.totalItems, inventory.totalItems) &&
         Objects.equals(this.type, inventory.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capacity, itemStacks, link, name, totalItems, type);
+    return Objects.hash(capacity, name, slots, totalItems, type);
   }
 
 
@@ -184,9 +171,8 @@ public class Inventory {
     sb.append("class Inventory {\n");
     
     sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
-    sb.append("    itemStacks: ").append(toIndentedString(itemStacks)).append("\n");
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    slots: ").append(toIndentedString(slots)).append("\n");
     sb.append("    totalItems: ").append(toIndentedString(totalItems)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

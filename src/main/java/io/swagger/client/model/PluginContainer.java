@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * PluginContainer
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
 public class PluginContainer {
   @SerializedName("authors")
   private List<String> authors = new ArrayList<String>();

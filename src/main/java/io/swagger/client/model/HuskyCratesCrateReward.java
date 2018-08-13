@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * HuskyCratesCrateReward
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
 public class HuskyCratesCrateReward {
   @SerializedName("announce")
   private Boolean announce = null;

@@ -59,7 +59,7 @@ public class PermissionApiTest {
     /**
      * Get subject
      *
-     * Gets one specific subject belonging to a certain collection     **Required permissions:**    - **permission.collection.subject.list**   
+     * Gets one specific subject belonging to a certain collection     **Required permissions:**    - **permission.collection.subject.one**   
      *
      * @throws ApiException
      *          if the Api call fails

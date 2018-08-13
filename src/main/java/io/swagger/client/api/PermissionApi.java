@@ -282,7 +282,7 @@ public class PermissionApi {
 
     /**
      * Get subject
-     * Gets one specific subject belonging to a certain collection     **Required permissions:**    - **permission.collection.subject.list**   
+     * Gets one specific subject belonging to a certain collection     **Required permissions:**    - **permission.collection.subject.one**   
      * @param id  (required)
      * @param subId  (required)
      * @param details Add to include additional details, omit or false otherwise (optional)
@@ -298,7 +298,7 @@ public class PermissionApi {
 
     /**
      * Get subject
-     * Gets one specific subject belonging to a certain collection     **Required permissions:**    - **permission.collection.subject.list**   
+     * Gets one specific subject belonging to a certain collection     **Required permissions:**    - **permission.collection.subject.one**   
      * @param id  (required)
      * @param subId  (required)
      * @param details Add to include additional details, omit or false otherwise (optional)
@@ -315,7 +315,7 @@ public class PermissionApi {
 
     /**
      * Get subject (asynchronously)
-     * Gets one specific subject belonging to a certain collection     **Required permissions:**    - **permission.collection.subject.list**   
+     * Gets one specific subject belonging to a certain collection     **Required permissions:**    - **permission.collection.subject.one**   
      * @param id  (required)
      * @param subId  (required)
      * @param details Add to include additional details, omit or false otherwise (optional)

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="createWorld"></a>
 # **createWorld**
-> WorldFull createWorld(body, details, accept, pretty)
+> World createWorld(body, details, accept, pretty)
 
 Create a world
 
@@ -49,7 +49,7 @@ Boolean details = true; // Boolean | Add to include additional details, omit or 
 String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
 Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    WorldFull result = apiInstance.createWorld(body, details, accept, pretty);
+    World result = apiInstance.createWorld(body, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WorldApi#createWorld");
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WorldFull**](WorldFull.md)
+[**World**](World.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteWorld"></a>
 # **deleteWorld**
-> WorldFull deleteWorld(world, details, accept, pretty)
+> World deleteWorld(world, details, accept, pretty)
 
 Delete a world
 
@@ -116,7 +116,7 @@ Boolean details = true; // Boolean | Add to include additional details, omit or 
 String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
 Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    WorldFull result = apiInstance.deleteWorld(world, details, accept, pretty);
+    World result = apiInstance.deleteWorld(world, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WorldApi#deleteWorld");
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WorldFull**](WorldFull.md)
+[**World**](World.md)
 
 ### Authorization
 
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 
 <a name="getWorld"></a>
 # **getWorld**
-> WorldFull getWorld(world, details, accept, pretty)
+> World getWorld(world, details, accept, pretty)
 
 Get a world
 
@@ -252,7 +252,7 @@ Boolean details = true; // Boolean | Add to include additional details, omit or 
 String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
 Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    WorldFull result = apiInstance.getWorld(world, details, accept, pretty);
+    World result = apiInstance.getWorld(world, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WorldApi#getWorld");
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WorldFull**](WorldFull.md)
+[**World**](World.md)
 
 ### Authorization
 
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 
 <a name="listWorlds"></a>
 # **listWorlds**
-> List&lt;WorldFull&gt; listWorlds(details, accept, pretty)
+> List&lt;World&gt; listWorlds(details, accept, pretty)
 
 List worlds
 
@@ -318,7 +318,7 @@ Boolean details = true; // Boolean | Add to include additional details, omit or 
 String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
 Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    List<WorldFull> result = apiInstance.listWorlds(details, accept, pretty);
+    List<World> result = apiInstance.listWorlds(details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WorldApi#listWorlds");
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;WorldFull&gt;**](WorldFull.md)
+[**List&lt;World&gt;**](World.md)
 
 ### Authorization
 
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 
 <a name="modifyWorld"></a>
 # **modifyWorld**
-> WorldFull modifyWorld(world, body, details, accept, pretty)
+> World modifyWorld(world, body, details, accept, pretty)
 
 Modify a world
 
@@ -385,7 +385,7 @@ Boolean details = true; // Boolean | Add to include additional details, omit or 
 String accept = "accept_example"; // String | Override the 'Accept' request header (useful for debugging your requests)
 Boolean pretty = true; // Boolean | Add to make the Web-API pretty print the response (useful for debugging your requests)
 try {
-    WorldFull result = apiInstance.modifyWorld(world, body, details, accept, pretty);
+    World result = apiInstance.modifyWorld(world, body, details, accept, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WorldApi#modifyWorld");
@@ -405,7 +405,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WorldFull**](WorldFull.md)
+[**World**](World.md)
 
 ### Authorization
 

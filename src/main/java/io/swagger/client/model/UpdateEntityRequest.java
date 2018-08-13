@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.DamageRequest;
-import io.swagger.client.model.ItemStack;
+import io.swagger.client.model.SlotRequest;
 import io.swagger.client.model.Vector3d;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,13 +31,13 @@ import java.util.List;
 /**
  * UpdateEntityRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
 public class UpdateEntityRequest {
   @SerializedName("damage")
   private DamageRequest damage = null;
 
   @SerializedName("inventory")
-  private List<ItemStack> inventory = null;
+  private List<SlotRequest> inventory = null;
 
   @SerializedName("position")
   private Vector3d position = null;
@@ -72,29 +72,29 @@ public class UpdateEntityRequest {
     this.damage = damage;
   }
 
-  public UpdateEntityRequest inventory(List<ItemStack> inventory) {
+  public UpdateEntityRequest inventory(List<SlotRequest> inventory) {
     this.inventory = inventory;
     return this;
   }
 
-  public UpdateEntityRequest addInventoryItem(ItemStack inventoryItem) {
+  public UpdateEntityRequest addInventoryItem(SlotRequest inventoryItem) {
     if (this.inventory == null) {
-      this.inventory = new ArrayList<ItemStack>();
+      this.inventory = new ArrayList<SlotRequest>();
     }
     this.inventory.add(inventoryItem);
     return this;
   }
 
    /**
-   * The ItemStacks in the inventory of the entity
+   * The slots in the inventory of the entity to modify
    * @return inventory
   **/
-  @ApiModelProperty(value = "The ItemStacks in the inventory of the entity")
-  public List<ItemStack> getInventory() {
+  @ApiModelProperty(value = "The slots in the inventory of the entity to modify")
+  public List<SlotRequest> getInventory() {
     return inventory;
   }
 
-  public void setInventory(List<ItemStack> inventory) {
+  public void setInventory(List<SlotRequest> inventory) {
     this.inventory = inventory;
   }
 

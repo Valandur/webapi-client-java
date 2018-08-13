@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * WorldBorder
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
 public class WorldBorder {
   @SerializedName("center")
   private Vector3d center = null;
@@ -40,9 +40,6 @@ public class WorldBorder {
 
   @SerializedName("diameter")
   private Double diameter = null;
-
-  @SerializedName("link")
-  private String link = null;
 
   @SerializedName("newDiameter")
   private Double newDiameter = null;
@@ -126,15 +123,6 @@ public class WorldBorder {
 
   public void setDiameter(Double diameter) {
     this.diameter = diameter;
-  }
-
-   /**
-   * The API link that can be used to obtain more information about this object
-   * @return link
-  **/
-  @ApiModelProperty(required = true, value = "The API link that can be used to obtain more information about this object")
-  public String getLink() {
-    return link;
   }
 
   public WorldBorder newDiameter(Double newDiameter) {
@@ -223,7 +211,6 @@ public class WorldBorder {
         Objects.equals(this.damageAmount, worldBorder.damageAmount) &&
         Objects.equals(this.damageThreshold, worldBorder.damageThreshold) &&
         Objects.equals(this.diameter, worldBorder.diameter) &&
-        Objects.equals(this.link, worldBorder.link) &&
         Objects.equals(this.newDiameter, worldBorder.newDiameter) &&
         Objects.equals(this.timeRemaining, worldBorder.timeRemaining) &&
         Objects.equals(this.warningDistance, worldBorder.warningDistance) &&
@@ -232,7 +219,7 @@ public class WorldBorder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(center, damageAmount, damageThreshold, diameter, link, newDiameter, timeRemaining, warningDistance, warningTime);
+    return Objects.hash(center, damageAmount, damageThreshold, diameter, newDiameter, timeRemaining, warningDistance, warningTime);
   }
 
 
@@ -245,7 +232,6 @@ public class WorldBorder {
     sb.append("    damageAmount: ").append(toIndentedString(damageAmount)).append("\n");
     sb.append("    damageThreshold: ").append(toIndentedString(damageThreshold)).append("\n");
     sb.append("    diameter: ").append(toIndentedString(diameter)).append("\n");
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    newDiameter: ").append(toIndentedString(newDiameter)).append("\n");
     sb.append("    timeRemaining: ").append(toIndentedString(timeRemaining)).append("\n");
     sb.append("    warningDistance: ").append(toIndentedString(warningDistance)).append("\n");

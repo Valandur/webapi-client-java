@@ -146,7 +146,7 @@ public class ChunkApi {
 
     /**
      * Load &amp; Generate a chunk
-     * Forces a chunk to be loaded into memory, and created if it does not exist.     **Required permissions:**    - **chunk.chunk.create**   
+     * Forces a chunk to be loaded into memory, and created if it does not exist.     **Required permissions:**    - **chunk.create**   
      * @param world The uuid of the world in which to create the chunk (required)
      * @param x The x-coordinate of the chunk (in chunk coordinates) (required)
      * @param z The z-coordinate of the chunk (in chunk coordinates) (required)
@@ -163,7 +163,7 @@ public class ChunkApi {
 
     /**
      * Load &amp; Generate a chunk
-     * Forces a chunk to be loaded into memory, and created if it does not exist.     **Required permissions:**    - **chunk.chunk.create**   
+     * Forces a chunk to be loaded into memory, and created if it does not exist.     **Required permissions:**    - **chunk.create**   
      * @param world The uuid of the world in which to create the chunk (required)
      * @param x The x-coordinate of the chunk (in chunk coordinates) (required)
      * @param z The z-coordinate of the chunk (in chunk coordinates) (required)
@@ -181,7 +181,7 @@ public class ChunkApi {
 
     /**
      * Load &amp; Generate a chunk (asynchronously)
-     * Forces a chunk to be loaded into memory, and created if it does not exist.     **Required permissions:**    - **chunk.chunk.create**   
+     * Forces a chunk to be loaded into memory, and created if it does not exist.     **Required permissions:**    - **chunk.create**   
      * @param world The uuid of the world in which to create the chunk (required)
      * @param x The x-coordinate of the chunk (in chunk coordinates) (required)
      * @param z The z-coordinate of the chunk (in chunk coordinates) (required)
@@ -307,7 +307,7 @@ public class ChunkApi {
 
     /**
      * Get a chunk
-     * Get detailed information about a chunk     **Required permissions:**    - **chunk.chunk.one **   
+     * Get detailed information about a chunk     **Required permissions:**    - **chunk.one**   
      * @param world The uuid of the world in which to get the chunk (required)
      * @param x The x-coordinate of the chunk (in chunk coordinates) (required)
      * @param z The z-coordinate of the chunk (in chunk coordinates) (required)
@@ -324,7 +324,7 @@ public class ChunkApi {
 
     /**
      * Get a chunk
-     * Get detailed information about a chunk     **Required permissions:**    - **chunk.chunk.one **   
+     * Get detailed information about a chunk     **Required permissions:**    - **chunk.one**   
      * @param world The uuid of the world in which to get the chunk (required)
      * @param x The x-coordinate of the chunk (in chunk coordinates) (required)
      * @param z The z-coordinate of the chunk (in chunk coordinates) (required)
@@ -342,7 +342,7 @@ public class ChunkApi {
 
     /**
      * Get a chunk (asynchronously)
-     * Get detailed information about a chunk     **Required permissions:**    - **chunk.chunk.one **   
+     * Get detailed information about a chunk     **Required permissions:**    - **chunk.one**   
      * @param world The uuid of the world in which to get the chunk (required)
      * @param x The x-coordinate of the chunk (in chunk coordinates) (required)
      * @param z The z-coordinate of the chunk (in chunk coordinates) (required)
@@ -454,7 +454,7 @@ public class ChunkApi {
 
     /**
      * List chunks
-     * Gets a list of all the loaded chunks for the specified world.     **Required permissions:**    - **chunk.chunk.list**   
+     * Gets a list of all the loaded chunks for the specified world.     **Required permissions:**    - **chunk.list**   
      * @param world The uuid of the for which to get all chunks (required)
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
@@ -469,7 +469,7 @@ public class ChunkApi {
 
     /**
      * List chunks
-     * Gets a list of all the loaded chunks for the specified world.     **Required permissions:**    - **chunk.chunk.list**   
+     * Gets a list of all the loaded chunks for the specified world.     **Required permissions:**    - **chunk.list**   
      * @param world The uuid of the for which to get all chunks (required)
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)
@@ -485,7 +485,7 @@ public class ChunkApi {
 
     /**
      * List chunks (asynchronously)
-     * Gets a list of all the loaded chunks for the specified world.     **Required permissions:**    - **chunk.chunk.list**   
+     * Gets a list of all the loaded chunks for the specified world.     **Required permissions:**    - **chunk.list**   
      * @param world The uuid of the for which to get all chunks (required)
      * @param details Add to include additional details, omit or false otherwise (optional)
      * @param accept Override the &#39;Accept&#39; request header (useful for debugging your requests) (optional)

@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * CommandCall
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
 public class CommandCall {
   @SerializedName("args")
   private String args = null;
@@ -41,9 +41,6 @@ public class CommandCall {
 
   @SerializedName("command")
   private String command = null;
-
-  @SerializedName("link")
-  private String link = null;
 
   @SerializedName("result")
   private CommandResult result = null;
@@ -123,15 +120,6 @@ public class CommandCall {
     this.command = command;
   }
 
-   /**
-   * The API link that can be used to obtain more information about this object
-   * @return link
-  **/
-  @ApiModelProperty(required = true, value = "The API link that can be used to obtain more information about this object")
-  public String getLink() {
-    return link;
-  }
-
   public CommandCall result(CommandResult result) {
     this.result = result;
     return this;
@@ -182,14 +170,13 @@ public class CommandCall {
         Objects.equals(this.cancelled, commandCall.cancelled) &&
         Objects.equals(this.cause, commandCall.cause) &&
         Objects.equals(this.command, commandCall.command) &&
-        Objects.equals(this.link, commandCall.link) &&
         Objects.equals(this.result, commandCall.result) &&
         Objects.equals(this.timestamp, commandCall.timestamp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(args, cancelled, cause, command, link, result, timestamp);
+    return Objects.hash(args, cancelled, cause, command, result, timestamp);
   }
 
 
@@ -202,7 +189,6 @@ public class CommandCall {
     sb.append("    cancelled: ").append(toIndentedString(cancelled)).append("\n");
     sb.append("    cause: ").append(toIndentedString(cause)).append("\n");
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("}");

@@ -116,6 +116,8 @@ Class | Method | HTTP request | Description
 *ChunkApi* | [**createChunkAt**](docs/ChunkApi.md#createChunkAt) | **POST** /chunk/{world}/{x}/{z} | Load &amp; Generate a chunk
 *ChunkApi* | [**getChunkAt**](docs/ChunkApi.md#getChunkAt) | **GET** /chunk/{world}/{x}/{z} | Get a chunk
 *ChunkApi* | [**listChunks**](docs/ChunkApi.md#listChunks) | **GET** /chunk/{world} | List chunks
+*CmdSchedulerApi* | [**deleteTask**](docs/CmdSchedulerApi.md#deleteTask) | **DELETE** /cmd-scheduler/{name} | Delete a task
+*CmdSchedulerApi* | [**listTasks**](docs/CmdSchedulerApi.md#listTasks) | **GET** /cmd-scheduler | List tasks
 *CommandApi* | [**getCommand**](docs/CommandApi.md#getCommand) | **GET** /cmd/{cmd} | Get a command
 *CommandApi* | [**listCommands**](docs/CommandApi.md#listCommands) | **GET** /cmd | List commands
 *CommandApi* | [**runCommands**](docs/CommandApi.md#runCommands) | **POST** /cmd | Execute a command
@@ -127,6 +129,7 @@ Class | Method | HTTP request | Description
 *EntityApi* | [**listEntities**](docs/EntityApi.md#listEntities) | **GET** /entity | List entities
 *EntityApi* | [**modifyEntity**](docs/EntityApi.md#modifyEntity) | **PUT** /entity/{entity} | Modify an entity
 *EntityApi* | [**removeEntity**](docs/EntityApi.md#removeEntity) | **DELETE** /entity/{entity} | Destroy an entity
+*GwmCratesApi* | [**listCrates**](docs/GwmCratesApi.md#listCrates) | **GET** /gwm-crates/manager | List managers
 *HistoryApi* | [**getChat**](docs/HistoryApi.md#getChat) | **GET** /history/message | Get message history
 *HistoryApi* | [**getCommands**](docs/HistoryApi.md#getCommands) | **GET** /history/cmd | Get command history
 *HuskyCratesApi* | [**createCrate**](docs/HuskyCratesApi.md#createCrate) | **POST** /husky-crates/crate | Create a crate
@@ -186,10 +189,16 @@ Class | Method | HTTP request | Description
 *TileEntityApi* | [**executeMethod**](docs/TileEntityApi.md#executeMethod) | **POST** /tile-entity/{world}/{x}/{y}/{z}/method | Execute a method
 *TileEntityApi* | [**getTileEntity**](docs/TileEntityApi.md#getTileEntity) | **GET** /tile-entity/{world}/{x}/{y}/{z} | Get tile entity
 *TileEntityApi* | [**listTileEntities**](docs/TileEntityApi.md#listTileEntities) | **GET** /tile-entity | List tile entities
+*TileEntityApi* | [**modifyTileEntity**](docs/TileEntityApi.md#modifyTileEntity) | **PUT** /tile-entity/{world}/{x}/{y}/{z} | Modify tile entity
 *UniversalMarketApi* | [**listMarketItems**](docs/UniversalMarketApi.md#listMarketItems) | **GET** /universal-market/item | List items
-*UserApi* | [**getUserDetails**](docs/UserApi.md#getUserDetails) | **GET** /user | Check info
-*UserApi* | [**login**](docs/UserApi.md#login) | **POST** /user | Login
+*UserApi* | [**createUser**](docs/UserApi.md#createUser) | **POST** /user | Create a user
+*UserApi* | [**deleteUser**](docs/UserApi.md#deleteUser) | **DELETE** /user/{name} | Delete a user
+*UserApi* | [**getMe**](docs/UserApi.md#getMe) | **GET** /user/me | Check info
+*UserApi* | [**getUsers**](docs/UserApi.md#getUsers) | **GET** /user | List users
+*UserApi* | [**login**](docs/UserApi.md#login) | **POST** /user/login | Login
 *UserApi* | [**logout**](docs/UserApi.md#logout) | **POST** /user/logout | Logout
+*UserApi* | [**logoutRedirect**](docs/UserApi.md#logoutRedirect) | **GET** /user/logout | 
+*UserApi* | [**modifyUser**](docs/UserApi.md#modifyUser) | **PUT** /user/{name} | Update a user
 *WebBooksApi* | [**createWebBook**](docs/WebBooksApi.md#createWebBook) | **POST** /web-books/book | Create a book
 *WebBooksApi* | [**deleteWebBook**](docs/WebBooksApi.md#deleteWebBook) | **DELETE** /web-books/book/{id} | Delete a book
 *WebBooksApi* | [**getWebBook**](docs/WebBooksApi.md#getWebBook) | **GET** /web-books/book/{id} | Get a book
@@ -228,7 +237,9 @@ Class | Method | HTTP request | Description
  - [CatalogTypeDimensionType](docs/CatalogTypeDimensionType.md)
  - [CatalogTypeGameMode](docs/CatalogTypeGameMode.md)
  - [CatalogTypeGeneratorType](docs/CatalogTypeGeneratorType.md)
+ - [CatalogTypeInventoryArchetype](docs/CatalogTypeInventoryArchetype.md)
  - [CatalogTypeItemType](docs/CatalogTypeItemType.md)
+ - [CatalogTypeSoundType](docs/CatalogTypeSoundType.md)
  - [CatalogTypeWeather](docs/CatalogTypeWeather.md)
  - [Cause](docs/Cause.md)
  - [Chunk](docs/Chunk.md)
@@ -237,8 +248,10 @@ Class | Method | HTTP request | Description
  - [CommandCall](docs/CommandCall.md)
  - [CommandData](docs/CommandData.md)
  - [CommandResult](docs/CommandResult.md)
+ - [CommandTask](docs/CommandTask.md)
  - [CreateBlockOperationRequest](docs/CreateBlockOperationRequest.md)
  - [CreateEntityRequest](docs/CreateEntityRequest.md)
+ - [CreateUserRequest](docs/CreateUserRequest.md)
  - [CreateWorldRequest](docs/CreateWorldRequest.md)
  - [Currency](docs/Currency.md)
  - [DamageRequest](docs/DamageRequest.md)
@@ -300,6 +313,7 @@ Class | Method | HTTP request | Description
  - [MinecartBlockData](docs/MinecartBlockData.md)
  - [MobSpawnerData](docs/MobSpawnerData.md)
  - [ModifyBlockOperationRequest](docs/ModifyBlockOperationRequest.md)
+ - [ModifyUserRequest](docs/ModifyUserRequest.md)
  - [NucleusKit](docs/NucleusKit.md)
  - [NucleusMailMessage](docs/NucleusMailMessage.md)
  - [NucleusNamedLocation](docs/NucleusNamedLocation.md)
@@ -311,6 +325,7 @@ Class | Method | HTTP request | Description
  - [PluginDependency](docs/PluginDependency.md)
  - [PotionEffect](docs/PotionEffect.md)
  - [RedProtectRegion](docs/RedProtectRegion.md)
+ - [Schedule](docs/Schedule.md)
  - [ServerInfo](docs/ServerInfo.md)
  - [ServerProperty](docs/ServerProperty.md)
  - [ServerReport](docs/ServerReport.md)
@@ -319,8 +334,10 @@ Class | Method | HTTP request | Description
  - [ServerStatInteger](docs/ServerStatInteger.md)
  - [ServerStats](docs/ServerStats.md)
  - [SlimeData](docs/SlimeData.md)
+ - [Slot](docs/Slot.md)
  - [SlotIndex](docs/SlotIndex.md)
  - [SlotPos](docs/SlotPos.md)
+ - [SlotRequest](docs/SlotRequest.md)
  - [SlotSide](docs/SlotSide.md)
  - [Stat](docs/Stat.md)
  - [StructureData](docs/StructureData.md)
@@ -336,7 +353,9 @@ Class | Method | HTTP request | Description
  - [UniversalMarketItem](docs/UniversalMarketItem.md)
  - [UpdateEntityRequest](docs/UpdateEntityRequest.md)
  - [UpdatePlayerRequest](docs/UpdatePlayerRequest.md)
+ - [UpdateTileEntityRequest](docs/UpdateTileEntityRequest.md)
  - [UpdateWorldRequest](docs/UpdateWorldRequest.md)
+ - [UserPermissionStruct](docs/UserPermissionStruct.md)
  - [UserReport](docs/UserReport.md)
  - [Vector2i](docs/Vector2i.md)
  - [Vector3d](docs/Vector3d.md)
@@ -346,11 +365,11 @@ Class | Method | HTTP request | Description
  - [WireAttachmentData](docs/WireAttachmentData.md)
  - [World](docs/World.md)
  - [WorldBorder](docs/WorldBorder.md)
+ - [BlockChangeOperation](docs/BlockChangeOperation.md)
+ - [BlockGetOperation](docs/BlockGetOperation.md)
  - [ChatMessage](docs/ChatMessage.md)
  - [HuskyCratesCommandReward](docs/HuskyCratesCommandReward.md)
  - [HuskyCratesItemReward](docs/HuskyCratesItemReward.md)
- - [PlayerFull](docs/PlayerFull.md)
- - [WorldFull](docs/WorldFull.md)
 
 
 ## Documentation for Authorization

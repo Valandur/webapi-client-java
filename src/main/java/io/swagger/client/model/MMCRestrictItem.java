@@ -27,13 +27,16 @@ import java.io.IOException;
 /**
  * MMCRestrictItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-14T13:42:56.227+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-13T12:26:34.036+02:00")
 public class MMCRestrictItem {
   @SerializedName("banReason")
   private String banReason = null;
 
   @SerializedName("breakingBanned")
   private Boolean breakingBanned = null;
+
+  @SerializedName("craftBanned")
+  private Boolean craftBanned = null;
 
   @SerializedName("dropBanned")
   private Boolean dropBanned = null;
@@ -90,6 +93,24 @@ public class MMCRestrictItem {
 
   public void setBreakingBanned(Boolean breakingBanned) {
     this.breakingBanned = breakingBanned;
+  }
+
+  public MMCRestrictItem craftBanned(Boolean craftBanned) {
+    this.craftBanned = craftBanned;
+    return this;
+  }
+
+   /**
+   * True if crafting this item is banned, false otherwise
+   * @return craftBanned
+  **/
+  @ApiModelProperty(required = true, value = "True if crafting this item is banned, false otherwise")
+  public Boolean isCraftBanned() {
+    return craftBanned;
+  }
+
+  public void setCraftBanned(Boolean craftBanned) {
+    this.craftBanned = craftBanned;
   }
 
   public MMCRestrictItem dropBanned(Boolean dropBanned) {
@@ -221,6 +242,7 @@ public class MMCRestrictItem {
     MMCRestrictItem mmCRestrictItem = (MMCRestrictItem) o;
     return Objects.equals(this.banReason, mmCRestrictItem.banReason) &&
         Objects.equals(this.breakingBanned, mmCRestrictItem.breakingBanned) &&
+        Objects.equals(this.craftBanned, mmCRestrictItem.craftBanned) &&
         Objects.equals(this.dropBanned, mmCRestrictItem.dropBanned) &&
         Objects.equals(this.item, mmCRestrictItem.item) &&
         Objects.equals(this.link, mmCRestrictItem.link) &&
@@ -232,7 +254,7 @@ public class MMCRestrictItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(banReason, breakingBanned, dropBanned, item, link, ownershipBanned, placingBanned, usageBanned, worldBanned);
+    return Objects.hash(banReason, breakingBanned, craftBanned, dropBanned, item, link, ownershipBanned, placingBanned, usageBanned, worldBanned);
   }
 
 
@@ -243,6 +265,7 @@ public class MMCRestrictItem {
     
     sb.append("    banReason: ").append(toIndentedString(banReason)).append("\n");
     sb.append("    breakingBanned: ").append(toIndentedString(breakingBanned)).append("\n");
+    sb.append("    craftBanned: ").append(toIndentedString(craftBanned)).append("\n");
     sb.append("    dropBanned: ").append(toIndentedString(dropBanned)).append("\n");
     sb.append("    item: ").append(toIndentedString(item)).append("\n");
     sb.append("    link: ").append(toIndentedString(link)).append("\n");
