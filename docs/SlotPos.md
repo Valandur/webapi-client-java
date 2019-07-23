@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **operator** | [**OperatorEnum**](#OperatorEnum) |  |  [optional]
 **key** | **String** |  |  [optional]
 **value** | [**Vector2i**](Vector2i.md) |  |  [optional]
-**x** | **Integer** |  |  [optional]
 **y** | **Integer** |  |  [optional]
+**x** | **Integer** |  |  [optional]
 
 
 <a name="OperatorEnum"></a>

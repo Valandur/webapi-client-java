@@ -1,4 +1,32 @@
-# swagger-java-client
+# Web-API - Java Client
+
+Access Sponge powered Minecraft servers through a WebAPI
+
+## Introduction
+
+This is the documentation of the various API routes offered by the WebAPI plugin.  
+This documentation assumes that you are familiar with the basic concepts of Web API's, such as `GET`, `PUT`, `POST` and `DELETE` methods, request `HEADERS` and `RESPONSE CODES` and `JSON` data.  
+By default this documentation can be found at http:/localhost:8080 (while your minecraft server is running) and the various routes start with http:/localhost:8080/api/v5...  
+As a quick test try reaching the route http:/localhost:8080/api/v5/info (remember that you can only access \\\"localhost\\\" routes on the server on which you are running minecraft). This route should show you basic information about your server, like the motd and player count.  
+
+## List endpoints
+
+Lots of objects offer an endpoint to list all objects (e.g. `GET: /world` to get all worlds). These endpoints return only the properties marked 'required' by default, because the list might be quite large. If you want to return ALL data for a list endpoint add the query parameter `details`, (e.g. `GET: /world?details`).  
+> Remember that in this case the data returned by the endpoint might be quite large.  
+
+## Debugging endpoints
+
+Apart from the `?details` flag you can also pass some other flags for debugging purposes. Remember that you must include the first query parameter with `?`, and further ones with `&`:  
+- `details`: Includes details for list endpoints  
+- `accept=[json/xml]`: Manually set the accept content type. This is good for browser testing, **BUT DON'T USE THIS IN PRODUCTION, YOU CAN SUPPLY THE `Accepts` HEADER FOR THAT**  
+- `pretty`: Pretty prints the data, also good for debugging in the browser.  
+
+An example request might look like this: `http://localhost:8080/api/v5/world?details&accpet=json&pretty&key=MY-API-KEY`  
+
+## Additional data
+
+Certain endpoints (such as `/player`, `/entity` and `/tile-entity` have additional properties which are not documented here, because the data depends on the concrete object type (eg. `Sheep` have a wool color, others do not) and on the other plugins/mods that are running on your server which might add additional data.  
+You can also find more information in the github docs (https:/github.com/Valandur/Web-API/tree/master/docs/DATA.md)
 
 ## Requirements
 
@@ -129,41 +157,69 @@ Class | Method | HTTP request | Description
 *EntityApi* | [**listEntities**](docs/EntityApi.md#listEntities) | **GET** /entity | List entities
 *EntityApi* | [**modifyEntity**](docs/EntityApi.md#modifyEntity) | **PUT** /entity/{entity} | Modify an entity
 *EntityApi* | [**removeEntity**](docs/EntityApi.md#removeEntity) | **DELETE** /entity/{entity} | Destroy an entity
-*GwmCratesApi* | [**listCrates**](docs/GwmCratesApi.md#listCrates) | **GET** /gwm-crates/manager | List managers
 *HistoryApi* | [**getChat**](docs/HistoryApi.md#getChat) | **GET** /history/message | Get message history
 *HistoryApi* | [**getCommands**](docs/HistoryApi.md#getCommands) | **GET** /history/cmd | Get command history
-*HuskyCratesApi* | [**createCrate**](docs/HuskyCratesApi.md#createCrate) | **POST** /husky-crates/crate | Create a crate
-*HuskyCratesApi* | [**deleteCrate**](docs/HuskyCratesApi.md#deleteCrate) | **DELETE** /husky-crates/crate/{id} | Delete a crate
-*HuskyCratesApi* | [**getCrate**](docs/HuskyCratesApi.md#getCrate) | **GET** /husky-crates/crate/{id} | Get a crate
-*HuskyCratesApi* | [**listCrates**](docs/HuskyCratesApi.md#listCrates) | **GET** /husky-crates/crate | List crates
-*HuskyCratesApi* | [**modifyCrate**](docs/HuskyCratesApi.md#modifyCrate) | **PUT** /husky-crates/crate/{id} | Change a crate
 *InfoApi* | [**getInfo**](docs/InfoApi.md#getInfo) | **GET** /info | Server info
 *InfoApi* | [**getStats**](docs/InfoApi.md#getStats) | **GET** /info/stats | Server stats
 *InfoApi* | [**listServlets**](docs/InfoApi.md#listServlets) | **GET** /info/servlets | List servlets
 *InteractiveMessageApi* | [**getMessage**](docs/InteractiveMessageApi.md#getMessage) | **GET** /interactive-message/{uuid} | Get a message
 *InteractiveMessageApi* | [**listMessages**](docs/InteractiveMessageApi.md#listMessages) | **GET** /interactive-message | List messages
 *InteractiveMessageApi* | [**sendMessage**](docs/InteractiveMessageApi.md#sendMessage) | **POST** /interactive-message | Send a message
+*InventoryApi* | [**addElement**](docs/InventoryApi.md#addElement) | **POST** /megamenus/menu/{mid}/{page}/{y}/{x} | Add element
+*InventoryApi* | [**closeRenderer**](docs/InventoryApi.md#closeRenderer) | **DELETE** /megamenus/render/{mid}/{viewer} | Close renderer
+*InventoryApi* | [**createMenu**](docs/InventoryApi.md#createMenu) | **POST** /megamenus/menu | Create menu
+*InventoryApi* | [**createRenderer**](docs/InventoryApi.md#createRenderer) | **POST** /megamenus/render/{mid} | Create menu
+*InventoryApi* | [**deleteElement**](docs/InventoryApi.md#deleteElement) | **DELETE** /megamenus/menu/{mid}/{page}/{y}/{x} | Delete menu
+*InventoryApi* | [**deleteMenu**](docs/InventoryApi.md#deleteMenu) | **DELETE** /megamenus/menu/{mid} | Delete menu
+*InventoryApi* | [**deletePage**](docs/InventoryApi.md#deletePage) | **DELETE** /megamenus/menu/{mid}/{page} | Delete a page of elements
+*InventoryApi* | [**deleteRenderer**](docs/InventoryApi.md#deleteRenderer) | **DELETE** /megamenus/renderer/{mid} | Delete menu
+*InventoryApi* | [**findRenderer**](docs/InventoryApi.md#findRenderer) | **GET** /megamenus/render/find/{viewer} | Get the renderer for viewer
+*InventoryApi* | [**getElement**](docs/InventoryApi.md#getElement) | **GET** /megamenus/menu/{mid}/{page}/{y}/{x} | Get menu
+*InventoryApi* | [**getMenu**](docs/InventoryApi.md#getMenu) | **GET** /megamenus/menu/{mid} | Get menu
+*InventoryApi* | [**getPage**](docs/InventoryApi.md#getPage) | **GET** /megamenus/menu/{mid}/{page} | Reads a single page of elements
+*InventoryApi* | [**getRenderer**](docs/InventoryApi.md#getRenderer) | **GET** /megamenus/render/{mid} | Get the renderer for this menu
+*InventoryApi* | [**listMenus**](docs/InventoryApi.md#listMenus) | **GET** /megamenus/menu | List menus
+*InventoryApi* | [**listRenderer**](docs/InventoryApi.md#listRenderer) | **GET** /megamenus/render | List renderer
+*InventoryApi* | [**openRenderer**](docs/InventoryApi.md#openRenderer) | **PUT** /megamenus/render/{mid}/{viewer} | Open renderer
+*InventoryApi* | [**setElement**](docs/InventoryApi.md#setElement) | **PUT** /megamenus/menu/{mid}/{page}/{y}/{x} | Update menu
+*InventoryApi* | [**setMenu**](docs/InventoryApi.md#setMenu) | **PUT** /megamenus/menu/{mid} | Update menu
 *MapApi* | [**getMap**](docs/MapApi.md#getMap) | **GET** /map/{world}/{x}/{z} | Get a map tile
-*MmcRestrictApi* | [**addItem**](docs/MmcRestrictApi.md#addItem) | **POST** /mmc-restrict/item | Add an item
-*MmcRestrictApi* | [**deleteItem**](docs/MmcRestrictApi.md#deleteItem) | **DELETE** /mmc-restrict/item/{id} | Delete an item
-*MmcRestrictApi* | [**listItems**](docs/MmcRestrictApi.md#listItems) | **GET** /mmc-restrict/item | List items
-*MmcRestrictApi* | [**modifyItem**](docs/MmcRestrictApi.md#modifyItem) | **PUT** /mmc-restrict/item/{id} | Modify an item
-*MmcTicketsApi* | [**getTicket**](docs/MmcTicketsApi.md#getTicket) | **GET** /mmc-tickets/ticket/{id} | Get a ticket
-*MmcTicketsApi* | [**listTickets**](docs/MmcTicketsApi.md#listTickets) | **GET** /mmc-tickets/ticket | List tickets
-*MmcTicketsApi* | [**modifyTicket**](docs/MmcTicketsApi.md#modifyTicket) | **PUT** /mmc-tickets/ticket/{id} | Modify a ticket
-*NucleusApi* | [**createJail**](docs/NucleusApi.md#createJail) | **POST** /nucleus/jail | Create a jail
-*NucleusApi* | [**createKit**](docs/NucleusApi.md#createKit) | **POST** /nucleus/kit | Create a kit
-*NucleusApi* | [**deleteJail**](docs/NucleusApi.md#deleteJail) | **DELETE** /nucleus/jail/{name} | Delete a jail
-*NucleusApi* | [**deleteKit**](docs/NucleusApi.md#deleteKit) | **DELETE** /nucleus/kit/{name} | Delete a kit
-*NucleusApi* | [**getJail**](docs/NucleusApi.md#getJail) | **GET** /nucleus/jail/{name} | Get a jail
-*NucleusApi* | [**getKit**](docs/NucleusApi.md#getKit) | **GET** /nucleus/kit/{name} | Get a kit
-*NucleusApi* | [**listHomes**](docs/NucleusApi.md#listHomes) | **GET** /nucleus/home/{player} | List homes
-*NucleusApi* | [**listJails**](docs/NucleusApi.md#listJails) | **GET** /nucleus/jail | List jails
-*NucleusApi* | [**listKits**](docs/NucleusApi.md#listKits) | **GET** /nucleus/kit | List kits
-*NucleusApi* | [**listMail**](docs/NucleusApi.md#listMail) | **GET** /nucleus/mail/{player} | List mail
-*NucleusApi* | [**listMail_0**](docs/NucleusApi.md#listMail_0) | **GET** /nucleus/module | List modules
-*NucleusApi* | [**modifyJail**](docs/NucleusApi.md#modifyJail) | **PUT** /nucleus/jail/{name} | Modify a jail
-*NucleusApi* | [**modifyKit**](docs/NucleusApi.md#modifyKit) | **PUT** /nucleus/kit/{name} | Modify a kit
+*MegaMenusApi* | [**addElement**](docs/MegaMenusApi.md#addElement) | **POST** /megamenus/menu/{mid}/{page}/{y}/{x} | Add element
+*MegaMenusApi* | [**closeRenderer**](docs/MegaMenusApi.md#closeRenderer) | **DELETE** /megamenus/render/{mid}/{viewer} | Close renderer
+*MegaMenusApi* | [**createMenu**](docs/MegaMenusApi.md#createMenu) | **POST** /megamenus/menu | Create menu
+*MegaMenusApi* | [**createRenderer**](docs/MegaMenusApi.md#createRenderer) | **POST** /megamenus/render/{mid} | Create menu
+*MegaMenusApi* | [**deleteElement**](docs/MegaMenusApi.md#deleteElement) | **DELETE** /megamenus/menu/{mid}/{page}/{y}/{x} | Delete menu
+*MegaMenusApi* | [**deleteMenu**](docs/MegaMenusApi.md#deleteMenu) | **DELETE** /megamenus/menu/{mid} | Delete menu
+*MegaMenusApi* | [**deletePage**](docs/MegaMenusApi.md#deletePage) | **DELETE** /megamenus/menu/{mid}/{page} | Delete a page of elements
+*MegaMenusApi* | [**deleteRenderer**](docs/MegaMenusApi.md#deleteRenderer) | **DELETE** /megamenus/renderer/{mid} | Delete menu
+*MegaMenusApi* | [**findRenderer**](docs/MegaMenusApi.md#findRenderer) | **GET** /megamenus/render/find/{viewer} | Get the renderer for viewer
+*MegaMenusApi* | [**getElement**](docs/MegaMenusApi.md#getElement) | **GET** /megamenus/menu/{mid}/{page}/{y}/{x} | Get menu
+*MegaMenusApi* | [**getMenu**](docs/MegaMenusApi.md#getMenu) | **GET** /megamenus/menu/{mid} | Get menu
+*MegaMenusApi* | [**getPage**](docs/MegaMenusApi.md#getPage) | **GET** /megamenus/menu/{mid}/{page} | Reads a single page of elements
+*MegaMenusApi* | [**getRenderer**](docs/MegaMenusApi.md#getRenderer) | **GET** /megamenus/render/{mid} | Get the renderer for this menu
+*MegaMenusApi* | [**listMenus**](docs/MegaMenusApi.md#listMenus) | **GET** /megamenus/menu | List menus
+*MegaMenusApi* | [**listRenderer**](docs/MegaMenusApi.md#listRenderer) | **GET** /megamenus/render | List renderer
+*MegaMenusApi* | [**openRenderer**](docs/MegaMenusApi.md#openRenderer) | **PUT** /megamenus/render/{mid}/{viewer} | Open renderer
+*MegaMenusApi* | [**setElement**](docs/MegaMenusApi.md#setElement) | **PUT** /megamenus/menu/{mid}/{page}/{y}/{x} | Update menu
+*MegaMenusApi* | [**setMenu**](docs/MegaMenusApi.md#setMenu) | **PUT** /megamenus/menu/{mid} | Update menu
+*MenuApi* | [**addElement**](docs/MenuApi.md#addElement) | **POST** /megamenus/menu/{mid}/{page}/{y}/{x} | Add element
+*MenuApi* | [**closeRenderer**](docs/MenuApi.md#closeRenderer) | **DELETE** /megamenus/render/{mid}/{viewer} | Close renderer
+*MenuApi* | [**createMenu**](docs/MenuApi.md#createMenu) | **POST** /megamenus/menu | Create menu
+*MenuApi* | [**createRenderer**](docs/MenuApi.md#createRenderer) | **POST** /megamenus/render/{mid} | Create menu
+*MenuApi* | [**deleteElement**](docs/MenuApi.md#deleteElement) | **DELETE** /megamenus/menu/{mid}/{page}/{y}/{x} | Delete menu
+*MenuApi* | [**deleteMenu**](docs/MenuApi.md#deleteMenu) | **DELETE** /megamenus/menu/{mid} | Delete menu
+*MenuApi* | [**deletePage**](docs/MenuApi.md#deletePage) | **DELETE** /megamenus/menu/{mid}/{page} | Delete a page of elements
+*MenuApi* | [**deleteRenderer**](docs/MenuApi.md#deleteRenderer) | **DELETE** /megamenus/renderer/{mid} | Delete menu
+*MenuApi* | [**findRenderer**](docs/MenuApi.md#findRenderer) | **GET** /megamenus/render/find/{viewer} | Get the renderer for viewer
+*MenuApi* | [**getElement**](docs/MenuApi.md#getElement) | **GET** /megamenus/menu/{mid}/{page}/{y}/{x} | Get menu
+*MenuApi* | [**getMenu**](docs/MenuApi.md#getMenu) | **GET** /megamenus/menu/{mid} | Get menu
+*MenuApi* | [**getPage**](docs/MenuApi.md#getPage) | **GET** /megamenus/menu/{mid}/{page} | Reads a single page of elements
+*MenuApi* | [**getRenderer**](docs/MenuApi.md#getRenderer) | **GET** /megamenus/render/{mid} | Get the renderer for this menu
+*MenuApi* | [**listMenus**](docs/MenuApi.md#listMenus) | **GET** /megamenus/menu | List menus
+*MenuApi* | [**listRenderer**](docs/MenuApi.md#listRenderer) | **GET** /megamenus/render | List renderer
+*MenuApi* | [**openRenderer**](docs/MenuApi.md#openRenderer) | **PUT** /megamenus/render/{mid}/{viewer} | Open renderer
+*MenuApi* | [**setElement**](docs/MenuApi.md#setElement) | **PUT** /megamenus/menu/{mid}/{page}/{y}/{x} | Update menu
+*MenuApi* | [**setMenu**](docs/MenuApi.md#setMenu) | **PUT** /megamenus/menu/{mid} | Update menu
 *PermissionApi* | [**getCollection**](docs/PermissionApi.md#getCollection) | **GET** /permission/collection/{id} | Get collection
 *PermissionApi* | [**getSubject**](docs/PermissionApi.md#getSubject) | **GET** /permission/collection/{id}/subject/{subId} | Get subject
 *PermissionApi* | [**listCollections**](docs/PermissionApi.md#listCollections) | **GET** /permission/collection | List collections
@@ -190,6 +246,24 @@ Class | Method | HTTP request | Description
 *TileEntityApi* | [**getTileEntity**](docs/TileEntityApi.md#getTileEntity) | **GET** /tile-entity/{world}/{x}/{y}/{z} | Get tile entity
 *TileEntityApi* | [**listTileEntities**](docs/TileEntityApi.md#listTileEntities) | **GET** /tile-entity | List tile entities
 *TileEntityApi* | [**modifyTileEntity**](docs/TileEntityApi.md#modifyTileEntity) | **PUT** /tile-entity/{world}/{x}/{y}/{z} | Modify tile entity
+*UiApi* | [**addElement**](docs/UiApi.md#addElement) | **POST** /megamenus/menu/{mid}/{page}/{y}/{x} | Add element
+*UiApi* | [**closeRenderer**](docs/UiApi.md#closeRenderer) | **DELETE** /megamenus/render/{mid}/{viewer} | Close renderer
+*UiApi* | [**createMenu**](docs/UiApi.md#createMenu) | **POST** /megamenus/menu | Create menu
+*UiApi* | [**createRenderer**](docs/UiApi.md#createRenderer) | **POST** /megamenus/render/{mid} | Create menu
+*UiApi* | [**deleteElement**](docs/UiApi.md#deleteElement) | **DELETE** /megamenus/menu/{mid}/{page}/{y}/{x} | Delete menu
+*UiApi* | [**deleteMenu**](docs/UiApi.md#deleteMenu) | **DELETE** /megamenus/menu/{mid} | Delete menu
+*UiApi* | [**deletePage**](docs/UiApi.md#deletePage) | **DELETE** /megamenus/menu/{mid}/{page} | Delete a page of elements
+*UiApi* | [**deleteRenderer**](docs/UiApi.md#deleteRenderer) | **DELETE** /megamenus/renderer/{mid} | Delete menu
+*UiApi* | [**findRenderer**](docs/UiApi.md#findRenderer) | **GET** /megamenus/render/find/{viewer} | Get the renderer for viewer
+*UiApi* | [**getElement**](docs/UiApi.md#getElement) | **GET** /megamenus/menu/{mid}/{page}/{y}/{x} | Get menu
+*UiApi* | [**getMenu**](docs/UiApi.md#getMenu) | **GET** /megamenus/menu/{mid} | Get menu
+*UiApi* | [**getPage**](docs/UiApi.md#getPage) | **GET** /megamenus/menu/{mid}/{page} | Reads a single page of elements
+*UiApi* | [**getRenderer**](docs/UiApi.md#getRenderer) | **GET** /megamenus/render/{mid} | Get the renderer for this menu
+*UiApi* | [**listMenus**](docs/UiApi.md#listMenus) | **GET** /megamenus/menu | List menus
+*UiApi* | [**listRenderer**](docs/UiApi.md#listRenderer) | **GET** /megamenus/render | List renderer
+*UiApi* | [**openRenderer**](docs/UiApi.md#openRenderer) | **PUT** /megamenus/render/{mid}/{viewer} | Open renderer
+*UiApi* | [**setElement**](docs/UiApi.md#setElement) | **PUT** /megamenus/menu/{mid}/{page}/{y}/{x} | Update menu
+*UiApi* | [**setMenu**](docs/UiApi.md#setMenu) | **PUT** /megamenus/menu/{mid} | Update menu
 *UniversalMarketApi* | [**listMarketItems**](docs/UniversalMarketApi.md#listMarketItems) | **GET** /universal-market/item | List items
 *UserApi* | [**createUser**](docs/UserApi.md#createUser) | **POST** /user | Create a user
 *UserApi* | [**deleteUser**](docs/UserApi.md#deleteUser) | **DELETE** /user/{name} | Delete a user
@@ -199,6 +273,36 @@ Class | Method | HTTP request | Description
 *UserApi* | [**logout**](docs/UserApi.md#logout) | **POST** /user/logout | Logout
 *UserApi* | [**logoutRedirect**](docs/UserApi.md#logoutRedirect) | **GET** /user/logout | 
 *UserApi* | [**modifyUser**](docs/UserApi.md#modifyUser) | **PUT** /user/{name} | Update a user
+*VShopsApi* | [**addShopItem**](docs/VShopsApi.md#addShopItem) | **POST** /vshop/shop/{id}/item | Add Shop Item
+*VShopsApi* | [**createShop**](docs/VShopsApi.md#createShop) | **POST** /vshop/shop | Create Shops
+*VShopsApi* | [**deleteShop**](docs/VShopsApi.md#deleteShop) | **DELETE** /vshop/shop/{id} | Delete a Shop
+*VShopsApi* | [**deleteShopItem**](docs/VShopsApi.md#deleteShopItem) | **DELETE** /vshop/shop/{id}/item/{item} | Removes a Shop Item
+*VShopsApi* | [**getShop**](docs/VShopsApi.md#getShop) | **GET** /vshop/shop/{id} | Get a Shop
+*VShopsApi* | [**getShopItem**](docs/VShopsApi.md#getShopItem) | **GET** /vshop/shop/{id}/item/{item} | Get a Shop
+*VShopsApi* | [**listShopItems**](docs/VShopsApi.md#listShopItems) | **GET** /vshop/shop/{id}/item | List Shop Items
+*VShopsApi* | [**listShops**](docs/VShopsApi.md#listShops) | **GET** /vshop/shop | List Shops
+*VShopsApi* | [**updateShop**](docs/VShopsApi.md#updateShop) | **PUT** /vshop/shop/{id} | Change Shop
+*VShopsApi* | [**updateShopItem**](docs/VShopsApi.md#updateShopItem) | **PUT** /vshop/shop/{id}/item/{item} | Change Shop Item
+*VillagerShopsApi* | [**addShopItem**](docs/VillagerShopsApi.md#addShopItem) | **POST** /vshop/shop/{id}/item | Add Shop Item
+*VillagerShopsApi* | [**addShopItem_0**](docs/VillagerShopsApi.md#addShopItem_0) | **POST** /vshop/shop/{id}/item | Add Shop Item
+*VillagerShopsApi* | [**createShop**](docs/VillagerShopsApi.md#createShop) | **POST** /vshop/shop | Create Shops
+*VillagerShopsApi* | [**createShop_0**](docs/VillagerShopsApi.md#createShop_0) | **POST** /vshop/shop | Create Shops
+*VillagerShopsApi* | [**deleteShop**](docs/VillagerShopsApi.md#deleteShop) | **DELETE** /vshop/shop/{id} | Delete a Shop
+*VillagerShopsApi* | [**deleteShopItem**](docs/VillagerShopsApi.md#deleteShopItem) | **DELETE** /vshop/shop/{id}/item/{item} | Removes a Shop Item
+*VillagerShopsApi* | [**deleteShopItem_0**](docs/VillagerShopsApi.md#deleteShopItem_0) | **DELETE** /vshop/shop/{id}/item/{item} | Removes a Shop Item
+*VillagerShopsApi* | [**deleteShop_0**](docs/VillagerShopsApi.md#deleteShop_0) | **DELETE** /vshop/shop/{id} | Delete a Shop
+*VillagerShopsApi* | [**getShop**](docs/VillagerShopsApi.md#getShop) | **GET** /vshop/shop/{id} | Get a Shop
+*VillagerShopsApi* | [**getShopItem**](docs/VillagerShopsApi.md#getShopItem) | **GET** /vshop/shop/{id}/item/{item} | Get a Shop
+*VillagerShopsApi* | [**getShopItem_0**](docs/VillagerShopsApi.md#getShopItem_0) | **GET** /vshop/shop/{id}/item/{item} | Get a Shop
+*VillagerShopsApi* | [**getShop_0**](docs/VillagerShopsApi.md#getShop_0) | **GET** /vshop/shop/{id} | Get a Shop
+*VillagerShopsApi* | [**listShopItems**](docs/VillagerShopsApi.md#listShopItems) | **GET** /vshop/shop/{id}/item | List Shop Items
+*VillagerShopsApi* | [**listShopItems_0**](docs/VillagerShopsApi.md#listShopItems_0) | **GET** /vshop/shop/{id}/item | List Shop Items
+*VillagerShopsApi* | [**listShops**](docs/VillagerShopsApi.md#listShops) | **GET** /vshop/shop | List Shops
+*VillagerShopsApi* | [**listShops_0**](docs/VillagerShopsApi.md#listShops_0) | **GET** /vshop/shop | List Shops
+*VillagerShopsApi* | [**updateShop**](docs/VillagerShopsApi.md#updateShop) | **PUT** /vshop/shop/{id} | Change Shop
+*VillagerShopsApi* | [**updateShopItem**](docs/VillagerShopsApi.md#updateShopItem) | **PUT** /vshop/shop/{id}/item/{item} | Change Shop Item
+*VillagerShopsApi* | [**updateShopItem_0**](docs/VillagerShopsApi.md#updateShopItem_0) | **PUT** /vshop/shop/{id}/item/{item} | Change Shop Item
+*VillagerShopsApi* | [**updateShop_0**](docs/VillagerShopsApi.md#updateShop_0) | **PUT** /vshop/shop/{id} | Change Shop
 *WebBooksApi* | [**createWebBook**](docs/WebBooksApi.md#createWebBook) | **POST** /web-books/book | Create a book
 *WebBooksApi* | [**deleteWebBook**](docs/WebBooksApi.md#deleteWebBook) | **DELETE** /web-books/book/{id} | Delete a book
 *WebBooksApi* | [**getWebBook**](docs/WebBooksApi.md#getWebBook) | **GET** /web-books/book/{id} | Get a book
@@ -233,13 +337,13 @@ Class | Method | HTTP request | Description
  - [Career](docs/Career.md)
  - [CatalogType](docs/CatalogType.md)
  - [CatalogTypeAdvancementTree](docs/CatalogTypeAdvancementTree.md)
+ - [CatalogTypeCurrency](docs/CatalogTypeCurrency.md)
  - [CatalogTypeDifficulty](docs/CatalogTypeDifficulty.md)
  - [CatalogTypeDimensionType](docs/CatalogTypeDimensionType.md)
+ - [CatalogTypeEntityType](docs/CatalogTypeEntityType.md)
  - [CatalogTypeGameMode](docs/CatalogTypeGameMode.md)
  - [CatalogTypeGeneratorType](docs/CatalogTypeGeneratorType.md)
  - [CatalogTypeInventoryArchetype](docs/CatalogTypeInventoryArchetype.md)
- - [CatalogTypeItemType](docs/CatalogTypeItemType.md)
- - [CatalogTypeSoundType](docs/CatalogTypeSoundType.md)
  - [CatalogTypeWeather](docs/CatalogTypeWeather.md)
  - [Cause](docs/Cause.md)
  - [Chunk](docs/Chunk.md)
@@ -284,9 +388,6 @@ Class | Method | HTTP request | Description
  - [HealthData](docs/HealthData.md)
  - [HideData](docs/HideData.md)
  - [HorseData](docs/HorseData.md)
- - [HuskyCratesCrate](docs/HuskyCratesCrate.md)
- - [HuskyCratesCrateReward](docs/HuskyCratesCrateReward.md)
- - [HuskyCratesCrateRewardObject](docs/HuskyCratesCrateRewardObject.md)
  - [Identifiable](docs/Identifiable.md)
  - [IgniteableData](docs/IgniteableData.md)
  - [InlineResponse400](docs/InlineResponse400.md)
@@ -294,7 +395,6 @@ Class | Method | HTTP request | Description
  - [InlineResponse403](docs/InlineResponse403.md)
  - [InlineResponse404](docs/InlineResponse404.md)
  - [InlineResponse500](docs/InlineResponse500.md)
- - [InlineResponse501](docs/InlineResponse501.md)
  - [InteractiveMessage](docs/InteractiveMessage.md)
  - [InteractiveMessageOption](docs/InteractiveMessageOption.md)
  - [Inventory](docs/Inventory.md)
@@ -307,16 +407,14 @@ Class | Method | HTTP request | Description
  - [JoinData](docs/JoinData.md)
  - [LeashData](docs/LeashData.md)
  - [Location](docs/Location.md)
- - [MMCRestrictItem](docs/MMCRestrictItem.md)
- - [MMCTicketsTicket](docs/MMCTicketsTicket.md)
+ - [MegaMenusElement](docs/MegaMenusElement.md)
+ - [MegaMenusRenderer](docs/MegaMenusRenderer.md)
+ - [MenuMenusMenu](docs/MenuMenusMenu.md)
  - [Message](docs/Message.md)
  - [MinecartBlockData](docs/MinecartBlockData.md)
  - [MobSpawnerData](docs/MobSpawnerData.md)
  - [ModifyBlockOperationRequest](docs/ModifyBlockOperationRequest.md)
  - [ModifyUserRequest](docs/ModifyUserRequest.md)
- - [NucleusKit](docs/NucleusKit.md)
- - [NucleusMailMessage](docs/NucleusMailMessage.md)
- - [NucleusNamedLocation](docs/NucleusNamedLocation.md)
  - [PatternLayer](docs/PatternLayer.md)
  - [PermissionStruct](docs/PermissionStruct.md)
  - [PickupDelayData](docs/PickupDelayData.md)
@@ -361,6 +459,8 @@ Class | Method | HTTP request | Description
  - [Vector3d](docs/Vector3d.md)
  - [Vector3i](docs/Vector3i.md)
  - [VehicleData](docs/VehicleData.md)
+ - [VillagerShopsShop](docs/VillagerShopsShop.md)
+ - [VillagerShopsStockItem](docs/VillagerShopsStockItem.md)
  - [WebBooksBook](docs/WebBooksBook.md)
  - [WireAttachmentData](docs/WireAttachmentData.md)
  - [World](docs/World.md)
@@ -368,8 +468,6 @@ Class | Method | HTTP request | Description
  - [BlockChangeOperation](docs/BlockChangeOperation.md)
  - [BlockGetOperation](docs/BlockGetOperation.md)
  - [ChatMessage](docs/ChatMessage.md)
- - [HuskyCratesCommandReward](docs/HuskyCratesCommandReward.md)
- - [HuskyCratesItemReward](docs/HuskyCratesItemReward.md)
 
 
 ## Documentation for Authorization
