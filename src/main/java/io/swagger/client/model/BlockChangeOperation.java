@@ -14,6 +14,7 @@
 package io.swagger.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import io.swagger.client.model.BlockOperation;
 import io.swagger.client.model.Vector3i;
 import io.swagger.client.model.World;
@@ -22,7 +23,7 @@ import java.util.UUID;
 /**
  * BlockChangeOperation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-23T12:56:27.838+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-23T13:32:53.543+02:00")
 public class BlockChangeOperation extends BlockOperation {
 
   @Override

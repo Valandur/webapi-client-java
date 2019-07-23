@@ -14,6 +14,7 @@
 package io.swagger.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +30,7 @@ import java.util.UUID;
 /**
  * VillagerShopsStockItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-23T12:56:27.838+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-23T13:32:53.543+02:00")
 public class VillagerShopsStockItem {
   @SerializedName("buyPrice")
   private Double buyPrice = null;
@@ -70,11 +71,6 @@ public class VillagerShopsStockItem {
     return buyPrice;
   }
 
-  public VillagerShopsStockItem currency(CatalogTypeCurrency currency) {
-    this.currency = currency;
-    return this;
-  }
-
    /**
    * The currency for this item listing
    * @return currency
@@ -82,10 +78,6 @@ public class VillagerShopsStockItem {
   @ApiModelProperty(required = true, value = "The currency for this item listing")
   public CatalogTypeCurrency getCurrency() {
     return currency;
-  }
-
-  public void setCurrency(CatalogTypeCurrency currency) {
-    this.currency = currency;
   }
 
    /**
@@ -97,11 +89,6 @@ public class VillagerShopsStockItem {
     return hasStock;
   }
 
-  public VillagerShopsStockItem item(ItemStack item) {
-    this.item = item;
-    return this;
-  }
-
    /**
    * The raw ItemStack data for this shop listing
    * @return item
@@ -109,10 +96,6 @@ public class VillagerShopsStockItem {
   @ApiModelProperty(required = true, value = "The raw ItemStack data for this shop listing")
   public ItemStack getItem() {
     return item;
-  }
-
-  public void setItem(ItemStack item) {
-    this.item = item;
   }
 
    /**
